@@ -1,0 +1,24 @@
+{
+  "id": "science-chapter-test-1",
+  "title": "अध्याय टेस्ट 1",
+  "subject": "science",
+  "chapter": "chapter-slug",
+  "quizType": "CHAPTER_TEST",
+  "timeLimitMinutes": 10,
+  "passingScore": 33,
+  "negativeMarkingEnabled": false,
+  "negativeMarksPerQuestion": 0,
+  "shuffle": false,
+  "questions": [
+    {
+      "question": "प्रश्न यहाँ लिखें",
+      "option1": "विकल्प 1",
+      "option2": "विकल्प 2",
+      "option3": "विकल्प 3",
+      "option4": "विकल्प 4",
+      "correctOption": "1",
+      "explanation": "उत्तर की संक्षिप्त व्याख्या",
+      "marks": 1
+    }
+  ]
+}

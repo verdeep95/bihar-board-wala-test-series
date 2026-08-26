@@ -1,0 +1,64 @@
+{
+  "id": "science-light-test-1",
+  "title": "प्रकाश—परावर्तन तथा अपवर्तन - अध्याय टेस्ट 1",
+  "subject": "science",
+  "chapter": "light",
+  "quizType": "CHAPTER_TEST",
+  "timeLimitMinutes": 10,
+  "passingScore": 33,
+  "negativeMarkingEnabled": false,
+  "negativeMarksPerQuestion": 0,
+  "shuffle": false,
+  "questions": [
+    {
+      "question": "समतल दर्पण द्वारा बना प्रतिबिंब कैसा होता है? / What kind of image is formed by a plane mirror?",
+      "option1": "वास्तविक और उल्टा / Real and inverted",
+      "option2": "आभासी, सीधा और वस्तु के समान आकार का / Virtual, erect and same size as the object",
+      "option3": "वास्तविक और बड़ा / Real and magnified",
+      "option4": "आभासी और छोटा / Virtual and diminished",
+      "correctOption": "2",
+      "explanation": "समतल दर्पण में प्रतिबिंब दर्पण के पीछे उतनी ही दूरी पर बनता है जितनी दूरी पर वस्तु सामने होती है। यह आभासी, सीधा और समान आकार का होता है।",
+      "marks": 1
+    },
+    {
+      "question": "अवतल दर्पण में वस्तु को वक्रता केंद्र C पर रखने पर प्रतिबिंब कहाँ बनता है? / For a concave mirror, where is the image formed when the object is at C?",
+      "option1": "फोकस F पर / At focus F",
+      "option2": "दर्पण के पीछे / Behind the mirror",
+      "option3": "वक्रता केंद्र C पर / At the centre of curvature C",
+      "option4": "अनंत पर / At infinity",
+      "correctOption": 3,
+      "explanation": "वस्तु C पर हो तो प्रतिबिंब भी C पर वास्तविक, उल्टा और वस्तु के समान आकार का बनता है।",
+      "marks": 1
+    },
+    {
+      "question": "किस लेंस की शक्ति ऋणात्मक होती है? / Which lens has negative power?",
+      "option1": "उत्तल लेंस / Convex lens",
+      "option2": "अवतल लेंस / Concave lens",
+      "option3": "द्वि-उत्तल लेंस / Biconvex lens",
+      "option4": "समतल-उत्तल लेंस / Plano-convex lens",
+      "correctOption": "2",
+      "explanation": "लेंस की शक्ति $P=1/f$ होती है। अवतल लेंस की फोकस दूरी चिह्न परिपाटी के अनुसार ऋणात्मक होती है, इसलिए उसकी शक्ति भी ऋणात्मक होती है।",
+      "marks": 1
+    },
+    {
+      "question": "वायु से काँच में जाते समय प्रकाश किरण सामान्य की ओर क्यों मुड़ती है? / Why does light bend towards the normal while going from air to glass?",
+      "option1": "काँच में प्रकाश की चाल बढ़ती है / Speed increases in glass",
+      "option2": "काँच में प्रकाश रुक जाता है / Light stops in glass",
+      "option3": "काँच में प्रकाश की चाल घटती है / Speed decreases in glass",
+      "option4": "प्रकाश का रंग बदलता है / Colour of light changes",
+      "correctOption": "3",
+      "explanation": "काँच वायु की अपेक्षा प्रकाशिक रूप से सघन माध्यम है। उसमें प्रकाश की चाल घटती है, इसलिए किरण सामान्य की ओर अपवर्तित होती है।",
+      "marks": 1
+    },
+    {
+      "question": "एक उत्तल लेंस की फोकस दूरी 20 cm है। उसकी शक्ति कितनी होगी? / A convex lens has focal length 20 cm. What is its power?",
+      "option1": "+2 D",
+      "option2": "−5 D",
+      "option3": "+5 D",
+      "option4": "+20 D",
+      "correctOption": "3",
+      "explanation": "20 cm = 0.20 m. अतः $P=1/f=1/0.20=+5\\,D$। उत्तल लेंस की फोकस दूरी धनात्मक होती है।",
+      "marks": 1
+    }
+  ]
+}
