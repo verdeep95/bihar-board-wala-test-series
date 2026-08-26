@@ -38,6 +38,7 @@
     wrap.id = "bbw-sheet";
     wrap.innerHTML = `<section class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title"><div class="sheet-head"><h2 id="sheet-title">${escape(title)}</h2><button class="sheet-close" aria-label="Close">×</button></div><div class="sheet-body">${content}</div></section>`;
     document.body.appendChild(wrap);
+    document.body.classList.add("sheet-open");
     wrap.querySelector(".sheet-close").onclick = closeSheet;
     wrap.addEventListener("click", e => { if (e.target === wrap && !(options && options.locked)) closeSheet(); });
     document.addEventListener("keydown", onEscape);
@@ -45,7 +46,7 @@
     return wrap;
   }
   function onEscape(e) { if (e.key === "Escape") closeSheet(); }
-  function closeSheet() { document.querySelector("#bbw-sheet")?.remove(); document.removeEventListener("keydown", onEscape); }
+  function closeSheet() { document.querySelector("#bbw-sheet")?.remove(); document.body.classList.remove("sheet-open"); document.removeEventListener("keydown", onEscape); }
   document.addEventListener("click", e => { if (e.target.closest(".theme-toggle")) toggleTheme(); });
   initTheme();
   window.BBWUI = { escape, subjectIcon, errorState, formatDuration, number, initTheme, toggleTheme, openSheet, closeSheet };
