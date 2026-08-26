@@ -1,0 +1,5 @@
+# Normalize all text files to LF in the repository and on checkout,
+# so line endings stay consistent across Windows, macOS and Linux.
+* text=auto eol=lf
+
+*.png binary
