@@ -2,13 +2,14 @@
   "use strict";
   const app = document.querySelector("#quiz-app"), params = new URLSearchParams(location.search);
   const practice = params.get("practice") === "1", subject = params.get("subject"), chapter = params.get("chapter"), test = params.get("test") || "test-1";
+  const course = BBWData.currentCourseSlug();
   let quiz, key, state, timerId;
   init();
   async function init() {
     try {
-      quiz = practice ? BBWData.getPractice() : await BBWData.loadTest(subject, chapter, test);
+      quiz = practice ? BBWData.getPractice() : await BBWData.loadTest(course, subject, chapter, test);
       if (!quiz || !Array.isArray(quiz.questions) || !quiz.questions.length) throw new Error(practice ? "Practice data नहीं मिला। Admin से फिर खोलें।" : "इस test में questions नहीं हैं।");
-      key = BBWData.attemptKey(subject, chapter, test, practice);
+      key = BBWData.attemptKey(course, subject, chapter, test, practice);
       state = BBWData.getAttempt(key);
       if (state && state.quizId === quiz.id && !state.submitted) {
         state.remaining = remainingNow(state);
@@ -109,7 +110,7 @@
       return { question: q.question, options: [q.option1,q.option2,q.option3,q.option4], selectedOption: selected, correctOption: answer, explanation: q.explanation || "", marks: Number(q.marks || 1), status };
     });
     const totalMarks = qs.reduce((s,q) => s + Number(q.marks || 1), 0), score = totalMarks ? Math.max(0, earned) / totalMarks * 100 : 0, attemptId = BBWData.uniqueId();
-    const result = { attemptId, quizId: quiz.id, quizTitle: quiz.title, subject: quiz.subject || subject, chapter: quiz.chapter || chapter, test: quiz.test || test, startedAt: new Date(state.startedAt).toISOString(), submittedAt: new Date().toISOString(), timeTakenSeconds: quiz.timeLimitMinutes ? Math.max(0, state.duration - state.remaining) : Math.floor((Date.now() - state.startedAt) / 1000), totalQuestions: qs.length, correctAnswers: correct, wrongAnswers: wrong, skippedAnswers: skipped, earnedMarks: Number(earned.toFixed(2)), totalMarks, score: Number(score.toFixed(2)), passingScore: Number(quiz.passingScore || 0), passed: score >= Number(quiz.passingScore || 0), autoSubmitted: auto, review };
+    const result = { attemptId, quizId: quiz.id, quizTitle: quiz.title, course: quiz.course || course, subject: quiz.subject || subject, chapter: quiz.chapter || chapter, test: quiz.test || test, startedAt: new Date(state.startedAt).toISOString(), submittedAt: new Date().toISOString(), timeTakenSeconds: quiz.timeLimitMinutes ? Math.max(0, state.duration - state.remaining) : Math.floor((Date.now() - state.startedAt) / 1000), totalQuestions: qs.length, correctAnswers: correct, wrongAnswers: wrong, skippedAnswers: skipped, earnedMarks: Number(earned.toFixed(2)), totalMarks, score: Number(score.toFixed(2)), passingScore: Number(quiz.passingScore || 0), passed: score >= Number(quiz.passingScore || 0), autoSubmitted: auto, review };
     BBWData.saveResult(result); BBWData.clearAttempt(key); location.href = `result.html?attempt=${encodeURIComponent(attemptId)}`;
   }
 })();

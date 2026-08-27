@@ -1,11 +1,50 @@
 (function () {
   "use strict";
   const THEME_KEY = "bbw:theme";
-  const icons = { hindi: "अ", english: "Aa", sanskrit: "ॐ", mathematics: "∑", science: "⚗", "social-science": "🌏" };
+  const icons = {
+    hindi: "अ", english: "Aa", sanskrit: "ॐ", mathematics: "∑", science: "⚗", "social-science": "🌏",
+    physics: "⚛", chemistry: "🧪", biology: "🧬", maths: "∑", accountancy: "📒", economics: "📈",
+    "business-studies": "💼", geography: "🗺", history: "🏛", "political-science": "⚖", psychology: "🧠",
+    reasoning: "🧩", "general-knowledge": "🌐", "general-awareness": "🌐", "current-affairs": "📰",
+    "quantitative-aptitude": "🔢", "general-studies": "📚", computer: "💻"
+  };
   function escape(value) {
     return String(value == null ? "" : value).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   }
   function subjectIcon(slug) { return icons[slug] || "📖"; }
+  function localized(value, fallback) {
+    if (value && typeof value === "object") return value.hi || value.en || fallback || "";
+    return value || fallback || "";
+  }
+  function secondary(value) {
+    if (value && typeof value === "object" && value.en && value.en !== value.hi) return value.en;
+    return "";
+  }
+  function setBrandSubtitle(text) {
+    document.querySelectorAll(".brand small").forEach(el => { el.textContent = text; });
+  }
+  function courseCard(course, progress) {
+    const soon = course.status === "coming-soon";
+    const name = escape(localized(course.name, course.slug));
+    const en = secondary(course.name);
+    const style = course.accent ? ` style="--accent:${escape(course.accent)}"` : "";
+    const icon = `<span class="course-icon">${escape(course.icon || "📘")}</span>`;
+    const chips = soon
+      ? `<span class="chip">जल्द आ रहा है</span>`
+      : `<span class="chip">${number(course.subjectCount || 0)} विषय</span><span class="chip good">${number(course.testCount || 0)} टेस्ट</span>`;
+    const note = !soon && progress
+      ? `<span class="course-progress">${number(progress.attempts)} टेस्ट दिए • बेस्ट ${progress.bestScore}%</span>`
+      : !soon ? `<span class="course-progress muted">${escape(localized(course.tagline, ""))}</span>` : "";
+    const body = `${icon}<span class="course-body"><strong>${name}</strong>${en ? `<small>${escape(en)}</small>` : ""}<span class="course-meta">${chips}</span>${note}</span>`;
+    return soon
+      ? `<div class="course-card is-soon" aria-disabled="true"${style}>${body}</div>`
+      : `<a class="course-card" href="course.html?course=${encodeURIComponent(course.slug)}"${style}>${body}</a>`;
+  }
+  function coursePill(course) {
+    if (!course) return "";
+    const style = course.accent ? ` style="--accent:${escape(course.accent)}"` : "";
+    return `<a class="course-pill" href="index.html?pick=1"${style}><span class="course-pill-icon">${escape(course.icon || "📘")}</span>${escape(localized(course.name, course.slug))}<span aria-hidden="true">▾</span><span class="sr-only">कोर्स बदलें</span></a>`;
+  }
   function errorState(message) {
     const fileHint = location.protocol === "file:" ? "<small>इसे file:// से नहीं, local HTTP server से खोलें।</small>" : "";
     return `<div class="error-state"><strong>कुछ गड़बड़ हुई</strong><p>${escape(message)}</p>${fileHint}</div>`;
@@ -49,5 +88,5 @@
   function closeSheet() { document.querySelector("#bbw-sheet")?.remove(); document.body.classList.remove("sheet-open"); document.removeEventListener("keydown", onEscape); }
   document.addEventListener("click", e => { if (e.target.closest(".theme-toggle")) toggleTheme(); });
   initTheme();
-  window.BBWUI = { escape, subjectIcon, errorState, formatDuration, number, initTheme, toggleTheme, openSheet, closeSheet };
+  window.BBWUI = { escape, subjectIcon, localized, secondary, setBrandSubtitle, courseCard, coursePill, errorState, formatDuration, number, initTheme, toggleTheme, openSheet, closeSheet };
 })();

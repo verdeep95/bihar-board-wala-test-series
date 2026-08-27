@@ -8,14 +8,14 @@
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="index.html"><img class="brand-logo" src="assets/img/logo.png" alt="Bihar Board Wala" width="46" height="50"><span>Bihar Board Wala<small>Class 10 Test Series</small></span></a>
-    <nav><a class="btn btn-ghost" href="index.html">All subjects</a><button class="icon-btn theme-toggle" aria-label="Toggle dark mode"></button></nav>
+    <a class="brand" href="index.html?pick=1"><img class="brand-logo" src="assets/img/logo.png" alt="Bihar Board Wala" width="46" height="50"><span>Bihar Board Wala<small>Test Series</small></span></a>
+    <nav><a class="btn btn-ghost" id="nav-subjects" href="index.html">All subjects</a><button class="icon-btn theme-toggle" aria-label="Toggle dark mode"></button></nav>
   </header>
   <main class="container page-stack">
-    <div class="breadcrumbs"><a href="index.html">Test Series</a><span>›</span><span id="crumb">Subject</span></div>
+    <div class="breadcrumbs"><a id="crumb-course" href="index.html?pick=1">Test Series</a><span>›</span><span id="crumb">Subject</span></div>
     <section id="subject-hero" class="subject-hero loading-block">Loading…</section>
     <section>
-      <div class="section-heading"><div><span class="eyebrow">AVAILABLE TESTS</span><h2>अध्याय के टेस्ट</h2></div></div>
+      <div class="section-heading"><div><span class="eyebrow">AVAILABLE TESTS</span><h2 id="unit-heading">अध्याय के टेस्ट</h2></div></div>
       <div id="chapter-list" class="chapter-list loading-block">Loading tests…</div>
     </section>
   </main>
@@ -23,33 +23,48 @@
   <script src="assets/js/ui.js"></script><script src="assets/js/data.js"></script>
   <script>
     (async () => {
+      const courseSlug = BBWData.currentCourseSlug();
       const slug = new URLSearchParams(location.search).get("subject");
       try {
-        const manifest = await BBWData.loadManifest();
-        const subject = manifest.classes[0].subjects.find(s => s.slug === slug);
+        const course = await BBWData.getCourse(courseSlug);
+        if (!course) { location.replace("index.html?pick=1"); return; }
+        const courseName = BBWUI.localized(course.name, course.slug);
+        const unit = BBWUI.localized(course.unitLabel, "अध्याय");
+        BBWUI.setBrandSubtitle(`${courseName} टेस्ट सीरीज़`);
+        const courseHref = `course.html?course=${encodeURIComponent(course.slug)}`;
+        document.querySelector("#nav-subjects").href = courseHref;
+        const courseCrumb = document.querySelector("#crumb-course");
+        courseCrumb.textContent = courseName;
+        courseCrumb.href = courseHref;
+        const manifest = await BBWData.loadCourse(course.slug);
+        const subject = (manifest.subjects || []).find(s => s.slug === slug);
         if (!subject) throw new Error("Subject नहीं मिला।");
-        document.title = `${subject.name.hi} Tests • Bihar Board Wala`;
-        document.querySelector("#crumb").textContent = subject.name.hi;
+        const subjectName = BBWUI.localized(subject.name, subject.slug);
+        document.title = `${subjectName} Tests • Bihar Board Wala`;
+        document.querySelector("#crumb").textContent = subjectName;
+        document.querySelector("#unit-heading").textContent = `${unit} के टेस्ट`;
         const hero = document.querySelector("#subject-hero");
         hero.classList.remove("loading-block");
         const readyCount = subject.chapters.filter(c => BBWData.chapterTests(c).length > 0).length;
-        hero.innerHTML = `<span class="subject-icon large">${BBWUI.subjectIcon(subject.slug)}</span><div><span class="eyebrow">CLASS 10</span><h1>${BBWUI.escape(subject.name.hi)}</h1><p>${BBWUI.escape(subject.name.en)} • ${readyCount}/${subject.chapters.length} chapters with tests</p></div>`;
+        hero.innerHTML = `<span class="subject-icon large">${BBWUI.subjectIcon(subject.slug)}</span><div><span class="eyebrow">${BBWUI.escape(courseName.toUpperCase())}</span><h1>${BBWUI.escape(subjectName)}</h1><p>${BBWUI.escape(BBWUI.secondary(subject.name) || subjectName)} • ${readyCount}/${subject.chapters.length} ${BBWUI.escape(unit)} with tests</p></div>`;
         const list = document.querySelector("#chapter-list");
         list.classList.remove("loading-block");
-        const sectionLabels = { gadya: "गद्य", padya: "पद्य", purak: "पूरक", prose: "Prose", poetry: "Poetry", supplementary: "Supplementary", history: "इतिहास", geography: "भूगोल", civics: "नागरिक शास्त्र", economics: "अर्थशास्त्र", disaster: "आपदा प्रबंधन" };
         list.innerHTML = subject.chapters.length ? subject.chapters.map((c, i) => {
           const tests = BBWData.chapterTests(c);
           const ready = tests.length > 0;
           const questions = BBWData.chapterQuestionCount(c);
-          const section = c.section ? `<span class="chip">${BBWUI.escape(sectionLabels[c.section] || c.section)}</span> ` : "";
+          const label = BBWData.sectionLabel(manifest, c.section);
+          const section = label ? `<span class="chip">${BBWUI.escape(label)}</span> ` : "";
           const meta = ready ? `${tests.length} test${tests.length === 1 ? "" : "s"} • ${questions} questions` : "Coming soon";
-          const inner = `<span class="chapter-number">${String(i + 1).padStart(2, "0")}</span><span class="chapter-info"><strong>${BBWUI.escape(c.title.hi)}</strong><small>${section}${BBWUI.escape(c.title.en)} • ${meta}</small></span><span class="btn ${ready ? "btn-outline" : "btn-ghost"}">${ready ? "View tests →" : "Soon"}</span>`;
+          const inner = `<span class="chapter-number">${String(i + 1).padStart(2, "0")}</span><span class="chapter-info"><strong>${BBWUI.escape(BBWUI.localized(c.title, c.slug))}</strong><small>${section}${BBWUI.escape(BBWUI.secondary(c.title) || "")} • ${meta}</small></span><span class="btn ${ready ? "btn-outline" : "btn-ghost"}">${ready ? "View tests →" : "Soon"}</span>`;
           return ready
-            ? `<a class="chapter-card" href="chapter.html?subject=${encodeURIComponent(subject.slug)}&chapter=${encodeURIComponent(c.slug)}">${inner}</a>`
+            ? `<a class="chapter-card" href="chapter.html?course=${encodeURIComponent(course.slug)}&subject=${encodeURIComponent(subject.slug)}&chapter=${encodeURIComponent(c.slug)}">${inner}</a>`
             : `<div class="chapter-card is-soon" aria-disabled="true">${inner}</div>`;
-        }).join("") : `<div class="empty-state"><h3>अभी कोई अध्याय नहीं है</h3><p>Admin panel से इस विषय का पहला JSON test जोड़ें।</p></div>`;
+        }).join("") : `<div class="empty-state"><h3>अभी कोई ${BBWUI.escape(unit)} नहीं है</h3><p>Admin panel से इस विषय का पहला JSON test जोड़ें।</p></div>`;
       } catch (error) {
+        document.querySelector("#subject-hero").classList.remove("loading-block");
         document.querySelector("#subject-hero").innerHTML = BBWUI.errorState(error.message);
+        document.querySelector("#chapter-list").classList.remove("loading-block");
         document.querySelector("#chapter-list").innerHTML = "";
       }
     })();

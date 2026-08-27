@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#4f46e5">
+  <title>Course • Bihar Board Wala</title>
+  <link rel="icon" href="assets/img/logo-mark.png" type="image/png">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html?pick=1"><img class="brand-logo" src="assets/img/logo.png" alt="Bihar Board Wala" width="46" height="50"><span>Bihar Board Wala<small>Test Series</small></span></a>
+    <nav><button class="icon-btn theme-toggle" aria-label="Toggle dark mode"></button></nav>
+  </header>
+  <main class="container page-stack">
+    <div id="course-switch" class="course-switch-row" style="margin-top:1.2rem"></div>
+    <section class="hero" id="course-hero">
+      <span class="eyebrow" id="hero-eyebrow">BIHAR BOARD WALA</span>
+      <h1>तैयारी पक्की करें, एक टेस्ट के साथ</h1>
+      <p id="hero-note">विषय चुनें, अध्याय का टेस्ट दें और तुरंत उत्तर व व्याख्या देखें।</p>
+    </section>
+    <section>
+      <div class="section-heading"><div><span class="eyebrow">SUBJECTS</span><h2>अपना विषय चुनें</h2></div><span id="subject-count" class="badge badge-primary"></span></div>
+      <div id="subjects-grid" class="subject-grid loading-block">Loading subjects…</div>
+    </section>
+    <section id="history-section" hidden>
+      <div class="section-heading"><div><span class="eyebrow">YOUR PROGRESS</span><h2>हाल के परिणाम</h2></div><button id="clear-history" class="btn btn-ghost">Clear</button></div>
+      <div id="history-list" class="history-list"></div>
+    </section>
+  </main>
+  <footer>© Bihar Board Wala • अभ्यास करें, आगे बढ़ें</footer>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script>
+    (async () => {
+      const slug = BBWData.currentCourseSlug();
+      const grid = document.querySelector("#subjects-grid");
+      try {
+        const course = await BBWData.getCourse(slug);
+        if (!course) { location.replace("index.html?pick=1"); return; }
+        BBWData.rememberCourse(course.slug);
+        const name = BBWUI.localized(course.name, course.slug);
+        const tagline = BBWUI.localized(course.tagline, "");
+        document.title = `${name} Test Series • Bihar Board Wala`;
+        BBWUI.setBrandSubtitle(`${name} टेस्ट सीरीज़`);
+        document.querySelector("#course-switch").innerHTML = `${BBWUI.coursePill(course)}<span class="muted" style="font-size:.78rem">कोर्स बदलने के लिए टैप करें</span>`;
+        document.querySelector("#hero-eyebrow").textContent = tagline ? tagline.toUpperCase() : name;
+        if (course.status === "coming-soon") {
+          document.querySelector("#hero-note").textContent = `${name} के टेस्ट तैयार हो रहे हैं।`;
+          document.querySelector("#subject-count").textContent = "जल्द आ रहा है";
+          grid.classList.remove("loading-block");
+          grid.innerHTML = `<div class="empty-state"><h3>जल्द आ रहा है</h3><p>${BBWUI.escape(name)} के टेस्ट अभी तैयार नहीं हैं। तब तक कोई दूसरा कोर्स चुनें।</p><p><a class="btn btn-outline" href="index.html?pick=1">सभी कोर्स देखें</a></p></div>`;
+          renderHistory(course);
+          return;
+        }
+        const subjects = await BBWData.loadSubjects(course.slug);
+        document.querySelector("#subject-count").textContent = `${subjects.length} subjects`;
+        grid.classList.remove("loading-block");
+        grid.innerHTML = subjects.length ? subjects.map(s => {
+          const tests = s.chapters.reduce((sum, c) => sum + BBWData.chapterTests(c).length, 0);
+          const meta = `${s.chapters.length} chapter${s.chapters.length === 1 ? "" : "s"} • ${tests} test${tests === 1 ? "" : "s"}`;
+          return `<a class="subject-card" href="subject.html?course=${encodeURIComponent(course.slug)}&subject=${encodeURIComponent(s.slug)}">
+            <span class="subject-icon">${BBWUI.subjectIcon(s.slug)}</span>
+            <div><h3>${BBWUI.escape(BBWUI.localized(s.name, s.slug))}</h3><p>${BBWUI.escape(BBWUI.secondary(s.name) || "")} ${BBWUI.escape(meta)}</p></div>
+            <span class="arrow">→</span>
+          </a>`;
+        }).join("") : `<div class="empty-state"><h3>अभी कोई विषय नहीं है</h3><p>Admin panel से इस कोर्स का पहला test जोड़ें।</p></div>`;
+        renderHistory(course);
+      } catch (error) {
+        grid.classList.remove("loading-block");
+        grid.innerHTML = BBWUI.errorState(error.message);
+      }
+    })();
+    function renderHistory(course) {
+      const history = BBWData.getHistory().filter(r => r.course === course.slug).slice(0, 6);
+      if (!history.length) return;
+      document.querySelector("#history-section").hidden = false;
+      document.querySelector("#history-list").innerHTML = history.map(r => `
+        <a class="history-row" href="result.html?attempt=${encodeURIComponent(r.attemptId)}">
+          <span class="score-mini ${r.passed ? "success" : "warning"}">${Math.round(r.score)}%</span>
+          <span><strong>${BBWUI.escape(r.quizTitle)}</strong><small>${new Date(r.submittedAt).toLocaleDateString("hi-IN")} • ${r.correctAnswers}/${r.totalQuestions} correct</small></span>
+          <span class="arrow">→</span>
+        </a>`).join("");
+    }
+    document.querySelector("#clear-history").addEventListener("click", () => { if (confirm("सभी पुराने परिणाम हटाएँ?")) { BBWData.clearHistory(); location.reload(); } });
+  </script>
+</body>
+</html>

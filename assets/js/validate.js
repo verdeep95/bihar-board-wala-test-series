@@ -1,7 +1,7 @@
 (function () {
   "use strict";
   const TYPES = ["LECTURE_QUIZ", "CHAPTER_QUIZ", "CHAPTER_TEST", "SUBJECT_TEST", "MOCK_TEST", "PRACTICE_SET", "PYQ_TEST"];
-  const defaults = { id: "", title: "", subject: "science", chapter: "", quizType: "CHAPTER_TEST", timeLimitMinutes: 10, passingScore: 33, negativeMarkingEnabled: false, negativeMarksPerQuestion: 0, shuffle: false };
+  const defaults = { id: "", title: "", course: "", subject: "", chapter: "", quizType: "CHAPTER_TEST", timeLimitMinutes: 10, passingScore: 33, negativeMarkingEnabled: false, negativeMarksPerQuestion: 0, shuffle: false };
   function parse(input) {
     if (typeof input === "string") {
       try { input = JSON.parse(input); } catch (e) { return result([], [{ row: 0, field: "json", message: `Invalid JSON: ${e.message}` }], [], null, false); }

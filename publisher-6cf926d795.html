@@ -23,11 +23,12 @@
   <section class="card" style="margin-top:1rem">
     <div class="section-heading">
       <div>
-        <h2>1. अध्याय चुनें</h2>
-        <p class="muted">Subject tab से chapter list खोलें, chapter पर click करें, फिर उस chapter का test चुनें।</p>
+        <h2>1. कोर्स और अध्याय चुनें</h2>
+        <p class="muted">पहले course चुनें, फिर subject tab से chapter list खोलें, chapter पर click करें और उस chapter का test चुनें। नया course, विषय या अध्याय यहीं से बना सकते हैं।</p>
       </div>
       <span id="selected-chapter-badge" class="badge badge-primary">No chapter selected</span>
     </div>
+    <div id="admin-course-tabs" class="admin-subject-tabs"></div>
     <div id="admin-subject-tabs" class="filter-pills admin-subject-tabs"></div>
     <label class="field" style="margin-top:.8rem"><span>Search chapters</span><input id="chapter-search" placeholder="प्रकाश, Light, nationalism…"></label>
     <div id="admin-chapter-list" class="admin-chapter-list muted">Loading syllabus…</div>
@@ -69,12 +70,13 @@
       <section class="card">
         <h2>3. Test metadata</h2>
         <div class="form-grid">
-          <label class="field wide"><span>Test title</span><input id="meta-title" value="प्रकाश - अध्याय टेस्ट 1"></label>
-          <label class="field"><span>Subject</span><select id="meta-subject"><option value="hindi">Hindi</option><option value="english">English</option><option value="sanskrit">Sanskrit</option><option value="mathematics">Mathematics</option><option value="science" selected>Science</option><option value="social-science">Social Science</option></select></label>
-          <label class="field"><span>Chapter slug</span><input id="meta-chapter" value="light" pattern="[a-z0-9-]+" readonly></label>
+          <label class="field wide"><span>Test title</span><input id="meta-title" value=""></label>
+          <label class="field"><span>Course slug</span><input id="meta-course" value="" pattern="[a-z0-9-]+" readonly></label>
+          <label class="field"><span>Subject</span><select id="meta-subject"></select></label>
+          <label class="field"><span>Chapter slug</span><input id="meta-chapter" value="" pattern="[a-z0-9-]+" readonly></label>
           <label class="field"><span>Test slug</span><input id="meta-test" value="test-1" pattern="[a-z0-9-]+" readonly></label>
-          <label class="field"><span>Hindi chapter title</span><input id="meta-hi" value="प्रकाश" readonly></label>
-          <label class="field"><span>English chapter title</span><input id="meta-en" value="Light" readonly></label>
+          <label class="field"><span>Hindi chapter title</span><input id="meta-hi" value="" readonly></label>
+          <label class="field"><span>English chapter title</span><input id="meta-en" value="" readonly></label>
           <label class="field"><span>Quiz type</span><select id="meta-type"></select></label>
           <label class="field"><span>Time (minutes)</span><input id="meta-time" type="number" min="0" value="10"></label>
           <label class="field"><span>Passing score %</span><input id="meta-pass" type="number" min="0" max="100" value="33"></label>
@@ -82,7 +84,7 @@
           <label class="check-row"><input id="meta-negative" type="checkbox"> Negative marking</label>
           <label class="check-row"><input id="meta-shuffle" type="checkbox"> Shuffle questions</label>
         </div>
-        <p class="muted">Put the downloaded file here: <code id="target-path">data/science/light/test-1.json</code></p>
+        <p class="muted">Put the downloaded file here: <code id="target-path">data/&lt;course&gt;/&lt;subject&gt;/&lt;chapter&gt;/test-1.json</code></p>
       </section>
       <section class="card" style="margin-top:1rem">
         <div class="section-heading">
@@ -112,17 +114,18 @@
         <div class="button-row" style="margin-top:1rem">
           <button id="practice" class="btn btn-saffron">▶ Practice test</button>
           <button id="download-test" class="btn btn-primary">Download test JSON</button>
-          <button id="download-manifest" class="btn btn-outline">Download manifest</button>
-          <button id="download-both" class="btn btn-success">Download both files</button>
+          <button id="download-manifest" class="btn btn-outline">Download manifests</button>
+          <button id="download-both" class="btn btn-success">Download all files</button>
         </div>
         <div class="admin-status" style="margin-top:1rem">
           <strong>Publish checklist</strong>
           <ol>
-            <li>Downloaded <code>test-N.json</code> को chapter folder में रखें, जैसे <code>data/hindi/dahi-wali-mangamma/test-2.json</code>। Browser Downloads में ही save होता है — folder खुद बनाएँ।</li>
-            <li><code>data/manifest.json</code> को downloaded manifest से replace करें।</li>
+            <li>Downloaded <code>test-N.json</code> को chapter folder में रखें, जैसे <code>data/class-10/hindi/dahi-wali-mangamma/test-2.json</code>। Browser Downloads में ही save होता है — folder खुद बनाएँ।</li>
+            <li><code>data-&lt;course&gt;-manifest.json</code> को <code>data/&lt;course&gt;/manifest.json</code> पर replace करें।</li>
+            <li><code>data-manifest.json</code> को <code>data/manifest.json</code> पर replace करें।</li>
             <li>Git commit और push करें; GitHub Pages update होने दें।</li>
           </ol>
-          <small>Browser security के कारण यह page repo files सीधे overwrite नहीं कर सकता।</small>
+          <small>Browser security के कारण यह page repo files सीधे overwrite नहीं कर सकता। दोनों manifests के नाम अलग रखे गए हैं ताकि Downloads में टकराव न हो।</small>
         </div>
       </section>
     </div>
