@@ -1,0 +1,215 @@
+{
+  "id": "mathematics-trigonometry-test-1",
+  "title": "Practice Test 1",
+  "course": "class-10",
+  "subject": "mathematics",
+  "chapter": "trigonometry",
+  "quizType": "CHAPTER_TEST",
+  "timeLimitMinutes": 20,
+  "passingScore": 33,
+  "negativeMarkingEnabled": false,
+  "negativeMarksPerQuestion": 0,
+  "shuffle": false,
+  "questions": [
+    {
+      "question": "यदि $\\sin\\theta=\\frac{3}{5}$, तो $\\cos\\theta$ का मान क्या होगा?",
+      "option1": "$\\frac{4}{5}$",
+      "option2": "$\\frac{3}{4}$",
+      "option3": "$\\frac{5}{3}$",
+      "option4": "$\\frac{5}{4}$",
+      "correctOption": "1",
+      "explanation": "सर्वसमिका: $\\sin^2\\theta+\\cos^2\\theta=1$\n$\\left(\\frac{3}{5}\\right)^2+\\cos^2\\theta=1$\n$\\cos^2\\theta=1-\\frac{9}{25}=\\frac{16}{25}$\nकक्षा 10 में $\\theta$ न्यून कोण लिया जाता है, इसलिए $\\cos\\theta$ धनात्मक है।\n$$\\cos\\theta=\\frac{4}{5}$$\nसही उत्तर: A) $\\frac{4}{5}$",
+      "marks": 1
+    },
+    {
+      "question": "$9\\sec^2\\theta-9\\tan^2\\theta$ का मान क्या है?",
+      "option1": "1",
+      "option2": "9",
+      "option3": "8",
+      "option4": "0",
+      "correctOption": "2",
+      "explanation": "सर्वसमिका: $\\sec^2\\theta-\\tan^2\\theta=1$\nदिया गया व्यंजक:\n$9\\sec^2\\theta-9\\tan^2\\theta=9(\\sec^2\\theta-\\tan^2\\theta)=9\\times 1=9$\nसही उत्तर: B) 9",
+      "marks": 1
+    },
+    {
+      "question": "यदि $\\tan\\theta=\\frac{a}{b}$, तो $\\dfrac{a\\sin\\theta-b\\cos\\theta}{a\\sin\\theta+b\\cos\\theta}$ का मान क्या होगा?",
+      "option1": "$\\dfrac{a^2-b^2}{a^2+b^2}$",
+      "option2": "$\\dfrac{a^2+b^2}{a^2-b^2}$",
+      "option3": "0",
+      "option4": "1",
+      "correctOption": "1",
+      "explanation": "दिया है $\\tan\\theta=\\frac{a}{b}$। अंश और हर को $\\cos\\theta$ से भाग दें:\n$\\dfrac{a\\tan\\theta-b}{a\\tan\\theta+b}$\n$\\tan\\theta=\\frac{a}{b}$ रखने पर:\n$\\dfrac{a\\cdot\\frac{a}{b}-b}{a\\cdot\\frac{a}{b}+b}=\\dfrac{\\frac{a^2-b^2}{b}}{\\frac{a^2+b^2}{b}}=\\dfrac{a^2-b^2}{a^2+b^2}$\nनोट: $a\\sin\\theta-b\\cos\\theta$ शून्य नहीं होता। शून्य तब होता जब अंश $a\\cos\\theta-b\\sin\\theta$ होता।\nसही उत्तर: A) $\\dfrac{a^2-b^2}{a^2+b^2}$",
+      "marks": 1
+    },
+    {
+      "question": "$\\dfrac{\\sin 59^\\circ}{\\cos 31^\\circ}$ का मान क्या होगा?",
+      "option1": "0",
+      "option2": "1",
+      "option3": "$-1$",
+      "option4": "2",
+      "correctOption": "2",
+      "explanation": "सहपूरक कोण: $\\cos\\theta=\\sin(90^\\circ-\\theta)$\n$\\cos 31^\\circ=\\sin(90^\\circ-31^\\circ)=\\sin 59^\\circ$\nअतः $\\dfrac{\\sin 59^\\circ}{\\cos 31^\\circ}=\\dfrac{\\sin 59^\\circ}{\\sin 59^\\circ}=1$\nसही उत्तर: B) 1",
+      "marks": 1
+    },
+    {
+      "question": "$(1-\\cos^2\\theta)(1+\\cot^2\\theta)$ का मान क्या है?",
+      "option1": "0",
+      "option2": "1",
+      "option3": "$\\dfrac{1}{2}$",
+      "option4": "2",
+      "correctOption": "2",
+      "explanation": "$1-\\cos^2\\theta=\\sin^2\\theta$ और $1+\\cot^2\\theta=\\csc^2\\theta$\nअतः $\\sin^2\\theta\\cdot\\csc^2\\theta$\n$\\csc\\theta=\\dfrac{1}{\\sin\\theta}$, इसलिए $\\sin^2\\theta\\cdot\\dfrac{1}{\\sin^2\\theta}=1$\nसही उत्तर: B) 1",
+      "marks": 1
+    },
+    {
+      "question": "यदि $x\\cos\\theta=1$ और $y\\sin\\theta=1$, तो $\\tan\\theta$ का मान क्या होगा?",
+      "option1": "$\\dfrac{y}{x}$",
+      "option2": "$\\dfrac{x}{y}$",
+      "option3": "1",
+      "option4": "$xy$",
+      "correctOption": "2",
+      "explanation": "$x\\cos\\theta=1\\Rightarrow\\cos\\theta=\\dfrac{1}{x}$\n$y\\sin\\theta=1\\Rightarrow\\sin\\theta=\\dfrac{1}{y}$\n$$\\tan\\theta=\\dfrac{\\sin\\theta}{\\cos\\theta}=\\dfrac{1/y}{1/x}=\\dfrac{x}{y}$$\nसही उत्तर: B) $\\dfrac{x}{y}$",
+      "marks": 1
+    },
+    {
+      "question": "$\\tan 10^\\circ\\cdot\\tan 15^\\circ\\cdot\\tan 75^\\circ\\cdot\\tan 80^\\circ$ का मान क्या है?",
+      "option1": "0",
+      "option2": "1",
+      "option3": "4",
+      "option4": "2",
+      "correctOption": "2",
+      "explanation": "$\\tan(90^\\circ-\\theta)=\\cot\\theta$\n$\\tan 80^\\circ=\\cot 10^\\circ$ और $\\tan 75^\\circ=\\cot 15^\\circ$\nअतः $\\tan 10^\\circ\\cdot\\cot 10^\\circ\\cdot\\tan 15^\\circ\\cdot\\cot 15^\\circ$\n$\\tan\\theta\\cdot\\cot\\theta=1$, इसलिए $1\\times 1=1$\nसही उत्तर: B) 1",
+      "marks": 1
+    },
+    {
+      "question": "यदि $\\sin A=\\cos B$, जहाँ $A$ और $B$ न्यून कोण हैं, तो $A+B$ का मान क्या होगा?",
+      "option1": "$30^\\circ$",
+      "option2": "$90^\\circ$",
+      "option3": "$45^\\circ$",
+      "option4": "$60^\\circ$",
+      "correctOption": "2",
+      "explanation": "$\\cos B=\\sin(90^\\circ-B)$\nदिया है $\\sin A=\\cos B$, अतः $\\sin A=\\sin(90^\\circ-B)$\nदोनों कोण न्यून हैं, इसलिए $A=90^\\circ-B$\n$$A+B=90^\\circ$$\nसही उत्तर: B) $90^\\circ$",
+      "marks": 1
+    },
+    {
+      "question": "$\\sin^2 45^\\circ+\\cos^2 45^\\circ$ का मान क्या होगा?",
+      "option1": "0",
+      "option2": "1",
+      "option3": "2",
+      "option4": "$\\dfrac{1}{2}$",
+      "correctOption": "2",
+      "explanation": "सर्वसमिका $\\sin^2\\theta+\\cos^2\\theta=1$ हर कोण के लिए सत्य है।\n$\\theta=45^\\circ$ रखने पर भी मान $1$ ही रहता है।\nजाँच: $\\sin 45^\\circ=\\cos 45^\\circ=\\dfrac{1}{\\sqrt{2}}$, अतः $2\\times\\dfrac{1}{2}=1$\nसही उत्तर: B) 1",
+      "marks": 1
+    },
+    {
+      "question": "$\\cos 1^\\circ\\cdot\\cos 2^\\circ\\cdot\\cos 3^\\circ\\cdots\\cos 90^\\circ$ का मान किसके बराबर है?",
+      "option1": "0",
+      "option2": "1",
+      "option3": "$-1$",
+      "option4": "$\\sqrt{2}$",
+      "correctOption": "1",
+      "explanation": "गुणनफल में $\\cos 90^\\circ$ शामिल है।\n$\\cos 90^\\circ=0$\nकिसी भी संख्या को $0$ से गुणा करने पर परिणाम $0$ होता है।\nसही उत्तर: A) 0",
+      "marks": 1
+    },
+    {
+      "question": "निम्नलिखित में से कौन-सा कथन सत्य है?",
+      "option1": "$\\sin 30^\\circ=\\cos 30^\\circ$",
+      "option2": "$\\sin 45^\\circ=\\cos 45^\\circ$",
+      "option3": "$\\sin 60^\\circ=\\cos 60^\\circ$",
+      "option4": "$\\sin 90^\\circ=\\cos 90^\\circ$",
+      "correctOption": "2",
+      "explanation": "$\\sin 45^\\circ=\\dfrac{1}{\\sqrt{2}}$ और $\\cos 45^\\circ=\\dfrac{1}{\\sqrt{2}}$, अतः ये बराबर हैं।\nअन्य विकल्प:\n$\\sin 30^\\circ=\\frac{1}{2},\\ \\cos 30^\\circ=\\frac{\\sqrt{3}}{2}$\n$\\sin 60^\\circ=\\frac{\\sqrt{3}}{2},\\ \\cos 60^\\circ=\\frac{1}{2}$\n$\\sin 90^\\circ=1,\\ \\cos 90^\\circ=0$\nसही उत्तर: B) $\\sin 45^\\circ=\\cos 45^\\circ$",
+      "marks": 1
+    },
+    {
+      "question": "यदि $\\sqrt{3}\\tan\\theta=3\\sin\\theta$, तो $\\sin^2\\theta-\\cos^2\\theta$ का मान क्या है?",
+      "option1": "$\\dfrac{1}{3}$",
+      "option2": "$\\dfrac{2}{3}$",
+      "option3": "1",
+      "option4": "0",
+      "correctOption": "1",
+      "explanation": "$\\sqrt{3}\\dfrac{\\sin\\theta}{\\cos\\theta}=3\\sin\\theta$\n$\\sin\\theta\\neq 0$ लेने पर $\\dfrac{\\sqrt{3}}{\\cos\\theta}=3\\Rightarrow\\cos\\theta=\\dfrac{1}{\\sqrt{3}}$\n$\\cos^2\\theta=\\dfrac{1}{3}$ और $\\sin^2\\theta=1-\\dfrac{1}{3}=\\dfrac{2}{3}$\n$$\\sin^2\\theta-\\cos^2\\theta=\\dfrac{2}{3}-\\dfrac{1}{3}=\\dfrac{1}{3}$$\nसही उत्तर: A) $\\dfrac{1}{3}$",
+      "marks": 1
+    },
+    {
+      "question": "यदि $A+B=90^\\circ$, तो $\\cos A$ का मान क्या होगा?",
+      "option1": "$\\cos B$",
+      "option2": "$\\sin A$",
+      "option3": "$\\sin B$",
+      "option4": "$\\tan B$",
+      "correctOption": "3",
+      "explanation": "$A+B=90^\\circ\\Rightarrow A=90^\\circ-B$\n$\\cos A=\\cos(90^\\circ-B)=\\sin B$\nसही उत्तर: C) $\\sin B$",
+      "marks": 1
+    },
+    {
+      "question": "$\\dfrac{1-\\tan^2 45^\\circ}{1+\\tan^2 45^\\circ}$ का मान क्या है?",
+      "option1": "$\\tan 90^\\circ$",
+      "option2": "0",
+      "option3": "1",
+      "option4": "$\\sin 45^\\circ$",
+      "correctOption": "2",
+      "explanation": "$\\tan 45^\\circ=1$\n$\\dfrac{1-1^2}{1+1^2}=\\dfrac{0}{2}=0$\nसही उत्तर: B) 0",
+      "marks": 1
+    },
+    {
+      "question": "$\\dfrac{2\\tan 30^\\circ}{1+\\tan^2 30^\\circ}$ का मान क्या होगा?",
+      "option1": "$\\sin 60^\\circ$",
+      "option2": "$\\cos 60^\\circ$",
+      "option3": "$\\tan 60^\\circ$",
+      "option4": "$\\sin 30^\\circ$",
+      "correctOption": "1",
+      "explanation": "$\\tan 30^\\circ=\\dfrac{1}{\\sqrt{3}}$\n$\\dfrac{2/\\sqrt{3}}{1+1/3}=\\dfrac{2/\\sqrt{3}}{4/3}=\\dfrac{2}{\\sqrt{3}}\\cdot\\dfrac{3}{4}=\\dfrac{\\sqrt{3}}{2}$\nऔर $\\sin 60^\\circ=\\dfrac{\\sqrt{3}}{2}$\nसही उत्तर: A) $\\sin 60^\\circ$",
+      "marks": 1
+    },
+    {
+      "question": "यदि $\\tan\\theta=\\dfrac{4}{3}$, जहाँ $\\theta$ एक न्यून कोण है, तो $\\sin\\theta+\\cos\\theta$ का मान ज्ञात करें।",
+      "option1": "$\\dfrac{7}{3}$",
+      "option2": "$\\dfrac{7}{5}$",
+      "option3": "$\\dfrac{5}{7}$",
+      "option4": "1",
+      "correctOption": "2",
+      "explanation": "$\\tan\\theta=\\dfrac{\\text{लंब}}{\\text{आधार}}=\\dfrac{4}{3}$\nलंब $=4$, आधार $=3$\nकर्ण $=\\sqrt{4^2+3^2}=\\sqrt{25}=5$\n$\\sin\\theta=\\dfrac{4}{5}$, $\\cos\\theta=\\dfrac{3}{5}$\n$\\sin\\theta+\\cos\\theta=\\dfrac{4}{5}+\\dfrac{3}{5}=\\dfrac{7}{5}$\nसही उत्तर: B) $\\dfrac{7}{5}$",
+      "marks": 1
+    },
+    {
+      "question": "$\\dfrac{2\\tan 30^\\circ}{1-\\tan^2 30^\\circ}$ किसके बराबर है?",
+      "option1": "$\\tan 60^\\circ$",
+      "option2": "$\\sin 60^\\circ$",
+      "option3": "$\\cos 60^\\circ$",
+      "option4": "$\\sin 30^\\circ$",
+      "correctOption": "1",
+      "explanation": "$\\tan 30^\\circ=\\dfrac{1}{\\sqrt{3}}$\n$\\dfrac{2/\\sqrt{3}}{1-1/3}=\\dfrac{2/\\sqrt{3}}{2/3}=\\sqrt{3}$\nऔर $\\tan 60^\\circ=\\sqrt{3}$\nसही उत्तर: A) $\\tan 60^\\circ$",
+      "marks": 1
+    },
+    {
+      "question": "यदि $13\\sin\\theta=12$, तो $\\sec\\theta$ का मान क्या होगा?",
+      "option1": "$\\dfrac{13}{5}$",
+      "option2": "$\\dfrac{12}{5}$",
+      "option3": "$\\dfrac{5}{12}$",
+      "option4": "$\\dfrac{13}{12}$",
+      "correctOption": "1",
+      "explanation": "$13\\sin\\theta=12\\Rightarrow\\sin\\theta=\\dfrac{12}{13}$\nसमकोण त्रिभुज में लंब $=12$, कर्ण $=13$\nआधार $=\\sqrt{13^2-12^2}=\\sqrt{169-144}=\\sqrt{25}=5$\n$\\cos\\theta=\\dfrac{5}{13}$ (न्यून कोण)\n$\\sec\\theta=\\dfrac{1}{\\cos\\theta}=\\dfrac{13}{5}$\nसही उत्तर: A) $\\dfrac{13}{5}$",
+      "marks": 1
+    },
+    {
+      "question": "$\\sin\\theta\\cdot\\csc\\theta$ का मान क्या होगा?",
+      "option1": "0",
+      "option2": "1",
+      "option3": "$-1$",
+      "option4": "2",
+      "correctOption": "2",
+      "explanation": "$\\csc\\theta=\\dfrac{1}{\\sin\\theta}$\nअतः $\\sin\\theta\\cdot\\csc\\theta=\\sin\\theta\\cdot\\dfrac{1}{\\sin\\theta}=1$\nसही उत्तर: B) 1",
+      "marks": 1
+    },
+    {
+      "question": "यदि $\\cos A=\\dfrac{1}{2}$, जहाँ $A$ न्यून कोण है, तो $1-2\\cos^2 A$ का मान क्या है?",
+      "option1": "0",
+      "option2": "$\\dfrac{1}{2}$",
+      "option3": "$\\dfrac{1}{4}$",
+      "option4": "$-\\dfrac{1}{2}$",
+      "correctOption": "2",
+      "explanation": "$\\cos A=\\dfrac{1}{2}\\Rightarrow\\cos^2 A=\\dfrac{1}{4}$\n$1-2\\cos^2 A=1-2\\left(\\dfrac{1}{4}\\right)=1-\\dfrac{1}{2}=\\dfrac{1}{2}$\nसही उत्तर: B) $\\dfrac{1}{2}$",
+      "marks": 1
+    }
+  ]
+}

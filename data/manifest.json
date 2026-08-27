@@ -14,8 +14,8 @@
       "unitLabel": { "en": "Chapter", "hi": "अध्याय" },
       "manifest": "data/class-10/manifest.json",
       "subjectCount": 6,
-      "testCount": 4,
-      "questionCount": 65
+      "testCount": 7,
+      "questionCount": 120
     },
     {
       "id": "class-11",
