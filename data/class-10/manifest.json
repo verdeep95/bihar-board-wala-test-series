@@ -741,7 +741,9 @@
               "questionCount": 20,
               "timeLimitMinutes": 20,
               "quizType": "CHAPTER_TEST",
-              "updatedAt": "2026-08-27T00:00:00.000Z"
+              "updatedAt": "2026-08-27T00:00:00.000Z",
+              "youtubeUrl": "https://youtu.be/yyomjFAN00M?list=PLYzeppRSirbE",
+              "youtubeTitle": "🎯 Trigonometry Objective Class 10 | Lecture 6 | Bihar Board Exam"
             },
             {
               "id": "mathematics-trigonometry-test-2",
@@ -1177,7 +1179,9 @@
               "questionCount": 15,
               "timeLimitMinutes": 15,
               "quizType": "CHAPTER_TEST",
-              "updatedAt": "2026-08-27T00:00:00.000Z"
+              "updatedAt": "2026-08-27T00:00:00.000Z",
+              "youtubeUrl": "https://www.youtube.com/watch?v=DMb_98BHvJs",
+              "youtubeTitle": "अर्थव्यवस्था एवं इसके विकास का इतिहास (MCQ) | Part 5 | Class 10"
             },
             {
               "id": "social-science-arthvyavastha-vikas-itihas-test-2",

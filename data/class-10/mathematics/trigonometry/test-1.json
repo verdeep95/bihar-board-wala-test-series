@@ -10,6 +10,8 @@
   "negativeMarkingEnabled": false,
   "negativeMarksPerQuestion": 0,
   "shuffle": false,
+  "youtubeUrl": "https://youtu.be/yyomjFAN00M?list=PLYzeppRSirbE",
+  "youtubeTitle": "🎯 Trigonometry Objective Class 10 | Lecture 6 | Bihar Board Exam",
   "questions": [
     {
       "question": "यदि $\\sin\\theta=\\frac{3}{5}$, तो $\\cos\\theta$ का मान क्या होगा?",
