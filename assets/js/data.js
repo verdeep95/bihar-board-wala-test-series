@@ -86,6 +86,21 @@
     while (used.has(`test-${n}`)) n++;
     return `test-${n}`;
   }
+  const YT = /^https:\/\/(www\.youtube\.com\/(watch\?|playlist\?|live\/)|youtu\.be\/)[\w\-?=&%.\/]+$/;
+  function isYoutubeUrl(value) { return YT.test(String(value || "").trim()); }
+  function videoOf(source) {
+    if (!source) return null;
+    const url = String(source.youtubeUrl || "").trim();
+    if (!isYoutubeUrl(url)) return null;
+    return { url, title: String(source.youtubeTitle || "").trim() };
+  }
+  async function chapterVideo(course, subject, chapter) {
+    try {
+      const manifest = await loadCourse(course);
+      const s = (manifest.subjects || []).find(x => x.slug === subject);
+      return videoOf(s && (s.chapters || []).find(x => x.slug === chapter));
+    } catch (_) { return null; }
+  }
   async function loadTest(course, subject, chapter, test) {
     if (!isSlug(course)) throw new Error("Invalid course.");
     if (!isSlug(subject) || !isSlug(chapter)) throw new Error("Invalid subject or chapter.");
@@ -136,5 +151,5 @@
     const a = Object.assign(document.createElement("a"), { href: url, download: filename });
     document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
-  window.BBWData = { defaultCourse: DEFAULT_COURSE, loadCourses, getCourse, loadCourse, loadSubjects, courseParam, storedCourse, currentCourseSlug, rememberCourse, forgetCourse, sectionLabel, fetchJson, loadTest, testPath, chapterTests, chapterQuestionCount, countCourse, nextTestSlug, getHistory, clearHistory, getResult, saveResult, getAttempt, saveAttempt, clearAttempt, attemptKey, bestAttempt, courseProgress, savePractice, getPractice, uniqueId, downloadJson };
+  window.BBWData = { defaultCourse: DEFAULT_COURSE, loadCourses, getCourse, loadCourse, loadSubjects, courseParam, storedCourse, currentCourseSlug, rememberCourse, forgetCourse, sectionLabel, fetchJson, loadTest, testPath, chapterTests, chapterQuestionCount, countCourse, nextTestSlug, isYoutubeUrl, videoOf, chapterVideo, getHistory, clearHistory, getResult, saveResult, getAttempt, saveAttempt, clearAttempt, attemptKey, bestAttempt, courseProgress, savePractice, getPractice, uniqueId, downloadJson };
 })();

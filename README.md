@@ -150,6 +150,37 @@ else renders as **Coming soon**.
 `sectionLabels` is per course, so each course defines its own section vocabulary. A chapter with
 no `tests` key (like `chapter-maa` above) is simply unpublished.
 
+Optional lecture links on a chapter (and an optional per-test override) look like this:
+
+```json
+{
+  "id": "chapter-light",
+  "slug": "light",
+  "title": { "en": "Light — Reflection and Refraction", "hi": "प्रकाश—परावर्तन तथा अपवर्तन" },
+  "youtubeUrl": "https://www.youtube.com/watch?v=AbCdEfG1234",
+  "youtubeTitle": "प्रकाश — पूरा अध्याय",
+  "tests": [
+    {
+      "id": "science-light-test-1",
+      "slug": "test-1",
+      "title": "Practice Test 1",
+      "file": "data/class-10/science/light/test-1.json",
+      "questionCount": 5,
+      "timeLimitMinutes": 10,
+      "quizType": "CHAPTER_TEST",
+      "youtubeUrl": "https://youtu.be/XyZ987",
+      "youtubeTitle": "Test 1 से पहले यह वीडियो"
+    }
+  ]
+}
+```
+
+`youtubeUrl` must be an `https` YouTube watch, playlist, live, or `youtu.be` link. The test-level
+URL, if present, overrides the chapter video on the start and result screens. The chapter page
+always shows the chapter link, or a “वीडियो जल्द आ रहा है” placeholder when the chapter has none.
+A small “▶ वीडियो” chip on a test card means that test has its own override. Neither key is
+required; existing files without them stay valid.
+
 ## Test JSON schema
 
 Each test file is one LMS-style wrapper, not a bundle of tests:
@@ -167,6 +198,8 @@ Each test file is one LMS-style wrapper, not a bundle of tests:
   "negativeMarkingEnabled": false,
   "negativeMarksPerQuestion": 0,
   "shuffle": false,
+  "youtubeUrl": "https://www.youtube.com/watch?v=AbCdEfG1234",
+  "youtubeTitle": "प्रकाश — पूरा अध्याय",
   "questions": [
     {
       "question": "Question text",
@@ -184,17 +217,19 @@ Each test file is one LMS-style wrapper, not a bundle of tests:
 
 `correctOption` is **1-based** (`1` through `4`) and may be a JSON number or string. `marks` must be
 positive. A bare array of rows in the question shape can also be imported; the admin form supplies
-the wrapper metadata.
+the wrapper metadata. `youtubeUrl` / `youtubeTitle` on the wrapper are the per-test override; omit
+them to inherit the chapter video from the course manifest.
 
 ## Admin workflow
 
 1. Open `publisher-6cf926d795.html`.
 2. Pick a course from the top pill row, then a subject tab, then a chapter.
-3. Pick an existing test, or click **+ New test** (next free `test-N` slug).
-4. Drop or paste JSON. A bare question array is attached to the selected test automatically.
-5. Fix errors, use the quick editor, then click **Practice test**.
-6. Click **Download all files**.
-7. Place the three downloads (see below), then commit and push.
+3. Optionally paste a chapter YouTube URL (and title) under the test strip — this applies to every test in the chapter.
+4. Pick an existing test, or click **+ New test** (next free `test-N` slug). A test YouTube URL in the metadata form overrides the chapter video for that test only; leave it blank to inherit.
+5. Drop or paste JSON. A bare question array is attached to the selected test automatically.
+6. Fix errors, use the quick editor, then click **Practice test**.
+7. Click **Download all files**.
+8. Place the three downloads (see below), then commit and push.
 
 The three files, and where each one goes:
 

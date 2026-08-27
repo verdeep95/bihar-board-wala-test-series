@@ -3,7 +3,7 @@
   const app = document.querySelector("#quiz-app"), params = new URLSearchParams(location.search);
   const practice = params.get("practice") === "1", subject = params.get("subject"), chapter = params.get("chapter"), test = params.get("test") || "test-1";
   const course = BBWData.currentCourseSlug();
-  let quiz, key, state, timerId;
+  let quiz, key, state, timerId, video = null;
   init();
   async function init() {
     try {
@@ -11,17 +11,28 @@
       if (!quiz || !Array.isArray(quiz.questions) || !quiz.questions.length) throw new Error(practice ? "Practice data नहीं मिला। Admin से फिर खोलें।" : "इस test में questions नहीं हैं।");
       key = BBWData.attemptKey(course, subject, chapter, test, practice);
       state = BBWData.getAttempt(key);
+      const videoReady = resolveVideo();
       if (state && state.quizId === quiz.id && !state.submitted) {
         state.remaining = remainingNow(state);
         renderAttempt();
       } else { state = null; renderStart(); }
+      await videoReady;
     } catch (e) { app.innerHTML = `<div class="container" style="margin-top:2rem">${BBWUI.errorState(e.message)}</div>`; }
+  }
+  async function resolveVideo() {
+    video = BBWData.videoOf(quiz) || await BBWData.chapterVideo(quiz.course || course, quiz.subject || subject, quiz.chapter || chapter);
+    fillVideoSlot();
+  }
+  function fillVideoSlot() {
+    const slot = document.querySelector("#video-slot");
+    if (video && slot) slot.innerHTML = BBWUI.videoCard(video, "इस अध्याय का वीडियो", { cta: "Watch lecture ↗" });
   }
   function renderStart() {
     const totalMarks = quiz.questions.reduce((s, q) => s + Number(q.marks || 1), 0);
     document.title = `${quiz.title} • Bihar Board Wala`;
-    app.innerHTML = `<div class="container"><section class="card quiz-start"><div class="start-header"><div style="font-size:2rem">☑</div><h1>${BBWUI.escape(quiz.title)}</h1></div><div class="start-stats"><div class="stat"><strong>${quiz.questions.length}</strong><small>Questions</small></div><div class="stat"><strong>${quiz.timeLimitMinutes || "∞"}</strong><small>${quiz.timeLimitMinutes ? "Minutes" : "No limit"}</small></div><div class="stat"><strong>${totalMarks}</strong><small>Total marks</small></div></div><h3>Marking scheme</h3><div class="chips"><span class="chip good">+ Correct answer marks</span><span class="chip ${quiz.negativeMarkingEnabled ? "bad" : ""}">${quiz.negativeMarkingEnabled ? `−${quiz.negativeMarksPerQuestion} wrong` : "No negative marking"}</span><span class="chip">Pass: ${quiz.passingScore || 0}%</span></div><h3 style="margin-top:1.5rem">निर्देश / Instructions</h3><ol class="instructions"><li>हर प्रश्न का केवल एक सही उत्तर है।</li><li>उत्तर submit करने से पहले कभी भी बदल सकते हैं।</li><li>दोबारा देखने के लिए “Mark for review” चुनें।</li><li>Progress अपने-आप इस device पर save होती है।</li>${quiz.timeLimitMinutes ? "<li>Start दबाते ही timer शुरू होगा।</li>" : ""}</ol><button id="start-test" class="btn btn-saffron btn-block">Start Test • ${quiz.questions.length} Q</button></section></div>`;
+    app.innerHTML = `<div class="container"><section class="card quiz-start"><div class="start-header"><div style="font-size:2rem">☑</div><h1>${BBWUI.escape(quiz.title)}</h1></div><div class="start-stats"><div class="stat"><strong>${quiz.questions.length}</strong><small>Questions</small></div><div class="stat"><strong>${quiz.timeLimitMinutes || "∞"}</strong><small>${quiz.timeLimitMinutes ? "Minutes" : "No limit"}</small></div><div class="stat"><strong>${totalMarks}</strong><small>Total marks</small></div></div><h3>Marking scheme</h3><div class="chips"><span class="chip good">+ Correct answer marks</span><span class="chip ${quiz.negativeMarkingEnabled ? "bad" : ""}">${quiz.negativeMarkingEnabled ? `−${quiz.negativeMarksPerQuestion} wrong` : "No negative marking"}</span><span class="chip">Pass: ${quiz.passingScore || 0}%</span></div><div id="video-slot"></div><h3 style="margin-top:1.5rem">निर्देश / Instructions</h3><ol class="instructions"><li>हर प्रश्न का केवल एक सही उत्तर है।</li><li>उत्तर submit करने से पहले कभी भी बदल सकते हैं।</li><li>दोबारा देखने के लिए “Mark for review” चुनें।</li><li>Progress अपने-आप इस device पर save होती है।</li>${quiz.timeLimitMinutes ? "<li>Start दबाते ही timer शुरू होगा।</li>" : ""}</ol><button id="start-test" class="btn btn-saffron btn-block">Start Test • ${quiz.questions.length} Q</button></section></div>`;
     document.querySelector("#start-test").onclick = start;
+    fillVideoSlot();
   }
   function start() {
     let order = quiz.questions.map((_, i) => i);
@@ -111,6 +122,7 @@
     });
     const totalMarks = qs.reduce((s,q) => s + Number(q.marks || 1), 0), score = totalMarks ? Math.max(0, earned) / totalMarks * 100 : 0, attemptId = BBWData.uniqueId();
     const result = { attemptId, quizId: quiz.id, quizTitle: quiz.title, course: quiz.course || course, subject: quiz.subject || subject, chapter: quiz.chapter || chapter, test: quiz.test || test, startedAt: new Date(state.startedAt).toISOString(), submittedAt: new Date().toISOString(), timeTakenSeconds: quiz.timeLimitMinutes ? Math.max(0, state.duration - state.remaining) : Math.floor((Date.now() - state.startedAt) / 1000), totalQuestions: qs.length, correctAnswers: correct, wrongAnswers: wrong, skippedAnswers: skipped, earnedMarks: Number(earned.toFixed(2)), totalMarks, score: Number(score.toFixed(2)), passingScore: Number(quiz.passingScore || 0), passed: score >= Number(quiz.passingScore || 0), autoSubmitted: auto, review };
+    if (video) { result.videoUrl = video.url; result.videoTitle = video.title; }
     BBWData.saveResult(result); BBWData.clearAttempt(key); location.href = `result.html?attempt=${encodeURIComponent(attemptId)}`;
   }
 })();

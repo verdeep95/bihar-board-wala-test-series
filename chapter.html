@@ -14,6 +14,7 @@
   <main class="container page-stack">
     <div class="breadcrumbs"><a id="crumb-course" href="index.html?pick=1">Test Series</a><span>›</span><a id="crumb-subject" href="index.html">Subject</a><span>›</span><span id="crumb">Chapter</span></div>
     <section id="chapter-hero" class="subject-hero loading-block">Loading…</section>
+    <section id="chapter-video" hidden></section>
     <section>
       <div class="section-heading"><div><span class="eyebrow">AVAILABLE TESTS</span><h2 id="unit-heading">इस अध्याय के टेस्ट</h2></div></div>
       <div id="test-list" class="chapter-list loading-block">Loading tests…</div>
@@ -58,22 +59,31 @@
         const hero = document.querySelector("#chapter-hero");
         hero.classList.remove("loading-block");
         hero.innerHTML = `<span class="subject-icon large">${BBWUI.subjectIcon(subject.slug)}</span><div><span class="eyebrow">${BBWUI.escape(subjectName)}</span><h1>${BBWUI.escape(chapterName)}</h1><p>${section}${BBWUI.escape(BBWUI.secondary(chapter.title) || "")} • ${tests.length} test${tests.length === 1 ? "" : "s"} • ${questions} questions</p></div>`;
+        const videoEl = document.querySelector("#chapter-video");
+        const chapterVideo = BBWData.videoOf(chapter);
+        videoEl.hidden = false;
+        videoEl.innerHTML = BBWUI.videoCard(chapterVideo, "इस अध्याय का वीडियो", { placeholder: true, cta: "YouTube पर सीखें ↗" });
         const list = document.querySelector("#test-list");
         list.classList.remove("loading-block");
         list.innerHTML = tests.length ? tests.map((t, i) => {
           const best = BBWData.bestAttempt(course.slug, subject.slug, chapter.slug, t.slug);
+          const ownVideo = BBWData.videoOf(t);
           const meta = `${t.questionCount} questions${t.timeLimitMinutes ? ` • ${t.timeLimitMinutes} min` : ""}${t.quizType ? ` • ${String(t.quizType).replaceAll("_", " ")}` : ""}`;
           const badge = best
             ? `<span class="score-mini ${best.passed ? "success" : "warning"}">${Math.round(best.score)}%</span>`
             : `<span class="chapter-number">${String(i + 1).padStart(2, "0")}</span>`;
           const href = `test.html?course=${encodeURIComponent(course.slug)}&subject=${encodeURIComponent(subject.slug)}&chapter=${encodeURIComponent(chapter.slug)}&test=${encodeURIComponent(t.slug)}`;
-          return `<a class="chapter-card" href="${href}">${badge}<span class="chapter-info"><strong>${BBWUI.escape(t.title || `टेस्ट ${i + 1}`)}</strong><small>${BBWUI.escape(t.slug)} • ${meta}${best ? ` • Best ${Math.round(best.score)}%` : ""}</small></span><span class="btn btn-outline">${best ? "Retake →" : "Start test →"}</span></a>`;
+          const videoChip = ownVideo ? ` <span class="chip">▶ वीडियो</span>` : "";
+          return `<a class="chapter-card" href="${href}">${badge}<span class="chapter-info"><strong>${BBWUI.escape(t.title || `टेस्ट ${i + 1}`)}</strong><small>${BBWUI.escape(t.slug)} • ${meta}${best ? ` • Best ${Math.round(best.score)}%` : ""}${videoChip}</small></span><span class="btn btn-outline">${best ? "Retake →" : "Start test →"}</span></a>`;
         }).join("") : `<div class="empty-state"><h3>Coming soon</h3><p>इस ${BBWUI.escape(unit)} का टेस्ट अभी तैयार नहीं है।</p></div>`;
       } catch (error) {
         document.querySelector("#chapter-hero").classList.remove("loading-block");
         document.querySelector("#chapter-hero").innerHTML = BBWUI.errorState(error.message);
         document.querySelector("#test-list").classList.remove("loading-block");
         document.querySelector("#test-list").innerHTML = "";
+        const videoEl = document.querySelector("#chapter-video");
+        videoEl.hidden = true;
+        videoEl.innerHTML = "";
       }
     })();
   </script>

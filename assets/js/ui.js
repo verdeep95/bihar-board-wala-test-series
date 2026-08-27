@@ -45,6 +45,19 @@
     const style = course.accent ? ` style="--accent:${escape(course.accent)}"` : "";
     return `<a class="course-pill" href="index.html?pick=1"${style}><span class="course-pill-icon">${escape(course.icon || "📘")}</span>${escape(localized(course.name, course.slug))}<span aria-hidden="true">▾</span><span class="sr-only">कोर्स बदलें</span></a>`;
   }
+  function videoCard(video, heading, options) {
+    options = options || {};
+    const headingText = heading || "अध्याय का वीडियो";
+    if (!video) {
+      if (!options.placeholder) return "";
+      return `<div class="video-card is-soon" aria-disabled="true"><span class="video-play" aria-hidden="true">▶</span><span class="video-info"><strong>${escape(headingText)}</strong><small>वीडियो जल्द आ रहा है</small></span><span class="btn btn-ghost">Soon</span></div>`;
+    }
+    const title = video.title || "YouTube पर सीखें";
+    const note = options.note ? `<small>${escape(options.note)}</small>` : `<small>YouTube पर खुलता है</small>`;
+    const cta = options.cta || "YouTube पर देखें ↗";
+    const cls = `video-card${options.emphasise ? " is-revise" : ""}`;
+    return `<a class="${cls}" href="${escape(video.url)}" target="_blank" rel="noopener noreferrer"><span class="video-play" aria-hidden="true">▶</span><span class="video-info"><strong>${escape(headingText)}</strong><small>${escape(title)}</small>${note}</span><span class="btn btn-outline">${escape(cta)}</span></a>`;
+  }
   function errorState(message) {
     const fileHint = location.protocol === "file:" ? "<small>इसे file:// से नहीं, local HTTP server से खोलें।</small>" : "";
     return `<div class="error-state"><strong>कुछ गड़बड़ हुई</strong><p>${escape(message)}</p>${fileHint}</div>`;
@@ -88,5 +101,5 @@
   function closeSheet() { document.querySelector("#bbw-sheet")?.remove(); document.body.classList.remove("sheet-open"); document.removeEventListener("keydown", onEscape); }
   document.addEventListener("click", e => { if (e.target.closest(".theme-toggle")) toggleTheme(); });
   initTheme();
-  window.BBWUI = { escape, subjectIcon, localized, secondary, setBrandSubtitle, courseCard, coursePill, errorState, formatDuration, number, initTheme, toggleTheme, openSheet, closeSheet };
+  window.BBWUI = { escape, subjectIcon, localized, secondary, setBrandSubtitle, courseCard, coursePill, videoCard, errorState, formatDuration, number, initTheme, toggleTheme, openSheet, closeSheet };
 })();

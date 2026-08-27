@@ -32,6 +32,10 @@
       if (w[field] !== undefined && (!Number.isFinite(Number(w[field])) || Number(w[field]) < min || Number(w[field]) > max)) errors.push({ row: 0, field, message: `${field} must be between ${min} and ${max === Infinity ? "∞" : max}` });
     });
     if (w.quizType && !TYPES.includes(w.quizType)) errors.push({ row: 0, field: "quizType", message: `Unknown quizType: ${w.quizType}` });
+    if (w.youtubeUrl) {
+      const url = String(w.youtubeUrl).trim();
+      if (url && !(window.BBWData && BBWData.videoOf({ youtubeUrl: url }))) errors.push({ row: 0, field: "youtubeUrl", message: "youtubeUrl must be an https YouTube watch, playlist, live, or youtu.be link." });
+    }
     if (!w.title) warnings.push({ row: 0, message: "wrapper title is missing" });
   }
   function normalizeQuestion(q) {
