@@ -11,7 +11,10 @@ cd bihar-board-wala-test-series
 python -m http.server 8000
 ```
 
-Open <http://localhost:8000>. The admin is at <http://localhost:8000/admin.html>.
+Open <http://localhost:8000>. The admin is at <http://localhost:8000/publisher-6cf926d795.html>.
+
+The admin page is deliberately not linked from the student site and uses an unguessable
+filename. Treat that URL as a secret; anyone who has it can open the publisher UI.
 
 ## GitHub Pages
 
@@ -42,7 +45,7 @@ Students go **subject → chapter → test**. Example:
 
 ## Admin workflow
 
-1. Open `admin.html`.
+1. Open `publisher-6cf926d795.html`.
 2. Choose a subject tab and click the chapter.
 3. Pick an existing test, or click **+ New test** (next free `test-N` slug).
 4. Drop or paste JSON. A bare question array is attached to that selected test automatically.
