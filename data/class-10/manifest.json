@@ -1271,7 +1271,9 @@
               "questionCount": 15,
               "timeLimitMinutes": 15,
               "quizType": "CHAPTER_TEST",
-              "updatedAt": "2026-08-27T00:00:00.000Z"
+              "updatedAt": "2026-08-27T00:00:00.000Z",
+              "youtubeUrl": "https://youtu.be/lHmH8DR7q54",
+              "youtubeTitle": "अर्थव्यवस्था एवं इसके विकास का इतिहास (MCQ)"
             },
             {
               "id": "social-science-arthvyavastha-vikas-itihas-test-3",
@@ -1283,7 +1285,9 @@
               "quizType": "CHAPTER_TEST",
               "updatedAt": "2026-08-28T00:00:00.000Z"
             }
-          ]
+          ],
+          "youtubeUrl": "https://youtu.be/0vl4Ad1tCR4",
+          "youtubeTitle": "अर्थव्यवस्था एवं इसके विकास का इतिहास (पूरा अध्याय देखे)"
         },
         {
           "id": "chapter-rajya-rashtra-ki-aay",
