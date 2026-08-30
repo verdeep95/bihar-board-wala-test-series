@@ -269,7 +269,47 @@
             "en": "Collapsing Faith",
             "hi": "ढहते विश्वास"
           },
-          "section": "purak"
+          "section": "purak",
+          "tests": [
+            {
+              "id": "hindi-dhahate-vishwas-test-1",
+              "slug": "test-1",
+              "title": "Practice Test 1",
+              "file": "data/class-10/hindi/dhahate-vishwas/test-1.json",
+              "questionCount": 10,
+              "timeLimitMinutes": 10,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-08-30T06:50:00.000Z",
+              "youtubeUrl": "https://youtu.be/-_ajxBGgNOc",
+              "youtubeTitle": "ढहते विश्वास (MCQ)"
+            },
+            {
+              "id": "hindi-dhahate-vishwas-test-2",
+              "slug": "test-2",
+              "title": "Practice Test 2",
+              "file": "data/class-10/hindi/dhahate-vishwas/test-2.json",
+              "questionCount": 10,
+              "timeLimitMinutes": 10,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-08-30T06:52:00.000Z",
+              "youtubeUrl": "https://youtu.be/-_ajxBGgNOc",
+              "youtubeTitle": "ढहते विश्वास (MCQ)"
+            },
+            {
+              "id": "hindi-dhahate-vishwas-test-3",
+              "slug": "test-3",
+              "title": "Practice Test 3",
+              "file": "data/class-10/hindi/dhahate-vishwas/test-3.json",
+              "questionCount": 10,
+              "timeLimitMinutes": 10,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-08-30T12:27:00.000Z",
+              "youtubeUrl": "https://youtu.be/-_ajxBGgNOc",
+              "youtubeTitle": "ढहते विश्वास (MCQ)"
+            }
+          ],
+          "youtubeUrl": "https://youtu.be/1WbcdQc5API",
+          "youtubeTitle": "ढहते विश्वास (पूरी कहानी देखे)"
         },
         {
           "id": "chapter-maa",
@@ -278,7 +318,47 @@
             "en": "Mother",
             "hi": "माँ"
           },
-          "section": "purak"
+          "section": "purak",
+          "tests": [
+            {
+              "id": "hindi-maa-test-1",
+              "slug": "test-1",
+              "title": "Practice Test 1",
+              "file": "data/class-10/hindi/maa/test-1.json",
+              "questionCount": 10,
+              "timeLimitMinutes": 10,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-08-30T07:14:00.000Z",
+              "youtubeUrl": "https://youtu.be/mk-g-A3V8qg",
+              "youtubeTitle": "माँ (MCQ)"
+            },
+            {
+              "id": "hindi-maa-test-2",
+              "slug": "test-2",
+              "title": "Practice Test 2",
+              "file": "data/class-10/hindi/maa/test-2.json",
+              "questionCount": 15,
+              "timeLimitMinutes": 15,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-08-30T07:20:00.000Z",
+              "youtubeUrl": "https://youtu.be/mk-g-A3V8qg",
+              "youtubeTitle": "माँ (MCQ)"
+            },
+            {
+              "id": "hindi-maa-test-3",
+              "slug": "test-3",
+              "title": "Practice Test 3",
+              "file": "data/class-10/hindi/maa/test-3.json",
+              "questionCount": 15,
+              "timeLimitMinutes": 15,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-08-30T07:25:00.000Z",
+              "youtubeUrl": "https://youtu.be/mk-g-A3V8qg",
+              "youtubeTitle": "माँ (MCQ)"
+            }
+          ],
+          "youtubeUrl": "https://youtu.be/d1O6TI10E5o",
+          "youtubeTitle": "माँ (पूरी कहानी देखे)"
         },
         {
           "id": "chapter-nagar",
@@ -1192,6 +1272,16 @@
               "timeLimitMinutes": 15,
               "quizType": "CHAPTER_TEST",
               "updatedAt": "2026-08-27T00:00:00.000Z"
+            },
+            {
+              "id": "social-science-arthvyavastha-vikas-itihas-test-3",
+              "slug": "test-3",
+              "title": "Practice Test 3",
+              "file": "data/class-10/social-science/arthvyavastha-vikas-itihas/test-3.json",
+              "questionCount": 15,
+              "timeLimitMinutes": 15,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-08-28T00:00:00.000Z"
             }
           ]
         },
