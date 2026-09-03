@@ -31,14 +31,15 @@
     const icon = `<span class="course-icon">${escape(course.icon || "📘")}</span>`;
     const chips = soon
       ? `<span class="chip">जल्द आ रहा है</span>`
-      : `<span class="chip">${number(course.subjectCount || 0)} विषय</span><span class="chip good">${number(course.testCount || 0)} टेस्ट</span>`;
+      : `<span class="chip live">Live</span><span class="chip">${number(course.subjectCount || 0)} विषय</span><span class="chip good">${number(course.testCount || 0)} टेस्ट</span>`;
     const note = !soon && progress
       ? `<span class="course-progress">${number(progress.attempts)} टेस्ट दिए • बेस्ट ${progress.bestScore}%</span>`
-      : !soon ? `<span class="course-progress muted">${escape(localized(course.tagline, ""))}</span>` : "";
-    const body = `${icon}<span class="course-body"><strong>${name}</strong>${en ? `<small>${escape(en)}</small>` : ""}<span class="course-meta">${chips}</span>${note}</span>`;
+      : `<span class="course-progress muted">${escape(localized(course.tagline, ""))}</span>`;
+    const cta = soon ? "" : `<span class="course-cta">Start →</span>`;
+    const body = `${icon}<span class="course-body"><strong>${name}</strong>${en ? `<small>${escape(en)}</small>` : ""}${note}<span class="course-meta">${chips}</span>${cta}</span>`;
     return soon
       ? `<div class="course-card is-soon" aria-disabled="true"${style}>${body}</div>`
-      : `<a class="course-card" href="course.html?course=${encodeURIComponent(course.slug)}"${style}>${body}</a>`;
+      : `<a class="course-card is-live" href="course.html?course=${encodeURIComponent(course.slug)}"${style}>${body}</a>`;
   }
   function coursePill(course) {
     if (!course) return "";

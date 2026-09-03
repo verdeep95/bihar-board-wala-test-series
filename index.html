@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#4f46e5">
   <title>Bihar Board Wala Test Series</title>
   <link rel="icon" href="assets/img/logo-mark.png" type="image/png">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=8">
 </head>
 <body>
   <header class="site-header">
@@ -29,7 +29,7 @@
     </section>
   </main>
   <footer>© Bihar Board Wala • अभ्यास करें, आगे बढ़ें</footer>
-  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/ui.js?v=6"></script>
   <script src="assets/js/data.js"></script>
   <script>
     const redirected = (() => {
@@ -40,23 +40,22 @@
       location.replace(`course.html?course=${encodeURIComponent(target)}`);
       return true;
     })();
-    const TYPE_LABELS = { board: "बोर्ड परीक्षा", competition: "प्रतियोगी परीक्षा" };
     (async () => {
       if (redirected) return;
       try {
         const courses = await BBWData.loadCourses();
         if (!courses.length) throw new Error("कोई कोर्स नहीं मिला। data/manifest.json जाँचें।");
-        const groups = new Map();
-        courses.forEach(c => {
-          const key = c.type || "other";
-          if (!groups.has(key)) groups.set(key, []);
-          groups.get(key).push(c);
-        });
+        const live = courses.filter(c => c.status !== "coming-soon");
+        const soon = courses.filter(c => c.status === "coming-soon");
+        const groups = [
+          ["live", "AVAILABLE NOW", "Live टेस्ट सीरीज़", live],
+          ["soon", "COMING SOON", "जल्द आ रहा है", soon]
+        ].filter(row => row[3].length);
         const container = document.querySelector("#course-groups");
         container.classList.remove("loading-block");
-        container.innerHTML = [...groups].map(([type, list]) => `
-          <div class="course-group">
-            <div class="section-heading"><div><h3>${BBWUI.escape(TYPE_LABELS[type] || "अन्य कोर्स")}</h3></div><span class="badge badge-primary">${list.filter(c => c.status !== "coming-soon").length}/${list.length} live</span></div>
+        container.innerHTML = groups.map(([key, eyebrow, title, list]) => `
+          <div class="course-group ${key === "live" ? "is-live" : "is-soon-group"}">
+            <div class="section-heading"><div><span class="eyebrow">${eyebrow}</span><h3>${BBWUI.escape(title)}</h3></div><span class="badge badge-primary">${list.length}</span></div>
             <div class="course-grid">${list.map(c => BBWUI.courseCard(c, BBWData.courseProgress(c.slug))).join("")}</div>
           </div>`).join("");
         renderHistory(courses);

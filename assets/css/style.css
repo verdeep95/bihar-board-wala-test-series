@@ -17,3 +17,44 @@ a.video-card:hover{transform:translateY(-2px);border-color:hsl(var(--primary)/.4
 #video-slot{margin-top:1rem}
 .quiz-start #video-slot{margin:1rem 0 0}
 @media(max-width:600px){.video-card .btn-outline{display:none}}
+.chip.live{border-color:hsl(var(--success)/.35);background:hsl(var(--success)/.14);color:hsl(var(--success))}
+.course-card.is-live{background:linear-gradient(165deg,hsl(var(--accent,var(--primary))/.1),hsl(var(--card)) 46%)}
+.course-body strong,.course-progress{overflow-wrap:anywhere}
+.course-cta{margin-top:.55rem;font-size:.78rem;font-weight:800;color:hsl(var(--accent,var(--primary)))}
+.course-group.is-live .course-grid,.course-group.is-soon-group .course-grid{grid-template-columns:1fr}
+@media(max-width:649px){
+  .section-heading{align-items:flex-start}
+  .page-stack:has(.pick-hero)>*+*{margin-top:1.2rem}
+  .pick-hero{margin-top:.75rem}
+  .pick-hero h1{font-size:clamp(1.4rem,7vw,1.9rem)}
+  .pick-hero p{font-size:.9rem;line-height:1.45}
+  .pick-hero .chips{margin-top:.55rem!important}
+  .course-grid{gap:.9rem}
+  .course-group.is-live .course-card{
+    flex-direction:column;
+    gap:.75rem;
+    padding:1.15rem 1.1rem 1.1rem 1.2rem;
+    min-height:9.5rem;
+  }
+  .course-group.is-live .course-icon{width:3.35rem;height:3.35rem;border-radius:1rem;font-size:1.15rem;letter-spacing:.02em}
+  .course-group.is-live .course-body strong{font-size:1.18rem;line-height:1.2}
+  .course-group.is-live .course-body small{font-size:.78rem}
+  .course-group.is-live .course-progress{font-size:.8rem;line-height:1.35}
+  .course-group.is-live .course-meta{margin-top:.55rem;gap:.4rem}
+  .course-group.is-live .course-meta .chip{padding:.22rem .55rem;font-size:.7rem}
+  .course-group.is-live .course-cta{display:inline-flex;align-items:center;align-self:flex-start;margin-top:.7rem;padding:.45rem .8rem;border-radius:99px;background:hsl(var(--accent,var(--primary))/.12)}
+  .course-group.is-soon-group .course-card{align-items:flex-start;gap:.75rem;padding:.95rem 1rem .95rem 1.1rem}
+  .course-group.is-soon-group .course-icon{width:2.7rem;height:2.7rem;font-size:1.05rem}
+  .course-group.is-soon-group .course-body strong{font-size:1rem}
+}
+@media(min-width:560px){
+  .course-group.is-live .course-grid,.course-group.is-soon-group .course-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(min-width:650px){
+  .course-group.is-soon-group .course-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .course-group.is-live .course-card{min-height:11.5rem}
+}
+@media(min-width:900px){
+  .course-group.is-live .course-grid{grid-template-columns:repeat(2,minmax(0,22rem))}
+  .course-group.is-soon-group .course-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
