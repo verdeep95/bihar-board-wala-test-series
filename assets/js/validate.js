@@ -1,7 +1,7 @@
 (function () {
   "use strict";
   const TYPES = ["LECTURE_QUIZ", "CHAPTER_QUIZ", "CHAPTER_TEST", "SUBJECT_TEST", "MOCK_TEST", "PRACTICE_SET", "PYQ_TEST"];
-  const defaults = { id: "", title: "", course: "", subject: "", chapter: "", quizType: "CHAPTER_TEST", timeLimitMinutes: 10, passingScore: 33, negativeMarkingEnabled: false, negativeMarksPerQuestion: 0, shuffle: false };
+  const defaults = { id: "", title: "", course: "", subject: "", chapter: "", quizType: "CHAPTER_TEST", timeLimitMinutes: 10, passingScore: 33, negativeMarkingEnabled: false, negativeMarksPerQuestion: 0, negativeMarkingOnSkip: false, shuffle: false };
   function parse(input) {
     if (typeof input === "string") {
       try { input = JSON.parse(input); } catch (e) { return result([], [{ row: 0, field: "json", message: `Invalid JSON: ${e.message}` }], [], null, false); }
@@ -14,10 +14,11 @@
     questions.forEach((raw, i) => {
       const rowErrors = [], rowWarnings = [], row = normalizeQuestion(raw);
       if (!row.question) rowErrors.push("question is required");
+      const optCount = row.option5 ? 5 : 4;
       for (let n = 1; n <= 4; n++) if (!row[`option${n}`]) rowErrors.push(`option${n} is required`);
-      if (!Number.isInteger(Number(row.correctOption)) || Number(row.correctOption) < 1 || Number(row.correctOption) > 4) rowErrors.push("correctOption must be 1..4");
+      if (!Number.isInteger(Number(row.correctOption)) || Number(row.correctOption) < 1 || Number(row.correctOption) > optCount) rowErrors.push(`correctOption must be 1..${optCount}`);
       if (!Number.isFinite(Number(row.marks)) || Number(row.marks) <= 0) rowErrors.push("marks must be positive");
-      const opts = [1, 2, 3, 4].map(n => row[`option${n}`].trim().toLowerCase()).filter(Boolean);
+      const opts = Array.from({ length: optCount }, (_, i) => row[`option${i + 1}`].trim().toLowerCase()).filter(Boolean);
       if (new Set(opts).size < opts.length) rowWarnings.push("duplicate identical options");
       if (!row.explanation) rowWarnings.push("explanation is missing");
       rowErrors.forEach(message => errors.push({ row: i + 1, field: "question", message }));
@@ -40,7 +41,10 @@
   }
   function normalizeQuestion(q) {
     q = q && typeof q === "object" ? q : {};
-    return { question: String(q.question || "").trim(), option1: String(q.option1 || "").trim(), option2: String(q.option2 || "").trim(), option3: String(q.option3 || "").trim(), option4: String(q.option4 || "").trim(), correctOption: String(q.correctOption == null ? "" : q.correctOption), explanation: String(q.explanation || "").trim(), marks: Number(q.marks == null ? 1 : q.marks) };
+    const row = { question: String(q.question || "").trim(), option1: String(q.option1 || "").trim(), option2: String(q.option2 || "").trim(), option3: String(q.option3 || "").trim(), option4: String(q.option4 || "").trim(), correctOption: String(q.correctOption == null ? "" : q.correctOption), explanation: String(q.explanation || "").trim(), marks: Number(q.marks == null ? 1 : q.marks) };
+    const option5 = String(q.option5 || "").trim();
+    if (option5) row.option5 = option5;
+    return row;
   }
   function result(rows, errors, warnings, wrapper, bare) {
     return { totalRows: rows.length, validRows: rows.filter(r => r.valid).length, invalidRows: rows.filter(r => !r.valid).length, rows, errors, warnings, wrapper, bareArray: bare };
@@ -55,6 +59,7 @@
     meta.passingScore = Number(meta.passingScore || 0);
     meta.negativeMarkingEnabled = Boolean(meta.negativeMarkingEnabled);
     meta.negativeMarksPerQuestion = Number(meta.negativeMarksPerQuestion || 0);
+    meta.negativeMarkingOnSkip = Boolean(meta.negativeMarkingOnSkip);
     meta.shuffle = Boolean(meta.shuffle);
     return meta;
   }

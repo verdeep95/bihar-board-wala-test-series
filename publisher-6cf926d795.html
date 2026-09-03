@@ -87,6 +87,7 @@
           <label class="field"><span>Passing score %</span><input id="meta-pass" type="number" min="0" max="100" value="33"></label>
           <label class="field"><span>Negative marks / wrong</span><input id="meta-negative-value" type="number" min="0" step=".01" value="0" disabled></label>
           <label class="check-row"><input id="meta-negative" type="checkbox"> Negative marking</label>
+          <label class="check-row"><input id="meta-skip-penalty" type="checkbox"> − marks on unanswered (TRE)</label>
           <label class="check-row"><input id="meta-shuffle" type="checkbox"> Shuffle questions</label>
           <label class="field wide"><span>Test YouTube URL (optional override)</span><input id="meta-youtube" placeholder="https://youtu.be/… — blank = use chapter video"></label>
           <label class="field wide"><span>Test video title (optional)</span><input id="meta-youtube-title" placeholder="इस टेस्ट से पहले यह वीडियो देखें"></label>
@@ -105,7 +106,8 @@
           <label class="field"><span>Option 2</span><input id="q-option2" required></label>
           <label class="field"><span>Option 3</span><input id="q-option3" required></label>
           <label class="field"><span>Option 4</span><input id="q-option4" required></label>
-          <label class="field"><span>Correct option</span><select id="q-correct"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></label>
+          <label class="field"><span>Option 5 (optional, TRE E)</span><input id="q-option5" placeholder="Not Attempted"></label>
+          <label class="field"><span>Correct option</span><select id="q-correct"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></label>
           <label class="field"><span>Marks</span><input id="q-marks" type="number" min=".01" step=".01" value="1"></label>
           <label class="field wide"><span>Explanation</span><textarea id="q-explanation"></textarea></label>
           <div class="button-row wide">
@@ -142,9 +144,9 @@
 <footer>Admin data stays in this browser until you download it.</footer>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script src="assets/js/ui.js"></script>
-<script src="assets/js/data.js"></script>
+<script src="assets/js/data.js?v=5"></script>
 <script src="assets/js/math-text.js"></script>
 <script src="assets/js/validate.js"></script>
-<script src="assets/js/admin.js"></script>
+<script src="assets/js/admin.js?v=5"></script>
 </body>
 </html>

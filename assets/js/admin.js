@@ -6,7 +6,7 @@
   let activeSubject = "", selectedSlug = "", selectedTestSlug = "test-1";
   let rootDirty = false;
   const $ = s => document.querySelector(s);
-  const fields = { title:"#meta-title", course:"#meta-course", subject:"#meta-subject", chapter:"#meta-chapter", test:"#meta-test", hi:"#meta-hi", en:"#meta-en", quizType:"#meta-type", timeLimitMinutes:"#meta-time", passingScore:"#meta-pass", negativeMarkingEnabled:"#meta-negative", negativeMarksPerQuestion:"#meta-negative-value", shuffle:"#meta-shuffle", youtubeUrl:"#meta-youtube", youtubeTitle:"#meta-youtube-title" };
+  const fields = { title:"#meta-title", course:"#meta-course", subject:"#meta-subject", chapter:"#meta-chapter", test:"#meta-test", hi:"#meta-hi", en:"#meta-en", quizType:"#meta-type", timeLimitMinutes:"#meta-time", passingScore:"#meta-pass", negativeMarkingEnabled:"#meta-negative", negativeMarksPerQuestion:"#meta-negative-value", negativeMarkingOnSkip:"#meta-skip-penalty", shuffle:"#meta-shuffle", youtubeUrl:"#meta-youtube", youtubeTitle:"#meta-youtube-title" };
   BBWValidate.quizTypes.forEach(t => $("#meta-type").add(new Option(t.replaceAll("_", " "), t)));
   $("#meta-type").value = "CHAPTER_TEST";
   bind();
@@ -92,6 +92,46 @@
       renderSubjectTabs(); renderChapterList(); renderTestStrip(); updateMetaUi();
       status(`${slug} में अभी कोई subject नहीं है। "+ नया विषय" से पहला subject बनाएँ।`);
     }
+    applyCoursePatternToForm(options);
+  }
+
+  function examPattern() { return courseManifest && courseManifest.examPattern || null; }
+  function defaultQuizSettings() {
+    const p = examPattern();
+    if (!p) return { quizType: "CHAPTER_TEST", timeLimitMinutes: 10, passingScore: 33, negativeMarkingEnabled: false, negativeMarksPerQuestion: 0, negativeMarkingOnSkip: false, shuffle: false, youtubeUrl: "", youtubeTitle: "" };
+    return {
+      quizType: p.classQuizType || "LECTURE_QUIZ",
+      timeLimitMinutes: p.classTimeLimitMinutes || 20,
+      passingScore: p.passingScore || 33,
+      negativeMarkingEnabled: true,
+      negativeMarksPerQuestion: p.negativeMarksPerQuestion == null ? 1 / 3 : p.negativeMarksPerQuestion,
+      negativeMarkingOnSkip: true,
+      shuffle: true,
+      youtubeUrl: "",
+      youtubeTitle: ""
+    };
+  }
+  function applyCoursePatternToForm(options = {}) {
+    const p = examPattern();
+    if (!p) {
+      if (!options.keepTitle) $("#meta-skip-penalty").checked = false;
+      return;
+    }
+    const existing = publishedTests().find(t => t.slug === selectedTestSlug);
+    if (existing && existing.quizType) $("#meta-type").value = existing.quizType;
+    else if (!options.keepTitle) $("#meta-type").value = p.classQuizType || "LECTURE_QUIZ";
+    if (existing && existing.timeLimitMinutes != null) $("#meta-time").value = existing.timeLimitMinutes;
+    else if (!options.keepTitle) {
+      const type = $("#meta-type").value;
+      const classTypes = p.classQuizTypes || ["LECTURE_QUIZ", "CHAPTER_QUIZ", "CHAPTER_TEST", "PRACTICE_SET", "PYQ_TEST"];
+      if (classTypes.includes(type)) $("#meta-time").value = p.classTimeLimitMinutes || 20;
+    }
+    $("#meta-negative").checked = true;
+    $("#meta-negative-value").value = p.negativeMarksPerQuestion == null ? 1 / 3 : p.negativeMarksPerQuestion;
+    $("#meta-negative-value").disabled = false;
+    $("#meta-skip-penalty").checked = true;
+    $("#meta-shuffle").checked = true;
+    updateMetaUi();
   }
 
   function populateSubjectSelect() {
@@ -178,6 +218,7 @@
     $("#selected-test-badge").textContent = selectedTestSlug;
     fillChapterVideoFields(chapter);
     if (!options.keepTitle) fillTestVideoFields(tests.find(t => t.slug === selectedTestSlug));
+    applyCoursePatternToForm(options);
     updateMetaUi();
     renderChapterList();
     renderTestStrip();
@@ -216,6 +257,7 @@
     } else if (!options.keepTitle) fillTestVideoFields(null);
     renderTestStrip();
     updateMetaUi();
+    applyCoursePatternToForm(options);
     if (!options.silent) {
       status(`${slug} selected. JSON ${currentPath()} पर attach होगा।`);
       saveDraft();
@@ -231,7 +273,7 @@
     selectedTestSlug = next;
     $("#meta-test").value = next;
     $("#meta-title").value = `${$("#meta-hi").value} - अध्याय टेस्ट ${testNumber(next)}`;
-    populateQuizSettings({ quizType: "CHAPTER_TEST", timeLimitMinutes: 10, passingScore: 33, negativeMarkingEnabled: false, negativeMarksPerQuestion: 0, shuffle: false, youtubeUrl: "", youtubeTitle: "" });
+    populateQuizSettings(defaultQuizSettings());
     $("#validation-stats").innerHTML = "";
     $("#issues").innerHTML = '<p class="muted">No data loaded.</p>';
     renderQuestions();
@@ -406,6 +448,7 @@
       passingScore: m.passingScore,
       negativeMarkingEnabled: m.negativeMarkingEnabled,
       negativeMarksPerQuestion: m.negativeMarksPerQuestion,
+      negativeMarkingOnSkip: m.negativeMarkingOnSkip,
       shuffle: m.shuffle,
       youtubeUrl: m.youtubeUrl,
       youtubeTitle: m.youtubeTitle,
@@ -419,6 +462,7 @@
     $("#meta-negative").checked = Boolean(w.negativeMarkingEnabled);
     $("#meta-negative-value").value = w.negativeMarksPerQuestion || 0;
     $("#meta-negative-value").disabled = !w.negativeMarkingEnabled;
+    $("#meta-skip-penalty").checked = Boolean(w.negativeMarkingOnSkip);
     $("#meta-shuffle").checked = Boolean(w.shuffle);
     fillTestVideoFields(w);
     updateMetaUi();
@@ -435,7 +479,7 @@
     return m;
   }
   function normalized() {
-    const raw = BBWValidate.normalize(questions, metadata());
+    const raw = BBWData.applyExamPattern(BBWValidate.normalize(questions, metadata()), examPattern());
     const out = {
       id: raw.id,
       title: raw.title,
@@ -447,6 +491,7 @@
       passingScore: raw.passingScore,
       negativeMarkingEnabled: raw.negativeMarkingEnabled,
       negativeMarksPerQuestion: raw.negativeMarksPerQuestion,
+      negativeMarkingOnSkip: raw.negativeMarkingOnSkip,
       shuffle: raw.shuffle,
       questions: raw.questions
     };
@@ -473,7 +518,7 @@
       const q = questions[i];
       $("#edit-index").value = i;
       $("#q-question").value = q.question;
-      [1, 2, 3, 4].forEach(n => $("#q-option" + n).value = q["option" + n]);
+      [1, 2, 3, 4, 5].forEach(n => { const el = $("#q-option" + n); if (el) el.value = q["option" + n] || ""; });
       $("#q-correct").value = q.correctOption;
       $("#q-explanation").value = q.explanation;
       $("#q-marks").value = q.marks;
@@ -486,11 +531,22 @@
     e.preventDefault();
     if (!requireChapter()) return;
     const q = { question: $("#q-question").value, option1: $("#q-option1").value, option2: $("#q-option2").value, option3: $("#q-option3").value, option4: $("#q-option4").value, correctOption: $("#q-correct").value, explanation: $("#q-explanation").value, marks: Number($("#q-marks").value || 1) };
+    const option5 = ($("#q-option5").value || "").trim();
+    const p = examPattern();
+    if (p) q.option5 = option5 || p.notAttemptedLabel || "Not Attempted";
+    else if (option5) q.option5 = option5;
     const one = BBWValidate.parse([q]); if (one.errors.length) { status(one.errors[0].message, true); return; }
     const i = $("#edit-index").value; if (i === "") questions.push(q); else questions[Number(i)] = q;
     clearEditor(); revalidate(); renderQuestions(); saveDraft(); status("Question saved.");
   }
-  function clearEditor() { $("#question-form").reset(); $("#edit-index").value = ""; $("#q-marks").value = 1; $("#q-correct").value = 1; }
+  function clearEditor() {
+    $("#question-form").reset();
+    $("#edit-index").value = "";
+    $("#q-marks").value = 1;
+    $("#q-correct").value = 1;
+    const p = examPattern();
+    if (p) $("#q-option5").value = p.notAttemptedLabel || "Not Attempted";
+  }
   function renderPreview() {
     const slot = $("#video-preview");
     if (slot) {
@@ -502,7 +558,7 @@
         : `<p class="muted" style="margin:0">No YouTube link — chapter page will show “वीडियो जल्द आ रहा है”.</p>`;
     }
     if (!questions.length) { $("#answer-preview").innerHTML = "No questions loaded."; return; }
-    $("#answer-preview").innerHTML = questions.map((q, i) => `<div class="answer-item"><strong>${i + 1}. ${BBWMath.render(q.question)}</strong><div class="success">✓ ${"ABCD"[Number(q.correctOption) - 1]}. ${BBWMath.render(q["option" + q.correctOption])}</div>${q.explanation ? `<small>${BBWMath.render(q.explanation)}</small>` : ""}</div>`).join("");
+    $("#answer-preview").innerHTML = questions.map((q, i) => `<div class="answer-item"><strong>${i + 1}. ${BBWMath.render(q.question)}</strong><div class="success">✓ ${BBWData.optionLetter(q.correctOption)}. ${BBWMath.render(q["option" + q.correctOption])}</div>${q.explanation ? `<small>${BBWMath.render(q.explanation)}</small>` : ""}</div>`).join("");
   }
   function updateMetaUi() {
     $("#meta-course").value = activeCourse;
@@ -536,12 +592,12 @@
 
   function buildCourseManifest() {
     const m = metadata();
-    const manifest = {
+    const manifest = Object.assign({}, courseManifest, {
       version: 2,
       course: activeCourse,
       sectionLabels: courseManifest.sectionLabels || {},
       subjects: (courseManifest.subjects || []).map(s => Object.assign({}, s, { chapters: s.chapters.slice() }))
-    };
+    });
     let subject = manifest.subjects.find(s => s.slug === m.subject);
     if (!subject) {
       subject = { id: m.subject, slug: m.subject, name: { en: m.subject, hi: m.subject }, chapters: [] };
@@ -627,7 +683,25 @@
   }
   function downloadTemplate() {
     const m = metadata();
-    BBWData.downloadJson({ id: `${m.subject || "subject"}-${m.chapter || "chapter"}-${m.test || "test-1"}`, title: m.title || "अध्याय टेस्ट 1", course: activeCourse, subject: m.subject, chapter: m.chapter, quizType: "CHAPTER_TEST", timeLimitMinutes: 10, passingScore: 33, negativeMarkingEnabled: false, negativeMarksPerQuestion: 0, shuffle: false, questions: [{ question: "प्रश्न लिखें", option1: "विकल्प 1", option2: "विकल्प 2", option3: "विकल्प 3", option4: "विकल्प 4", correctOption: "1", explanation: "व्याख्या", marks: 1 }] }, `${m.test || "test-1"}-template.json`);
+    const d = defaultQuizSettings();
+    const p = examPattern();
+    const sample = { question: "प्रश्न लिखें", option1: "विकल्प 1", option2: "विकल्प 2", option3: "विकल्प 3", option4: "विकल्प 4", correctOption: "1", explanation: p ? "विधि:\n\nजाँच:\n\nकटौती:\n\nTRAP:" : "व्याख्या", marks: 1 };
+    if (p) sample.option5 = p.notAttemptedLabel || "Not Attempted";
+    BBWData.downloadJson({
+      id: `${m.subject || "subject"}-${m.chapter || "chapter"}-${m.test || "test-1"}`,
+      title: m.title || (p ? "Class quiz" : "अध्याय टेस्ट 1"),
+      course: activeCourse,
+      subject: m.subject,
+      chapter: m.chapter,
+      quizType: d.quizType,
+      timeLimitMinutes: d.timeLimitMinutes,
+      passingScore: d.passingScore,
+      negativeMarkingEnabled: d.negativeMarkingEnabled,
+      negativeMarksPerQuestion: d.negativeMarksPerQuestion,
+      negativeMarkingOnSkip: d.negativeMarkingOnSkip,
+      shuffle: d.shuffle,
+      questions: [sample]
+    }, `${m.test || "test-1"}-template.json`);
   }
   function saveDraft() { try { localStorage.setItem(DRAFT, JSON.stringify({ questions, metadata: metadata(), hi: $("#meta-hi").value, en: $("#meta-en").value, sourceWrapper, test: selectedTestSlug, chapterYoutubeUrl: $("#chapter-youtube").value, chapterYoutubeTitle: $("#chapter-youtube-title").value })); } catch (_) {} }
   function restoreDraft() {

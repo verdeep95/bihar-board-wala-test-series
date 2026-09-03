@@ -80,6 +80,22 @@
       "subjectCount": 0,
       "testCount": 0,
       "questionCount": 0
+    },
+    {
+      "id": "bpsc-tre-4",
+      "slug": "bpsc-tre-4",
+      "type": "competition",
+      "status": "live",
+      "order": 6,
+      "icon": "CS",
+      "accent": "199 89% 48%",
+      "name": { "en": "Computer Science", "hi": "BPSC TRE 4.0 CS" },
+      "tagline": { "en": "Higher Secondary · 80-mark paper", "hi": "Higher Secondary · 80-mark paper" },
+      "unitLabel": { "en": "Chapter", "hi": "Chapter" },
+      "manifest": "data/bpsc-tre-4/manifest.json",
+      "subjectCount": 1,
+      "testCount": 1,
+      "questionCount": 20
     }
   ]
 }

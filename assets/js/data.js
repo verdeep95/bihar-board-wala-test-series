@@ -146,10 +146,86 @@
   function savePractice(value) { sessionStorage.setItem(PRACTICE, JSON.stringify(value)); }
   function getPractice() { try { return JSON.parse(sessionStorage.getItem(PRACTICE)); } catch (_) { return null; } }
   function uniqueId() { return `a-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 9)}`; }
+  const OPTION_LETTERS = "ABCDE";
+  function optionCount(q) { return String((q && q.option5) || "").trim() ? 5 : 4; }
+  function optionLetter(n) { return OPTION_LETTERS.charAt(Number(n) - 1) || ""; }
+  function optionsOf(q) { return Array.from({ length: optionCount(q) }, (_, i) => q["option" + (i + 1)] || ""); }
+  function negativeMarkLabel(quiz) {
+    if (!quiz || !quiz.negativeMarkingEnabled) return "No negative marking";
+    const n = Number(quiz.negativeMarksPerQuestion || 0);
+    const frac = Math.abs(n - 1 / 3) < 1e-6 ? "1/3" : String(n);
+    return quiz.negativeMarkingOnSkip ? `−${frac} wrong or unanswered` : `−${frac} wrong`;
+  }
+  function isMoreThanOneOption(text, pattern) {
+    const label = String((pattern && pattern.moreThanOneLabel) || "More than one of the above").trim().toLowerCase();
+    return String(text || "").trim().toLowerCase() === label;
+  }
+  function lockMoreThanOneAsD(q, pattern) {
+    if (!pattern || pattern.lockMoreThanOneAsD === false) return q;
+    const opts = [q.option1, q.option2, q.option3, q.option4];
+    const idx = opts.findIndex(t => isMoreThanOneOption(t, pattern));
+    if (idx < 0 || idx === 3) return q;
+    const next = Object.assign({}, q);
+    const moved = opts[idx];
+    opts.splice(idx, 1);
+    opts.push(moved);
+    next.option1 = opts[0]; next.option2 = opts[1]; next.option3 = opts[2]; next.option4 = opts[3];
+    const correct = Number(q.correctOption);
+    if (correct === idx + 1) next.correctOption = "4";
+    else if (correct > idx + 1 && correct <= 4) next.correctOption = String(correct - 1);
+    return next;
+  }
+  function shuffleTreOptions(q, pattern) {
+    if (!q) return q;
+    let row = lockMoreThanOneAsD(Object.assign({}, q), pattern);
+    const eLabel = (pattern && pattern.notAttemptedLabel) || "Not Attempted";
+    if (!String(row.option5 || "").trim()) row.option5 = eLabel;
+    if (pattern && pattern.shuffleOptionsAbcd === false) return row;
+    const items = [1, 2, 3, 4].map(n => ({ text: row["option" + n], orig: n }));
+    const moreAt = items.findIndex(x => isMoreThanOneOption(x.text, pattern));
+    const locked = moreAt >= 0 ? items.splice(moreAt, 1)[0] : null;
+    for (let i = items.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [items[i], items[j]] = [items[j], items[i]];
+    }
+    if (locked) items.push(locked);
+    const next = Object.assign({}, row);
+    items.forEach((item, i) => { next["option" + (i + 1)] = item.text; });
+    const correct = Number(row.correctOption);
+    if (correct >= 1 && correct <= 4) next.correctOption = String(items.findIndex(x => x.orig === correct) + 1);
+    next.option5 = eLabel;
+    return next;
+  }
+  function applyExamPattern(quiz, pattern) {
+    if (!quiz || !pattern) return quiz;
+    const out = Object.assign({}, quiz);
+    out.negativeMarkingEnabled = true;
+    out.negativeMarksPerQuestion = Number(pattern.negativeMarksPerQuestion == null ? 1 / 3 : pattern.negativeMarksPerQuestion);
+    out.negativeMarkingOnSkip = true;
+    out.shuffle = true;
+    const classTypes = pattern.classQuizTypes || ["LECTURE_QUIZ", "CHAPTER_QUIZ", "CHAPTER_TEST", "PRACTICE_SET", "PYQ_TEST"];
+    if (classTypes.includes(out.quizType || "LECTURE_QUIZ") && pattern.classTimeLimitMinutes) {
+      out.timeLimitMinutes = Number(pattern.classTimeLimitMinutes);
+    }
+    const eLabel = pattern.notAttemptedLabel || "Not Attempted";
+    out.questions = (quiz.questions || []).map(q => {
+      const row = lockMoreThanOneAsD(Object.assign({}, q), pattern);
+      if (!String(row.option5 || "").trim()) row.option5 = eLabel;
+      return row;
+    });
+    Object.defineProperty(out, "_pattern", { value: pattern, enumerable: false });
+    return out;
+  }
+  function isNotAttemptedSelection(q, selected, pattern) {
+    if (selected == null) return true;
+    if (!pattern) return false;
+    const label = String(pattern.notAttemptedLabel || "Not Attempted").trim().toLowerCase();
+    return String((q && q["option" + selected]) || "").trim().toLowerCase() === label;
+  }
   function downloadJson(value, filename) {
     const url = URL.createObjectURL(new Blob([JSON.stringify(value, null, 2) + "\n"], { type: "application/json" }));
     const a = Object.assign(document.createElement("a"), { href: url, download: filename });
     document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
-  window.BBWData = { defaultCourse: DEFAULT_COURSE, loadCourses, getCourse, loadCourse, loadSubjects, courseParam, storedCourse, currentCourseSlug, rememberCourse, forgetCourse, sectionLabel, fetchJson, loadTest, testPath, chapterTests, chapterQuestionCount, countCourse, nextTestSlug, isYoutubeUrl, videoOf, chapterVideo, getHistory, clearHistory, getResult, saveResult, getAttempt, saveAttempt, clearAttempt, attemptKey, bestAttempt, courseProgress, savePractice, getPractice, uniqueId, downloadJson };
+  window.BBWData = { defaultCourse: DEFAULT_COURSE, loadCourses, getCourse, loadCourse, loadSubjects, courseParam, storedCourse, currentCourseSlug, rememberCourse, forgetCourse, sectionLabel, fetchJson, loadTest, testPath, chapterTests, chapterQuestionCount, countCourse, nextTestSlug, isYoutubeUrl, videoOf, chapterVideo, getHistory, clearHistory, getResult, saveResult, getAttempt, saveAttempt, clearAttempt, attemptKey, bestAttempt, courseProgress, savePractice, getPractice, uniqueId, downloadJson, optionCount, optionLetter, optionsOf, negativeMarkLabel, applyExamPattern, shuffleTreOptions, lockMoreThanOneAsD, isNotAttemptedSelection };
 })();

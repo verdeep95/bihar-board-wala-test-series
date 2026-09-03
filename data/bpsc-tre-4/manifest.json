@@ -1,0 +1,738 @@
+{
+  "version": 2,
+  "course": "bpsc-tre-4",
+  "examPattern": {
+    "name": "TRE 4.0",
+    "classQuizType": "LECTURE_QUIZ",
+    "classTimeLimitMinutes": 20,
+    "classQuestionCount": 20,
+    "passingScore": 33,
+    "negativeMarkingEnabled": true,
+    "negativeMarksPerQuestion": 0.3333333333333333,
+    "negativeMarkingOnSkip": true,
+    "shuffle": true,
+    "shuffleOptionsAbcd": true,
+    "lockMoreThanOneAsD": true,
+    "moreThanOneLabel": "More than one of the above",
+    "notAttemptedLabel": "Not Attempted",
+    "classQuizTypes": [
+      "LECTURE_QUIZ",
+      "CHAPTER_QUIZ",
+      "CHAPTER_TEST",
+      "PRACTICE_SET",
+      "PYQ_TEST"
+    ]
+  },
+  "sectionLabels": {
+    "core": "Syllabus · 80 marks",
+    "wrap": "Trap Book + Full Tests"
+  },
+  "subjects": [
+    {
+      "id": "computer",
+      "slug": "computer",
+      "name": {
+        "en": "Computer Science",
+        "hi": "Computer Science"
+      },
+      "chapters": [
+        {
+          "id": "chapter-number-systems",
+          "slug": "number-systems",
+          "title": {
+            "en": "Number Systems & Data Representation",
+            "hi": "Number Systems & Data Representation"
+          },
+          "section": "core",
+          "youtubeUrl": "https://www.youtube.com/watch?v=9uUUYiuw0m4",
+          "youtubeTitle": "Class 0 · Intro & syllabus",
+          "tests": [
+            {
+              "id": "computer-number-systems-test-1",
+              "slug": "test-1",
+              "title": "Class 1 · Number System Conversion · Binary Octal Hex",
+              "file": "data/bpsc-tre-4/computer/number-systems/test-1.json",
+              "questionCount": 20,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-number-systems-test-2",
+              "slug": "test-2",
+              "title": "Day 2 · 1's 2's Complement & Signed Range · ASCII · BCD",
+              "file": "data/bpsc-tre-4/computer/number-systems/test-2.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-number-systems-test-3",
+              "slug": "test-3",
+              "title": "Day 3 · Memory Units & Logic Gates",
+              "file": "data/bpsc-tre-4/computer/number-systems/test-3.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            }
+          ]
+        },
+        {
+          "id": "chapter-digital-logic",
+          "slug": "digital-logic",
+          "title": {
+            "en": "Digital Logic & Boolean Algebra",
+            "hi": "Digital Logic & Boolean Algebra"
+          },
+          "section": "core",
+          "tests": [
+            {
+              "id": "computer-digital-logic-test-1",
+              "slug": "test-1",
+              "title": "Day 4 · Boolean laws, De Morgan, simplification",
+              "file": "data/bpsc-tre-4/computer/digital-logic/test-1.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-digital-logic-test-2",
+              "slug": "test-2",
+              "title": "Day 5 · SOP / POS, minterm, maxterm",
+              "file": "data/bpsc-tre-4/computer/digital-logic/test-2.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-digital-logic-test-3",
+              "slug": "test-3",
+              "title": "Day 6 · K-map",
+              "file": "data/bpsc-tre-4/computer/digital-logic/test-3.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-digital-logic-test-4",
+              "slug": "test-4",
+              "title": "Day 7 · Universal gates + minimum gate count",
+              "file": "data/bpsc-tre-4/computer/digital-logic/test-4.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-digital-logic-test-5",
+              "slug": "test-5",
+              "title": "Day 8 · Combinational circuits",
+              "file": "data/bpsc-tre-4/computer/digital-logic/test-5.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-digital-logic-test-6",
+              "slug": "test-6",
+              "title": "Day 9 · Sequential circuits",
+              "file": "data/bpsc-tre-4/computer/digital-logic/test-6.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            }
+          ]
+        },
+        {
+          "id": "chapter-architecture-fundamentals",
+          "slug": "architecture-fundamentals",
+          "title": {
+            "en": "Architecture + Fundamentals",
+            "hi": "Architecture + Fundamentals"
+          },
+          "section": "core",
+          "tests": [
+            {
+              "id": "computer-architecture-fundamentals-test-1",
+              "slug": "test-1",
+              "title": "Day 10 · CPU organisation",
+              "file": "data/bpsc-tre-4/computer/architecture-fundamentals/test-1.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-architecture-fundamentals-test-2",
+              "slug": "test-2",
+              "title": "Day 11 · Memory & organisation",
+              "file": "data/bpsc-tre-4/computer/architecture-fundamentals/test-2.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-architecture-fundamentals-test-3",
+              "slug": "test-3",
+              "title": "Day 12 · Computer Fundamentals & System Software",
+              "file": "data/bpsc-tre-4/computer/architecture-fundamentals/test-3.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            }
+          ]
+        },
+        {
+          "id": "chapter-programming-oop",
+          "slug": "programming-oop",
+          "title": {
+            "en": "Programming & OOP",
+            "hi": "Programming & OOP"
+          },
+          "section": "core",
+          "tests": [
+            {
+              "id": "computer-programming-oop-test-1",
+              "slug": "test-1",
+              "title": "Day 13 · C++ basics",
+              "file": "data/bpsc-tre-4/computer/programming-oop/test-1.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-programming-oop-test-2",
+              "slug": "test-2",
+              "title": "Day 14 · Control + functions",
+              "file": "data/bpsc-tre-4/computer/programming-oop/test-2.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-programming-oop-test-3",
+              "slug": "test-3",
+              "title": "Day 15 · Arrays, strings, pointers",
+              "file": "data/bpsc-tre-4/computer/programming-oop/test-3.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-programming-oop-test-4",
+              "slug": "test-4",
+              "title": "Day 16 · OOP start",
+              "file": "data/bpsc-tre-4/computer/programming-oop/test-4.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-programming-oop-test-5",
+              "slug": "test-5",
+              "title": "Day 17 · Inheritance & polymorphism",
+              "file": "data/bpsc-tre-4/computer/programming-oop/test-5.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-programming-oop-test-6",
+              "slug": "test-6",
+              "title": "Day 18 · Python 1",
+              "file": "data/bpsc-tre-4/computer/programming-oop/test-6.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-programming-oop-test-7",
+              "slug": "test-7",
+              "title": "Day 19 · Python 2",
+              "file": "data/bpsc-tre-4/computer/programming-oop/test-7.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            }
+          ]
+        },
+        {
+          "id": "chapter-dsa",
+          "slug": "dsa",
+          "title": {
+            "en": "Data Structures & Algorithms",
+            "hi": "Data Structures & Algorithms"
+          },
+          "section": "core",
+          "tests": [
+            {
+              "id": "computer-dsa-test-1",
+              "slug": "test-1",
+              "title": "Day 20 · Arrays",
+              "file": "data/bpsc-tre-4/computer/dsa/test-1.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-dsa-test-2",
+              "slug": "test-2",
+              "title": "Day 21 · Stack",
+              "file": "data/bpsc-tre-4/computer/dsa/test-2.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-dsa-test-3",
+              "slug": "test-3",
+              "title": "Day 22 · Queue + Linked list",
+              "file": "data/bpsc-tre-4/computer/dsa/test-3.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-dsa-test-4",
+              "slug": "test-4",
+              "title": "Day 23 · Trees",
+              "file": "data/bpsc-tre-4/computer/dsa/test-4.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-dsa-test-5",
+              "slug": "test-5",
+              "title": "Day 24 · BST + Heap",
+              "file": "data/bpsc-tre-4/computer/dsa/test-5.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-dsa-test-6",
+              "slug": "test-6",
+              "title": "Day 25 · Hashing + Graphs",
+              "file": "data/bpsc-tre-4/computer/dsa/test-6.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-dsa-test-7",
+              "slug": "test-7",
+              "title": "Day 26 · Sorting",
+              "file": "data/bpsc-tre-4/computer/dsa/test-7.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-dsa-test-8",
+              "slug": "test-8",
+              "title": "Day 27 · Searching",
+              "file": "data/bpsc-tre-4/computer/dsa/test-8.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-dsa-test-9",
+              "slug": "test-9",
+              "title": "Day 28 · Complexity & paradigms",
+              "file": "data/bpsc-tre-4/computer/dsa/test-9.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            }
+          ]
+        },
+        {
+          "id": "chapter-operating-systems",
+          "slug": "operating-systems",
+          "title": {
+            "en": "Operating Systems",
+            "hi": "Operating Systems"
+          },
+          "section": "core",
+          "tests": [
+            {
+              "id": "computer-operating-systems-test-1",
+              "slug": "test-1",
+              "title": "Day 29 · OS introduction",
+              "file": "data/bpsc-tre-4/computer/operating-systems/test-1.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-operating-systems-test-2",
+              "slug": "test-2",
+              "title": "Day 30 · Process & thread",
+              "file": "data/bpsc-tre-4/computer/operating-systems/test-2.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-operating-systems-test-3",
+              "slug": "test-3",
+              "title": "Day 31 · CPU scheduling",
+              "file": "data/bpsc-tre-4/computer/operating-systems/test-3.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-operating-systems-test-4",
+              "slug": "test-4",
+              "title": "Day 32 · Deadlock & sync",
+              "file": "data/bpsc-tre-4/computer/operating-systems/test-4.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-operating-systems-test-5",
+              "slug": "test-5",
+              "title": "Day 33 · Memory management",
+              "file": "data/bpsc-tre-4/computer/operating-systems/test-5.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-operating-systems-test-6",
+              "slug": "test-6",
+              "title": "Day 34 · Virtual memory & files",
+              "file": "data/bpsc-tre-4/computer/operating-systems/test-6.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            }
+          ]
+        },
+        {
+          "id": "chapter-dbms",
+          "slug": "dbms",
+          "title": {
+            "en": "Database Management Systems",
+            "hi": "Database Management Systems"
+          },
+          "section": "core",
+          "tests": [
+            {
+              "id": "computer-dbms-test-1",
+              "slug": "test-1",
+              "title": "Day 35 · DBMS intro + ER",
+              "file": "data/bpsc-tre-4/computer/dbms/test-1.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-dbms-test-2",
+              "slug": "test-2",
+              "title": "Day 36 · Keys + relational model",
+              "file": "data/bpsc-tre-4/computer/dbms/test-2.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-dbms-test-3",
+              "slug": "test-3",
+              "title": "Day 37 · SQL",
+              "file": "data/bpsc-tre-4/computer/dbms/test-3.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-dbms-test-4",
+              "slug": "test-4",
+              "title": "Day 38 · Aggregates + normalisation",
+              "file": "data/bpsc-tre-4/computer/dbms/test-4.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-dbms-test-5",
+              "slug": "test-5",
+              "title": "Day 39 · Transactions",
+              "file": "data/bpsc-tre-4/computer/dbms/test-5.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            }
+          ]
+        },
+        {
+          "id": "chapter-computer-networks",
+          "slug": "computer-networks",
+          "title": {
+            "en": "Computer Networks",
+            "hi": "Computer Networks"
+          },
+          "section": "core",
+          "tests": [
+            {
+              "id": "computer-computer-networks-test-1",
+              "slug": "test-1",
+              "title": "Day 40 · Types, topologies, media",
+              "file": "data/bpsc-tre-4/computer/computer-networks/test-1.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-computer-networks-test-2",
+              "slug": "test-2",
+              "title": "Day 41 · Devices + OSI",
+              "file": "data/bpsc-tre-4/computer/computer-networks/test-2.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-computer-networks-test-3",
+              "slug": "test-3",
+              "title": "Day 42 · TCP/IP + ports",
+              "file": "data/bpsc-tre-4/computer/computer-networks/test-3.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-computer-networks-test-4",
+              "slug": "test-4",
+              "title": "Day 43 · Addressing",
+              "file": "data/bpsc-tre-4/computer/computer-networks/test-4.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-computer-networks-test-5",
+              "slug": "test-5",
+              "title": "Day 44 · Switching & error",
+              "file": "data/bpsc-tre-4/computer/computer-networks/test-5.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            }
+          ]
+        },
+        {
+          "id": "chapter-internet-web-security",
+          "slug": "internet-web-security",
+          "title": {
+            "en": "Internet & Web + Security",
+            "hi": "Internet & Web + Security"
+          },
+          "section": "core",
+          "tests": [
+            {
+              "id": "computer-internet-web-security-test-1",
+              "slug": "test-1",
+              "title": "Day 45 · Internet & Web Technologies",
+              "file": "data/bpsc-tre-4/computer/internet-web-security/test-1.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-internet-web-security-test-2",
+              "slug": "test-2",
+              "title": "Day 46 · Computer & Cyber Security",
+              "file": "data/bpsc-tre-4/computer/internet-web-security/test-2.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            }
+          ]
+        },
+        {
+          "id": "chapter-software-engineering",
+          "slug": "software-engineering",
+          "title": {
+            "en": "Software Engineering",
+            "hi": "Software Engineering"
+          },
+          "section": "core",
+          "tests": [
+            {
+              "id": "computer-software-engineering-test-1",
+              "slug": "test-1",
+              "title": "Day 47 · SDLC & design",
+              "file": "data/bpsc-tre-4/computer/software-engineering/test-1.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-software-engineering-test-2",
+              "slug": "test-2",
+              "title": "Day 48 · Testing & quality",
+              "file": "data/bpsc-tre-4/computer/software-engineering/test-2.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            }
+          ]
+        },
+        {
+          "id": "chapter-emerging-technologies",
+          "slug": "emerging-technologies",
+          "title": {
+            "en": "Emerging Technologies",
+            "hi": "Emerging Technologies"
+          },
+          "section": "core",
+          "tests": [
+            {
+              "id": "computer-emerging-technologies-test-1",
+              "slug": "test-1",
+              "title": "Day 49 · AI + Cloud",
+              "file": "data/bpsc-tre-4/computer/emerging-technologies/test-1.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            },
+            {
+              "id": "computer-emerging-technologies-test-2",
+              "slug": "test-2",
+              "title": "Day 50 · IoT + rest",
+              "file": "data/bpsc-tre-4/computer/emerging-technologies/test-2.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            }
+          ]
+        },
+        {
+          "id": "chapter-theory-of-computation",
+          "slug": "theory-of-computation",
+          "title": {
+            "en": "Theory of Computation",
+            "hi": "Theory of Computation"
+          },
+          "section": "core",
+          "tests": [
+            {
+              "id": "computer-theory-of-computation-test-1",
+              "slug": "test-1",
+              "title": "Day 51 · TOC one-shot",
+              "file": "data/bpsc-tre-4/computer/theory-of-computation/test-1.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "LECTURE_QUIZ"
+            }
+          ]
+        },
+        {
+          "id": "chapter-trap-book",
+          "slug": "trap-book",
+          "title": {
+            "en": "Trap Book",
+            "hi": "Trap Book"
+          },
+          "section": "wrap",
+          "tests": [
+            {
+              "id": "computer-trap-book-test-1",
+              "slug": "test-1",
+              "title": "Day 52 · Trap Book 1 (rows 1–17)",
+              "file": "data/bpsc-tre-4/computer/trap-book/test-1.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "PRACTICE_SET"
+            },
+            {
+              "id": "computer-trap-book-test-2",
+              "slug": "test-2",
+              "title": "Day 53 · Trap Book 2 (rows 18–34)",
+              "file": "data/bpsc-tre-4/computer/trap-book/test-2.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "PRACTICE_SET"
+            },
+            {
+              "id": "computer-trap-book-test-3",
+              "slug": "test-3",
+              "title": "Day 54 · Trap Book 3 (rows 35–50)",
+              "file": "data/bpsc-tre-4/computer/trap-book/test-3.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 20,
+              "quizType": "PRACTICE_SET"
+            }
+          ]
+        },
+        {
+          "id": "chapter-full-length",
+          "slug": "full-length",
+          "title": {
+            "en": "Full-length papers",
+            "hi": "Full-length papers"
+          },
+          "section": "wrap",
+          "tests": [
+            {
+              "id": "computer-full-length-test-1",
+              "slug": "test-1",
+              "title": "Day 55 · Full-length test review 1",
+              "file": "data/bpsc-tre-4/computer/full-length/test-1.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 90,
+              "quizType": "MOCK_TEST"
+            },
+            {
+              "id": "computer-full-length-test-2",
+              "slug": "test-2",
+              "title": "Day 56 · Full-length test review 2",
+              "file": "data/bpsc-tre-4/computer/full-length/test-2.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 90,
+              "quizType": "MOCK_TEST"
+            },
+            {
+              "id": "computer-full-length-test-3",
+              "slug": "test-3",
+              "title": "Day 57 · Full-length test review 3",
+              "file": "data/bpsc-tre-4/computer/full-length/test-3.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 90,
+              "quizType": "MOCK_TEST"
+            },
+            {
+              "id": "computer-full-length-test-4",
+              "slug": "test-4",
+              "title": "Day 58 · Full-length test review 4",
+              "file": "data/bpsc-tre-4/computer/full-length/test-4.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 90,
+              "quizType": "MOCK_TEST"
+            },
+            {
+              "id": "computer-full-length-test-5",
+              "slug": "test-5",
+              "title": "Day 59 · Full-length test review 5",
+              "file": "data/bpsc-tre-4/computer/full-length/test-5.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 90,
+              "quizType": "MOCK_TEST"
+            },
+            {
+              "id": "computer-full-length-test-6",
+              "slug": "test-6",
+              "title": "Day 60 · Full-length test review 6",
+              "file": "data/bpsc-tre-4/computer/full-length/test-6.json",
+              "questionCount": 0,
+              "timeLimitMinutes": 90,
+              "quizType": "MOCK_TEST"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

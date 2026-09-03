@@ -43,9 +43,14 @@
         const name = BBWUI.localized(course.name, course.slug);
         const tagline = BBWUI.localized(course.tagline, "");
         document.title = `${name} Test Series • Bihar Board Wala`;
-        BBWUI.setBrandSubtitle(`${name} टेस्ट सीरीज़`);
+        BBWUI.setBrandSubtitle(name);
         document.querySelector("#course-switch").innerHTML = `${BBWUI.coursePill(course)}<span class="muted" style="font-size:.78rem">कोर्स बदलने के लिए टैप करें</span>`;
         document.querySelector("#hero-eyebrow").textContent = tagline ? tagline.toUpperCase() : name;
+        document.querySelector("#course-hero h1").textContent = name;
+        if (course.tagline && course.tagline.en && course.tagline.en === course.tagline.hi) {
+          const subject = BBWUI.secondary(course.name);
+          document.querySelector("#hero-note").textContent = subject ? `${subject} · ${course.tagline.en}` : course.tagline.en;
+        }
         if (course.status === "coming-soon") {
           document.querySelector("#hero-note").textContent = `${name} के टेस्ट तैयार हो रहे हैं।`;
           document.querySelector("#subject-count").textContent = "जल्द आ रहा है";
