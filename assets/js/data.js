@@ -150,10 +150,26 @@
   function optionCount(q) { return String((q && q.option5) || "").trim() ? 5 : 4; }
   function optionLetter(n) { return OPTION_LETTERS.charAt(Number(n) - 1) || ""; }
   function optionsOf(q) { return Array.from({ length: optionCount(q) }, (_, i) => q["option" + (i + 1)] || ""); }
+  function usesTreMarking(quiz) {
+    if (!quiz) return false;
+    if (quiz._pattern) return true;
+    const first = quiz.questions && quiz.questions[0];
+    return Boolean(first && optionCount(first) === 5);
+  }
+  function formatMarksDelta(n) {
+    const v = Number(n || 0);
+    if (Math.abs(v) < 1e-9) return "0";
+    const sign = v > 0 ? "+" : "−";
+    const abs = Math.abs(v);
+    if (Math.abs(abs * 3 - 1) < 1e-4) return sign + "1/3";
+    const body = Number.isInteger(abs) ? String(abs) : String(Number(abs.toFixed(2)));
+    return sign + body;
+  }
   function negativeMarkLabel(quiz) {
     if (!quiz || !quiz.negativeMarkingEnabled) return "No negative marking";
     const n = Number(quiz.negativeMarksPerQuestion || 0);
     const frac = Math.abs(n - 1 / 3) < 1e-6 ? "1/3" : String(n);
+    if (usesTreMarking(quiz) && quiz.negativeMarkingOnSkip) return `−${frac} wrong or blank · E = 0`;
     return quiz.negativeMarkingOnSkip ? `−${frac} wrong or unanswered` : `−${frac} wrong`;
   }
   function isMoreThanOneOption(text, pattern) {
@@ -217,15 +233,54 @@
     return out;
   }
   function isNotAttemptedSelection(q, selected, pattern) {
-    if (selected == null) return true;
-    if (!pattern) return false;
-    const label = String(pattern.notAttemptedLabel || "Not Attempted").trim().toLowerCase();
-    return String((q && q["option" + selected]) || "").trim().toLowerCase() === label;
+    if (selected == null || selected === "") return false;
+    const text = String((q && q["option" + Number(selected)]) || "").trim().toLowerCase();
+    if (!text) return false;
+    const labels = new Set(["not attempted", "प्रयास नहीं किया गया"]);
+    if (pattern && pattern.notAttemptedLabel) labels.add(String(pattern.notAttemptedLabel).trim().toLowerCase());
+    return labels.has(text);
+  }
+  function gradeResponse(q, selected, quiz) {
+    const pattern = quiz && quiz._pattern;
+    const marks = Number((q && q.marks) || 1);
+    const penalty = quiz && quiz.negativeMarkingEnabled ? Number(quiz.negativeMarksPerQuestion || 0) : 0;
+    const chosen = selected == null || selected === "" ? null : Number(selected);
+    const answer = Number(q && q.correctOption);
+    if (chosen == null || !Number.isFinite(chosen)) {
+      const deduct = Boolean(quiz && quiz.negativeMarkingEnabled && quiz.negativeMarkingOnSkip);
+      return { status: "blank", delta: deduct ? -penalty : 0 };
+    }
+    if (chosen === answer) return { status: "correct", delta: marks };
+    if (isNotAttemptedSelection(q, chosen, pattern)) return { status: "skipped", delta: 0 };
+    return { status: "wrong", delta: penalty ? -penalty : 0 };
+  }
+  function scoreAttempt(questions, getSelected, quiz) {
+    let earned = 0, correct = 0, wrong = 0, skipped = 0, blank = 0;
+    const review = (questions || []).map((q, i) => {
+      const selected = getSelected(q, i);
+      const graded = gradeResponse(q, selected, quiz);
+      earned += graded.delta;
+      if (graded.status === "correct") correct++;
+      else if (graded.status === "wrong") wrong++;
+      else if (graded.status === "skipped") skipped++;
+      else blank++;
+      return {
+        question: q.question,
+        options: optionsOf(q),
+        selectedOption: selected,
+        correctOption: Number(q.correctOption),
+        explanation: q.explanation || "",
+        marks: Number(q.marks || 1),
+        marksDelta: graded.delta,
+        status: graded.status
+      };
+    });
+    return { earned, correct, wrong, skipped, blank, review };
   }
   function downloadJson(value, filename) {
     const url = URL.createObjectURL(new Blob([JSON.stringify(value, null, 2) + "\n"], { type: "application/json" }));
     const a = Object.assign(document.createElement("a"), { href: url, download: filename });
     document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
-  window.BBWData = { defaultCourse: DEFAULT_COURSE, loadCourses, getCourse, loadCourse, loadSubjects, courseParam, storedCourse, currentCourseSlug, rememberCourse, forgetCourse, sectionLabel, fetchJson, loadTest, testPath, chapterTests, chapterQuestionCount, countCourse, nextTestSlug, isYoutubeUrl, videoOf, chapterVideo, getHistory, clearHistory, getResult, saveResult, getAttempt, saveAttempt, clearAttempt, attemptKey, bestAttempt, courseProgress, savePractice, getPractice, uniqueId, downloadJson, optionCount, optionLetter, optionsOf, negativeMarkLabel, applyExamPattern, shuffleTreOptions, lockMoreThanOneAsD, isNotAttemptedSelection };
+  window.BBWData = { defaultCourse: DEFAULT_COURSE, loadCourses, getCourse, loadCourse, loadSubjects, courseParam, storedCourse, currentCourseSlug, rememberCourse, forgetCourse, sectionLabel, fetchJson, loadTest, testPath, chapterTests, chapterQuestionCount, countCourse, nextTestSlug, isYoutubeUrl, videoOf, chapterVideo, getHistory, clearHistory, getResult, saveResult, getAttempt, saveAttempt, clearAttempt, attemptKey, bestAttempt, courseProgress, savePractice, getPractice, uniqueId, downloadJson, optionCount, optionLetter, optionsOf, negativeMarkLabel, formatMarksDelta, usesTreMarking, applyExamPattern, shuffleTreOptions, lockMoreThanOneAsD, isNotAttemptedSelection, gradeResponse, scoreAttempt };
 })();

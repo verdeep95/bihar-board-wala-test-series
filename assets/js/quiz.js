@@ -34,9 +34,15 @@
   function renderStart() {
     const totalMarks = quiz.questions.reduce((s, q) => s + Number(q.marks || 1), 0);
     document.title = `${quiz.title} • Bihar Board Wala`;
-    const five = Boolean(quiz._pattern) || BBWData.optionCount(quiz.questions[0]) === 5;
-    const treSkip = quiz.negativeMarkingEnabled && quiz.negativeMarkingOnSkip;
-    app.innerHTML = `<div class="container"><section class="card quiz-start"><div class="start-header"><div style="font-size:2rem">☑</div><h1>${BBWUI.escape(quiz.title)}</h1></div><div class="start-stats"><div class="stat"><strong>${quiz.questions.length}</strong><small>Questions</small></div><div class="stat"><strong>${quiz.timeLimitMinutes || "∞"}</strong><small>${quiz.timeLimitMinutes ? "Minutes" : "No limit"}</small></div><div class="stat"><strong>${totalMarks}</strong><small>Total marks</small></div></div><h3>Marking scheme</h3><div class="chips"><span class="chip good">+ Correct answer marks</span><span class="chip ${quiz.negativeMarkingEnabled ? "bad" : ""}">${BBWUI.escape(BBWData.negativeMarkLabel(quiz))}</span><span class="chip">Pass: ${quiz.passingScore || 0}%</span>${five ? `<span class="chip">A–E · TRE 4.0</span>` : ""}</div><div id="video-slot"></div><h3 style="margin-top:1.5rem">निर्देश / Instructions</h3><ol class="instructions"><li>हर प्रश्न का केवल एक सही उत्तर है।</li>${five ? "<li>Option E = Not Attempted.</li>" : ""}<li>उत्तर submit करने से पहले कभी भी बदल सकते हैं।</li>${treSkip ? "<li>खाली छोड़ने या E चुनने पर भी −1/3 कटेगा।</li>" : ""}<li>दोबारा देखने के लिए “Mark for review” चुनें।</li><li>Progress अपने-आप इस device पर save होती है।</li>${quiz.timeLimitMinutes ? "<li>Start दबाते ही timer शुरू होगा।</li>" : ""}</ol><button id="start-test" class="btn btn-saffron btn-block">Start Test • ${quiz.questions.length} Q</button></section></div>`;
+    const tre = BBWData.usesTreMarking(quiz);
+    const blankPenalty = quiz.negativeMarkingEnabled && quiz.negativeMarkingOnSkip;
+    const scheme = tre
+      ? `<span class="chip good">+1 सही (A–D)</span><span class="chip bad">−1/3 गलत (A–D)</span><span class="chip">E Not Attempted = 0</span><span class="chip ${blankPenalty ? "bad" : ""}">खाली = ${blankPenalty ? "−1/3" : "0"}</span>`
+      : `<span class="chip good">+ Correct answer marks</span><span class="chip ${quiz.negativeMarkingEnabled ? "bad" : ""}">${BBWUI.escape(BBWData.negativeMarkLabel(quiz))}</span>`;
+    const treHelp = tre
+      ? "<li>Option E = Not Attempted — कोई अंक नहीं कटता।</li><li>गलत A/B/C/D पर −1/3 कटेगा।</li>" + (blankPenalty ? "<li>कोई विकल्प न भरने (खाली) पर भी −1/3 कटेगा। Skip करना है तो E चुनें।</li>" : "")
+      : (blankPenalty ? "<li>अनुत्तरित प्रश्न पर भी negative marking लगेगी।</li>" : "");
+    app.innerHTML = `<div class="container"><section class="card quiz-start"><div class="start-header"><div style="font-size:2rem">☑</div><h1>${BBWUI.escape(quiz.title)}</h1></div><div class="start-stats"><div class="stat"><strong>${quiz.questions.length}</strong><small>Questions</small></div><div class="stat"><strong>${quiz.timeLimitMinutes || "∞"}</strong><small>${quiz.timeLimitMinutes ? "Minutes" : "No limit"}</small></div><div class="stat"><strong>${totalMarks}</strong><small>Total marks</small></div></div><h3>Marking scheme</h3><div class="chips">${scheme}<span class="chip">Pass: ${quiz.passingScore || 0}%</span>${tre ? `<span class="chip">A–E · TRE 4.0</span>` : ""}</div><div id="video-slot"></div><h3 style="margin-top:1.5rem">निर्देश / Instructions</h3><ol class="instructions"><li>हर प्रश्न का केवल एक सही उत्तर है।</li>${treHelp}<li>उत्तर submit करने से पहले कभी भी बदल सकते हैं।</li><li>दोबारा देखने के लिए “Mark for review” चुनें।</li><li>Progress अपने-आप इस device पर save होती है।</li>${quiz.timeLimitMinutes ? "<li>Start दबाते ही timer शुरू होगा।</li>" : ""}</ol><button id="start-test" class="btn btn-saffron btn-block">Start Test • ${quiz.questions.length} Q</button></section></div>`;
     document.querySelector("#start-test").onclick = start;
     fillVideoSlot();
   }
@@ -118,22 +124,24 @@
   }
   function reviewSubmit() {
     const answered = Object.keys(state.answers).length, left = questions().length - answered;
-    const sheet = BBWUI.openSheet("Submit review", `<div class="review-summary"><div><strong class="success">${answered}</strong>Answered</div><div><strong class="warning">${left}</strong>Left</div><div><strong>${state.flags.length}</strong>Marked</div></div>${left ? `<p class="admin-status warning">⚠ ${left} questions unanswered हैं।</p>` : `<p class="admin-status success">✓ सभी questions answered हैं।</p>`}<div class="button-row"><button id="keep" class="btn btn-outline">Keep solving</button><button id="confirm-submit" class="btn btn-saffron">Submit quiz</button></div>`);
+    const tre = BBWData.usesTreMarking(quiz) && quiz.negativeMarkingEnabled && quiz.negativeMarkingOnSkip;
+    const blankNote = left
+      ? (tre
+        ? `<p class="admin-status warning">⚠ ${left} questions खाली हैं। खाली छोड़ने पर −1/3 कटेगा। Skip करना है तो Option E चुनें।</p>`
+        : `<p class="admin-status warning">⚠ ${left} questions unanswered हैं।</p>`)
+      : `<p class="admin-status success">✓ सभी questions answered हैं।</p>`;
+    const sheet = BBWUI.openSheet("Submit review", `<div class="review-summary"><div><strong class="success">${answered}</strong>Answered</div><div><strong class="warning">${left}</strong>Left</div><div><strong>${state.flags.length}</strong>Marked</div></div>${blankNote}<div class="button-row"><button id="keep" class="btn btn-outline">Keep solving</button><button id="confirm-submit" class="btn btn-saffron">Submit quiz</button></div>`);
     sheet.querySelector("#keep").onclick = BBWUI.closeSheet;
     sheet.querySelector("#confirm-submit").onclick = () => submit(false);
   }
   function submit(auto) {
     if (state.submitted) return;
     state.remaining = quiz.timeLimitMinutes ? remainingNow(state) : 0; state.submitted = true; save(); clearInterval(timerId);
-    const qs = questions(); let earned = 0, correct = 0, wrong = 0, skipped = 0;
-    const review = qs.map((q, i) => {
-      const selected = state.answers[qid(i)] == null ? null : Number(state.answers[qid(i)]), answer = Number(q.correctOption);
-      const status = selected === answer ? "correct" : BBWData.isNotAttemptedSelection(q, selected, quiz._pattern) ? "skipped" : "wrong";
-      if (status === "correct") { correct++; earned += Number(q.marks || 1); } else if (status === "wrong") { wrong++; if (quiz.negativeMarkingEnabled) earned -= Number(quiz.negativeMarksPerQuestion || 0); } else { skipped++; if (quiz.negativeMarkingEnabled && quiz.negativeMarkingOnSkip) earned -= Number(quiz.negativeMarksPerQuestion || 0); }
-      return { question: q.question, options: BBWData.optionsOf(q), selectedOption: selected, correctOption: answer, explanation: q.explanation || "", marks: Number(q.marks || 1), status };
-    });
+    const qs = questions();
+    const scored = BBWData.scoreAttempt(qs, (_, i) => state.answers[qid(i)] == null ? null : Number(state.answers[qid(i)]), quiz);
+    const earned = scored.earned, correct = scored.correct, wrong = scored.wrong, skipped = scored.skipped, blank = scored.blank, review = scored.review;
     const totalMarks = qs.reduce((s,q) => s + Number(q.marks || 1), 0), score = totalMarks ? Math.max(0, earned) / totalMarks * 100 : 0, attemptId = BBWData.uniqueId();
-    const result = { attemptId, quizId: quiz.id, quizTitle: quiz.title, course: quiz.course || course, subject: quiz.subject || subject, chapter: quiz.chapter || chapter, test: quiz.test || test, startedAt: new Date(state.startedAt).toISOString(), submittedAt: new Date().toISOString(), timeTakenSeconds: quiz.timeLimitMinutes ? Math.max(0, state.duration - state.remaining) : Math.floor((Date.now() - state.startedAt) / 1000), totalQuestions: qs.length, correctAnswers: correct, wrongAnswers: wrong, skippedAnswers: skipped, earnedMarks: Number(earned.toFixed(2)), totalMarks, score: Number(score.toFixed(2)), passingScore: Number(quiz.passingScore || 0), passed: score >= Number(quiz.passingScore || 0), autoSubmitted: auto, review };
+    const result = { attemptId, quizId: quiz.id, quizTitle: quiz.title, course: quiz.course || course, subject: quiz.subject || subject, chapter: quiz.chapter || chapter, test: quiz.test || test, startedAt: new Date(state.startedAt).toISOString(), submittedAt: new Date().toISOString(), timeTakenSeconds: quiz.timeLimitMinutes ? Math.max(0, state.duration - state.remaining) : Math.floor((Date.now() - state.startedAt) / 1000), totalQuestions: qs.length, correctAnswers: correct, wrongAnswers: wrong, skippedAnswers: skipped, blankAnswers: blank, earnedMarks: Number(earned.toFixed(2)), totalMarks, score: Number(score.toFixed(2)), passingScore: Number(quiz.passingScore || 0), passed: score >= Number(quiz.passingScore || 0), autoSubmitted: auto, review };
     if (video) { result.videoUrl = video.url; result.videoTitle = video.title; }
     BBWData.saveResult(result); BBWData.clearAttempt(key); location.href = `result.html?attempt=${encodeURIComponent(attemptId)}`;
   }

@@ -17,6 +17,9 @@
       const optCount = row.option5 ? 5 : 4;
       for (let n = 1; n <= 4; n++) if (!row[`option${n}`]) rowErrors.push(`option${n} is required`);
       if (!Number.isInteger(Number(row.correctOption)) || Number(row.correctOption) < 1 || Number(row.correctOption) > optCount) rowErrors.push(`correctOption must be 1..${optCount}`);
+      if (row.option5 && /^(not attempted|प्रयास नहीं किया गया)$/i.test(row.option5) && Number(row.correctOption) === 5) {
+        rowErrors.push("correctOption cannot be Option E (Not Attempted)");
+      }
       if (!Number.isFinite(Number(row.marks)) || Number(row.marks) <= 0) rowErrors.push("marks must be positive");
       const opts = Array.from({ length: optCount }, (_, i) => row[`option${i + 1}`].trim().toLowerCase()).filter(Boolean);
       if (new Set(opts).size < opts.length) rowWarnings.push("duplicate identical options");
