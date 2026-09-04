@@ -54,16 +54,20 @@
               "file": "data/bpsc-tre-4/computer/number-systems/test-1.json",
               "questionCount": 20,
               "timeLimitMinutes": 20,
-              "quizType": "LECTURE_QUIZ"
+              "quizType": "LECTURE_QUIZ",
+              "youtubeUrl": "https://youtu.be/t0lBIPhW-Tk",
+              "youtubeTitle": "Class 1 · Number System Conversion · Binary Octal Hex"
             },
             {
               "id": "computer-number-systems-test-2",
               "slug": "test-2",
-              "title": "Day 2 · 1's 2's Complement & Signed Range · ASCII · BCD",
+              "title": "Class 2 · 1's 2's Complement & Signed Range",
               "file": "data/bpsc-tre-4/computer/number-systems/test-2.json",
-              "questionCount": 0,
-              "timeLimitMinutes": 20,
-              "quizType": "LECTURE_QUIZ"
+              "questionCount": 15,
+              "timeLimitMinutes": 15,
+              "quizType": "LECTURE_QUIZ",
+              "youtubeUrl": "https://youtu.be/P_hZPJw3CO8",
+              "youtubeTitle": "Class 2 · 1's 2's Complement & Signed Range"
             },
             {
               "id": "computer-number-systems-test-3",

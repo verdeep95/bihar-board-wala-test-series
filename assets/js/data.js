@@ -265,6 +265,7 @@
       else if (graded.status === "skipped") skipped++;
       else blank++;
       return {
+        questionNumber: i + 1,
         question: q.question,
         options: optionsOf(q),
         selectedOption: selected,

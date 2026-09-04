@@ -1,0 +1,183 @@
+{
+  "id": "computer-number-systems-test-2",
+  "title": "Class 2 · 1's 2's Complement & Signed Range",
+  "course": "bpsc-tre-4",
+  "subject": "computer",
+  "chapter": "number-systems",
+  "quizType": "LECTURE_QUIZ",
+  "timeLimitMinutes": 15,
+  "passingScore": 33,
+  "negativeMarkingEnabled": true,
+  "negativeMarksPerQuestion": 0.3333333333333333,
+  "negativeMarkingOnSkip": true,
+  "shuffle": true,
+  "youtubeUrl": "https://youtu.be/P_hZPJw3CO8",
+  "youtubeTitle": "Class 2 · 1's 2's Complement & Signed Range",
+  "questions": [
+    {
+      "question": "In an 8-bit unsigned representation, the range of numbers is",
+      "option1": "0 to 255",
+      "option2": "−128 to +127",
+      "option3": "0 to 127",
+      "option4": "−255 to +255",
+      "option5": "Not Attempted",
+      "correctOption": "1",
+      "explanation": "विधि: Unsigned $n$-bit का सूत्र $0$ से $2^n - 1$ है। 8-bit में $2^8 - 1 = 256 - 1 = 255$। इसलिए range = 0 to 255।\n\nजाँच: सबसे छोटा 00000000 = 0, सबसे बड़ा 11111111 = 255। दोनों nonnegative हैं — unsigned में sign bit नहीं होती।\n\nकटौती: −128 to +127 signed 2's complement का range है, unsigned का नहीं। 0 to 127 तब आता है जब 8वीं bit को गलती से sign मान लिया जाए। −255 to +255 9-bit जैसा सोच है; 8 bit में इतना स्थान नहीं।\n\nTRAP: Unsigned पर sign मत लगाइए। Sign वाला range देखकर unsigned मत चुनिए।",
+      "marks": 1
+    },
+    {
+      "question": "In signed number representation, the Most Significant Bit (MSB) is used as",
+      "option1": "Magnitude bit",
+      "option2": "Sign bit",
+      "option3": "Parity bit",
+      "option4": "Carry bit",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Signed representation में बाईं सबसे बड़ी bit (MSB) sign बताती है: 0 = positive, 1 = negative। बाकी bits magnitude / 2's complement encoding हैं।\n\nजाँच: 8-bit में 00000101 = +5 (MSB 0), 11111011 = −5 in 2's (MSB 1)।\n\nकटौती: Magnitude bit बाकी bits का काम है, MSB का नहीं। Parity error-detect करती है। Carry arithmetic overflow/out-bit है, sign नहीं।\n\nTRAP: MSB = Most Significant Bit = sign bit in signed numbers। Magnitude से भ्रमित न हों।",
+      "marks": 1
+    },
+    {
+      "question": "If the MSB of a signed binary number is 1, the number is",
+      "option1": "Positive",
+      "option2": "Negative",
+      "option3": "Zero",
+      "option4": "More than one of the above",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Signed में MSB = sign bit। 0 → positive (या +0), 1 → negative। इसलिए MSB 1 होने पर संख्या negative है।\n\nजाँच: 10000000 in 8-bit 2's = −128 (MSB 1)। 00000000 = 0 (MSB 0)।\n\nकटौती: Positive तब जब MSB 0 हो। Zero का सामान्य रूप 000…0 है, MSB 1 नहीं। More than one गलत क्योंकि केवल Negative सही है।\n\nTRAP: 1's complement में 11111111 = −0 होता है, पर वह भी negative zero है — positive/zero नहीं। TRE में MSB 1 = negative याद रखिए।",
+      "marks": 1
+    },
+    {
+      "question": "Which of the following correctly classifies Numeric Data representation?",
+      "option1": "Unsigned and Signed only",
+      "option2": "ASCII, EBCDIC and Unicode",
+      "option3": "BCD and Gray Code only",
+      "option4": "Unsigned, Signed, and Character codes together as one type",
+      "option5": "Not Attempted",
+      "correctOption": "1",
+      "explanation": "विधि: Data representation दो बड़े वर्ग: Numeric और Character। Numeric = Unsigned + Signed (sign-magnitude, 1's, 2's)। Character codes = ASCII, EBCDIC, Unicode — ये Part 2 हैं।\n\nजाँच: संख्या लिखनी हो तो unsigned/signed; अक्षर लिखना हो तो character code। दोनों को एक ही type नहीं कहते।\n\nकटौती: ASCII/EBCDIC/Unicode character codes हैं, numeric नहीं। BCD/Gray codes अलग encoding tricks हैं, “Numeric = Unsigned/Signed” वाला classification नहीं। D तीनों को एक type में मिला देता है — गलत।\n\nTRAP: BCD संख्या दिखाती है, पर lecture का Numeric class सिर्फ Unsigned/Signed है। Character codes इस टेस्ट में नहीं।",
+      "marks": 1
+    },
+    {
+      "question": "The 1's complement of 00000101 is",
+      "option1": "11111010",
+      "option2": "11111011",
+      "option3": "00000101",
+      "option4": "11111101",
+      "option5": "Not Attempted",
+      "correctOption": "1",
+      "explanation": "विधि: 1's complement = हर bit flip (0↔1)। +1 नहीं जोड़ना।\n00000101 → 11111010।\n\nजाँच: 00000101 = +5। Flip के बाद 11111010। दोबारा flip करने पर मूल 00000101 वापस आना चाहिए।\n\nकटौती: 11111011 = 1's के बाद +1, यानी 2's complement of +5। 00000101 बिना flip के मूल संख्या है। 11111101 में कुछ middle bits गलत flip हुईं।\n\nTRAP: 1's = flip only। 2's = flip + 1। −5 का 2's 11111011 है — इस प्रश्न में मत ले आना।",
+      "marks": 1
+    },
+    {
+      "question": "Which statement about 1's complement is TRUE?",
+      "option1": "It has only one representation of zero",
+      "option2": "It has two representations of zero (+0 and −0)",
+      "option3": "Modern computers mainly use 1's complement for arithmetic",
+      "option4": "1's complement is obtained by flip and then add 1",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: 1's में +0 = 000…0 और −0 = 111…1 — दो zeros। 2's में केवल एक zero (000…0)। आधुनिक ALU 2's complement इस्तेमाल करती है।\n\nजाँच: 8-bit 1's: 00000000 = +0, 11111111 = −0। यही दो-zero वाली खामी 2's ने ठीक की।\n\nकटौती: “केवल एक zero” 2's की बात है। Computers मुख्यतः 2's use करते हैं, 1's नहीं। Flip then add 1 = 2's का नियम, 1's का नहीं।\n\nTRAP: 1's और 2's दोनों में दो zero — गलत। सिर्फ 1's में दो zero, 2's में एक।",
+      "marks": 1
+    },
+    {
+      "question": "To obtain 1's complement of a binary number, we",
+      "option1": "Add 1 to each bit",
+      "option2": "Invert all bits (0↔1)",
+      "option3": "Invert all bits and then add 1",
+      "option4": "Keep MSB same and invert the rest",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: 1's complement की definition: सभी bits invert करो। कुछ भी add मत करो, MSB को मत बचाओ।\n\nजाँच: 00000101 → invert → 11111010। यही 1's है।\n\nकटौती: Add 1 to each bit arithmetic नहीं है (0+1=1, 1+1=10 — carry फैल जाएगी)। Invert then add 1 = 2's। MSB same रखना sign-magnitude का अधूरा नियम है, 1's नहीं।\n\nTRAP: 2's का कदम 1's वाले प्रश्न में मत घुसाइए।",
+      "marks": 1
+    },
+    {
+      "question": "2's complement is obtained by",
+      "option1": "Inverting all bits only",
+      "option2": "Adding 1 to the given number",
+      "option3": "Taking 1's complement and then adding 1",
+      "option4": "Changing only the MSB",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: 2's = 1's complement, फिर +1। यानी invert all bits, then add 1।\n\nजाँच: +5 = 00000101 → 1's 11111010 → +1 = 11111011 = −5 in 8-bit 2's।\n\nकटौती: Invert only = 1's, 2's अधूरी। केवल +1 बिना invert के +6 देगा, complement नहीं। केवल MSB बदलना sign-magnitude है।\n\nTRAP: 2's = flip only ❌ → flip + 1 ✅",
+      "marks": 1
+    },
+    {
+      "question": "The 8-bit 2's complement representation of −5 is",
+      "option1": "11111010",
+      "option2": "11111011",
+      "option3": "00000101",
+      "option4": "10000101",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: पहले +5 लिखिए = 00000101। 1's: 11111010। फिर +1: 11111011। यही −5 का 8-bit 2's है।\n\nजाँच: 11111011 का 2's वापस: invert 00000100, +1 = 00000101 = +5। Magnitude मिल गई।\n\nकटौती: 11111010 1's of +5 है (−5 in 1's, 2's में नहीं)। 00000101 = +5। 10000101 sign-magnitude of −5 है (MSB 1, बाकी 0000101)।\n\nTRAP: 1's वाला उत्तर 2's वाले प्रश्न में सबसे आम गलत विकल्प है।",
+      "marks": 1
+    },
+    {
+      "question": "Using the 2's complement shortcut (copy bits from LSB up to first 1, then invert the remaining left bits), the 2's complement of 00101100 is",
+      "option1": "11010100",
+      "option2": "11010011",
+      "option3": "00101100",
+      "option4": "11010101",
+      "option5": "Not Attempted",
+      "correctOption": "1",
+      "explanation": "विधि: Shortcut — दाईं (LSB) से चलो, पहली 1 तक bits ज्यों की त्यों copy, उसके बाएँ सब invert।\n00101100: दाईं से 00 फिर पहली 1 → copy `100`। बाकी बाईं 00101 invert → 11010। जोड़: 11010100।\n\nजाँच (लंबा रास्ता): 1's of 00101100 = 11010011, +1 = 11010100। Shortcut और पूरी विधि एक ही उत्तर देती हैं।\n\nकटौती: 11010011 केवल 1's है (shortcut में +1 वाला कदम छूट गया)। 00101100 मूल संख्या है। 11010101 में LSB गलत।\n\nTRAP: Shortcut में “पहली 1 तक copy” भूलकर पूरा invert मत कर दीजिए — वही 1's बन जाता है।",
+      "marks": 1
+    },
+    {
+      "question": "Which 4-bit pattern is equal to its own 2's complement?",
+      "option1": "1010",
+      "option2": "0101",
+      "option3": "1000",
+      "option4": "0111",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: प्रत्येक का 2's निकालिए (invert + 1) और देखिए कौन स्वयं के बराबर है।\n1010 → 1's 0101 +1 = 0110 ≠ 1010।\n0101 → 1010 +1 = 1011 ≠ 0101।\n1000 → 0111 +1 = 1000। बराबर।\n0111 → 1000 +1 = 1001 ≠ 0111।\n\nजाँच: 4-bit 2's में 1000 = $ -2^{3} $ = −8। −8 का 2's फिर −8 ही रहता है — यही unique pattern है (n-bit में $100\\ldots0$)।\n\nकटौती: 1010 और 0101 एक-दूसरे के पास हैं पर 2's नहीं। 0111 = +7, 2's = −7 = 1001।\n\nTRAP: “Own 2's complement” = n-bit में सबसे negative संख्या $100\\ldots0$, 4-bit में 1000।",
+      "marks": 1
+    },
+    {
+      "question": "The range of numbers that can be represented in $n$-bit 2's complement is",
+      "option1": "$-2^{n}$ to $+2^{n} - 1$",
+      "option2": "$-2^{n-1}$ to $+2^{n-1} - 1$",
+      "option3": "$-2^{n-1} + 1$ to $+2^{n-1}$",
+      "option4": "$0$ to $2^{n} - 1$",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: n-bit 2's complement सूत्र: $-2^{n-1}$ से $+2^{n-1} - 1$। Negative तरफ एक extra value है क्योंकि −0 अलग नहीं होता।\n\nजाँच: n = 8 → $-2^{7}$ to $+2^{7}-1$ = −128 to +127। n = 4 → −8 to +7। दोनों सूत्र से मिलते हैं।\n\nकटौती: $-2^{n}$ to $+2^{n}-1$ एक extra bit मान लेता है। $-2^{n-1}+1$ to $+2^{n-1}$ 1's / symmetric range जैसा है (+side पर 2^{n-1} नहीं आता)। 0 to $2^{n}-1$ unsigned है।\n\nTRAP: TRE बार-बार यही सूत्र पूछता है। 8-bit याद हो तो n पर generalize करिए: −128→$-2^{n-1}$, +127→$+2^{n-1}-1$।",
+      "marks": 1
+    },
+    {
+      "question": "The range of numbers that can be represented in 8-bit using 2's complement representation is",
+      "option1": "−128 to +128",
+      "option2": "−127 to +127",
+      "option3": "−128 to +127",
+      "option4": "More than one of the above",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: सूत्र $-2^{n-1}$ to $+2^{n-1}-1$, n = 8 → −128 to +127। TRE 2.0 PGT Q137 style।\n\nजाँच: सबसे negative = 10000000 = −128। सबसे positive = 01111111 = +127। +128 के लिए 9वीं bit चाहिए।\n\nकटौती: −128 to +128 असंभव — +128 represent नहीं होता। −127 to +127 1's complement / symmetric range है (वहाँ −128 नहीं)। More than one गलत क्योंकि केवल C सही है।\n\nTRAP: 8-bit range −128 to +128 या ±127 ❌ → −128 to +127 ✅",
+      "marks": 1
+    },
+    {
+      "question": "In 8-bit 2's complement, the bit pattern 10000000 represents",
+      "option1": "+128",
+      "option2": "−128",
+      "option3": "−127",
+      "option4": "−0",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: 8-bit 2's में MSB 1 और बाकी 0 = $-2^{7}$ = −128। यही सबसे negative value है।\n\nजाँच: 10000000 का 2's: invert 01111111, +1 = 10000000 — स्वयं के बराबर, magnitude 128, sign negative → −128। Unsigned में यही pattern 128 होता, 2's में नहीं।\n\nकटौती: +128 8-bit 2's में नहीं आता। −127 = 10000001। −0 1's में 11111111 होता है, 10000000 नहीं।\n\nTRAP: 10000000 = +128 ❌ → −128 ✅। Unsigned वाली आदत 2's पर मत लगाइए।",
+      "marks": 1
+    },
+    {
+      "question": "The range of numbers in 16-bit 2's complement representation is",
+      "option1": "−32768 to +32767",
+      "option2": "−32767 to +32767",
+      "option3": "−65536 to +65535",
+      "option4": "0 to 65535",
+      "option5": "Not Attempted",
+      "correctOption": "1",
+      "explanation": "विधि: n = 16, सूत्र $-2^{15}$ to $+2^{15}-1$। $2^{15} = 32768$, इसलिए −32768 to +32767।\n\nजाँच: 8-bit −128 to +127 का double-width रूप: 16-bit वही pattern, $2^{8}$ गुना। −128×256 = −32768, 127×256+255 = 32767।\n\nकटौती: −32767 to +32767 1's जैसा symmetric है — 16-bit 2's में −32768 भी आता है। −65536 to +65535 लगभग 17-bit / 2's गलत exponent। 0 to 65535 = 16-bit unsigned।\n\nTRAP: 16-bit unsigned (0–65535) और 16-bit 2's (−32768 to +32767) को मिलाइए मत।",
+      "marks": 1
+    }
+  ]
+}

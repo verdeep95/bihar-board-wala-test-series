@@ -11,6 +11,8 @@
   "negativeMarksPerQuestion": 0.3333333333333333,
   "negativeMarkingOnSkip": true,
   "shuffle": true,
+  "youtubeUrl": "https://youtu.be/t0lBIPhW-Tk",
+  "youtubeTitle": "Class 1 · Number System Conversion · Binary Octal Hex",
   "questions": [
     {
       "question": "Convert the decimal number 2023 to binary, octal and hexadecimal.",

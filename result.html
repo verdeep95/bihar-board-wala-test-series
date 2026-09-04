@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Result • Bihar Board Wala</title><link rel="icon" href="assets/img/logo-mark.png" type="image/png"><link rel="stylesheet" href="assets/css/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"></head>
 <body><header class="site-header"><a class="brand" href="index.html"><img class="brand-logo" src="assets/img/logo.png" alt="Bihar Board Wala" width="46" height="50"><span>Bihar Board Wala<small>Test Result</small></span></a><nav><button class="icon-btn theme-toggle" aria-label="Toggle dark mode"></button></nav></header><main id="result-app" class="container result-wrap"><div class="empty-state">Result लोड हो रहा है…</div></main><footer>© Bihar Board Wala</footer>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script><script src="assets/js/ui.js"></script><script src="assets/js/data.js?v=6"></script><script src="assets/js/math-text.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script><script src="assets/js/ui.js"></script><script src="assets/js/data.js?v=7"></script><script src="assets/js/math-text.js"></script>
 <script>
 (async () => {
   const id = new URLSearchParams(location.search).get("attempt"), r = BBWData.getResult(id), app = document.querySelector("#result-app");
@@ -29,10 +29,12 @@
   app.innerHTML = `<section class="card result-hero"><span class="badge ${r.passed ? "chip good" : "chip"}">${r.passed ? "✓ Passed" : "◎ Needs practice"}</span><div style="display:flex;justify-content:space-between;align-items:end;gap:1rem;flex-wrap:wrap"><div><h1>${BBWUI.escape(r.quizTitle)}</h1><p class="muted">${new Date(r.submittedAt).toLocaleString("hi-IN")}</p></div><div><div class="result-score">${Math.round(r.score)}%</div><div class="muted">${r.earnedMarks}/${r.totalMarks} marks</div></div></div><div class="progress"><span style="width:${Math.min(100,r.score)}%;background:hsl(var(--${r.passed ? "success" : "warning"}))"></span></div></section><section class="stats-grid" style="margin-top:1rem">${stats.map(x=>`<div class="card"><strong class="${x[2]}">${x[1]}</strong><small class="muted">${x[0]}</small></div>`).join("")}</section><div class="result-actions" style="margin-top:1rem"><a class="btn btn-primary" href="${retakeHref}">↻ Retake</a><button id="toggle-review" class="btn btn-outline">Review answers</button><button id="share-result" class="btn btn-ghost">↗ Share</button><a class="btn btn-ghost" href="${chapterHref}">Back to chapter</a></div><div id="video-slot"></div><section id="review-section" hidden><div class="review-filter">${filters.map((f,i)=>`<button class="btn btn-outline ${i===0?"active":""}" data-filter="${f[0]}">${f[1]}</button>`).join("")}</div><div id="review-list"></div></section>`;
   const section=document.querySelector("#review-section"), list=document.querySelector("#review-list");
   function render(filter="all"){
-    list.innerHTML = r.review.map((x,i)=>({x,i})).filter(({x})=>filter==="all"||x.status===filter||(!tre&&filter==="skipped"&&x.status==="blank")).map(({x,i})=>{
+    const total = Number(r.totalQuestions || (r.review && r.review.length) || 0);
+    list.innerHTML = r.review.map((x, i) => ({ x, i })).filter(({ x }) => filter === "all" || x.status === filter || (!tre && filter === "skipped" && x.status === "blank")).map(({ x, i }) => {
+      const n = Number(x.questionNumber || i + 1);
       const delta = x.marksDelta == null ? "" : ` · ${BBWData.formatMarksDelta(x.marksDelta)}`;
       const yours = x.selectedOption ? `${BBWData.optionLetter(x.selectedOption)}. ${BBWMath.render(x.options[x.selectedOption-1])}` : "Not answered (blank)";
-      return `<article class="card review-card ${x.status}"><div class="muted">Question ${i+1} • ${statusLabel[x.status] || x.status}${delta}</div><h3>${BBWMath.render(x.question)}</h3><div class="answer-line">Your answer: ${yours}</div><div class="answer-line success">Correct answer: ${BBWData.optionLetter(x.correctOption)}. ${BBWMath.render(x.options[x.correctOption-1])}</div>${x.explanation ? `<div class="explanation"><strong>Explanation</strong><div>${BBWMath.render(x.explanation)}</div></div>` : ""}</article>`;
+      return `<article class="card review-card ${x.status}"><div class="muted">Q ${n}/${total} • ${statusLabel[x.status] || x.status}${delta}</div><h3>${BBWMath.render(x.question)}</h3><div class="answer-line">Your answer: ${yours}</div><div class="answer-line success">Correct answer: ${BBWData.optionLetter(x.correctOption)}. ${BBWMath.render(x.options[x.correctOption-1])}</div>${x.explanation ? `<div class="explanation"><strong>Explanation</strong><div>${BBWMath.render(x.explanation)}</div></div>` : ""}</article>`;
     }).join("") || '<div class="empty-state">No questions in this filter.</div>';
   }
   document.querySelector("#toggle-review").onclick=()=>{section.hidden=!section.hidden;if(!section.hidden){render();section.scrollIntoView({behavior:"smooth"})}};
@@ -47,4 +49,6 @@
     slot.innerHTML = BBWUI.videoCard(video, heading, { emphasise: !r.passed, note, cta: "YouTube पर देखें ↗" });
   }
 })();
-</script></body></html>
+</script>
+<!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "94725484981843d7bbf51b452576cf0d"}'></script><!-- End Cloudflare Web Analytics -->
+</body></html>
