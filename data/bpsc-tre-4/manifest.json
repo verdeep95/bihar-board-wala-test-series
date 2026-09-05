@@ -72,10 +72,10 @@
             {
               "id": "computer-number-systems-test-3",
               "slug": "test-3",
-              "title": "Day 3 · Memory Units & Logic Gates",
+              "title": "Class 3 · ASCII Unicode EBCDIC · BCD & Gray Code",
               "file": "data/bpsc-tre-4/computer/number-systems/test-3.json",
-              "questionCount": 0,
-              "timeLimitMinutes": 20,
+              "questionCount": 15,
+              "timeLimitMinutes": 15,
               "quizType": "LECTURE_QUIZ"
             }
           ]

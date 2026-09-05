@@ -94,8 +94,8 @@
       "unitLabel": { "en": "Chapter", "hi": "Chapter" },
       "manifest": "data/bpsc-tre-4/manifest.json",
       "subjectCount": 1,
-      "testCount": 2,
-      "questionCount": 35
+      "testCount": 3,
+      "questionCount": 50
     }
   ]
 }

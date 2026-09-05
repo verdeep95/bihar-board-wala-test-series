@@ -1,0 +1,181 @@
+{
+  "id": "computer-number-systems-test-3",
+  "title": "Class 3 · ASCII Unicode EBCDIC · BCD & Gray Code",
+  "course": "bpsc-tre-4",
+  "subject": "computer",
+  "chapter": "number-systems",
+  "quizType": "LECTURE_QUIZ",
+  "timeLimitMinutes": 15,
+  "passingScore": 33,
+  "negativeMarkingEnabled": true,
+  "negativeMarksPerQuestion": 0.3333333333333333,
+  "negativeMarkingOnSkip": true,
+  "shuffle": true,
+  "questions": [
+    {
+      "question": "Which of the following is used for Character Data representation in computers?",
+      "option1": "ASCII",
+      "option2": "BCD",
+      "option3": "Gray Code",
+      "option4": "2's Complement",
+      "option5": "Not Attempted",
+      "correctOption": "1",
+      "explanation": "विधि: Data representation दो वर्ग — Numeric और Character। Character codes = ASCII, EBCDIC, Unicode। Numeric = Unsigned / Signed (1's, 2's, sign-magnitude)। BCD और Gray binary codes हैं, character set नहीं।\n\nजाँच: अक्षर, अंक-as-character, space लिखने के लिए ASCII (या EBCDIC / Unicode) चाहिए। संख्या की गणना के लिए 2's; दशमलव अंक packing के लिए BCD; sensors के लिए Gray।\n\nकटौती: BCD दशमलव अंक को 4 bits में बाँधता है — character alphabet नहीं। Gray क्रमागत मानों में 1-bit change रखता है। 2's signed integers के लिए है (Part 1)।\n\nTRAP: BCD के नाम में “Decimal” देखकर character मत मानिए। Character = ASCII / EBCDIC / Unicode।",
+      "marks": 1
+    },
+    {
+      "question": "Standard ASCII uses how many bits and how many characters?",
+      "option1": "7 bits, 128 characters",
+      "option2": "8 bits, 256 characters",
+      "option3": "7 bits, 256 characters",
+      "option4": "8 bits, 128 characters",
+      "option5": "Not Attempted",
+      "correctOption": "1",
+      "explanation": "विधि: Standard ASCII = 7-bit → $2^7 = 128$ characters, codes 0 से 127। 8वीं bit बाद में Extended ASCII (256 characters) के लिए जोड़ी गई।\n\nजाँच: 7 bits के सारे combinations = 128। परीक्षा का एक-लाइनर यही है।\n\nकटौती: 8 bits, 256 = Extended ASCII, Standard नहीं। 7 bits से 256 असंभव ($2^7=128$)। 8 bits, 128 bits और count का बेमेल जोड़ा है।\n\nTRAP: Standard ASCII = 7-bit / 128 ✅। Extended = 8-bit / 256। “ASCII = 8 bit” सुनकर Standard मत लिखिए।",
+      "marks": 1
+    },
+    {
+      "question": "The decimal ASCII code of capital letter 'A' is",
+      "option1": "65",
+      "option2": "97",
+      "option3": "41",
+      "option4": "32",
+      "option5": "Not Attempted",
+      "correctOption": "1",
+      "explanation": "विधि: TRE रटन्त: 'A' = 65 (decimal) = $41_{16}$। 'A' से 'Z' = 65 से 90।\n\nजाँच: 'B' = 66, 'C' = 67 — alphabet क्रम में +1। Hex 41 = $4\\times16+1 = 65$।\n\nकटौती: 97 = 'a' (small)। 41 दशमलव नहीं, hex रूप है — प्रश्न decimal माँगता है। 32 = space (blank)।\n\nTRAP: 41 देखकर hex को decimal मत समझिए। पूछा decimal है → 65।",
+      "marks": 1
+    },
+    {
+      "question": "The ASCII code of small letter 'a' is",
+      "option1": "65",
+      "option2": "97",
+      "option3": "48",
+      "option4": "57",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: 'a' = 97 = $61_{16}$। 'A' = 65, case बदलने पर +32: $65+32=97$। 'a' से 'z' = 97 से 122।\n\nजाँच: 97 − 65 = 32, यही uppercase/lowercase का फ़र्क है।\n\nकटौती: 65 = 'A'। 48 = digit '0'। 57 = digit '9'।\n\nTRAP: Capitals 65, small 97 — 32 का पुल याद रखिए, अलग-अलग रटने पर उलझ जाते हैं।",
+      "marks": 1
+    },
+    {
+      "question": "The ASCII code of digit '0' (zero) is",
+      "option1": "0",
+      "option2": "48",
+      "option3": "30",
+      "option4": "57",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Character '0' और संख्या 0 अलग चीज़ें हैं। Digit characters: '0' = 48, '1' = 49, …, '9' = 57। यानी '0' = 48 = $30_{16}$।\n\nजाँच: '5' = 48+5 = 53। '9' = 48+9 = 57। श्रृंखला बैठती है।\n\nकटौती: 0 संख्या शून्य है, character code नहीं। 30 hex रूप है, decimal नहीं। 57 = '9', '0' नहीं।\n\nTRAP: Digit '0' ASCII = 0 ❌ → 48 ✅। परीक्षा का सबसे आम ASCII जाल।",
+      "marks": 1
+    },
+    {
+      "question": "The difference between ASCII codes of 'A' and 'a' is",
+      "option1": "16",
+      "option2": "32",
+      "option3": "48",
+      "option4": "64",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: 'a' − 'A' = 97 − 65 = 32। यही case-change का फ़र्क है — bit 5 ($2^5=32$) toggle।\n\nजाँच: 'B' = 66, 'b' = 98; फ़र्क फिर 32। हर जोड़े पर यही।\n\nकटौती: 16 = $2^4$, गलत bit। 48 = '0' का code, फ़र्क नहीं। 64 = 'A' से एक स्थान पहले (64 = '@' के पास) — subtraction नहीं।\n\nTRAP: 32 याद रखिए: space भी 32 है, और case-gap भी 32 है — दो अलग तथ्य, एक संख्या।",
+      "marks": 1
+    },
+    {
+      "question": "EBCDIC is primarily associated with",
+      "option1": "8-bit codes on IBM mainframe systems",
+      "option2": "7-bit codes on personal computers",
+      "option3": "16-bit codes on mobile phones only",
+      "option4": "4-bit codes for decimal digits",
+      "option5": "Not Attempted",
+      "correctOption": "1",
+      "explanation": "विधि: EBCDIC = Extended Binary Coded Decimal Interchange Code। 8-bit character code, IBM mainframes पर। PC / Internet का default ASCII / Unicode है।\n\nजाँच: 8 bits → 256 possible codes। नाम में BCD है, पर यह character interchange code है, 4-bit BCD digit नहीं।\n\nकटौती: 7-bit PC = Standard ASCII। 16-bit mobile = Unicode वाला अधूरा बयान। 4-bit decimal digits = packed BCD, EBCDIC नहीं।\n\nTRAP: “Binary Coded Decimal” शब्द देखकर 4-bit मत चुनिए। EBCDIC 8-bit IBM character set है।",
+      "marks": 1
+    },
+    {
+      "question": "In BPSC TRE exam one-liner style, Unicode is commonly described as",
+      "option1": "7-bit character set",
+      "option2": "16-bit character set",
+      "option3": "4-bit nibble code",
+      "option4": "32-bit signed integer code",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: TRE one-liner: Unicode = 16-bit character set (UCS-2 / early Unicode)। दुनिया की लिपियाँ एक ही set में।\n\nजाँच: 16 bits → $2^{16} = 65536$ code points का मूल BMP विचार। परीक्षा में यही लिखना है।\n\nकटौती: 7-bit = Standard ASCII। 4-bit nibble = BCD digit। 32-bit signed integer numeric 2's range है, character set नहीं।\n\nTRAP: असल दुनिया में UTF-8 variable (1–4 bytes) है। TRE पेपर में अक्सर “Unicode = 16-bit” ही उत्तर होता है — one-liner रटिए, UTF-8 बहस मत खोलिए।",
+      "marks": 1
+    },
+    {
+      "question": "In BCD, each decimal digit is represented using",
+      "option1": "8 bits",
+      "option2": "4 bits (one nibble)",
+      "option3": "2 bits",
+      "option4": "1 bit",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: BCD = Binary Coded Decimal। हर दशमलव अंक 0–9 को अलग 4-bit nibble मिलता है। 4 bits क्योंकि $2^4=16>9$।\n\nजाँच: 5 → 0101, 9 → 1001, 0 → 0000। दो अंक 45 → दो nibble: 0100 0101।\n\nकटौती: 8 bits एक byte / एक ASCII character है, एक BCD digit नहीं (packed BCD में एक byte = दो अंक)। 2 bits से अधिकतम 3। 1 bit केवल 0/1।\n\nTRAP: Byte = 8, nibble = 4। BCD digit = nibble।",
+      "marks": 1
+    },
+    {
+      "question": "Which of the following is an INVALID BCD nibble?",
+      "option1": "1001   (9)",
+      "option2": "1010",
+      "option3": "0101   (5)",
+      "option4": "0000   (0)",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Valid BCD digits = 0000 (0) से 1001 (9)। 1010, 1011, 1100, 1101, 1110, 1111 दशमलव 10–15 हैं — BCD में अवैध।\n\nजाँच: 1010₂ = 10₁₀, जबकि एक BCD digit अधिकतम 9 होता है।\n\nकटौती: 1001 = 9, valid। 0101 = 5, valid। 0000 = 0, valid।\n\nTRAP: 4-bit binary में 1010 valid है; BCD nibble में नहीं। “4 bits हैं तो 0–15” वाली आदत BCD पर मत चलाइए।",
+      "marks": 1
+    },
+    {
+      "question": "When performing BCD addition, what is the maximum value that can be represented in a single BCD digit?",
+      "option1": "9",
+      "option2": "10",
+      "option3": "15",
+      "option4": "More than one of the above",
+      "option5": "Not Attempted",
+      "correctOption": "1",
+      "explanation": "विधि: एक BCD digit = एक दशमलव अंक 0–9। Maximum = 9 = 1001। 10 लिखने के लिए दो nibble चाहिए (0001 0000)।\n\nजाँच: 1001 के बाद 1010 अवैध है — यही invalid-nibble नियम है।\n\nकटौती: 10 दशमलव “अगली संख्या” है, एक digit में नहीं समाती। 15 = 1111 = 4-bit binary का max, BCD का नहीं। More than one गलत क्योंकि केवल 9 सही है।\n\nTRAP: TRE 3.0 PGT Q84 (Set-E) में विकल्प 2, 10, 15 थे — 9 था ही नहीं, इसलिए official key = E (Not Attempted)। यहाँ 9 दिया है ताकि concept पर +1 मिले। 15 वाला जाल वही है: nibble-max ≠ BCD-max।",
+      "marks": 1
+    },
+    {
+      "question": "The BCD representation of decimal number 45 is",
+      "option1": "101101",
+      "option2": "00101101",
+      "option3": "01000101",
+      "option4": "45000000",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: हर अंक अलग nibble। 4 → 0100, 5 → 0101 → 0100 0101 = 01000101।\n\nजाँच: बायाँ nibble 0100 = 4, दायाँ 0101 = 5। पढ़कर 45 वापस आता है।\n\nकटौती: 101101 = साधारण binary of 45 ($32+8+4+1$)। 00101101 वही binary 8-bit में padded। 45000000 अंकों को bits की तरह चिपका देना है — encoding नहीं।\n\nTRAP: 45 BCD = 101101 (binary) ❌ → 0100 0101 ✅। Binary और BCD को एक प्रश्न में मिलाइए मत।",
+      "marks": 1
+    },
+    {
+      "question": "The main property of Gray code is that two successive values differ in",
+      "option1": "Exactly one bit",
+      "option2": "Exactly two bits",
+      "option3": "All bits",
+      "option4": "No bits",
+      "option5": "Not Attempted",
+      "correctOption": "1",
+      "explanation": "विधि: Gray code = reflected binary। क्रमागत मानों में ठीक एक bit बदलती है (Hamming distance 1)। इससे sensors / rotary encoders में transition error कम होती है।\n\nजाँच: 2-bit Gray: 00 → 01 → 11 → 10 — हर कदम पर एक ही bit। Binary 01 → 10 में दो bits बदलती हैं — यही समस्या Gray हल करता है।\n\nकटौती: Exactly two / all bits binary की अनियमित change है। No bits का मतलब मान बदला ही नहीं।\n\nTRAP: Gray = “सब bits पलटो” नहीं। Property = successive codes differ by 1 bit।",
+      "marks": 1
+    },
+    {
+      "question": "Gray code is best classified as",
+      "option1": "A character code like ASCII",
+      "option2": "A binary code (not character data)",
+      "option3": "A signed number representation",
+      "option4": "A floating-point format",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Lecture का वर्गीकरण — Character codes = ASCII, EBCDIC, Unicode। Binary codes = BCD, Gray, Excess-3 इत्यादि। Gray संख्या/संकेत को bits में बदलता है, अक्षर नहीं लिखता।\n\nजाँच: Gray में 'A' या space का code नहीं होता; 000, 001, 011… जैसे bit patterns होते हैं।\n\nकटौती: ASCII जैसा character set नहीं। Signed (1's/2's) Part 1 है। Floating-point (IEEE) अलग अध्याय है।\n\nTRAP: Gray Code = Character code ❌ → Binary code, 1-bit successive change ✅।",
+      "marks": 1
+    },
+    {
+      "question": "The Gray code equivalent of binary 1011 is",
+      "option1": "1101",
+      "option2": "1110",
+      "option3": "1010",
+      "option4": "0111",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Binary → Gray: MSB ज्यों की त्यों; हर अगली Gray bit = binary की वह bit XOR अपनी बाईं पड़ोसी।\n1011: MSB = 1; $1\\oplus 0 = 1$; $0\\oplus 1 = 1$; $1\\oplus 1 = 0$ → 1110।\n\nजाँच: Bits बाएँ से $b_3 b_2 b_1 b_0 = 1\\,0\\,1\\,1$। $g_3=b_3=1$, $g_2=b_3\\oplus b_2$, $g_1=b_2\\oplus b_1$, $g_0=b_1\\oplus b_0$。\n\nकटौती: 1101 XOR क्रम एक स्थान खिसकने पर। 1010 मूल से एक bit गिरा। 0111 MSB गलती से invert करने पर (पूरा flip = 1's, Gray नहीं)।\n\nTRAP: Binary→Gray = सब bits मत पलटिए। MSB same, बाकी XOR पड़ोसी।",
+      "marks": 1
+    }
+  ]
+}
