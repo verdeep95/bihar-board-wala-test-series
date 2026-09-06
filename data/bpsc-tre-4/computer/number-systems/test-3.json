@@ -11,6 +11,8 @@
   "negativeMarksPerQuestion": 0.3333333333333333,
   "negativeMarkingOnSkip": true,
   "shuffle": true,
+  "youtubeUrl": "https://youtu.be/OgDhArwUvgc",
+  "youtubeTitle": "Class 3 · ASCII Unicode EBCDIC · BCD & Gray Code",
   "questions": [
     {
       "question": "Which of the following is used for Character Data representation in computers?",

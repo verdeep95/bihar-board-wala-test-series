@@ -76,7 +76,9 @@
               "file": "data/bpsc-tre-4/computer/number-systems/test-3.json",
               "questionCount": 15,
               "timeLimitMinutes": 15,
-              "quizType": "LECTURE_QUIZ"
+              "quizType": "LECTURE_QUIZ",
+              "youtubeUrl": "https://youtu.be/OgDhArwUvgc",
+              "youtubeTitle": "Class 3 · ASCII Unicode EBCDIC · BCD & Gray Code"
             }
           ]
         },
