@@ -1,0 +1,183 @@
+{
+  "id": "computer-number-systems-test-4",
+  "title": "Class 4 · Memory Units · Tera Hex Octal PYQ",
+  "course": "bpsc-tre-4",
+  "subject": "computer",
+  "chapter": "number-systems",
+  "quizType": "LECTURE_QUIZ",
+  "timeLimitMinutes": 15,
+  "passingScore": 33,
+  "negativeMarkingEnabled": true,
+  "negativeMarksPerQuestion": 0.3333333333333333,
+  "negativeMarkingOnSkip": true,
+  "shuffle": true,
+  "youtubeUrl": "https://youtu.be/OIsPcyUcaKg",
+  "youtubeTitle": "Class 4 · Memory Units · Tera Hex Octal PYQ",
+  "questions": [
+    {
+      "question": "1 nibble is equal to",
+      "option1": "8 bits",
+      "option2": "4 bits",
+      "option3": "2 bits",
+      "option4": "16 bits",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: चार नाम एक साथ रटो: Bit = 1, Nibble = 4 bits, Byte = 8 bits, Word = CPU पर 16 / 32 / 64। Nibble = आधा byte = ठीक 4 bits = ठीक 1 hex digit।\n\nजाँच: 1 byte = 8 bits = 2 nibble → एक nibble = $8/2 = 4$ bits। मेल।\n\nकटौती: A (8 bits) byte का मान है — इकाई एक पायदान बड़ी। C (2 bits) किसी मानक इकाई से मेल नहीं खाता। D (16 bits) एक आम Word size है, nibble नहीं।\n\nTRAP: Nibble और Byte परीक्षा में उलट जाते हैं। जोड़ी बाँधो: 4 और 8। PEN — 4 घेरें।",
+      "marks": 1
+    },
+    {
+      "question": "Which of the following is/are correct for 1 byte?",
+      "option1": "8 bits",
+      "option2": "2 nibbles",
+      "option3": "4 hexadecimal digits",
+      "option4": "More than one of the above",
+      "option5": "Not Attempted",
+      "correctOption": "4",
+      "explanation": "विधि: Byte को तीन भाषाओं में लिखो: bits में = 8 bits; nibble में = 2 nibble; hex में = 2 hex digits। A सही, B सही, C गलत (4 hex digits = 16 bits = 2 bytes)। दो सही कथन → D = More than one of the above।\n\nजाँच: 4 hex digits × 4 bits = 16 bits ≠ 1 byte। इसलिए C बाहर। केवल A और B।\n\nकटौती: A अकेला अधूरा उत्तर है — B भी सही है, इसलिए A पर मत रुकना। B अकेला भी अधूरा — A भी सही है। C 4 hex digits = 2 bytes। इकाई दुगुनी हो गई।\n\nTRAP: TRE 4.0 में E = skip। यहाँ D पुराने “more than one” रूप का अभ्यास है। जब दो कथन सही हों, पहले वाले सही विकल्प पर झटपट मत दबाना। PEN — C काटें, A और B घेरें।",
+      "marks": 1
+    },
+    {
+      "question": "One hexadecimal digit occupies",
+      "option1": "4 bits",
+      "option2": "8 bits",
+      "option3": "2 bits",
+      "option4": "16 bits",
+      "option5": "Not Attempted",
+      "correctOption": "1",
+      "explanation": "विधि: $16 = 2^4$, इसलिए एक hex अंक ठीक 4 bits रखता है = 1 nibble। उदाहरण: A = 1010, F = 1111, 7 = 0111 (आगे 0 ज़रूरी)।\n\nजाँच: दो hex अंक = 8 bits = 1 byte। एक अंक = आधा byte = 4 bits।\n\nकटौती: B (8 bits) एक पूरी byte / दो hex digits का स्थान है। C (2 bits) $2^2 = 4$ होता, hex नहीं (hex = $2^4$)। D (16 bits) दो bytes, या एक 16-bit Word।\n\nTRAP: 7 को 111 (3 bits) लिखना आम है। Hex में हर अंक के 4 bits अनिवार्य — 7 = 0111। यही Day 1 का grouping नियम है।",
+      "marks": 1
+    },
+    {
+      "question": "The size of a machine Word is",
+      "option1": "Always 8 bits",
+      "option2": "Always 16 bits",
+      "option3": "CPU-dependent (commonly 16 / 32 / 64 bits)",
+      "option4": "Always equal to 1 nibble",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: Bit / Nibble / Byte निश्चित हैं। Word निश्चित नहीं — processor की data-bus चौड़ाई: पुरानी मशीन 16, आम PC 32, आज बहुत सी 64।\n\nजाँच: “Always 16” कहना गलत साबित होता है — 32-bit और 64-bit CPU मौजूद हैं।\n\nकटौती: A Byte को Word मान बैठने की गलती है। B एक संभव Word है, पर “always” गलत है। D Nibble 4 bits — Word से चार-आठ गुना छोटा।\n\nTRAP: विकल्प में 16 दिखते ही घेर लेना। प्रश्न “always” पूछ रहा है या “commonly”? PEN — Always काटें।",
+      "marks": 1
+    },
+    {
+      "question": "One byte, written in hexadecimal, uses",
+      "option1": "2 hex digits",
+      "option2": "1 hex digit",
+      "option3": "4 hex digits",
+      "option4": "8 hex digits",
+      "option5": "Not Attempted",
+      "correctOption": "1",
+      "explanation": "विधि: 1 hex digit = 4 bits, 1 byte = 8 bits → $8/4 = 2$ hex digits। Range: 00 से $\\mathrm{FF}_{16}$ = 0 से $255_{10}$।\n\nजाँच: FF = 11111111 = 255, और 8-bit max = $2^8-1 = 255$। मेल।\n\nकटौती: B (1 hex digit) केवल 4 bits / 1 nibble — आधा byte। C (4 hex digits) = 16 bits = 2 bytes। D (8 hex digits) = 32 bits।\n\nTRAP: Colour code और memory address आगे भी 2 hex digits = 1 byte दिखाएँगे। एक byte को hex में सदा दो अंकों में लिखते हैं (00–FF)।",
+      "marks": 1
+    },
+    {
+      "question": "In the TRE / computer binary convention, 1 KB is equal to",
+      "option1": "1000 bytes",
+      "option2": "1024 bytes",
+      "option3": "1024 bits",
+      "option4": "8000 bits",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: TRE / कंप्यूटर binary convention: किलो = $2^{10} = 1024$, SI वाला 1000 नहीं। पूरी सीढ़ी: हर पायदान exponent में +10।\n\nजाँच: 1024 bytes × 8 = 8192 bits। इसलिए “1024 bits” या “8000 bits” KB नहीं।\n\nकटौती: A (1000) SI / दशमलव जाल है। पेपर powers of 2 माँगता है। C (1024 bits) सही संख्या, गलत इकाई — यह केवल 128 bytes है। D (8000 bits) = 1000 bytes × 8 — वही 1000 वाली गलती bits में।\n\nTRAP: संख्या 1024 देखकर bits/bytes मत भूलना। इकाई घेरें (PEN)। यही जाल Q89 (Tera) तक चलता है।",
+      "marks": 1
+    },
+    {
+      "question": "Mega corresponds to",
+      "option1": "$2^{10}$",
+      "option2": "$2^{30}$",
+      "option3": "$2^{20}$",
+      "option4": "$2^{40}$",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: मुँह से: किलो 10, मेगा 20, गीगा 30, टेरा 40, पेटा 50। Mega = किलो के बाद अगला पायदान = $10+10 = 20$ → $2^{20}$ bytes।\n\nजाँच: 1 MB = 1024 KB = $1024 \\times 2^{10} = 2^{10} \\times 2^{10} = 2^{20}$।\n\nकटौती: A ($2^{10}$) Kilo / KB है। B ($2^{30}$) Giga / GB है — एक पायदान आगे। D ($2^{40}$) Tera / TB है — Q89 वाला।\n\nTRAP: Mega और Giga पड़ोसी हैं। 20/30 उलझते हैं। M = 20, G = 30 रटो।",
+      "marks": 1
+    },
+    {
+      "question": "In BPSC TRE 2.0 PGT style, “Tera” means",
+      "option1": "$2^{20}$",
+      "option2": "$2^{40}$",
+      "option3": "$2^{30}$",
+      "option4": "More than one of the above",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: सीढ़ी गिनो: Kilo 10, Mega 20, Giga 30, Tera 40। Tera = $2^{40}$ bytes। Option A Mega है, C Giga है — दोनों काटो।\n\nजाँच: Tera, Giga के ठीक बाद: $30+10 = 40$। $1024^4$ bytes = $(2^{10})^4 = 2^{40}$।\n\nकटौती: A ($2^{20}$) = Mega। काटो। C ($2^{30}$) = Giga। एक पायदान छोटा। काटो। D तभी सही होता जब A और C दोनों Tera होते — दोनों गलत हैं।\n\nTRAP: TRE 2.0 PGT Q89 यही था: Tera means $2^{20}$ / $2^{40}$ / $2^{30}$। Official CS key folder में नहीं — $2^n$ तथ्य unambiguous, उत्तर B। SI $10^{12}$ वाली बहस मत खोलना; पेपर power of 2 दे रहा है। PEN — A Mega और C Giga काटें, $2^{40}$ घेरें।",
+      "marks": 1
+    },
+    {
+      "question": "Giga corresponds to",
+      "option1": "$2^{30}$",
+      "option2": "$2^{20}$",
+      "option3": "$2^{40}$",
+      "option4": "$2^{10}$",
+      "option5": "Not Attempted",
+      "correctOption": "1",
+      "explanation": "विधि: Mega 20 के बाद +10 = 30। Giga = $2^{30}$ bytes = $1024^3$ bytes।\n\nजाँच: 1 GB = 1024 MB = $2^{10} \\times 2^{20} = 2^{30}$।\n\nकटौती: B ($2^{20}$) Mega है। C ($2^{40}$) Tera है। D ($2^{10}$) Kilo है।\n\nTRAP: “Giga = $2^{40}$” लिखने वाले Tera से एक पायदान पीछे भूल जाते हैं। गीगा = 30, टेरा = 40 — Q89 का distractor यही है।",
+      "marks": 1
+    },
+    {
+      "question": "Peta corresponds to",
+      "option1": "$2^{40}$",
+      "option2": "$2^{50}$",
+      "option3": "$2^{60}$",
+      "option4": "$2^{30}$",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Tera 40 के बाद +10 = 50। Peta = $2^{50}$ bytes। सीढ़ी यहीं स्कूल-स्तर पर रुकती थी; PGT पर EB तक जारी रखो।\n\nजाँच: 1 PB = 1024 TB = $2^{10} \\times 2^{40} = 2^{50}$।\n\nकटौती: A ($2^{40}$) Tera — एक पायदान छोटा। C ($2^{60}$) Exa / EB — एक पायदान बड़ा। D ($2^{30}$) Giga।\n\nTRAP: श्रृंखला Peta पर रोक देना। अगला Exa 60 है — पूरी सीढ़ी QB तक: EB 60 · ZB 70 · YB 80 · RB 90 · QB 100।",
+      "marks": 1
+    },
+    {
+      "question": "In binary convention, 1 EB (Exabyte) is",
+      "option1": "$2^{50}$ bytes",
+      "option2": "$2^{70}$ bytes",
+      "option3": "$2^{60}$ bytes",
+      "option4": "$2^{40}$ bytes",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: Peta 50 + 10 = 60। Exa / EB = $2^{60}$ bytes। नाम: Kilo Mega Giga Tera Peta Exa Zetta Yotta Ronna Quetta।\n\nजाँच: 1 EB = 1024 PB = $2^{10} \\times 2^{50} = 2^{60}$।\n\nकटौती: A ($2^{50}$) Peta है। B ($2^{70}$) Zetta / ZB है। D ($2^{40}$) Tera है।\n\nTRAP: Exa और Peta पड़ोसी। E = 60, P = 50। अक्षर से न उलझो — +10 गिनो।",
+      "marks": 1
+    },
+    {
+      "question": "Zetta (ZB) corresponds to",
+      "option1": "$2^{50}$",
+      "option2": "$2^{60}$",
+      "option3": "$2^{80}$",
+      "option4": "$2^{70}$",
+      "option5": "Not Attempted",
+      "correctOption": "4",
+      "explanation": "विधि: Exa 60 + 10 = 70। Zetta / ZB = $2^{70}$। उसके बाद Yotta 80, Ronna 90, Quetta 100।\n\nजाँच: 1 ZB = 1024 EB = $2^{10} \\times 2^{60} = 2^{70}$।\n\nकटौती: A ($2^{50}$) Peta। B ($2^{60}$) Exa। C ($2^{80}$) Yotta / YB — एक पायदान आगे।\n\nTRAP: Zetta / Yotta नाम कम सुने हैं, इसलिए 60/80 अनुमान से भर देते हैं। नियम याद रखो, नाम नया हो तो भी +10 चलता है।",
+      "marks": 1
+    },
+    {
+      "question": "After Yotta (YB = $2^{80}$) in the binary prefix chain, the next two units are",
+      "option1": "Ronna (RB = $2^{90}$) and Quetta (QB = $2^{100}$)",
+      "option2": "Zetta and Exa",
+      "option3": "Mega and Giga",
+      "option4": "More than one of the above",
+      "option5": "Not Attempted",
+      "correctOption": "1",
+      "explanation": "विधि: पूरी सड़क: Bit → Nibble → Byte → KB $2^{10}$ → MB $2^{20}$ → GB $2^{30}$ → TB $2^{40}$ → PB $2^{50}$ → EB $2^{60}$ → ZB $2^{70}$ → YB $2^{80}$ → RB $2^{90}$ → QB $2^{100}$। Yotta के बाद Ronna, फिर Quetta। SI 2022 के नाम; binary नियम वही +10।\n\nजाँच: $80 + 10 = 90$ (RB), $90 + 10 = 100$ (QB)।\n\nकटौती: B Zetta (70) और Exa (60) पीछे की दिशा है, आगे नहीं। C Mega/Giga सीढ़ी के शुरू में हैं। D केवल A सही है, इसलिए more than one नहीं।\n\nTRAP: RB/QB को “TRE में आया” कहकर मत बेचना — PYQ अभी Tera तक मिला है। PGT पूरी श्रृंखला रटो; पेपर में आए तो +10 से निकल जाएगा। PEN — YB 80, RB 90, QB 100 घेरें।",
+      "marks": 1
+    },
+    {
+      "question": "1024 KB is equal to",
+      "option1": "1 GB",
+      "option2": "1 TB",
+      "option3": "1 MB",
+      "option4": "1 PB",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: हर अगली इकाई = 1024 × पिछली। 1024 KB = 1 MB, 1024 MB = 1 GB, 1024 GB = 1 TB।\n\nजाँच: KB = $2^{10}$, MB = $2^{20}$ → $2^{20} / 2^{10} = 2^{10} = 1024$। यानी 1024 KB = 1 MB।\n\nकटौती: A (1 GB) तब आता है जब 1024 MB पढ़ लिया जाए, KB नहीं। B (1 TB) तीन पायदान आगे (KB→MB→GB→TB)। D (1 PB) और आगे।\n\nTRAP: “1024 × कुछ” देखते ही GB लिख देना। पूछा गया इकाई KB है — एक ही पायदान ऊपर = MB। PEN — KB घेरें।",
+      "marks": 1
+    },
+    {
+      "question": "Which of the following is NOT correctly matched (binary convention)?",
+      "option1": "KB  —  $2^{10}$",
+      "option2": "GB  —  $2^{20}$",
+      "option3": "TB  —  $2^{40}$",
+      "option4": "PB  —  $2^{50}$",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: प्रश्न NOT correctly matched पूछ रहा है। सही जोड़ी काटो, गलत वाली घेरो। KB $2^{10}$ सही; GB $2^{20}$ गलत ← Mega = $2^{20}$, Giga = $2^{30}$; TB $2^{40}$ सही; PB $2^{50}$ सही।\n\nजाँच: गीगा = 30, मेगा = 20। B में GB को Mega का exponent दे दिया गया।\n\nकटौती: A, C, D तीनों सीढ़ी से मेल खाते हैं — ये उत्तर नहीं हो सकते। NOT वाले प्रश्न में सही पंक्तियाँ distractor होती हैं।\n\nTRAP: “NOT” पहले घेरें। TRE वैध जोड़ी दिखाकर अवैध माँगता है। यही Mega/Giga उलझन Q89 के options में भी थी। PEN — NOT और GB घेरें।",
+      "marks": 1
+    }
+  ]
+}

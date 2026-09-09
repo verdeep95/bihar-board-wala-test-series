@@ -256,7 +256,9 @@
               "questionCount": 30,
               "timeLimitMinutes": 30,
               "quizType": "CHAPTER_TEST",
-              "updatedAt": "2026-08-27T15:39:04.739Z"
+              "updatedAt": "2026-08-27T15:39:04.739Z",
+              "youtubeUrl": "https://youtu.be/aweI46Qi1kM",
+              "youtubeTitle": "दही वाली मंगम्मा (MCQ)"
             }
           ],
           "youtubeUrl": "https://youtu.be/d_QLFm17t0Q?list=PLbWoz1rsNUms",
@@ -1296,7 +1298,19 @@
             "en": "State and National Income",
             "hi": "राज्य एवं राष्ट्र की आय"
           },
-          "section": "economics"
+          "section": "economics",
+          "tests": [
+            {
+              "id": "social-science-rajya-rashtra-ki-aay-test-1",
+              "slug": "test-1",
+              "title": "Practice Test 1",
+              "file": "data/class-10/social-science/rajya-rashtra-ki-aay/test-1.json",
+              "questionCount": 15,
+              "timeLimitMinutes": 15,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-09-09T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "chapter-mudra-bachat-sakh",

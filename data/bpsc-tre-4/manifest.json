@@ -79,6 +79,17 @@
               "quizType": "LECTURE_QUIZ",
               "youtubeUrl": "https://youtu.be/OgDhArwUvgc",
               "youtubeTitle": "Class 3 · ASCII Unicode EBCDIC · BCD & Gray Code"
+            },
+            {
+              "id": "computer-number-systems-test-4",
+              "slug": "test-4",
+              "title": "Class 4 · Memory Units · Tera Hex Octal PYQ",
+              "file": "data/bpsc-tre-4/computer/number-systems/test-4.json",
+              "questionCount": 15,
+              "timeLimitMinutes": 15,
+              "quizType": "LECTURE_QUIZ",
+              "youtubeUrl": "https://youtu.be/OIsPcyUcaKg",
+              "youtubeTitle": "Class 4 · Memory Units · Tera Hex Octal PYQ"
             }
           ]
         },
@@ -94,10 +105,10 @@
             {
               "id": "computer-digital-logic-test-1",
               "slug": "test-1",
-              "title": "Day 4 · Boolean laws, De Morgan, simplification",
+              "title": "Class 5 · Boolean Laws · De Morgan",
               "file": "data/bpsc-tre-4/computer/digital-logic/test-1.json",
-              "questionCount": 0,
-              "timeLimitMinutes": 20,
+              "questionCount": 15,
+              "timeLimitMinutes": 15,
               "quizType": "LECTURE_QUIZ"
             },
             {

@@ -14,8 +14,8 @@
       "unitLabel": { "en": "Chapter", "hi": "अध्याय" },
       "manifest": "data/class-10/manifest.json",
       "subjectCount": 6,
-      "testCount": 15,
-      "questionCount": 220
+      "testCount": 16,
+      "questionCount": 235
     },
     {
       "id": "class-11",
@@ -94,8 +94,8 @@
       "unitLabel": { "en": "Chapter", "hi": "Chapter" },
       "manifest": "data/bpsc-tre-4/manifest.json",
       "subjectCount": 1,
-      "testCount": 3,
-      "questionCount": 50
+      "testCount": 5,
+      "questionCount": 80
     }
   ]
 }

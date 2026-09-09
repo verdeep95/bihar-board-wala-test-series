@@ -1,0 +1,181 @@
+{
+  "id": "computer-digital-logic-test-1",
+  "title": "Class 5 · Boolean Laws · De Morgan",
+  "course": "bpsc-tre-4",
+  "subject": "computer",
+  "chapter": "digital-logic",
+  "quizType": "LECTURE_QUIZ",
+  "timeLimitMinutes": 15,
+  "passingScore": 33,
+  "negativeMarkingEnabled": true,
+  "negativeMarksPerQuestion": 0.3333333333333333,
+  "negativeMarkingOnSkip": true,
+  "shuffle": true,
+  "questions": [
+    {
+      "question": "In Boolean algebra, $1 + 1$ is equal to",
+      "option1": "2",
+      "option2": "1",
+      "option3": "0",
+      "option4": "10",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Boolean का $+$ OR gate है, साधारण जोड़ नहीं। कोई भी input 1 हो तो OR का output 1। इसलिए $1$ OR $1 = 1$। Idempotent भी यही कहता है: $A + A = A$; $A = 1$ रखो → $1 + 1 = 1$।\n\nजाँच: Truth table: $1+0=1$, $0+1=1$, $1+1=1$, $0+0=0$। कहीं 2 नहीं आता।\n\nकटौती: A (2) साधारण अंकगणित है — Boolean में digit 2 मौजूद ही नहीं। C (0) AND का $1 \\cdot 0$ या Complement का $A \\cdot A'$ है, OR का नहीं। D (10) binary जोड़ $1+1=10_2$ — वह Number System (Class 1) है, Boolean नहीं।\n\nTRAP: पेपर English में $+$ लिखता है। हाथ 2 लिखने लगता है। याद: Boolean $1+1=1$; binary addition $1+1=10_2$। PEN — OR घेरें।",
+      "marks": 1
+    },
+    {
+      "question": "Which of the following correctly states BOTH forms of the Identity law?",
+      "option1": "$A + 0 = A$  and  $A \\cdot 1 = A$",
+      "option2": "$A + 1 = 1$  and  $A \\cdot 0 = 0$",
+      "option3": "$A + A = A$  and  $A \\cdot A = A$",
+      "option4": "More than one of the above",
+      "option5": "Not Attempted",
+      "correctOption": "1",
+      "explanation": "विधि: Identity = neutral तत्व। OR में 0 बेकार, AND में 1 ज़रूरी। $A$ OR $0 = A$। $A$ AND $1 = A$।\n\nजाँच: $A=1$: $1+0=1$, $1 \\cdot 1=1$। $A=0$: $0+0=0$, $0 \\cdot 1=0$। दोनों तरफ $A$ लौटा।\n\nकटौती: B Null / Dominance है: $A+1=1$, $A \\cdot 0=0$ — dominate करता है, identity नहीं। C Idempotent है: $A+A=A$, $A \\cdot A=A$। D तभी सही जब A और B दोनों Identity हों — B अलग law है, इसलिए D काटो।\n\nTRAP: Identity और Null के सूत्र पड़ोसी हैं। $+$ के साथ 0 identity, 1 null। $\\cdot$ के साथ 1 identity, 0 null। जोड़ी बाँधो, नाम मत उलटाओ। PEN — B का Null टैग काटें।",
+      "marks": 1
+    },
+    {
+      "question": "According to the Null / Dominance law, $A + 1$ is equal to",
+      "option1": "$A$",
+      "option2": "$0$",
+      "option3": "$1$",
+      "option4": "$A'$",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: Null / Dominance: 1 OR में सब कुछ खा जाता है। $A$ कुछ भी हो — 0 या 1 — $A$ OR $1 = 1$। साथ वाला AND रूप: $A \\cdot 0 = 0$।\n\nजाँच: $A=0$ → $0+1=1$। $A=1$ → $1+1=1$। दोनों बार 1।\n\nकटौती: A ($A$) Identity का उत्तर है — वह $A+0=A$ पूछता। यहाँ $+1$ है। B (0) AND वाले Null का उत्तर: $A \\cdot 0=0$। operator देखो। D ($A'$) Complement से उलझान।\n\nTRAP: $+0$ और $+1$ एक अंक का फ़र्क। छात्र Identity रट कर $A$ लिख देते हैं। PEN — 1 घेरें, $A$ काटें।",
+      "marks": 1
+    },
+    {
+      "question": "The Complement law states that",
+      "option1": "$A + A' = 0$  and  $A \\cdot A' = 1$",
+      "option2": "$A + A' = 1$  and  $A \\cdot A' = 0$",
+      "option3": "$A + A' = A$",
+      "option4": "$A \\cdot A' = A$",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Variable और उसका उल्टा: OR → हमेशा 1 (कुछ तो 1 होगा)। AND → हमेशा 0 (एक तो 0 होगा)।\n\nजाँच: $A=1$: $1+0=1$, $1 \\cdot 0=0$। $A=0$: $0+1=1$, $0 \\cdot 1=0$। मेल।\n\nकटौती: A ठीक उल्टा जोड़ा है — 0 और 1 swap। सबसे आम जाल। C Idempotent जैसा लगता है पर $A'$ के साथ $A$ नहीं बचता। D $A \\cdot A' = 0$ होता है, $A$ नहीं।\n\nTRAP: OR वाले Complement को 0 और AND वाले को 1 लिख देना। याद: जोड़ो (OR) = 1, काटो (AND) = 0। PEN — A के swap को काटें।",
+      "marks": 1
+    },
+    {
+      "question": "The Boolean identities $A + A = A$ and $A \\cdot A = A$ are known as the",
+      "option1": "Identity law",
+      "option2": "Absorption law",
+      "option3": "Idempotent law",
+      "option4": "Commutative law",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: Idempotent = खुद पर क्रिया = खुद। $A$ OR $A = A$। $A$ AND $A = A$। Boolean में repetition बेकार।\n\nजाँच: Q1 से: $A=1$ → $1+1=1$। वही नियम हर $A$ पर।\n\nकटौती: A Identity में दूसरा operand 0 या 1 है, $A$ नहीं। B Absorption में दूसरा पद $A \\cdot B$ या $(A+B)$ है। D Commutative order बदलता है: $A+B=B+A$ — value नहीं काटता।\n\nTRAP: $A + A = A$ देखकर Identity घेर लेना। Identity का साथी 0/1 है। नाम: Idempotent = same again। PEN — $A+A$ घेरें।",
+      "marks": 1
+    },
+    {
+      "question": "According to the Absorption law, $A + A \\cdot B$ is equal to",
+      "option1": "$A \\cdot B$",
+      "option2": "$B$",
+      "option3": "$A$",
+      "option4": "$A + B$",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: Absorption: $A$ अपने साथ वाले $A \\cdot B$ को निगल जाता है। $A=1$ हो तो पूरा OR 1। $A=0$ हो तो $0 + 0 \\cdot B = 0$। दोनों बार $A$। Algebra: $A + A \\cdot B = A(1 + B) = A \\cdot 1 = A$ (Null + Identity)।\n\nजाँच: Truth: $AB=00 \\to 0$, $01 \\to 0$, $10 \\to 1$, $11 \\to 1$ — यही $A$ की column है।\n\nकटौती: A ($A \\cdot B$) सबसे बड़ा जाल — “दोनों पद दिख रहे तो छोटा बचता है”। नहीं। B ($B$) $A$ गायब नहीं होता। D ($A+B$) वह $A + A'B$ का उत्तर है, $A + AB$ का नहीं।\n\nTRAP: Class trap: $A+AB = AB$ ❌ → $A+AB = A$ ✅। छोटा पद नहीं बचता — बड़ा $A$ बचता है। PEN — $AB$ काटें, $A$ घेरें।",
+      "marks": 1
+    },
+    {
+      "question": "The expression $A \\cdot (A + B)$ simplifies to",
+      "option1": "$A + B$",
+      "option2": "$B$",
+      "option3": "$A \\cdot B$",
+      "option4": "$A$",
+      "option5": "Not Attempted",
+      "correctOption": "4",
+      "explanation": "विधि: Absorption रूप 2: $A \\cdot (A + B) = A$। $A=1$ → $1 \\cdot (1+B)=1$। $A=0$ → $0 \\cdot (0+B)=0$। फिर $A$। Algebra: $A(A+B) = A \\cdot A + A \\cdot B = A + A \\cdot B = A$ (Idempotent, फिर Q6)।\n\nजाँच: यह Q6 का AND वाला जुड़वाँ है। दोनों का उत्तर $A$।\n\nकटौती: A ($A+B$) कोष्ठक वाला पद उठा लिया — Absorption भूल गए। B ($B$) Class trap: $A \\cdot (A+B)=B$ ❌। C ($A \\cdot B$) AND देखकर गुणा का छोटा पद।\n\nTRAP: कोष्ठक में $A+B$ दिखते ही वही घेर लेना। बाहर $A$ AND कर रहा है। याद: Absorption का उत्तर सदा अकेला $A$। PEN — $A$ घेरें।",
+      "marks": 1
+    },
+    {
+      "question": "In Boolean algebra (not ordinary algebra), $A + (B \\cdot C)$ is equal to",
+      "option1": "$A + B + C$",
+      "option2": "$(A + B) \\cdot (A + C)$",
+      "option3": "$A \\cdot (B + C)$",
+      "option4": "$A \\cdot B \\cdot C$",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Boolean की अपनी Distributive — साधारण बीजगणित में नहीं चलती। AND over OR (साधारण जैसी): $A \\cdot (B+C) = A \\cdot B + A \\cdot C$। OR over AND (सिर्फ़ Boolean): $A + (B \\cdot C) = (A+B) \\cdot (A+C)$।\n\nजाँच: $A=1$: बायाँ $1+(B \\cdot C)=1$; दायाँ $(1+B) \\cdot (1+C)=1 \\cdot 1=1$। $A=0$: बायाँ $0+(B \\cdot C)=B \\cdot C$; दायाँ $(0+B) \\cdot (0+C)=B \\cdot C$। मेल।\n\nकटौती: A ($A+B+C$) AND को OR में बदल दिया — De Morgan नहीं है, bar भी नहीं। C ($A \\cdot (B+C)$) दूसरा distributive रूप है, यह प्रश्न OR के बाहर का है। D तीनों का AND — operator गायब।\n\nTRAP: स्कूल बीजगणित: $a+(bc)$ को $(a+b)(a+c)$ नहीं लिखते। Boolean में लिखते हैं। TRE यही uniqueness पूछता है। PEN — OR over AND घेरें।",
+      "marks": 1
+    },
+    {
+      "question": "Which of the following correctly states De Morgan's first theorem?",
+      "option1": "$(A \\cdot B)' = A' \\cdot B'$",
+      "option2": "$(A \\cdot B)' = A' + B'$",
+      "option3": "$(A + B)' = A' + B'$",
+      "option4": "More than one of the above",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Shortcut: Bar तोड़ो → Operator पलटो → हर variable पर अपनी bar। $(A \\cdot B)'$ → $\\cdot$ बना $+$ → $A' + B'$।\n\nजाँच: Truth table: $(A \\cdot B)'$ वाली column = $A' + B'$ वाली column।\n\nकटौती: A operator नहीं पलटा — AND पर bar फिर AND। Class का #1 गलत रूप। C Theorem 2 का गलत रूप: $+$ पर bar फिर $+$। Theorem 2 सही है $A' \\cdot B'$। D तभी जब A और B दोनों सही हों — दोनों गलत / एक सही, दो सही नहीं।\n\nTRAP: Bar नीचे बाँट दो और operator वैसा छोड़ दो। Operator पलटना ज़रूरी। यही Type Q1 class hook है। PEN — A और C काटें, B घेरें।",
+      "marks": 1
+    },
+    {
+      "question": "$(A + B)'$ is equal to",
+      "option1": "$A' + B'$",
+      "option2": "$A' \\cdot B'$",
+      "option3": "$A \\cdot B$",
+      "option4": "$(A' + B')'$",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: De Morgan 2: NOT of OR = AND of NOTs। Bar तोड़ो, $+$ बना $\\cdot$, हर variable पर bar: $A' \\cdot B'$।\n\nजाँच: $A=B=0$: $(0+0)'=1$ और $1 \\cdot 1=1$। कोई एक 1 हो तो $(OR)'=0$ और AND of NOT = 0।\n\nकटौती: A सबसे सीधा जाल — bar बाँटी, $+$ नहीं पलटा। Q9 option C जैसा। C bar हटा दी, complement भी नहीं। D double complement घुमा दिया — involution $(X')'=X$, यहाँ काम नहीं।\n\nTRAP: Theorem 1 और 2 उलट जाते हैं। याद: AND पर bar → OR of NOTs। OR पर bar → AND of NOTs। PEN — $A' + B'$ काटें।",
+      "marks": 1
+    },
+    {
+      "question": "By De Morgan's theorem, $(A + B + C)'$ is equal to",
+      "option1": "$A' + B' + C'$",
+      "option2": "$A' \\cdot B' \\cdot C'$",
+      "option3": "$A \\cdot B \\cdot C$",
+      "option4": "$(A' + B') \\cdot C'$",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: वही shortcut तीन inputs पर। Bar तोड़ो, सब $+$ बनें $\\cdot$, हर variable पर bar: $A' \\cdot B' \\cdot C'$। दो-दो करके भी: $(A+B+C)' = ((A+B)+C)' = (A+B)' \\cdot C' = A' \\cdot B' \\cdot C'$।\n\nजाँच: तभी 1 जब $A=B=C=0$। तभी $A'B'C'$ भी 1। कोई एक 1 → दोनों तरफ 0।\n\nकटौती: A operator नहीं पलटा — तीनों OR पर bar बाँट दी। C bar हटा कर AND लिख दिया। D केवल आधा De Morgan — $C$ पर bar नहीं, operator मिश्रित।\n\nTRAP: तीन variables देखकर घबराहट। नियम वही है, गिनती बढ़ी है। Class homework यही था। PEN — तीनों $\\cdot$ और तीनों $'$ घेरें।",
+      "marks": 1
+    },
+    {
+      "question": "Simplify: $AB + AB'$",
+      "option1": "$B$",
+      "option2": "$A$",
+      "option3": "$1$",
+      "option4": "$0$",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Step 1: $A$ common factor → $A(B + B')$ (Distributive)। Step 2: $B + B' = 1$ (Complement)। Step 3: $A \\cdot 1 = A$ (Identity)।\n\nजाँच: $B=0$ → $A \\cdot 0 + A \\cdot 1 = A$। $B=1$ → $A \\cdot 1 + A \\cdot 0 = A$। $B$ गायब, $A$ बचा।\n\nकटौती: A ($B$) common factor $B$ समझ बैठे — पद $AB$ और $AB'$ में $A$ common है। C (1) $B+B'=1$ पर रुक गए, बाहर का $A$ भूल गए। D (0) Complement के AND रूप $A \\cdot A'=0$ से उलझान।\n\nTRAP: दो पद दिखें तो “कट जाएगा कुछ”। यहाँ कटता $B$ है, बचता $A$ है। Class Type Q2। PEN — $A$ घेरें।",
+      "marks": 1
+    },
+    {
+      "question": "Simplify: $A + A'B$",
+      "option1": "$A$",
+      "option2": "$B$",
+      "option3": "$A + B$",
+      "option4": "$A'$",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: Distributive (OR over AND): $A + (A' \\cdot B) = (A + A') \\cdot (A + B)$। $A + A' = 1$ (Complement)। $1 \\cdot (A + B) = A + B$ (Identity)। याद रूप: $A + A'B = A + B$ ($A$, $A'B$ को absorb कर $B$ तक खोलता है)।\n\nजाँच: $A=1$ → $1 + 0 \\cdot B = 1$, और $1+B=1$। $A=0$ → $0 + 1 \\cdot B = B$, और $0+B=B$।\n\nकटौती: A ($A$) साधारण Absorption $A+AB=A$ से भ्रम — यहाँ दूसरा पद $A'B$ है, $AB$ नहीं। B ($B$) $A$ गायब मान लिया। D ($A'$) $A'B$ देखकर।\n\nTRAP: $A+AB = A$, पर $A+A'B = A+B$। dash $'$ एक चीज़ बदल देता है। Class worked example 1। PEN — $A+B$ घेरें, अकेला $A$ काटें।",
+      "marks": 1
+    },
+    {
+      "question": "Simplify: $AB + A'B + AB'$",
+      "option1": "$A$",
+      "option2": "$B$",
+      "option3": "$1$",
+      "option4": "$A + B$",
+      "option5": "Not Attempted",
+      "correctOption": "4",
+      "explanation": "विधि: पहले दो पद जिनमें $A$ common: $AB + AB' + A'B = A(B + B') + A'B = A \\cdot 1 + A'B = A + A'B$। अब Q13: $A + A'B = A + B$। दूसरा रास्ता: $AB + A'B = B(A+A') = B$, फिर $B + AB' = A + B$ (वही Q13, $A$ और $B$ की जगह उलटी)।\n\nजाँच: $A=B=0$ → 0। $A=1, B=0$ → $AB'=1$ → 1। $A=0, B=1$ → $A'B=1$ → 1। $A=B=1$ → $AB=1$ → 1। यही $A+B$ की table है।\n\nकटौती: A केवल $AB+AB'$ किया, $A'B$ छोड़ा। B केवल $AB+A'B$ किया, $AB'$ छोड़ा। C तीनों पद देखकर 1 अनुमान।\n\nTRAP: तीन पद = दो common-factor। एक छोड़ोगे तो $A$ या $B$ अकेला बच जाएगा। Class practice Q2। PEN — तीनों पद घेरें, फिर $A+B$।",
+      "marks": 1
+    },
+    {
+      "question": "Which of the following is NOT correctly matched?",
+      "option1": "Identity law : $A \\cdot 1 = A$",
+      "option2": "De Morgan 2 : $(A + B)' = A' + B'$",
+      "option3": "Absorption law : $A + A \\cdot B = A$",
+      "option4": "Involution law : $(A')' = A$",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: NOT correctly matched पूछा है। सही पंक्ति काटो, गलत वाली घेरो। A Identity: $A \\cdot 1 = A$ — सही। B De Morgan 2: $(A+B)' = A'+B'$ — गलत ← $+$ नहीं पलटा। सही रूप: $(A+B)' = A' \\cdot B'$। C Absorption: $A + A \\cdot B = A$ — सही। D Involution / Double Complement: $(A')'=A$ — सही।\n\nजाँच: Q10 का उत्तर ही B की पंक्ति को गिराता है।\n\nकटौती: A, C, D तीनों Class one-liner slide से मेल खाते हैं — ये उत्तर नहीं। NOT वाले प्रश्न में सही पंक्तियाँ distractor होती हैं।\n\nTRAP: “NOT” पहले घेरें। TRE वैध जोड़ी दिखाकर अवैध माँगता है। यही De Morgan operator-flip जाल Q9/Q10 में भी था। PEN — NOT और पंक्ति B घेरें।",
+      "marks": 1
+    }
+  ]
+}
