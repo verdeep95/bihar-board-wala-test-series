@@ -369,7 +369,39 @@
             "en": "The City",
             "hi": "नगर"
           },
-          "section": "purak"
+          "section": "purak",
+          "tests": [
+            {
+              "id": "hindi-nagar-test-1",
+              "slug": "test-1",
+              "title": "Practice Test 1",
+              "file": "data/class-10/hindi/nagar/test-1.json",
+              "questionCount": 15,
+              "timeLimitMinutes": 15,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-09-10T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-nagar-test-2",
+              "slug": "test-2",
+              "title": "Practice Test 2",
+              "file": "data/class-10/hindi/nagar/test-2.json",
+              "questionCount": 15,
+              "timeLimitMinutes": 15,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-09-10T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-nagar-test-3",
+              "slug": "test-3",
+              "title": "Practice Test 3",
+              "file": "data/class-10/hindi/nagar/test-3.json",
+              "questionCount": 15,
+              "timeLimitMinutes": 15,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-09-10T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "chapter-dharti-kab-tak-ghoomegi",
@@ -378,7 +410,39 @@
             "en": "How Long Will the Earth Spin?",
             "hi": "धरती कब तक घूमेगी"
           },
-          "section": "purak"
+          "section": "purak",
+          "tests": [
+            {
+              "id": "hindi-dharti-kab-tak-ghoomegi-test-1",
+              "slug": "test-1",
+              "title": "Practice Test 1",
+              "file": "data/class-10/hindi/dharti-kab-tak-ghoomegi/test-1.json",
+              "questionCount": 10,
+              "timeLimitMinutes": 10,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-09-10T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-dharti-kab-tak-ghoomegi-test-2",
+              "slug": "test-2",
+              "title": "Practice Test 2",
+              "file": "data/class-10/hindi/dharti-kab-tak-ghoomegi/test-2.json",
+              "questionCount": 10,
+              "timeLimitMinutes": 10,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-09-10T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-dharti-kab-tak-ghoomegi-test-3",
+              "slug": "test-3",
+              "title": "Practice Test 3",
+              "file": "data/class-10/hindi/dharti-kab-tak-ghoomegi/test-3.json",
+              "questionCount": 10,
+              "timeLimitMinutes": 10,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-09-10T00:00:00.000Z"
+            }
+          ]
         }
       ]
     },
