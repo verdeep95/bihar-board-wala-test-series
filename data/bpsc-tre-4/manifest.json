@@ -101,6 +101,8 @@
             "hi": "Digital Logic & Boolean Algebra"
           },
           "section": "core",
+          "youtubeUrl": "https://www.youtube.com/playlist?list=PLbhf1LAc2Jik",
+          "youtubeTitle": "TRE 4.0 Computer Science · Complete Course",
           "tests": [
             {
               "id": "computer-digital-logic-test-1",
@@ -109,16 +111,20 @@
               "file": "data/bpsc-tre-4/computer/digital-logic/test-1.json",
               "questionCount": 15,
               "timeLimitMinutes": 15,
-              "quizType": "LECTURE_QUIZ"
+              "quizType": "LECTURE_QUIZ",
+              "youtubeUrl": "https://youtu.be/4josqe_RQq0",
+              "youtubeTitle": "Class 5 · Boolean Laws · De Morgan"
             },
             {
               "id": "computer-digital-logic-test-2",
               "slug": "test-2",
-              "title": "Day 5 · SOP / POS, minterm, maxterm",
+              "title": "Class 6 · K-map · SOP/POS · Minterm/Maxterm",
               "file": "data/bpsc-tre-4/computer/digital-logic/test-2.json",
-              "questionCount": 0,
-              "timeLimitMinutes": 20,
-              "quizType": "LECTURE_QUIZ"
+              "questionCount": 15,
+              "timeLimitMinutes": 15,
+              "quizType": "LECTURE_QUIZ",
+              "youtubeUrl": "https://youtu.be/zki_KFgqYbM",
+              "youtubeTitle": "Class 6 · K-map · SOP/POS · Minterm/Maxterm"
             },
             {
               "id": "computer-digital-logic-test-3",

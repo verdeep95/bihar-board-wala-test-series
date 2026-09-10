@@ -11,6 +11,8 @@
   "negativeMarksPerQuestion": 0.3333333333333333,
   "negativeMarkingOnSkip": true,
   "shuffle": true,
+  "youtubeUrl": "https://youtu.be/4josqe_RQq0",
+  "youtubeTitle": "Class 5 · Boolean Laws · De Morgan",
   "questions": [
     {
       "question": "In Boolean algebra, $1 + 1$ is equal to",

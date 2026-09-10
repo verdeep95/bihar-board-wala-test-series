@@ -379,7 +379,9 @@
               "questionCount": 15,
               "timeLimitMinutes": 15,
               "quizType": "CHAPTER_TEST",
-              "updatedAt": "2026-09-10T00:00:00.000Z"
+              "updatedAt": "2026-09-10T00:00:00.000Z",
+              "youtubeUrl": "https://youtu.be/REJr5lM-X1w",
+              "youtubeTitle": "नगर (MCQ)"
             },
             {
               "id": "hindi-nagar-test-2",
@@ -389,7 +391,9 @@
               "questionCount": 15,
               "timeLimitMinutes": 15,
               "quizType": "CHAPTER_TEST",
-              "updatedAt": "2026-09-10T00:00:00.000Z"
+              "updatedAt": "2026-09-10T00:00:00.000Z",
+              "youtubeUrl": "https://youtu.be/REJr5lM-X1w",
+              "youtubeTitle": "नगर (MCQ)"
             },
             {
               "id": "hindi-nagar-test-3",
@@ -399,9 +403,13 @@
               "questionCount": 15,
               "timeLimitMinutes": 15,
               "quizType": "CHAPTER_TEST",
-              "updatedAt": "2026-09-10T00:00:00.000Z"
+              "updatedAt": "2026-09-10T00:00:00.000Z",
+              "youtubeUrl": "https://youtu.be/REJr5lM-X1w",
+              "youtubeTitle": "नगर (MCQ)"
             }
-          ]
+          ],
+          "youtubeUrl": "https://youtu.be/s-v_BUtDbos",
+          "youtubeTitle": "नगर (पूरी कहानी देखे)"
         },
         {
           "id": "chapter-dharti-kab-tak-ghoomegi",
@@ -420,7 +428,9 @@
               "questionCount": 10,
               "timeLimitMinutes": 10,
               "quizType": "CHAPTER_TEST",
-              "updatedAt": "2026-09-10T00:00:00.000Z"
+              "updatedAt": "2026-09-10T00:00:00.000Z",
+              "youtubeUrl": "https://youtu.be/cO9Hqoevfvo",
+              "youtubeTitle": "धरती कब तक घूमेगी (MCQ)"
             },
             {
               "id": "hindi-dharti-kab-tak-ghoomegi-test-2",
@@ -430,7 +440,9 @@
               "questionCount": 10,
               "timeLimitMinutes": 10,
               "quizType": "CHAPTER_TEST",
-              "updatedAt": "2026-09-10T00:00:00.000Z"
+              "updatedAt": "2026-09-10T00:00:00.000Z",
+              "youtubeUrl": "https://youtu.be/cO9Hqoevfvo",
+              "youtubeTitle": "धरती कब तक घूमेगी (MCQ)"
             },
             {
               "id": "hindi-dharti-kab-tak-ghoomegi-test-3",
@@ -440,9 +452,13 @@
               "questionCount": 10,
               "timeLimitMinutes": 10,
               "quizType": "CHAPTER_TEST",
-              "updatedAt": "2026-09-10T00:00:00.000Z"
+              "updatedAt": "2026-09-10T00:00:00.000Z",
+              "youtubeUrl": "https://youtu.be/cO9Hqoevfvo",
+              "youtubeTitle": "धरती कब तक घूमेगी (MCQ)"
             }
-          ]
+          ],
+          "youtubeUrl": "https://youtu.be/ib8r6Ym20n8",
+          "youtubeTitle": "धरती कब तक घूमेगी (पूरी कहानी देखे)"
         }
       ]
     },
@@ -1372,9 +1388,13 @@
               "questionCount": 15,
               "timeLimitMinutes": 15,
               "quizType": "CHAPTER_TEST",
-              "updatedAt": "2026-09-09T00:00:00.000Z"
+              "updatedAt": "2026-09-10T00:00:00.000Z",
+              "youtubeUrl": "https://youtu.be/Zi04iqxVvuo",
+              "youtubeTitle": "राज्य एवं राष्ट्र की आय (MCQ)"
             }
-          ]
+          ],
+          "youtubeUrl": "https://youtu.be/sthqIrx-HYw",
+          "youtubeTitle": "राज्य एवं राष्ट्र की आय | Part 1 | Class 10 | BSEB"
         },
         {
           "id": "chapter-mudra-bachat-sakh",
