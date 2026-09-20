@@ -1,0 +1,183 @@
+{
+  "id": "computer-digital-logic-test-5",
+  "title": "Class 9 · MUX DEMUX · Encoder Decoder",
+  "course": "bpsc-tre-4",
+  "subject": "computer",
+  "chapter": "digital-logic",
+  "quizType": "LECTURE_QUIZ",
+  "timeLimitMinutes": 15,
+  "passingScore": 33,
+  "negativeMarkingEnabled": true,
+  "negativeMarksPerQuestion": 0.3333333333333333,
+  "negativeMarkingOnSkip": true,
+  "shuffle": true,
+  "youtubeUrl": "https://youtu.be/xf9jVE3rArc",
+  "youtubeTitle": "Class 9 · MUX DEMUX · Encoder Decoder",
+  "questions": [
+    {
+      "question": "A 4:1 multiplexer has",
+      "option1": "1 select line",
+      "option2": "2 select lines",
+      "option3": "4 select lines",
+      "option4": "8 select lines",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: $2^n$ data lines → $n$ select lines। $4=2^2$ अतः 2 select lines।\n\nजाँच: $S_1S_0$ चार combinations $00,01,10,11$ से चार inputs चुनते हैं।\n\nकटौती: A 2:1 MUX है। C data lines की गिनती को select मान लिया। D 256:1 जैसा नहीं, 8:1 भी 3 select लेता है।\n\nTRAP: data pins की संख्या को select lines लिख देना।",
+      "marks": 1
+    },
+    {
+      "question": "An 8:1 multiplexer has how many select lines?",
+      "option1": "2",
+      "option2": "3",
+      "option3": "4",
+      "option4": "8",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: $8=2^3$ → 3 select lines। सूत्र: data $=2^n$ तो select $=n$।\n\nजाँच: तीन bits से 0 से 7 तक आठ inputs address होते हैं।\n\nकटौती: A 4:1 है। C 16:1 है। D data lines हैं, select नहीं।\n\nTRAP: 8:1 देखकर 8 select लिख देना।",
+      "marks": 1
+    },
+    {
+      "question": "A 16:1 multiplexer requires",
+      "option1": "2 select lines",
+      "option2": "3 select lines",
+      "option3": "4 select lines",
+      "option4": "16 select lines",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: $16=2^4$ → 4 select lines।\n\nजाँच: $S_3S_2S_1S_0$ सोलह combinations देते हैं।\n\nकटौती: A 4:1। B 8:1। D data count को select मान लिया।\n\nTRAP: 16:1 = 16 select। सही: $\\log_2 16=4$।",
+      "marks": 1
+    },
+    {
+      "question": "The output of a 2:1 MUX is",
+      "option1": "$I_0 + I_1$",
+      "option2": "$S I_0 + S' I_1$",
+      "option3": "$S' I_0 + S I_1$",
+      "option4": "$I_0 \\oplus I_1$",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: $S=0$ पर $I_0$ चुनो, $S=1$ पर $I_1$। अतः $Y=S'I_0 + S I_1$।\n\nजाँच: $S=0 \\Rightarrow Y=I_0$; $S=1 \\Rightarrow Y=I_1$।\n\nकटौती: A select ignore करता है। B $S$ और $S'$ उल्टे लगे हैं। D XOR है, MUX नहीं।\n\nTRAP: $S I_0 + S' I_1$ लिख देना — polarity उलट जाती है।",
+      "marks": 1
+    },
+    {
+      "question": "A 4:1 MUX can be built using 2:1 multiplexers. The number required is",
+      "option1": "2",
+      "option2": "3",
+      "option3": "4",
+      "option4": "7",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: पहले स्तर पर दो 2:1 से चार data → दो mid outputs। तीसरा 2:1 उन दो को final Y बनाता है। कुल 3।\n\nजाँच: tree: $2+1=3$। सामान्य सूत्र $2^n:1$ के लिए $2^n-1$ छोटे 2:1 लगते हैं; $4-1=3$।\n\nकटौती: A एक स्तर अधूरा है। C data pins गिन ली। D 8:1 tree ($8-1=7$) है।\n\nTRAP: 4:1 देखकर 4 या 7 MUX लिख देना।",
+      "marks": 1
+    },
+    {
+      "question": "A 1:4 demultiplexer has",
+      "option1": "4 data inputs and 1 output",
+      "option2": "1 data input, 2 select lines, 4 outputs",
+      "option3": "4 data inputs, 2 select lines, 1 output",
+      "option4": "1 data input and 1 output",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: DEMUX 1 data को $2^n$ outputs में बाँटता है। 1:4 → 1 data, $n=2$ select, 4 outputs।\n\nजाँच: MUX उल्टा: 4 data, 2 select, 1 output — यही C है, DEMUX नहीं।\n\nकटौती: A और C MUX-जैसी गिनती हैं। D select और multiple outputs भूल गया।\n\nTRAP: MUX और DEMUX की pin-गिनती आपस में बदल देना।",
+      "marks": 1
+    },
+    {
+      "question": "For a 1:2 DEMUX, $Y_0$ and $Y_1$ are",
+      "option1": "$D+S'$ and $D+S$",
+      "option2": "$D\\cdot S'$ and $D\\cdot S$",
+      "option3": "$S'$ and $S$",
+      "option4": "$D$ and $D'$",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: $S=0$ पर data $Y_0$ पर, $S=1$ पर $Y_1$ पर। अतः $Y_0=D S'$, $Y_1=D S$।\n\nजाँच: AND से data तभी निकलता है जब वह output select हो।\n\nकटौती: A OR गलत है — unselected line पर 1 रह सकता है। C data $D$ गायब। D select ignore करता है।\n\nTRAP: DEMUX outputs को केवल $S$/$S'$ लिख देना; $D$ multiply करना ज़रूरी है।",
+      "marks": 1
+    },
+    {
+      "question": "An encoder converts",
+      "option1": "$n$ lines to $2^n$ lines",
+      "option2": "$2^n$ lines to $n$ lines",
+      "option3": "$2^n$ lines to 1 line",
+      "option4": "1 line to $2^n$ lines",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Encoder $2^n$ one-hot inputs को $n$-bit binary code बनाता है। उदाहरण: 4:2, 8:3।\n\nजाँच: Decoder उल्टा है — $n \\to 2^n$। DEMUX 1 → $2^n$ (plus select)।\n\nकटौती: A Decoder है। C MUX जैसा एक output। D DEMUX data path है।\n\nTRAP: Encoder↔Decoder जोड़ी मिला देना। याद: Encoder compress करता है $2^n\\to n$।",
+      "marks": 1
+    },
+    {
+      "question": "A combinational circuit with $n$ inputs and $2^n$ outputs is a",
+      "option1": "Encoder",
+      "option2": "Multiplexer",
+      "option3": "Decoder",
+      "option4": "Demultiplexer",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: Decoder $n$ address/inputs से $2^n$ minterm outputs निकालता है। Enable अलग pin हो सकता है, data input नहीं।\n\nजाँच: DEMUX भी $2^n$ outputs रखता है, पर उसके पास extra data pin होता है; प्रश्न केवल $n$ inputs कहता है → Decoder।\n\nकटौती: A $2^n\\to n$ है। B कई data + select, एक output। D data pin गायब नहीं गिना गया।\n\nTRAP: Decoder और DEMUX को एक ही chip मान लेना। DEMUX = Decoder + data Enable।",
+      "marks": 1
+    },
+    {
+      "question": "A 3:8 decoder has",
+      "option1": "3 outputs",
+      "option2": "8 inputs",
+      "option3": "8 outputs",
+      "option4": "3 select lines and 1 data input",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: 3:8 मतलब 3 inputs, $2^3=8$ outputs। नाम $n:2^n$ Decoder convention है।\n\nजाँच: आठ में से एक output active (Enable=1 पर)।\n\nकटौती: A inputs को outputs लिख दिया। B Encoder/उल्टी गिनती। D DEMUX/MUX जैसा data pin Decoder में नहीं।\n\nTRAP: 3:8 देखकर 3 outputs या 8 inputs लिख देना।",
+      "marks": 1
+    },
+    {
+      "question": "In a 2:4 decoder, $Y_2$ equals",
+      "option1": "$A'B'$",
+      "option2": "$A'B$",
+      "option3": "$AB'$",
+      "option4": "$AB$",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: $A$ MSB, $B$ LSB। $Y_k$ = minterm $m_k$। $2=10_2$ → $A=1,B=0$ → $Y_2=AB'$।\n\nजाँच: $Y_0=A'B'$, $Y_1=A'B$, $Y_2=AB'$, $Y_3=AB$।\n\nकटौती: A $m_0$ है। B $m_1$ है। D $m_3$ है।\n\nTRAP: index 2 को $A'B$ या $AB$ से map कर देना। Binary 10 लिखकर polarities बाँटें।",
+      "marks": 1
+    },
+    {
+      "question": "When Enable of a decoder is 0",
+      "option1": "Only $Y_0$ is 1",
+      "option2": "All outputs are 1",
+      "option3": "All outputs are 0",
+      "option4": "It behaves as an encoder",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: $EN=0$ chip disable करता है। Active-high outputs सब 0 रहते हैं, inputs चाहे जो हों।\n\nजाँच: Enable AND हर minterm पर लगता है; $EN=0$ → सभी products 0।\n\nकटौती: A $Y_0$ तब 1 जब $EN=1$ और address 00। B active-low chip का भ्रम। D function बदलता नहीं, बंद होता है।\n\nTRAP: Enable=0 को “default $Y_0$” समझना।",
+      "marks": 1
+    },
+    {
+      "question": "A simple 4:2 encoder assumes",
+      "option1": "All inputs may be 1 together",
+      "option2": "Exactly one input is 1 (one-hot)",
+      "option3": "No input is 1",
+      "option4": "Select lines are present",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Simple encoder one-hot मानता है — ठीक एक input 1। एक से अधिक 1 हों तो binary code अस्पष्ट; तब priority encoder चाहिए।\n\nजाँच: 4 inputs → 2-bit code केवल तभी unambiguous जब एक line active हो।\n\nकटौती: A priority encoder का केस है। C invalid/idle; simple encoder output undefined/0 हो सकता है, assumption नहीं। D select MUX में होते हैं, encoder में नहीं।\n\nTRAP: encoder को MUX जैसा select-pin वाला समझना।",
+      "marks": 1
+    },
+    {
+      "question": "MUX and Encoder differ because",
+      "option1": "Both have select lines",
+      "option2": "MUX has select lines; encoder encodes which input is active",
+      "option3": "Encoder has one output only",
+      "option4": "Both convert $n$ lines to $2^n$ lines",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: MUX select pins से एक data चुनता है। Encoder को select नहीं; जो input 1 है उसका binary code outputs पर आता है।\n\nजाँच: 4:1 MUX → 2 select + 4 data + 1 Y। 4:2 encoder → 4 data + 2 code bits, कोई $S$ pin नहीं।\n\nकटौती: A गलत — encoder पर select नहीं। C encoder के $n$ outputs होते हैं, एक नहीं। D दोनों उल्टी दिशा ($2^n\\to1$ या $2^n\\to n$) हैं, $n\\to2^n$ Decoder है।\n\nTRAP: MUX और Encoder को एक ही block मान लेना।",
+      "marks": 1
+    },
+    {
+      "question": "Which pair is sequential, not combinational?",
+      "option1": "MUX and DEMUX",
+      "option2": "Encoder and Decoder",
+      "option3": "Full adder and Decoder",
+      "option4": "Flip-flop and counter",
+      "option5": "Not Attempted",
+      "correctOption": "4",
+      "explanation": "विधि: Combinational = present inputs only, no memory। Sequential = clock/state: flip-flop, register, counter।\n\nजाँच: MUX, DEMUX, encoder, decoder, adder सब combinational हैं।\n\nकटौती: A, B, C सभी combinational जोड़े हैं।\n\nTRAP: Decoder/MUX में Enable देखकर sequential कह देना। Enable memory नहीं, सिर्फ chip on/off है।",
+      "marks": 1
+    }
+  ]
+}

@@ -129,29 +129,35 @@
             {
               "id": "computer-digital-logic-test-3",
               "slug": "test-3",
-              "title": "Day 6 · K-map",
+              "title": "Class 7 · 4-variable K-map · SOP/POS Simplification",
               "file": "data/bpsc-tre-4/computer/digital-logic/test-3.json",
-              "questionCount": 0,
-              "timeLimitMinutes": 20,
-              "quizType": "LECTURE_QUIZ"
+              "questionCount": 15,
+              "timeLimitMinutes": 15,
+              "quizType": "LECTURE_QUIZ",
+              "youtubeUrl": "https://youtu.be/cNf1po0HD5I",
+              "youtubeTitle": "Class 7 · 4-variable K-map · SOP/POS Simplification"
             },
             {
               "id": "computer-digital-logic-test-4",
               "slug": "test-4",
-              "title": "Day 7 · Universal gates + minimum gate count",
+              "title": "Class 8 · Half Adder Full Adder · Subtractor",
               "file": "data/bpsc-tre-4/computer/digital-logic/test-4.json",
-              "questionCount": 0,
-              "timeLimitMinutes": 20,
-              "quizType": "LECTURE_QUIZ"
+              "questionCount": 15,
+              "timeLimitMinutes": 15,
+              "quizType": "LECTURE_QUIZ",
+              "youtubeUrl": "https://youtu.be/lnUUxnpSvd4",
+              "youtubeTitle": "Class 8 · Half Adder Full Adder · Subtractor"
             },
             {
               "id": "computer-digital-logic-test-5",
               "slug": "test-5",
-              "title": "Day 8 · Combinational circuits",
+              "title": "Class 9 · MUX DEMUX · Encoder Decoder",
               "file": "data/bpsc-tre-4/computer/digital-logic/test-5.json",
-              "questionCount": 0,
-              "timeLimitMinutes": 20,
-              "quizType": "LECTURE_QUIZ"
+              "questionCount": 15,
+              "timeLimitMinutes": 15,
+              "quizType": "LECTURE_QUIZ",
+              "youtubeUrl": "https://youtu.be/xf9jVE3rArc",
+              "youtubeTitle": "Class 9 · MUX DEMUX · Encoder Decoder"
             },
             {
               "id": "computer-digital-logic-test-6",

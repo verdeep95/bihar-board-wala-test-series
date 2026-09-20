@@ -1391,6 +1391,26 @@
               "updatedAt": "2026-09-10T00:00:00.000Z",
               "youtubeUrl": "https://youtu.be/Zi04iqxVvuo",
               "youtubeTitle": "राज्य एवं राष्ट्र की आय (MCQ)"
+            },
+            {
+              "id": "social-science-rajya-rashtra-ki-aay-test-2",
+              "slug": "test-2",
+              "title": "Practice Test 2",
+              "file": "data/class-10/social-science/rajya-rashtra-ki-aay/test-2.json",
+              "questionCount": 15,
+              "timeLimitMinutes": 15,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-09-20T00:00:00.000Z"
+            },
+            {
+              "id": "social-science-rajya-rashtra-ki-aay-test-3",
+              "slug": "test-3",
+              "title": "Practice Test 3",
+              "file": "data/class-10/social-science/rajya-rashtra-ki-aay/test-3.json",
+              "questionCount": 15,
+              "timeLimitMinutes": 15,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-09-20T00:00:00.000Z"
             }
           ],
           "youtubeUrl": "https://youtu.be/sthqIrx-HYw",

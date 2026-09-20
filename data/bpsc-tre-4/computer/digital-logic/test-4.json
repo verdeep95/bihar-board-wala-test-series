@@ -1,0 +1,183 @@
+{
+  "id": "computer-digital-logic-test-4",
+  "title": "Class 8 · Half Adder Full Adder · Subtractor",
+  "course": "bpsc-tre-4",
+  "subject": "computer",
+  "chapter": "digital-logic",
+  "quizType": "LECTURE_QUIZ",
+  "timeLimitMinutes": 15,
+  "passingScore": 33,
+  "negativeMarkingEnabled": true,
+  "negativeMarksPerQuestion": 0.3333333333333333,
+  "negativeMarkingOnSkip": true,
+  "shuffle": true,
+  "youtubeUrl": "https://youtu.be/lnUUxnpSvd4",
+  "youtubeTitle": "Class 8 · Half Adder Full Adder · Subtractor",
+  "questions": [
+    {
+      "question": "A half adder has",
+      "option1": "2 inputs and 1 output",
+      "option2": "2 inputs and 2 outputs",
+      "option3": "3 inputs and 2 outputs",
+      "option4": "3 inputs and 1 output",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Half Adder के inputs $A,B$ हैं; outputs Sum और Carry। $C_{in}$ नहीं होता।\n\nजाँच: 1-bit जोड़ में LSB Sum और अगला Carry — दो outputs।\n\nकटौती: A एक output भूल गई। C Full Adder है (3 inputs, 2 outputs)। D input-output दोनों गलत।\n\nTRAP: Half और Full की input-गिनती मिलाना।",
+      "marks": 1
+    },
+    {
+      "question": "A full adder has",
+      "option1": "2 inputs",
+      "option2": "3 inputs",
+      "option3": "4 inputs",
+      "option4": "1 input",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Full Adder पिछला carry भी लेता है → inputs $A$, $B$ और $C_{in}$ — कुल तीन। Outputs Sum और $C_{out}$ दो रहते हैं।\n\nजाँच: $C_{in}$ ही Half और Full का अंतर है।\n\nकटौती: A Half Adder है। C चार inputs किसी standard 1-bit FA में नहीं। D बेमानी है।\n\nTRAP: outputs दो हैं, inputs तीन — गिनती उल्टा न पढ़ें।",
+      "marks": 1
+    },
+    {
+      "question": "The Sum output of a half adder is",
+      "option1": "$A$ AND $B$",
+      "option2": "$A$ OR $B$",
+      "option3": "$A$ XOR $B$",
+      "option4": "$A$ XNOR $B$",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: Sum तब 1 जब bits अलग हों। $1+1$ पर Sum bit 0 होता है → XOR, OR नहीं।\n\nजाँच: $0+1=1$, $1+0=1$, $0+0=0$, $1+1=0$ — यही XOR truth table है।\n\nकटौती: A Carry है। B $1+1$ पर गलत 1 देगा। D equality है, Sum नहीं।\n\nTRAP: Sum को AND/OR लिख देना।",
+      "marks": 1
+    },
+    {
+      "question": "The Carry output of a half adder is",
+      "option1": "$A$ XOR $B$",
+      "option2": "$A$ AND $B$",
+      "option3": "$A$ OR $B$",
+      "option4": "$A'B$",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Carry तभी 1 जब दोनों bits 1 हों। यही AND: $C = AB$।\n\nजाँच: केवल $1+1$ पर carry generate होता है।\n\nकटौती: A Sum है। C $0+1$ पर गलत carry देगा। D Half Subtractor का Borrow है।\n\nTRAP: Carry और Borrow एक सूत्र समझना।",
+      "marks": 1
+    },
+    {
+      "question": "A full adder can be implemented using",
+      "option1": "1 half adder and 1 OR gate",
+      "option2": "2 half adders and 1 OR gate",
+      "option3": "2 half adders and 1 AND gate",
+      "option4": "3 half adders only",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: HA1: $A,B \\to P,C_1$। HA2: $P,C_{in} \\to \\mathrm{Sum},C_2$। OR: $C_{out}=C_1+C_2$। यही standard 2-HA full adder है।\n\nजाँच: पहले XOR से $A\\oplus B$, दूसरे XOR से Sum; दोनों AND-carries OR से Cout।\n\nकटौती: A एक HA से $C_{in}$ नहीं सधता। C extra gate AND गलत है। D तीन HA ज़रूरत से ज़्यादा।\n\nTRAP: extra gate को AND मान लेना।",
+      "marks": 1
+    },
+    {
+      "question": "The Sum of a full adder is",
+      "option1": "$A \\oplus B$",
+      "option2": "$A \\oplus B \\oplus C_{in}$",
+      "option3": "$AB + C_{in}$",
+      "option4": "$AB + B C_{in} + A C_{in}$",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: तीन bits का Sum = odd parity = तीन-input XOR: $A \\oplus B \\oplus C_{in}$।\n\nजाँच: Sum 1 तभी जब inputs में 1s की संख्या विषम हो (1 या 3)।\n\nकटौती: A Half Adder Sum है — $C_{in}$ गायब। C गलत mix है। D $C_{out}$ (majority) है, Sum नहीं।\n\nTRAP: Sum और Cout के सूत्र आपस में बदल देना।",
+      "marks": 1
+    },
+    {
+      "question": "Which expression is a correct form of full-adder $C_{out}$?",
+      "option1": "$A \\oplus B \\oplus C_{in}$",
+      "option2": "$A'B$",
+      "option3": "$AB + B C_{in} + A C_{in}$",
+      "option4": "$A'B + B_{in}(A \\oplus B)'$",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: $C_{out}=1$ जब कम से कम दो inputs 1 हों। यही तीन-term majority: $AB + B C_{in} + A C_{in}$। बराबर फॉर्म: $AB + C_{in}(A\\oplus B)$।\n\nजाँच: $A=B=1$ या कोई एक 1 और $C_{in}=1$ पर carry generate/propagate होता है।\n\nकटौती: A Sum है। B Half Subtractor Borrow। D Full Subtractor $B_{out}$ है।\n\nTRAP: Cout को XOR-chain लिख देना।",
+      "marks": 1
+    },
+    {
+      "question": "For $A=1$, $B=1$, $C_{in}=1$ the full adder gives",
+      "option1": "$\\mathrm{Sum}=0$, $C_{out}=0$",
+      "option2": "$\\mathrm{Sum}=0$, $C_{out}=1$",
+      "option3": "$\\mathrm{Sum}=1$, $C_{out}=0$",
+      "option4": "$\\mathrm{Sum}=1$, $C_{out}=1$",
+      "option5": "Not Attempted",
+      "correctOption": "4",
+      "explanation": "विधि: $1+1+1=3=11_2$। LSB Sum $=1$, carry $C_{out}=1$। XOR-chain: $1\\oplus1\\oplus1=1$; majority तीन 1 → Cout $=1$।\n\nजाँच: तीन-input XOR विषम संख्या में 1 पर 1 देता है।\n\nकटौती: B $1+1+0$ वाला केस है। C carry भूल गई। A दोनों गलत।\n\nTRAP: तीन 1 देखकर Sum $=0$ सोचना (दो-input XOR की आदत)।",
+      "marks": 1
+    },
+    {
+      "question": "The Difference output of a half subtractor is",
+      "option1": "$A$ AND $B$",
+      "option2": "$A$ XOR $B$",
+      "option3": "$A'B$",
+      "option4": "$AB$",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Difference का LSB भी XOR है — जोड़ और घट का यह पद एक जैसा: $\\mathrm{Diff}=A\\oplus B$।\n\nजाँच: $0-0=0$, $1-0=1$, $1-1=0$, $0-1$ पर LSB 1 (borrow के साथ) — XOR।\n\nकटौती: C Borrow है। A और D Carry/AND हैं।\n\nTRAP: Diff को Borrow समझना।",
+      "marks": 1
+    },
+    {
+      "question": "The Borrow output of a half subtractor is",
+      "option1": "$AB$",
+      "option2": "$A \\oplus B$",
+      "option3": "$A'B$",
+      "option4": "$A + B$",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: उधार तभी जब $A=0$ और $B=1$। सूत्र $B_{out}=A'B$। Circuit में $A$ पर NOT फिर AND।\n\nजाँच: केवल $0-1$ पर borrow generate होता है।\n\nकटौती: A Carry वाला सूत्र — सबसे बड़ा trap। B Difference है। D OR गलत है।\n\nTRAP: Borrow = Carry = $AB$।",
+      "marks": 1
+    },
+    {
+      "question": "The Difference of a full subtractor equals",
+      "option1": "the Carry of a full adder",
+      "option2": "the Sum of a full adder",
+      "option3": "$A'B$",
+      "option4": "majority of $A$, $B$, $B_{in}$",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Full Subtractor Diff $=A\\oplus B\\oplus B_{in}$। Full Adder Sum $=A\\oplus B\\oplus C_{in}$। एक ही XOR-chain।\n\nजाँच: LSB दोनों में odd-parity है; अलग पद Borrow/Carry है, Difference/Sum नहीं।\n\nकटौती: A $C_{out}$ majority है, Diff नहीं। C Half Subtractor Borrow है। D $B_{out}$ के पास majority जैसा नहीं।\n\nTRAP: “घटाव है तो सूत्र बिलकुल अलग होगा।” Diff नहीं, Bout अलग है।",
+      "marks": 1
+    },
+    {
+      "question": "An $n$-bit ripple adder is normally built from",
+      "option1": "$n$ half adders",
+      "option2": "$n$ full adders",
+      "option3": "1 full adder only",
+      "option4": "$n$ XOR gates only",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: हर bit-कॉलम को $C_{in}$ चाहिए → $n$ full adders (ripple)। $C_{in0}=0$ हो तो 1 HA $+\\,(n-1)$ FA भी संभव है; normal form $n$ FA है।\n\nजाँच: पिछले stage का $C_{out}$ अगले का $C_{in}$ बनता है।\n\nकटौती: A हर कॉलम $C_{in}$ नहीं ले पाएगा। C केवल 1-bit है। D Carry generate/propagate नहीं करता।\n\nTRAP: $n$-bit = $n$ Half Adders।",
+      "marks": 1
+    },
+    {
+      "question": "An adder is a",
+      "option1": "sequential circuit",
+      "option2": "combinational circuit",
+      "option3": "memory element",
+      "option4": "flip-flop",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Output केवल present input पर निर्भर करता है; memory/clock नहीं। Adder, MUX, decoder combinational हैं।\n\nजाँच: Carry सिर्फ तार/संकेत है, stored state नहीं।\n\nकटौती: A/C/D sequential परिवार हैं (flip-flop, register, counter)।\n\nTRAP: carry को “memory” समझकर sequential कह देना।",
+      "marks": 1
+    },
+    {
+      "question": "Which statement is FALSE?",
+      "option1": "Full adder has a carry-in",
+      "option2": "Half adder cannot take previous carry",
+      "option3": "Borrow of half subtractor is $AB$",
+      "option4": "Sum of half adder is XOR",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: FALSE कथन पूछा है। Borrow $=A'B$ है, $AB$ नहीं। A, B और D course के सही one-liners हैं।\n\nजाँच: $AB$ Carry है; Borrow में $A$ complemented होता है।\n\nकटौती: A, B, D सही हैं इसलिए उत्तर नहीं।\n\nTRAP: “FALSE कौन” को TRUE पढ़ लेना। PEN — $AB$ काटें।",
+      "marks": 1
+    },
+    {
+      "question": "Gate count of the standard 2-HA full adder is",
+      "option1": "1 XOR + 1 AND",
+      "option2": "2 XOR + 2 AND + 1 OR",
+      "option3": "3 XOR + 1 OR",
+      "option4": "2 XOR + 1 AND",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: हर HA = 1 XOR + 1 AND। दो HA + 1 OR → 2 XOR + 2 AND + 1 OR।\n\nजाँच: XOR-XOR Sum chain; AND-AND carries; OR उन्हें $C_{out}$ बनाता है।\n\nकटौती: A केवल Half Adder है। C एक extra XOR और AND गायब। D एक AND और OR कम गिन ली।\n\nTRAP: OR भूलकर केवल 2 HA लिख देना।",
+      "marks": 1
+    }
+  ]
+}

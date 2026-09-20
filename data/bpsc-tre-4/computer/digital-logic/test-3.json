@@ -1,0 +1,183 @@
+{
+  "id": "computer-digital-logic-test-3",
+  "title": "Class 7 · 4-variable K-map · SOP/POS Simplification",
+  "course": "bpsc-tre-4",
+  "subject": "computer",
+  "chapter": "digital-logic",
+  "quizType": "LECTURE_QUIZ",
+  "timeLimitMinutes": 15,
+  "passingScore": 33,
+  "negativeMarkingEnabled": true,
+  "negativeMarksPerQuestion": 0.3333333333333333,
+  "negativeMarkingOnSkip": true,
+  "shuffle": true,
+  "youtubeUrl": "https://youtu.be/cNf1po0HD5I",
+  "youtubeTitle": "Class 7 · 4-variable K-map · SOP/POS Simplification",
+  "questions": [
+    {
+      "question": "A 4-variable K-map contains",
+      "option1": "4 cells",
+      "option2": "8 cells",
+      "option3": "16 cells",
+      "option4": "32 cells",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: $n$ variables → $2^n$ cells। अतः 4 variables → $2^4 = 16$ cells।\n\nजाँच: AB rows और CD columns पर $4 \\times 4$ grid बनती है।\n\nकटौती: A 2-variable map है। B 3-variable map है। D 5-variable map है।\n\nTRAP: variables की संख्या को cells मान लेना।",
+      "marks": 1
+    },
+    {
+      "question": "The correct Gray-code order for both rows and columns is",
+      "option1": "$00, 01, 10, 11$",
+      "option2": "$00, 01, 11, 10$",
+      "option3": "$00, 10, 01, 11$",
+      "option4": "$00, 11, 10, 01$",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Gray order $00 \\to 01 \\to 11 \\to 10$ है। हर step में केवल एक bit बदलती है; wrap-around पर $10$ से $00$ भी एक bit बदलती है।\n\nजाँच: $00\\to01$, $01\\to11$, $11\\to10$ और $10\\to00$ सभी Hamming distance 1 हैं।\n\nकटौती: A binary order है; $01\\to10$ में दो bits बदलती हैं। C और D में भी two-bit jumps हैं।\n\nTRAP: तीसरे स्थान पर $10$ लिख देना। सही third label $11$ है।",
+      "marks": 1
+    },
+    {
+      "question": "With $AB$ as rows and $CD$ as columns, the first row of minterm indices is",
+      "option1": "$m_0, m_1, m_2, m_3$",
+      "option2": "$m_0, m_2, m_3, m_1$",
+      "option3": "$m_0, m_1, m_3, m_2$",
+      "option4": "$m_0, m_4, m_{12}, m_8$",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: पहली row $AB=00$ है। $CD$ Gray क्रम $00,01,11,10$ से indices $0000,0001,0011,0010$ अर्थात $m_0,m_1,m_3,m_2$ बनते हैं।\n\nजाँच: $0011=3$ और $0010=2$; Gray order में तीसरा cell $m_3$ है, $m_2$ नहीं।\n\nकटौती: A decimal क्रम $0,1,2,3$ है। B column order उलटा है। D पहली column के row-wrap indices हैं, पहली row नहीं।\n\nTRAP: cell numbers को decimal क्रम $0,1,2,3$ में भरना।",
+      "marks": 1
+    },
+    {
+      "question": "Which set forms the four corner cells of a 4-variable K-map?",
+      "option1": "$\\{m_0, m_2, m_8, m_{10}\\}$",
+      "option2": "$\\{m_0, m_1, m_4, m_5\\}$",
+      "option3": "$\\{m_5, m_7, m_{13}, m_{15}\\}$",
+      "option4": "$\\{m_0, m_3, m_{12}, m_{15}\\}$",
+      "option5": "Not Attempted",
+      "correctOption": "1",
+      "explanation": "विधि: top/bottom और left/right wrap से चार corners $m_0$ (top-left), $m_2$ (top-right), $m_8$ (bottom-left) और $m_{10}$ (bottom-right) हैं। ये एक valid wrap-around quad बनाते हैं।\n\nजाँच: $m_0=0000$, $m_2=0010$, $m_8=1000$, $m_{10}=1010$ — $A$ और $C$ बदलते हैं; $B$ और $D$ स्थिर $0$ हैं।\n\nकटौती: B और C valid quads हैं, लेकिन corners नहीं। D diagonal-style cells हैं, एक adjacent group नहीं।\n\nTRAP: चार corners को चार अलग groups मानना।",
+      "marks": 1
+    },
+    {
+      "question": "Which statement is correct?",
+      "option1": "Diagonal cells are always adjacent",
+      "option2": "The top and bottom rows are adjacent by wrap-around",
+      "option3": "Only consecutive decimal indices are adjacent",
+      "option4": "Corner cells can never be grouped together",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: K-map के opposite edges wrap से adjacent हैं। Gray row labels $00$ और $10$ एक bit में अलग हैं, इसलिए top और bottom rows adjacent हैं।\n\nजाँच: adjacency का नियम Hamming distance 1 है, न कि table पर सीधा पड़ोसी दिखना।\n\nकटौती: A गलत — diagonal में दो bits बदल सकती हैं। C गलत — $m_1$ और $m_2$ consecutive हैं पर adjacent नहीं। D गलत — चार corners एक wrap quad बनाते हैं।\n\nTRAP: flat table समझकर top-bottom adjacency भूलना।",
+      "marks": 1
+    },
+    {
+      "question": "An octet in a 4-variable K-map eliminates",
+      "option1": "one variable",
+      "option2": "two variables",
+      "option3": "three variables",
+      "option4": "all four variables",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: octet $= 8 = 2^3$ cells, इसलिए 3 variables drop होते हैं और एक literal बचता है।\n\nजाँच: pair $2^1$ → 1 variable drop; quad $2^2$ → 2 drop; octet $2^3$ → 3 drop।\n\nकटौती: A pair का नियम है। B quad का नियम है। D पूरे 16-cell map (tautology) के लिए है।\n\nTRAP: 8 cells देखकर 8 variables या केवल 2 variables drop मानना।",
+      "marks": 1
+    },
+    {
+      "question": "Which is NOT a valid K-map group size?",
+      "option1": "2",
+      "option2": "4",
+      "option3": "6",
+      "option4": "8",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: valid sizes केवल powers of two हैं: $1,2,4,8,16$। दिए विकल्पों में 6 valid नहीं है।\n\nजाँच: 6 cells को $4+2$ के दो groups में cover किया जा सकता है, एक group of 6 नहीं बनता।\n\nकटौती: 2 pair है, 4 quad है, 8 octet है — तीनों valid हैं।\n\nTRAP: पास के सभी 6 ones को एक group मान लेना।",
+      "marks": 1
+    },
+    {
+      "question": "The simplified SOP of $F = \\Sigma m(0,2,8,10)$ is",
+      "option1": "$B'D'$",
+      "option2": "$BD$",
+      "option3": "$B + D$",
+      "option4": "$B'D$",
+      "option5": "Not Attempted",
+      "correctOption": "1",
+      "explanation": "विधि: ये चार corners हैं। इनमें $B=0$ और $D=0$ स्थिर हैं; $A$ और $C$ बदलते हैं। SOP polarity: स्थिर 0 → complement, इसलिए $F=B'D'$।\n\nजाँच: $m_0=0000$, $m_2=0010$, $m_8=1000$, $m_{10}=1010$ — हर बार $B=0,D=0$।\n\nकटौती: C उसी zero-group की POS reading $(B+D)$ है। B स्थिर-1 polarity है। D में $D$ as-is गलत है।\n\nTRAP: SOP और POS polarity मिलाना।",
+      "marks": 1
+    },
+    {
+      "question": "The simplified SOP of $F = \\Sigma m(0,2,5,7,8,10,13,15)$ is",
+      "option1": "$B'D + BD'$",
+      "option2": "$B'D' + BD$",
+      "option3": "$A'C' + AC$",
+      "option4": "$B + D$",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: $\\{0,2,8,10\\}$ चार corners → $B'D'$। $\\{5,7,13,15\\}$ में $B=1,D=1$ स्थिर → $BD$। दोनों product terms का OR: $B'D' + BD$।\n\nजाँच: यह $B$ और $D$ का XNOR pattern है। XOR वाला $B'D+BD'$ अलग cells cover करता है।\n\nकटौती: A XOR है, XNOR नहीं। C $A,C$ पर निर्भर करता; यहाँ $A,C$ बदलते हैं। D POS जैसा sum है, SOP नहीं।\n\nTRAP: XNOR को XOR वाला $B'D+BD'$ चुन लेना।",
+      "marks": 1
+    },
+    {
+      "question": "The simplified SOP of $F = \\Sigma m(0,1,2,3,8,9,10,11)$ is",
+      "option1": "$A'$",
+      "option2": "$B'$",
+      "option3": "$C'$",
+      "option4": "$D'$",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: top row $AB=00$ ($m_0,m_1,m_3,m_2$) और bottom row $AB=10$ ($m_8,m_9,m_{11},m_{10}$) wrap से octet बनाती हैं। इन सभी में $B=0$ स्थिर है; $A,C,D$ बदलते हैं। अतः $F=B'$।\n\nजाँच: octet $2^3$ cells → 3 variables drop, एक literal बचता है।\n\nकटौती: A गलत क्योंकि दोनों rows में $A$ $0$ और $1$ दोनों है। C और D भी पूरे CD labels cover करते हैं, स्थिर नहीं।\n\nTRAP: row का पहला bit $A$ देखकर $A'$ चुनना।",
+      "marks": 1
+    },
+    {
+      "question": "Overlapping K-map groups are",
+      "option1": "always invalid",
+      "option2": "valid when they help cover required cells with simpler terms",
+      "option3": "valid only for groups of two",
+      "option4": "compulsory for every function",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: overlap valid है। एक required 1 दो groups में आ सकती है। लक्ष्य सभी 1s cover करना और literals कम करना है।\n\nजाँच: shared cell दो product terms में 1 रहती है; यह duplicate counting नहीं, simplification है।\n\nकटौती: A overlap को हमेशा गलत बताता है। C आकार पर गलत पाबंदी है। D हर function में overlap जरूरी नहीं।\n\nTRAP: overlap को duplicate counting समझकर हमेशा invalid मानना।",
+      "marks": 1
+    },
+    {
+      "question": "For $F = \\Sigma m(1,3,9,11) + d(0,2,8,10)$, using the don't-care cells to make the largest group gives",
+      "option1": "$B'$",
+      "option2": "$B'D$",
+      "option3": "$D$",
+      "option4": "$A'$",
+      "option5": "Not Attempted",
+      "correctOption": "1",
+      "explanation": "विधि: required 1s $m_1,m_3,m_9,m_{11}$ हैं। चार don't-care $m_0,m_2,m_8,m_{10}$ को 1 लेने पर top-bottom का पूरा octet बनता है। केवल $B=0$ स्थिर, इसलिए $F=B'$।\n\nजाँच: X न लें तो छोटा quad $\\{1,3,9,11\\}$ → $B'D$ मिलता है। X लेने से एक extra literal हटता है।\n\nकटौती: B don't-care ignore करने का परिणाम है। C और D octet के स्थिर bit नहीं हैं।\n\nTRAP: don't-care को हमेशा 0 या हमेशा 1 मानना। नियम: बड़ा useful group बने तभी 1 लो।",
+      "marks": 1
+    },
+    {
+      "question": "For a POS expression obtained from a K-map, we group",
+      "option1": "1s",
+      "option2": "0s",
+      "option3": "only don't-care cells",
+      "option4": "diagonal cells",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: SOP के लिए 1s group होते हैं; POS के लिए 0s group होते हैं।\n\nजाँच: प्रत्येक POS sum term उन input combinations को cover करता है जहाँ function 0 है।\n\nकटौती: A SOP का नियम है। C don't-care optional हैं, अकेले POS नहीं बनाते। D diagonal adjacency का नियम नहीं है।\n\nTRAP: minterm/SOP का नियम POS पर चला देना।",
+      "marks": 1
+    },
+    {
+      "question": "If a POS zero-group has $B=0$ and $D=0$ constant, its sum term is",
+      "option1": "$B'D'$",
+      "option2": "$B' + D'$",
+      "option3": "$B + D$",
+      "option4": "$BD$",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: POS polarity: zero-group में स्थिर 0 as-is और स्थिर 1 complement। $B=0,D=0$ → sum term $(B+D)$।\n\nजाँच: यही group SOP में $B'D'$ पढ़ा जाता; POS में bars नहीं, $+$ लगता है।\n\nकटौती: A SOP product term है। B polarity उलट देता है। D AND term है, sum term नहीं।\n\nTRAP: $B'D'$ लिख देना। Sum term में $+$ चाहिए।",
+      "marks": 1
+    },
+    {
+      "question": "The minimal POS of $F = \\Pi M(0,2,8,10)$ is",
+      "option1": "$B'D'$",
+      "option2": "$B + D$",
+      "option3": "$B' + D'$",
+      "option4": "$BD$",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: $\\Pi M$ list zero cells बताती है। $m_0,m_2,m_8,m_{10}$ corners का zero-quad है। $B=0,D=0$ स्थिर → POS term $(B+D)$। एक ही group है, इसलिए $F=B+D$।\n\nजाँच: ये चार inputs पर $F=0$; बाकी पर $F=1$। $(B+D)$ तभी 0 जब $B=D=0$।\n\nकटौती: A वही cells को SOP polarity से पढ़ता है। C polarity उलट देता है। D स्थिर-1 AND है।\n\nTRAP: $\\Pi$ देखकर indices को 1s समझना।",
+      "marks": 1
+    }
+  ]
+}
