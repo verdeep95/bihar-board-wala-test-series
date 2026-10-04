@@ -1,0 +1,150 @@
+{
+  "id": "computer-architecture-fundamentals-test-2",
+  "title": "Class 14 · Memory Hierarchy · RAM ROM",
+  "course": "bpsc-tre-4",
+  "subject": "computer",
+  "chapter": "architecture-fundamentals",
+  "quizType": "LECTURE_QUIZ",
+  "timeLimitMinutes": 12,
+  "passingScore": 33,
+  "negativeMarkingEnabled": true,
+  "negativeMarksPerQuestion": 0.3333333333333333,
+  "negativeMarkingOnSkip": true,
+  "shuffle": true,
+  "youtubeUrl": "https://youtu.be/r9SmUhBmxOE",
+  "youtubeTitle": "Class 14 · Memory Hierarchy · RAM ROM",
+  "questions": [
+    {
+      "question": "TRE 2.0 PGT Computer Science, Series A, Q77. _____ is used to store software that does not update.",
+      "option1": "SRAM",
+      "option2": "DRAM",
+      "option3": "ROM",
+      "option4": "More than one of the above",
+      "option5": "None of the above",
+      "correctOption": "3",
+      "explanation": "विधि: जो software बदलता नहीं — firmware, boot program — वह ROM में रखा जाता है। ROM non-volatile है और power जाने पर data रहता है।\n\nजाँच: SRAM और DRAM दोनों RAM हैं। RAM volatile है, इसलिए ऐसा software जो update नहीं होता, उनमें स्थायी store नहीं करते।\n\nकटौती: A और B volatile RAM हैं। More than one गलत क्योंकि केवल ROM इस काम में आता है। None of the above गलत क्योंकि ROM विकल्प में है।\n\nTRAP: इस प्रश्न की official key इस folder में नहीं है। ऊपर वाला तथ्य ROM है — इसे published official key कहकर मत पढ़ाना।",
+      "marks": 1
+    },
+    {
+      "question": "TRE 3.0 PGT Computer Science, 22 Jul 2024, Set E, Q78. Which of the following is the type of Read Only Memory (ROM)?",
+      "option1": "PROM",
+      "option2": "EPROM",
+      "option3": "MROM",
+      "option4": "More than one of the above",
+      "option5": "None of the above",
+      "correctOption": "4",
+      "explanation": "विधि: तीनों ROM परिवार के हैं। PROM = Programmable ROM। EPROM = Erasable Programmable ROM। MROM = Mask ROM, जो factory में mask से बनता है।\n\nजाँच: Official final key, Set E, Q78 = D (More than one of the above)। A या B को अकेला official answer मत बताना।\n\nकटौती: एक नाम चुनकर रुकना अधूरा है — तीनों ROM के प्रकार हैं। None of the above गलत है; key E नहीं है।\n\nTRAP: MROM को “ROM नहीं” पढ़ना। M = Mask। PROM, EPROM और Mask ROM तीनों ROM हैं, इसलिए key D है।",
+      "marks": 1
+    },
+    {
+      "question": "TRE 2.0 PGT, Series A, Q88. The cost of storing a bit is minimum in",
+      "option1": "cache",
+      "option2": "register",
+      "option3": "magnetic tape",
+      "option4": "More than one of the above",
+      "option5": "None of the above",
+      "correctOption": "3",
+      "explanation": "विधि: Memory ladder में सबसे सस्ता per bit सबसे धीमा स्तर है। Magnetic tape सबसे नीचे है, इसलिए एक bit store करने की cost वहाँ minimum है।\n\nजाँच: Register CPU के अंदर है — सबसे महँगा। Cache SRAM है — register से सस्ता, tape से बहुत महँगा।\n\nकटौती: A और B महँगे स्तर हैं, minimum नहीं। More than one गलत क्योंकि केवल tape न्यूनतम cost देता है। None of the above गलत क्योंकि tape विकल्प में है।\n\nTRAP: इस प्रश्न की official key इस folder में नहीं है। तथ्य magnetic tape है — official key का दावा नहीं। “तेज़ है तो सस्ता” मत पढ़ना; तेज़ स्तर महँगा होता है।",
+      "marks": 1
+    },
+    {
+      "question": "TRE 1.0 PGT, 26 Aug 2023, Series A, Q47. Secondary memory is the long-term store for programs and data while main memory holds program and data currently in use. What kind of an organization is this?",
+      "option1": "Physical",
+      "option2": "Logical",
+      "option3": "Structural",
+      "option4": "More than one of the above",
+      "option5": "None of the above",
+      "correctOption": "1",
+      "explanation": "विधि: Stem खुद बाँटता है। Secondary memory = long-term store। Main memory = program और data जो अभी use में हैं। यह memory का physical organization है — असल hardware स्तर कहाँ बैठा है।\n\nजाँच: Official final key, Series A, Q47 = A (Physical)।\n\nकटौती: Logical organization address और program की दृष्टि है, इस stem का नाम नहीं। Structural अलग विकल्प है, key नहीं। More than one गलत क्योंकि केवल Physical सही है। None of the above गलत है।\n\nTRAP: “अभी use में है / लंबे समय का store” पढ़कर Logical बोलना। इस stem की key Physical है।",
+      "marks": 1
+    },
+    {
+      "question": "Which memory is volatile?",
+      "option1": "ROM",
+      "option2": "magnetic tape",
+      "option3": "DRAM",
+      "option4": "DVD",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: Volatile का मतलब power जाते ही data मिटना। DRAM एक तरह की RAM है, इसलिए volatile है।\n\nजाँच: ROM, magnetic tape और DVD power के बिना data रखते हैं — non-volatile।\n\nकटौती: A ROM non-volatile है। B tape secondary non-volatile है। D DVD optical non-volatile है।\n\nTRAP: “memory है तो volatile”। केवल RAM परिवार (SRAM, DRAM) volatile है; ROM और secondary media नहीं।",
+      "marks": 1
+    },
+    {
+      "question": "SRAM is typically used for",
+      "option1": "magnetic tape",
+      "option2": "cache",
+      "option3": "UV-erasable firmware only",
+      "option4": "mask ROM",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: SRAM flip-flop से बनता है, refresh नहीं माँगता, और DRAM से तेज़ है। इसलिए cache SRAM से बनती है।\n\nजाँच: Main memory आमतौर पर DRAM है। Tape चुंबकीय है, SRAM नहीं। UV-erasable chip EPROM है। Mask ROM factory ROM है।\n\nकटौती: A tape है। C EPROM है। D MROM है। तीनों SRAM के उपयोग नहीं।\n\nTRAP: SRAM को main memory या ROM समझना। इस class में SRAM = cache।",
+      "marks": 1
+    },
+    {
+      "question": "DRAM needs periodic refresh because it stores bits in",
+      "option1": "a flip-flop",
+      "option2": "a capacitor",
+      "option3": "a fuse that cannot change",
+      "option4": "ultraviolet cells",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: DRAM cell एक capacitor है। Charge रिसता है, इसलिए bits बचाने के लिए periodic refresh चाहिए।\n\nजाँच: SRAM bit flip-flop में रखता है, इसलिए refresh नहीं। Fuse PROM का एक बार लिखने वाला तरीका है। Ultraviolet erase EPROM का है।\n\nकटौती: A SRAM है। C PROM जैसा है। D EPROM है।\n\nTRAP: SRAM और DRAM की refresh जोड़ी उलट देना। याद: capacitor = DRAM = refresh; flip-flop = SRAM = no refresh।",
+      "marks": 1
+    },
+    {
+      "question": "EPROM is erased by",
+      "option1": "electricity, one byte at a time only",
+      "option2": "ultraviolet light",
+      "option3": "a factory mask that the user burns",
+      "option4": "deleting a file in the OS",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: EPROM = Erasable Programmable ROM। पूरा chip ultraviolet light से मिटता है, फिर दोबारा program होता है।\n\nजाँच: Electricity से मिटाना EEPROM का काम है। Factory mask MROM है, user उसे burn नहीं करता। OS में file delete disk का काम है, ROM cell का नहीं।\n\nकटौती: A EEPROM के करीब है, EPROM नहीं। C Mask ROM है। D secondary storage है।\n\nTRAP: EPROM और EEPROM का पहला अक्षर। EPROM में P से पहले कोई extra E नहीं — मिटाना रोशनी से है। EEPROM बिजली से।",
+      "marks": 1
+    },
+    {
+      "question": "EEPROM differs from EPROM because EEPROM is erased",
+      "option1": "by ultraviolet light only",
+      "option2": "electrically",
+      "option3": "only at the time of chip manufacture",
+      "option4": "by a magnetic head",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: EEPROM = Electrically Erasable Programmable ROM। नाम का पहला हिस्सा ही तरीका है: erase electricity से होता है।\n\nजाँच: Ultraviolet केवल EPROM है। Manufacture-time mask MROM है। Magnetic head tape या disk का है।\n\nकटौती: A EPROM है। C Mask ROM है। D magnetic secondary memory है।\n\nTRAP: दोनों में “erasable” देखकर एक ही तरीका मानना। फर्क UV बनाम electrical है।",
+      "marks": 1
+    },
+    {
+      "question": "Cache memory is",
+      "option1": "secondary and non-volatile",
+      "option2": "primary and volatile",
+      "option3": "the same as magnetic tape",
+      "option4": "a type of mask ROM",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Cache CPU के पास की primary memory है। वह SRAM से बनती है, इसलिए volatile है — power जाते ही contents मिटते हैं।\n\nजाँच: Secondary non-volatile उदाहरण tape, disk, DVD हैं। Mask ROM firmware है, cache नहीं।\n\nकटौती: A secondary का वर्णन है। C tape है, सबसे धीमा स्तर। D ROM परिवार है, volatile cache नहीं।\n\nTRAP: “cache data बचाकर रखती है तो non-volatile”। बचाना speed के लिए है, power-off storage के लिए नहीं।",
+      "marks": 1
+    },
+    {
+      "question": "In increasing order of access time, the correct order is",
+      "option1": "tape, RAM, cache, register",
+      "option2": "register, cache, RAM, tape",
+      "option3": "RAM, register, tape, cache",
+      "option4": "cache, tape, register, RAM",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Increasing access time मतलब पहले सबसे कम इंतज़ार। Register सबसे तेज़, फिर cache, फिर RAM, फिर magnetic tape सबसे धीमा।\n\nजाँच: यही hierarchy है: register → cache → main memory → secondary/tape। Cost per bit उलटी दिशा में घटती है।\n\nकटौती: A क्रम उलटा है — tape को पहले रख दिया। C और D register, cache और tape को बीच में मिलाते हैं।\n\nTRAP: “increasing” को size या cost पढ़ना। प्रश्न access time का है: छोटा समय पहले, tape अंत में।",
+      "marks": 1
+    },
+    {
+      "question": "Which statement is correct?",
+      "option1": "ROM is volatile and secondary",
+      "option2": "SRAM needs refresh and DRAM does not",
+      "option3": "ROM is non-volatile; DRAM needs refresh",
+      "option4": "Magnetic tape has the highest cost per bit",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: दो तथ्य एक वाक्य में। ROM power के बाद भी data रखता है, इसलिए non-volatile। DRAM capacitor पर टिका है, इसलिए refresh चाहिए।\n\nजाँच: ROM primary memory है, secondary नहीं। SRAM को refresh नहीं चाहिए; DRAM को चाहिए। Tape की cost per bit सबसे कम है, सबसे ज्यादा नहीं।\n\nकटौती: A ROM को volatile और secondary दोनों गलत कहता है। B refresh की जोड़ी उलटी है। D tape की cost उलट दी — highest cost register/cache की है।\n\nTRAP: SRAM/DRAM और costly/cheap दोनों जोड़ियाँ एक साथ उलट जाती हैं। ROM = non-volatile; DRAM = refresh; tape = cheapest per bit।",
+      "marks": 1
+    }
+  ]
+}

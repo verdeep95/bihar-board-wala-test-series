@@ -1,0 +1,183 @@
+{
+  "id": "computer-architecture-fundamentals-test-1",
+  "title": "Class 12 · CPU Instruction Cycle · PC IR MAR MBR",
+  "course": "bpsc-tre-4",
+  "subject": "computer",
+  "chapter": "architecture-fundamentals",
+  "quizType": "LECTURE_QUIZ",
+  "timeLimitMinutes": 15,
+  "passingScore": 33,
+  "negativeMarkingEnabled": true,
+  "negativeMarksPerQuestion": 0.3333333333333333,
+  "negativeMarkingOnSkip": true,
+  "shuffle": true,
+  "youtubeUrl": "https://youtu.be/fWrXavz5PCw",
+  "youtubeTitle": "Class 12 · CPU Instruction Cycle · PC IR MAR MBR",
+  "questions": [
+    {
+      "question": "The Program Counter (PC) holds",
+      "option1": "the instruction currently being executed",
+      "option2": "the address of the next instruction",
+      "option3": "the ALU result",
+      "option4": "data just read from memory",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: PC अगले instruction का memory address रखता है। वह instruction word नहीं रखता।\n\nजाँच: Fetch शुरू होते ही यही address MAR में जाता है, ताकि memory से अगला instruction पढ़ा जा सके।\n\nकटौती: A Instruction Register का काम है। C Accumulator रखता है। D MBR/MDR रखता है।\n\nTRAP: PC और IR की जोड़ी उलटी याद करना। PC $=$ next address; IR $=$ instruction word।",
+      "marks": 1
+    },
+    {
+      "question": "The Instruction Register (IR) holds",
+      "option1": "the address of the next instruction",
+      "option2": "the instruction currently being decoded",
+      "option3": "the stack-top address",
+      "option4": "the memory address being accessed",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Fetch के अंत में instruction word IR में आ जाता है। Control Unit उसी word को decode करता है, इसलिए IR current instruction रखता है।\n\nजाँच: Opcode और operand bits IR में बैठे रहते हैं जब तक execute पूरा न हो।\n\nकटौती: A PC है। C Stack Pointer है। D MAR है।\n\nTRAP: “instruction register तो address रखेगा” — नहीं। Address PC/MAR में है; instruction word IR में है।",
+      "marks": 1
+    },
+    {
+      "question": "During a memory read, the address is placed in",
+      "option1": "IR",
+      "option2": "MBR",
+      "option3": "MAR",
+      "option4": "ACC",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: Memory किस location को पढ़े, यह address MAR (Memory Address Register) में रखा जाता है। MAR address bus चलाता है।\n\nजाँच: Fetch में $PC \\to MAR$, फिर memory उस address का word MBR में लौटाती है।\n\nकटौती: A instruction word रखता है, address नहीं। B data/word रखता है, address नहीं। D ALU result रखता है।\n\nTRAP: MAR और MBR की जोड़ी बदल देना। MAR $=$ address, MBR $=$ data।",
+      "marks": 1
+    },
+    {
+      "question": "The Memory Buffer Register (MBR / MDR) holds",
+      "option1": "only addresses",
+      "option2": "data (or the word) to/from memory",
+      "option3": "the next instruction address",
+      "option4": "control signals from the CU",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: MBR (MDR) memory और CPU के बीच का data register है। Read पर memory का word यहाँ आता है; write पर CPU का data यहीं से memory जाता है।\n\nजाँच: Fetch में memory → MBR → IR। Address इस रास्ते पर नहीं रहता; address MAR में था।\n\nकटौती: A MAR का काम है। C PC का काम है। D control signals CU से buses/lines पर जाते हैं, MBR में store नहीं होते।\n\nTRAP: MBR को “memory register है तो address” समझना। Buffer का मतलब data word है।",
+      "marks": 1
+    },
+    {
+      "question": "The Accumulator typically stores",
+      "option1": "the next PC value",
+      "option2": "the opcode before fetch",
+      "option3": "the result of an ALU operation",
+      "option4": "the memory address of the stack",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: Accumulator ALU का काम करने वाला register है। ADD, SUB, AND जैसे operations का result अक्सर ACC में लिखा जाता है।\n\nजाँच: Opcode fetch से पहले कहीं stored “opcode” नहीं होता — fetch के बाद वह IR में होता है।\n\nकटौती: A PC रखता है। B fetch से पहले opcode IR में नहीं आता। D Stack Pointer रखता है।\n\nTRAP: ACC को address register मान लेना। ACC data/result रखता है, next-instruction address नहीं।",
+      "marks": 1
+    },
+    {
+      "question": "The Stack Pointer (SP) holds",
+      "option1": "the next instruction",
+      "option2": "the address of the top of the stack",
+      "option3": "the ALU flags only",
+      "option4": "the same value as the PC always",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: SP stack के top का address रखता है। PUSH/POP इसी address से memory पढ़ते या लिखते हैं, फिर SP बदलता है।\n\nजाँच: PC अगले instruction का address है। दोनों address registers हैं, पर एक stack top है और दूसरा program sequence।\n\nकटौती: A IR instruction word रखता है; SP address रखता है। C flags अलग register हैं (zero, carry, sign)। D PC और SP हमेशा बराबर नहीं होते।\n\nTRAP: SP को PC का दूसरा नाम समझना। CALL/RET में दोनों बदल सकते हैं, पर value एक नहीं होती।",
+      "marks": 1
+    },
+    {
+      "question": "After an instruction is fetched, the PC is",
+      "option1": "cleared to zero",
+      "option2": "copied into the ACC",
+      "option3": "incremented ($PC \\leftarrow PC+1$)",
+      "option4": "loaded from the SP",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: इस class का fetch क्रम है $PC \\to MAR \\to$ Memory $\\to MBR \\to IR$, फिर $PC \\leftarrow PC+1$। अगला address तैयार हो जाता है।\n\nजाँच: PC शून्य करने से program शुरू से दोहराएगा। ACC में copy करने से ALU result मिटेगा और sequence नहीं बढ़ेगी।\n\nकटौती: A program counter reset है, fetch का नियम नहीं। B ACC का काम ALU result है। D SP से load CALL/RET जैसा खास केस है, हर fetch नहीं।\n\nTRAP: Fetch के बाद PC को IR में “स्थानांतरित” मानकर उसे रोक देना। Address IR में नहीं जाता; PC एक कदम आगे बढ़ता है।",
+      "marks": 1
+    },
+    {
+      "question": "Instruction decode is performed by the",
+      "option1": "ALU",
+      "option2": "Control Unit (CU)",
+      "option3": "MBR",
+      "option4": "stack",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: IR में पड़ा opcode Control Unit पढ़ता है और तय करता है कि कौन-से registers, ALU और memory signals चलेंगे। Decode CU का काम है।\n\nजाँच: ALU जोड़-घटाव और logic करता है, opcode की पहचान नहीं। MBR केवल word पकड़े रहता है।\n\nकटौती: A execute के arithmetic भाग में लगता है। C data buffer है। D memory area है, decoder नहीं।\n\nTRAP: “instruction है तो ALU समझेगा”। ALU operation करता है; समझना CU करता है।",
+      "marks": 1
+    },
+    {
+      "question": "A typical instruction cycle is",
+      "option1": "Execute → Fetch → Decode",
+      "option2": "Fetch → Decode → Execute",
+      "option3": "Decode → Execute → Fetch",
+      "option4": "Fetch → Execute only",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: क्रम Fetch, Decode, Execute है। पहले instruction memory से IR में आता है, CU opcode समझता है, फिर ALU/memory वह काम करते हैं।\n\nजाँच: Decode से पहले word IR में होना चाहिए, इसलिए Fetch पहले है। Execute बिना decode के CU को signals नहीं पता।\n\nकटौती: A और C क्रम उलटे हैं। D decode छोड़ देता है — opcode पहचाने बिना execute नहीं होता।\n\nTRAP: Execute को पहले लिख देना क्योंकि “काम वही है”। काम से पहले instruction लाना और पढ़ना जरूरी है।",
+      "marks": 1
+    },
+    {
+      "question": "Fetch transfers the instruction into the",
+      "option1": "PC",
+      "option2": "SP",
+      "option3": "IR",
+      "option4": "ACC",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: Fetch का आखिरी ठहराव IR है। रास्ता $PC \\to MAR \\to$ Memory $\\to MBR \\to IR$। MBR रास्ते का buffer है; instruction decode के लिए IR में जाता है।\n\nजाँच: PC में address रहता है और फिर $PC+1$ हो जाता है। Instruction word PC में नहीं लिखा जाता।\n\nकटौती: A next address रखता है। B stack top रखता है। D ALU result रखता है, fetched opcode नहीं।\n\nTRAP: Fetch को “PC में instruction भरना” समझना। PC बताता है कहाँ से लाना है; आता instruction IR में है।",
+      "marks": 1
+    },
+    {
+      "question": "The address bus is driven mainly from",
+      "option1": "MBR",
+      "option2": "IR",
+      "option3": "MAR",
+      "option4": "ACC",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: Address bus पर वह location number जाता है जिसे memory खोलना है। वह number MAR से आता है।\n\nजाँच: Data bus अलग है — उस पर word MBR से या MBR की ओर जाता है।\n\nकटौती: A data bus से जुड़ा है। B instruction bits रखता है, address bus नहीं चलाता। D ALU result रखता है।\n\nTRAP: MBR को address bus पर बैठा देना। याद: MAR → address bus, MBR ↔ data bus।",
+      "marks": 1
+    },
+    {
+      "question": "The data bus connects memory with the",
+      "option1": "PC only",
+      "option2": "MBR / MDR",
+      "option3": "SP only",
+      "option4": "flags register only",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Memory से आया या memory को जाने वाला word data bus पर चलता है और MBR/MDR में रुकता है। PC और SP addresses हैं; वे data bus के मुख्य साथी नहीं।\n\nजाँच: Read: Memory → data bus → MBR। Write: MBR → data bus → Memory।\n\nकटौती: A PC address रखता है, data word नहीं। C stack-top address है। D flags condition bits हैं, memory data path नहीं।\n\nTRAP: हर CPU register को data bus से जोड़ देना। इस class में data bus का जोड़ा MBR है।",
+      "marks": 1
+    },
+    {
+      "question": "Which pair is correct?",
+      "option1": "PC holds the instruction; IR holds the address",
+      "option2": "MAR holds data; MBR holds the address",
+      "option3": "PC holds the next address; IR holds the instruction",
+      "option4": "SP and PC always store the same address",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: दो जोड़े याद रखो। PC $=$ next instruction address, IR $=$ instruction word। MAR $=$ address, MBR $=$ data।\n\nजाँच: C पहली जोड़ी सीधी कहता है। A वही जोड़ी उलटी है। B दूसरी जोड़ी उलटी है।\n\nकटौती: A PC/IR swap है। B MAR/MBR swap है। D SP stack top है, PC program sequence — हमेशा समान नहीं।\n\nTRAP: A और B आधे-परिचित नामों को पलट देते हैं। सीधी जोड़ी केवल C में है।",
+      "marks": 1
+    },
+    {
+      "question": "ALU is responsible for",
+      "option1": "fetching the next instruction",
+      "option2": "decoding the opcode",
+      "option3": "arithmetic and logic operations",
+      "option4": "incrementing the stack pointer only",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: ALU Arithmetic Logic Unit है। जोड़, घटाव, AND, OR, compare जैसे operations यहीं होते हैं। Result अक्सर ACC में जाता है।\n\nजाँच: Fetch memory और PC/MAR/MBR/IR का रास्ता है। Decode CU करता है। SP को बढ़ाना ALU की परिभाषा नहीं।\n\nकटौती: A fetch cycle है। B Control Unit है। D “only” SP increment ALU का काम नहीं है।\n\nTRAP: CPU के हर कदम को ALU लिख देना। Fetch CU + registers, decode CU, arithmetic/logic ALU।",
+      "marks": 1
+    },
+    {
+      "question": "PC and IR differ because",
+      "option1": "both store data from memory",
+      "option2": "PC stores an address; IR stores the instruction word",
+      "option3": "IR stores an address; PC stores the ALU result",
+      "option4": "they are names of the same register",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: PC में अगले instruction का address होता है। IR में वह instruction word होता है जिसे CU decode कर रहा है। एक address है, दूसरा fetched word।\n\nजाँच: Fetch में PC MAR को address देता है; memory का word MBR से IR जाता है। दोनों एक register नहीं हैं।\n\nकटौती: A दोनों को data buffer बना देता है — data buffer MBR है। C IR और ACC की भूमिकाएँ मिलाता है। D नाम अलग हैं क्योंकि काम अलग है।\n\nTRAP: “दोनों instruction से जुड़े हैं तो एक ही चीज़”। PC बताता है कहाँ है; IR रखता है क्या है।",
+      "marks": 1
+    }
+  ]
+}

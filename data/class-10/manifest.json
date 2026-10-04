@@ -1423,7 +1423,29 @@
             "en": "Money, Savings and Credit",
             "hi": "मुद्रा, बचत एवं साख"
           },
-          "section": "economics"
+          "section": "economics",
+          "tests": [
+            {
+              "id": "social-science-mudra-bachat-sakh-test-1",
+              "slug": "test-1",
+              "title": "Practice Test 1 · आसान",
+              "file": "data/class-10/social-science/mudra-bachat-sakh/test-1.json",
+              "questionCount": 15,
+              "timeLimitMinutes": 15,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-10-03T00:00:00.000Z"
+            },
+            {
+              "id": "social-science-mudra-bachat-sakh-test-2",
+              "slug": "test-2",
+              "title": "Practice Test 2 · कठिन",
+              "file": "data/class-10/social-science/mudra-bachat-sakh/test-2.json",
+              "questionCount": 15,
+              "timeLimitMinutes": 15,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-10-03T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "chapter-hamari-vittiya-sansthaen",

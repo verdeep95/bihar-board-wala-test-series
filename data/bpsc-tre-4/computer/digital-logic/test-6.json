@@ -1,0 +1,183 @@
+{
+  "id": "computer-digital-logic-test-6",
+  "title": "Class 10 · Flip-flop SR JK · D T Latch",
+  "course": "bpsc-tre-4",
+  "subject": "computer",
+  "chapter": "digital-logic",
+  "quizType": "LECTURE_QUIZ",
+  "timeLimitMinutes": 15,
+  "passingScore": 33,
+  "negativeMarkingEnabled": true,
+  "negativeMarksPerQuestion": 0.3333333333333333,
+  "negativeMarkingOnSkip": true,
+  "shuffle": true,
+  "youtubeUrl": "https://youtu.be/-Vsp8iapYp0",
+  "youtubeTitle": "Class 10 · Flip-flop SR JK · D T Latch",
+  "questions": [
+    {
+      "question": "A latch is triggered by",
+      "option1": "a clock edge only",
+      "option2": "the logic level of the enable/clock",
+      "option3": "power-on reset only",
+      "option4": "a multiplexer select line",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Latch level-sensitive है। Enable या clock का active level HIGH रहने तक input output को बदल सकता है। Edge का इंतज़ार नहीं होता।\n\nजाँच: SR latch और D latch enable $=1$ पर transparent रहते हैं; enable $=0$ पर पिछली state hold होती है।\n\nकटौती: A flip-flop है — वह rising या falling edge पर sample करता है। C power-on reset अलग control है, trigger नहीं। D MUX की select line combinational routing है, memory trigger नहीं।\n\nTRAP: Latch और flip-flop को एक ही clocked device मान लेना। याद: Latch $=$ level, Flip-flop $=$ edge।",
+      "marks": 1
+    },
+    {
+      "question": "A flip-flop is triggered by",
+      "option1": "the logic level of the clock",
+      "option2": "a rising or falling edge of the clock",
+      "option3": "only the data input",
+      "option4": "power supply only",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Flip-flop edge-triggered है। Clock का rising edge ($0\\to1$) या falling edge ($1\\to0$) आने पर ही next state sample होती है। Level पूरे pulse तक नहीं चलता।\n\nजाँच: Clock steady HIGH या LOW रहे तो output नहीं बदलता; केवल edge पर input पकड़ा जाता है।\n\nकटौती: A latch का व्यवहार है। C data अकेला state नहीं बदलता — clock edge चाहिए। D supply power देता है, trigger नहीं।\n\nTRAP: “clock है तो level” लिख देना। Clock का edge flip-flop चलाता है; level latch चलाता है।",
+      "marks": 1
+    },
+    {
+      "question": "For a NOR SR latch, $S=1$ and $R=1$ is",
+      "option1": "Hold",
+      "option2": "Set",
+      "option3": "Reset",
+      "option4": "Invalid / forbidden",
+      "option5": "Not Attempted",
+      "correctOption": "4",
+      "explanation": "विधि: NOR SR latch में inputs active-HIGH हैं। $S=1,R=1$ दोनों NOR gates का output $0$ कर देता है, इसलिए $Q=0$ और $Q'=0$। $Q$ और $Q'$ complement नहीं रहते — यह forbidden / invalid है। Inputs छोड़ने पर race से अगली state अनिश्चित हो सकती है।\n\nजाँच: $S=1,R=0$ Set; $S=0,R=1$ Reset; $S=R=0$ Hold; $S=R=1$ Invalid।\n\nकटौती: A hold $S=R=0$ है। B set $S=1,R=0$ है। C reset $S=0,R=1$ है।\n\nTRAP: NAND SR में invalid $00$ है (active-LOW)। NOR में invalid $11$ है। polarity मिला देना।",
+      "marks": 1
+    },
+    {
+      "question": "For a NOR SR latch, $S=0$ and $R=0$ gives",
+      "option1": "Set",
+      "option2": "Reset",
+      "option3": "Hold / no change",
+      "option4": "Toggle",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: NOR SR latch में $S=0,R=0$ दोनों inputs inactive हैं। Cross-coupling पिछला $Q$ बनाए रखता है → Hold / no change।\n\nजाँच: $S=1,R=0$ Set; $S=0,R=1$ Reset; $00$ memory; $11$ invalid।\n\nकटौती: A Set है। B Reset है। D toggle JK flip-flop का $J=K=1$ है। SR latch toggle नहीं करता।\n\nTRAP: $00$ को invalid समझना। NOR पर invalid $11$ है; $00$ hold है।",
+      "marks": 1
+    },
+    {
+      "question": "When $J=1$ and $K=1$, a JK flip-flop",
+      "option1": "holds the previous state",
+      "option2": "resets $Q$ to $0$",
+      "option3": "sets $Q$ to $1$",
+      "option4": "toggles the output",
+      "option5": "Not Attempted",
+      "correctOption": "4",
+      "explanation": "विधि: JK में $J=K=1$ toggle है। $Q=0$ हो तो next state $1$; $Q=1$ हो तो next state $0$। SR का forbidden $11$ यहाँ useful action बना दिया गया।\n\nजाँच: $J=K=0$ hold; $J=1,K=0$ set; $J=0,K=1$ reset; $J=K=1$ toggle।\n\nकटौती: A $J=K=0$ है। B $J=0,K=1$ है। C $J=1,K=0$ है।\n\nTRAP: SR वाला “$11$ invalid” JK पर चिपका देना। JK $11$ $=$ toggle।",
+      "marks": 1
+    },
+    {
+      "question": "The characteristic equation of a JK flip-flop is",
+      "option1": "$Q^+ = S + R'Q$",
+      "option2": "$Q^+ = D$",
+      "option3": "$Q^+ = JQ' + K'Q$",
+      "option4": "$Q^+ = T \\oplus Q$",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: JK की characteristic equation $Q^+ = JQ' + K'Q$ है। $J$ set-term $Q'$ के साथ लगता है; $K'$ hold-term $Q$ के साथ।\n\nजाँच: $J=1,K=0 \\Rightarrow Q^+=1$; $J=0,K=1 \\Rightarrow Q^+=0$; $J=K=0 \\Rightarrow Q^+=Q$; $J=K=1 \\Rightarrow Q^+=Q'$।\n\nकटौती: A SR latch का रूप है ($SR=0$ की शर्त के साथ)। B D flip-flop है। D T flip-flop है।\n\nTRAP: चारों समीकरण चार अलग FF के हैं। JK पहचान: $J$ और $K'$ दोनों terms एक साथ।",
+      "marks": 1
+    },
+    {
+      "question": "Race-around in a JK latch occurs when",
+      "option1": "$J=K=0$ and the clock is edge-triggered",
+      "option2": "$J=K=1$ and a wide level clock pulse is applied",
+      "option3": "$S=R=1$ in an SR latch",
+      "option4": "$D=0$ in a D flip-flop",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Race-around level-sensitive JK latch में होता है जब $J=K=1$ हो और clock pulse propagation delay से चौड़ा HIGH रहे। Pulse HIGH रहते $Q$ बार-बार toggle करता है; final state pulse width पर निर्भर हो जाती है।\n\nजाँच: Edge-triggered JK या master-slave यह continuous toggle रोकते हैं। $J=K=0$ पर toggle शुरू ही नहीं होता।\n\nकटौती: A hold है, और edge-trigger race-around की शर्त नहीं। C SR का invalid state है, race-around नहीं। D D flip-flop next state $0$ करता है, oscillate नहीं।\n\nTRAP: हर $11$ को race-around कह देना। ज़रूरी जोड़ी: $J=K=1$ $+$ चौड़ा level pulse।",
+      "marks": 1
+    },
+    {
+      "question": "Which statement is TRUE?",
+      "option1": "Latch and flip-flop are identical",
+      "option2": "SR $11$ is toggle",
+      "option3": "JK $11$ is invalid",
+      "option4": "JK $11$ is toggle; SR $11$ is invalid",
+      "option5": "Not Attempted",
+      "correctOption": "4",
+      "explanation": "विधि: Latch level से चलता है, flip-flop edge से — दोनों identical नहीं। NOR SR का $S=R=1$ forbidden है। JK का $J=K=1$ toggle है। दोनों तथ्य एक option में D रखता है।\n\nजाँच: NAND SR में invalid active-LOW $00$ है; NOR में $11$। JK में $11$ कभी forbidden नहीं, toggle है।\n\nकटौती: A trigger अलग होने से गलत। B SR $11$ invalid है, toggle नहीं। C JK $11$ toggle है — SR का नियम उल्टा चिपका है।\n\nTRAP: B और C आधा नियम उलट देते हैं। पूरा जोड़ा केवल D में है।",
+      "marks": 1
+    },
+    {
+      "question": "The next state of a D flip-flop is",
+      "option1": "$Q'$",
+      "option2": "$D$",
+      "option3": "$T \\oplus Q$",
+      "option4": "always $0$",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: D $=$ Data / Delay। अगली clock edge पर $Q^+ = D$। Input पर जो bit है वही next $Q$ बन जाता है।\n\nजाँच: $D=1$ → set; $D=0$ → reset। अलग $J,K$ या toggle control नहीं होता।\n\nकटौती: A toggle है ($T=1$ या $J=K=1$)। C T flip-flop की equation है। D केवल तब जब $D=0$ हो, हमेशा नहीं।\n\nTRAP: “Delay” को complement समझना। Delay का मतलब एक clock बाद वही bit, उल्टा bit नहीं।",
+      "marks": 1
+    },
+    {
+      "question": "A T flip-flop toggles when",
+      "option1": "$T = 0$",
+      "option2": "$T = 1$",
+      "option3": "$T = Q$",
+      "option4": "clock is low",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: T $=$ Toggle। $T=1$ पर clock edge आने पर $Q$ पलटता है। $T=0$ पर hold / no change।\n\nजाँच: $Q^+ = T \\oplus Q$। $T=1 \\Rightarrow Q^+ = Q'$; $T=0 \\Rightarrow Q^+ = Q$।\n\nकटौती: A hold है। C $T=Q$ कोई standard condition नहीं। D clock low पर edge-triggered flip-flop sample नहीं करता।\n\nTRAP: $T=0$ को toggle लिख देना। याद: $T=1$ toggle, $T=0$ hold।",
+      "marks": 1
+    },
+    {
+      "question": "Characteristic equation of a T flip-flop is",
+      "option1": "$Q^+ = D$",
+      "option2": "$Q^+ = T \\oplus Q$",
+      "option3": "$Q^+ = S + R'Q$",
+      "option4": "$Q^+ = J$",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: T flip-flop में $Q^+ = T \\oplus Q = TQ' + T'Q$। Toggle input present state के साथ XOR होता है।\n\nजाँच: $T=0 \\Rightarrow Q^+=Q$; $T=1 \\Rightarrow Q^+=Q'$।\n\nकटौती: A D flip-flop है। C SR का रूप है। D $J$ अकेला JK equation नहीं; JK है $JQ' + K'Q$।\n\nTRAP: $Q^+ = T$ लिख देना। $T$ next state नहीं है; वह present $Q$ के साथ XOR होता है।",
+      "marks": 1
+    },
+    {
+      "question": "A D flip-flop can be obtained from a JK flip-flop by",
+      "option1": "$J = K = D$",
+      "option2": "$J = D$, $K = D'$",
+      "option3": "$J = D'$, $K = D$",
+      "option4": "tying $J$ and $K$ to $1$",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: D चाहिए तो $Q^+=D$। JK पर $J=D$, $K=D'$ रखो। $D=1 \\Rightarrow J=1,K=0$ set; $D=0 \\Rightarrow J=0,K=1$ reset। $J$ और $K$ कभी एक साथ $1$ नहीं होते, इसलिए toggle नहीं होता।\n\nजाँच: $Q^+ = JQ' + K'Q = DQ' + DQ = D(Q'+Q) = D$।\n\nकटौती: A $J=K=D$ में $D=1$ पर toggle हो जाता है — वह T conversion है। C polarity उलटी है, $Q^+=D'$ बनता है। D हमेशा toggle है।\n\nTRAP: $J=K=D$ आसान लगता है। D conversion में $K$ को $D$ का complement लगाना है।",
+      "marks": 1
+    },
+    {
+      "question": "A T flip-flop can be obtained from a JK flip-flop by",
+      "option1": "$J = T$, $K = T'$",
+      "option2": "$J = T'$, $K = T$",
+      "option3": "$J = K = T$",
+      "option4": "$J = 1$, $K = 0$ always",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: T flip-flop या तो hold चाहता है या toggle। $J=K=T$ रखो। $T=0 \\Rightarrow J=K=0$ hold; $T=1 \\Rightarrow J=K=1$ toggle। यही $Q^+ = T \\oplus Q$ है।\n\nजाँच: $Q^+ = TQ' + T'Q = T \\oplus Q$।\n\nकटौती: A D conversion है ($J=D, K=D'$), T नहीं। B उलटी D polarity है, $Q^+=T'$ देता है। D हमेशा set करता है, $T$ पर निर्भर नहीं।\n\nTRAP: D वाली wiring $J=T, K=T'$ यहाँ चिपका देना। T के लिए दोनों pins एक ही $T$ पर जाती हैं।",
+      "marks": 1
+    },
+    {
+      "question": "Which circuit is sequential?",
+      "option1": "Full adder",
+      "option2": "Multiplexer",
+      "option3": "Decoder",
+      "option4": "Flip-flop",
+      "option5": "Not Attempted",
+      "correctOption": "4",
+      "explanation": "विधि: Sequential circuit में memory होती है। Output present inputs और पिछली state दोनों पर निर्भर करता है। Flip-flop state store करता है, इसलिए sequential है।\n\nजाँच: Full adder, multiplexer और decoder केवल present inputs से output देते हैं — combinational।\n\nकटौती: A, B और C तीनों combinational blocks हैं; clocked state नहीं रखते।\n\nTRAP: MUX या decoder में select / Enable देखकर sequential कह देना। Enable chip on/off है, memory नहीं।",
+      "marks": 1
+    },
+    {
+      "question": "To convert SR latch into D, we set",
+      "option1": "$S = D$, $R = D$",
+      "option2": "$S = D$, $R = D'$",
+      "option3": "$S = D'$, $R = D$",
+      "option4": "$S = R = D$",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Active-HIGH SR (NOR latch) से D बनाने के लिए $S=D$, $R=D'$। $D=1 \\Rightarrow$ Set; $D=0 \\Rightarrow$ Reset। $S$ और $R$ एक साथ $1$ नहीं होते, इसलिए forbidden $11$ टल जाता है।\n\nजाँच: NOR SR में $S=1,R=0$ Set और $S=0,R=1$ Reset — ठीक $D$ और $D'$।\n\nकटौती: A और D दोनों pins बराबर कर देते हैं; $D=1$ पर $S=R=1$ invalid। C polarity उलटी है, next state $D'$ बनता है।\n\nTRAP: $S=R=D$। SR में दोनों $1$ forbidden हैं। एक pin complement होनी चाहिए।",
+      "marks": 1
+    }
+  ]
+}

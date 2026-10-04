@@ -1,0 +1,183 @@
+{
+  "id": "computer-architecture-fundamentals-test-5",
+  "title": "Class 15 · Cache Mapping · Hit Ratio",
+  "course": "bpsc-tre-4",
+  "subject": "computer",
+  "chapter": "architecture-fundamentals",
+  "quizType": "LECTURE_QUIZ",
+  "timeLimitMinutes": 15,
+  "passingScore": 33,
+  "negativeMarkingEnabled": true,
+  "negativeMarksPerQuestion": 0.3333333333333333,
+  "negativeMarkingOnSkip": true,
+  "shuffle": true,
+  "youtubeUrl": "https://youtu.be/FV8UUgAmtbE",
+  "youtubeTitle": "Class 15 · Cache Mapping · Hit Ratio",
+  "questions": [
+    {
+      "question": "TRE 2.0 TGT Computer, 8 Dec 2023, Series A, Q109. Which of the following highly uses the concept of an array?",
+      "option1": "Binary search tree",
+      "option2": "Scheduling of processes",
+      "option3": "Spatial locality",
+      "option4": "More than one of the above",
+      "option5": "None of the above",
+      "correctOption": "3",
+      "explanation": "विधि: Array की locations एक के बाद एक contiguous होती हैं। Spatial locality कहती है कि पास के addresses जल्दी use होंगे — यही array का चलन है।\n\nजाँच: Official final key, Series A, Q109 = C (Spatial locality)। यह TGT paper है, PGT नहीं।\n\nकटौती: Binary search tree pointers से बँधा होता है, contiguous array नहीं। Process scheduling queue/priority का विषय है, array locality नहीं। More than one गलत क्योंकि केवल spatial locality array से जुड़ती है। None of the above गलत है।\n\nTRAP: Tree में भी “structure” देखकर array चुनना। Array का निशान contiguous addresses हैं, और वही spatial locality है।",
+      "marks": 1
+    },
+    {
+      "question": "TRE 3.0 PGT Computer Science, 22 Jul 2024, Set E, Q116. How is the TLB typically organized?",
+      "option1": "As a direct-mapped cache",
+      "option2": "As an associative cache",
+      "option3": "As a set-associative cache",
+      "option4": "More than one of the above",
+      "option5": "None of the above",
+      "correctOption": "2",
+      "explanation": "विधि: TLB page-table की छोटी cache है। इस paper का official उत्तर associative cache है — tag की तुलना से entry मिलती है।\n\nजाँच: Official final key, Set E, Q116 = B। Paging की लम्बी गणना इस class में नहीं।\n\nकटौती: Direct-mapped एक fixed line है। Set-associative कई असली CPU में TLB का रूप है, पर इस paper की key वह नहीं है। More than one और None of the above दोनों key के खिलाफ हैं।\n\nTRAP: आज के CPU का TLB set-associative भी होता है। इस प्रश्न में official उत्तर B है — उसे बदलकर C मत पढ़ाना।",
+      "marks": 1
+    },
+    {
+      "question": "A direct-mapped cache has 8 lines. Memory block 21 maps to which line?",
+      "option1": "line 1",
+      "option2": "line 3",
+      "option3": "line 5",
+      "option4": "line 7",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: Direct mapping में line $= \\text{block number} \\bmod \\text{number of lines}$। $21 \\div 8 = 2$ शेष $5$, इसलिए line 5।\n\nजाँच: $16$ line 0 पर जाता ($16 \\bmod 8 = 0$), $17$ line 1 पर। $21 = 16 + 5$ → line 5।\n\nकटौती: Line 1 शेष 1 है। Line 3 शेष 3 है। Line 7 शेष 7 है। 21 का शेष इनमें नहीं।\n\nTRAP: 8 से भाग देकर भागफल 2 लिख देना। Mapping में भागफल नहीं, शेष चाहिए। यही नियम: 16 lines हों तो blocks 3, 19 और 35 सब line 3 पर जाते हैं, क्योंकि हर एक का $\\bmod\\,16 = 3$।",
+      "marks": 1
+    },
+    {
+      "question": "In a fully associative cache, a block may be placed in",
+      "option1": "exactly one fixed line",
+      "option2": "any line",
+      "option3": "only line 0",
+      "option4": "only the last set",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Fully associative में कोई fixed line नहीं। Block किसी भी line में रह सकता है, और खोज tag से होती है।\n\nजाँच: तीन रूप — Direct = ठीक एक line। Fully associative = कोई भी line। Set-associative = एक set के अंदर $k$ lines।\n\nकटौती: A direct mapping है। C एक ही line पर रोक देता है। D set-associative की भाषा है, fully associative में sets नहीं होते।\n\nTRAP: “associative” सुनकर एक set मान लेना। Fully associative का मतलब पूरा cache एक ही खोज-क्षेत्र है।",
+      "marks": 1
+    },
+    {
+      "question": "A 2-way set-associative cache has 4 sets. Block 6 maps to which set?",
+      "option1": "set 0",
+      "option2": "set 1",
+      "option3": "set 2",
+      "option4": "set 6",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: Set number $= \\text{block} \\bmod \\text{number of sets}$। Ways set नहीं बदलते। $6 \\bmod 4 = 2$, इसलिए set 2। उस set की 2 lines में से एक खाली या replace होगी।\n\nजाँच: $4 \\bmod 4 = 0$ → set 0। $5 \\bmod 4 = 1$ → set 1। $6$ अगला शेष 2 है।\n\nकटौती: Set 0 और set 1 दूसरे blocks के शेष हैं। Set 6 असंभव है — sets केवल 0 से 3 तक हैं।\n\nTRAP: 2-way देखकर $6 \\bmod 2$ करना। Mod sets पर लगता है, ways पर नहीं।",
+      "marks": 1
+    },
+    {
+      "question": "Direct mapping is the same as",
+      "option1": "1-way set-associative",
+      "option2": "fully associative",
+      "option3": "a cache with no tag",
+      "option4": "main memory itself",
+      "option5": "Not Attempted",
+      "correctOption": "1",
+      "explanation": "विधि: 1-way set-associative में हर set में एक ही line है। Set चुनना और line चुनना एक ही बात हो जाती है — यही direct mapping है।\n\nजाँच: Fully associative = कोई fixed set/line नहीं। Direct में भी tag लगता है, वरना एक line पर कई blocks में से पहचान नहीं होती।\n\nकटौती: B उलटा छोर है। C tag हटा देता है — direct में tag रहता है। D cache को main memory बना देता है; cache उसकी छोटी प्रति है।\n\nTRAP: “direct में tag नहीं” लिखना। Index line चुनता है, tag बताता है कि वह line सही block है या नहीं।",
+      "marks": 1
+    },
+    {
+      "question": "Out of 50 accesses there are 40 hits. The hit ratio is",
+      "option1": "0.2",
+      "option2": "0.4",
+      "option3": "0.8",
+      "option4": "40",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: $H = \\text{hits} / (\\text{hits} + \\text{misses})$। यहाँ accesses $= 50 =$ hits $+$ misses, hits $= 40$। $H = 40/50 = 0.8$।\n\nजाँच: Misses $= 50 - 40 = 10$। Miss ratio $= 10/50 = 0.2$। Hit और miss ratio का योग 1 है।\n\nकटौती: 0.2 miss ratio है। 0.4 आधा-अधूरा भिन्न है। 40 hits की गिनती है, ratio नहीं — ratio 0 और 1 के बीच होता है।\n\nTRAP: Hits को misses से भाग देना ($40/10 = 4$)। हर पर accesses से भाग दो। दूसरा उदाहरण: 200 में 160 hits → $H = 160/200 = 0.8$, miss ratio $= 0.2$।",
+      "marks": 1
+    },
+    {
+      "question": "Hit ratio $= 0.8$, cache time $= 10$ ns, main-memory access time $= 100$ ns. Effective time is",
+      "option1": "19 ns",
+      "option2": "28 ns",
+      "option3": "30 ns",
+      "option4": "100 ns",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: जब $100$ ns main-memory access time है, सूत्र $T_{eff} = H \\times T_c + (1-H) \\times T_m$। $0.8 \\times 10 + 0.2 \\times 100 = 8 + 20 = 28$ ns।\n\nजाँच: Miss पर पूरा $T_m$ लगता है, cache time के ऊपर extra penalty नहीं। दूसरा उदाहरण: $H = 0.9$, $T_c = 20$, $T_m = 200$ → $0.9 \\times 20 + 0.1 \\times 200 = 18 + 20 = 38$ ns।\n\nकटौती: 30 ns दूसरे सूत्र का है: $T_c + (1-H) \\times$ penalty। 19 ns कोई मानक जोड़ नहीं। 100 ns केवल miss वाला memory time है।\n\nTRAP: अगले प्रश्न का 30 ns यहाँ लिख देना। 100 ns अगर memory access time है तो उसे $H$ और $1-H$ से बाँटो।",
+      "marks": 1
+    },
+    {
+      "question": "Same hit ratio $0.8$ and cache time $10$ ns, but the miss penalty is an extra $100$ ns after the cache lookup. Effective time is",
+      "option1": "28 ns",
+      "option2": "30 ns",
+      "option3": "80 ns",
+      "option4": "110 ns",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Extra miss penalty का सूत्र अलग है: $T_{eff} = T_c + (1-H) \\times \\text{Penalty}$। Cache lookup हमेशा होता है, और miss पर ऊपर से penalty जुड़ती है। $10 + 0.2 \\times 100 = 10 + 20 = 30$ ns।\n\nजाँच: पिछला सूत्र $H \\times 10 + (1-H) \\times 100 = 28$ ns था, क्योंकि वहाँ 100 ns पूरा memory access time था, extra penalty नहीं।\n\nकटौती: 28 ns पहला सूत्र है। 80 ns $= 0.8 \\times 100$। 110 ns $= 10 + 100$, hit ratio भूल गया।\n\nTRAP: दोनों सूत्रों को एक मानना। Access time पूरे $T_m$ को $(1-H)$ से गुणा करता है। Penalty cache time के बाद केवल miss वाले हिस्से को जोड़ता है।",
+      "marks": 1
+    },
+    {
+      "question": "A cache miss means",
+      "option1": "the block is not in main memory",
+      "option2": "the block is not in the cache; it is fetched from main memory",
+      "option3": "the cache is larger than main memory",
+      "option4": "the tag bits are zero",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Hit = माँगा block cache में मिल गया। Miss = cache में नहीं मिला। Block main memory में हो सकता है; उसे वहाँ से cache में लाया जाता है।\n\nजाँच: Main memory में न होना page fault / दूसरा स्तर है, cache miss की परिभाषा नहीं। Cache main से छोटी होती है।\n\nकटौती: A main memory की अनुपस्थिति है। C आकार उलटा है। D tag zero होना miss का नियम नहीं — tag match न होना miss है।\n\nTRAP: Miss पढ़कर “data कहीं नहीं है” समझना। Miss केवल cache में नहीं है।",
+      "marks": 1
+    },
+    {
+      "question": "Byte-addressable memory, 16-bit address, block size 16 bytes, direct-mapped cache with 8 lines. Number of tag bits is",
+      "option1": "3",
+      "option2": "4",
+      "option3": "9",
+      "option4": "12",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: Address तीन टुकड़ों में बँटता है: tag, index, offset। Offset $= \\log_2(\\text{block size}) = \\log_2 16 = 4$। Index $= \\log_2(\\text{lines}) = \\log_2 8 = 3$। Tag $= 16 - 4 - 3 = 9$।\n\nजाँच: $4 + 3 + 9 = 16$। पूरे address bits वापस जुड़ने चाहिए।\n\nकटौती: 3 केवल index है। 4 केवल offset है। 12 $= 16 - 4$ index घटाना भूल गया।\n\nTRAP: Tag में index छोड़ देना। Direct map में line चुनने के bits tag में नहीं गिने जाते।",
+      "marks": 1
+    },
+    {
+      "question": "Same address and block size. A 2-way cache has 4 sets. Number of index bits is",
+      "option1": "1",
+      "option2": "2",
+      "option3": "3",
+      "option4": "4",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Index bits $= \\log_2(\\text{number of sets})$। 4 sets → $\\log_2 4 = 2$। 2-way होने से set में 2 lines होती हैं, index bits नहीं बढ़ते।\n\nजाँच: Offset फिर $\\log_2 16 = 4$ है, पर प्रश्न index पूछता है। 8 lines वाले direct cache का index 3 था — यहाँ sets 4 हैं।\n\nकटौती: 1 एक bit कम है। 3 पिछले direct-mapped 8 lines का index है। 4 offset है।\n\nTRAP: Ways को index समझना, या पिछला 3 दोहरा देना। Index sets गिनता है: $\\log_2 4 = 2$।",
+      "marks": 1
+    },
+    {
+      "question": "Spatial locality means",
+      "option1": "the same address is used again soon",
+      "option2": "nearby addresses are used soon",
+      "option3": "cache is non-volatile",
+      "option4": "every access is a miss",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Spatial = जगह के पास। एक address use हुआ तो उसके पड़ोसी addresses भी जल्दी use होते हैं। Array और sequential instruction इसी पर टिके हैं।\n\nजाँच: Same address दोबारा आना temporal locality है। Cache volatile होती है। हर access miss हो तो locality काम नहीं कर रही।\n\nकटौती: A temporal है। C cache की power property है। D locality का उल्टा है।\n\nTRAP: Spatial और temporal की जोड़ी बदल देना। Spatial = nearby। Temporal = same again।",
+      "marks": 1
+    },
+    {
+      "question": "Temporal locality means",
+      "option1": "nearby addresses are used soon",
+      "option2": "the same address is used again soon",
+      "option3": "tape is faster than cache",
+      "option4": "index bits equal offset bits",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Temporal = समय के पास। जो address अभी use हुआ, वही थोड़ी देर में फिर use होता है। Loop की instruction और बार-बार पढ़ा variable इसी पर टिके हैं।\n\nजाँच: Nearby addresses spatial है। Tape cache से धीमी है। Index और offset के bits बराबर होना कोई locality नहीं।\n\nकटौती: A spatial है। C hierarchy उलट है। D address-split का संयोग है, locality नहीं।\n\nTRAP: “temporal” को पास की memory समझना। Temporal समय है — वही address फिर।",
+      "marks": 1
+    },
+    {
+      "question": "Which statement is correct?",
+      "option1": "Cache replaces main memory",
+      "option2": "Hit ratio = hits / misses",
+      "option3": "In set-associative mapping, index bits $= \\log_2(\\text{number of sets})$",
+      "option4": "A miss means the word was never stored in main memory",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: Set-associative में index set चुनता है। Sets की संख्या $2$ की घात हो तो index bits $= \\log_2(\\text{sets})$। 4 sets पर 2 bits, 8 sets पर 3 bits।\n\nजाँच: Cache main memory की जगह नहीं लेती; वह उसकी तेज़ प्रति है। Hit ratio $= \\text{hits}/(\\text{hits}+\\text{misses})$। Miss का मतलब cache में नहीं, main में न होना नहीं।\n\nकटौती: A cache को replacement बना देता है। B हर में misses है, कुल accesses नहीं। D miss को “data कभी था ही नहीं” कहता है।\n\nTRAP: Hit ratio का हर misses लिख देना। हर हमेशा hits $+$ misses है।",
+      "marks": 1
+    }
+  ]
+}

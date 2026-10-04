@@ -1,0 +1,183 @@
+{
+  "id": "computer-architecture-fundamentals-test-6",
+  "title": "Class 16 · Interrupt · Maskable Vectored",
+  "course": "bpsc-tre-4",
+  "subject": "computer",
+  "chapter": "architecture-fundamentals",
+  "quizType": "LECTURE_QUIZ",
+  "timeLimitMinutes": 15,
+  "passingScore": 33,
+  "negativeMarksPerQuestion": 0.3333333333333333,
+  "negativeMarkingEnabled": true,
+  "negativeMarkingOnSkip": true,
+  "shuffle": true,
+  "youtubeUrl": "https://youtu.be/gpmlorIMl2I",
+  "youtubeTitle": "Class 16 · Interrupt · Maskable Vectored",
+  "questions": [
+    {
+      "question": "TRE 3.0 PGT Computer Science, 22 Jul 2024, Set E, Q110. Which of the following is NOT a type of interrupt?",
+      "option1": "Hardware interrupt",
+      "option2": "Memory interrupt",
+      "option3": "Software interrupt",
+      "option4": "More than one of the above",
+      "option5": "None of the above",
+      "correctOption": "2",
+      "explanation": "विधि: Interrupt के दो प्रकार hardware और software हैं। “Memory interrupt” इस जोड़े का नाम नहीं, इसलिए वही NOT a type है।\n\nजाँच: Official final key, Set E, Q110 = B। Hardware और software दोनों type हैं, इसलिए वे “नहीं है” वाले उत्तर नहीं बनते।\n\nकटौती: A और C असली प्रकार हैं। More than one गलत है क्योंकि केवल memory interrupt इस सूची से बाहर है। None of the above गलत है — B सही विकल्प है।\n\nTRAP: Page fault एक exception है। उसे इस विकल्प का official answer मत बनाना। Key “memory interrupt” नाम को काटती है, page fault को इस option का पर्याय नहीं बनाती।",
+      "marks": 1
+    },
+    {
+      "question": "If the interrupt-enable flag is 0, which interrupt still reaches the CPU?",
+      "option1": "Maskable hardware interrupt",
+      "option2": "Non-maskable interrupt",
+      "option3": "Neither",
+      "option4": "Both maskable and NMI",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: IE = 0 maskable interrupt को रोकता है। NMI = Non-Maskable Interrupt। वह IE से नहीं रुकता, इसलिए CPU तक पहुँचता रहता है।\n\nजाँच: Maskable रुक जाता है। NMI नहीं रुकता। दोनों एक साथ पास नहीं होते, और “कोई नहीं” भी गलत है।\n\nकटौती: A IE = 0 पर रुकता है। C NMI को भी रोक देता है। D maskable को भी पहुँचा देता है।\n\nTRAP: IE = 0 को “हर interrupt बंद” पढ़ना। बंद केवल maskable होता है। NMI अब भी CPU तक आता है।",
+      "marks": 1
+    },
+    {
+      "question": "In a vectored interrupt, the device supplies",
+      "option1": "the ISR address",
+      "option2": "only a poll request, with no address",
+      "option3": "the next PC of the main program, already incremented by the device",
+      "option4": "a DMA grant",
+      "option5": "Not Attempted",
+      "correctOption": "1",
+      "explanation": "विधि: Vectored interrupt में device खुद ISR का address, या IVT का vector number, भेजता है। CPU उसी पते पर जाता है। हर device को poll नहीं करना पड़ता।\n\nजाँच: Vector 2 की row अगर 2300 कहे और device vector 2 भेजे, तो jump 2300 पर होता है। पता device की पहचान से आता है।\n\nकटौती: B non-vectored का poll है। C return address CPU stack पर बचाता है, device PC नहीं बढ़ाता। D DMA इस class में नहीं।\n\nTRAP: Vectored को “बस request, address बाद में” समझना। Address भेजना ही vectored का निशान है।",
+      "marks": 1
+    },
+    {
+      "question": "In a non-vectored interrupt, the CPU",
+      "option1": "receives the ISR address from the device",
+      "option2": "goes to one fixed address, then finds which device asked",
+      "option3": "ignores every interrupt",
+      "option4": "writes the ISR into the cache",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Non-vectored में device ISR address नहीं भेजता। CPU एक fixed address पर जाता है, फिर poll करके देखता है कि किस device ने माँगा।\n\nजाँच: Vectored में address device से आता है। Non-vectored में address एक ही तय जगह है, पहचान बाद में होती है।\n\nकटौती: A vectored है। C interrupt को बंद कर देता है। D cache में ISR लिखना इस प्रक्रिया का कदम नहीं।\n\nTRAP: हर interrupt को vectored मान लेना। Fixed address और फिर poll = non-vectored।",
+      "marks": 1
+    },
+    {
+      "question": "On a non-pipelined CPU, an interrupt is checked",
+      "option1": "in the middle of the current instruction",
+      "option2": "after the current instruction completes",
+      "option3": "only when the program executes CALL",
+      "option4": "only during DMA",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Non-pipeline CPU चल रहे instruction को बीच में नहीं तोड़ता। Instruction पूरा होने के बाद interrupt देखा जाता है, फिर ISR की ओर जाता है।\n\nजाँच: Pipeline और precise interrupt इस class में नहीं। CALL program का अपना निर्देश है, interrupt की जाँच का समय नहीं।\n\nकटौती: A बीच में काटता है — यह इस class का नियम नहीं। C केवल CALL पर जाँच कहता है। D DMA को interrupt check बना देता है।\n\nTRAP: Interrupt आते ही instruction को आधा छोड़ देना। इस class में जाँच instruction के अन्त में होती है।",
+      "marks": 1
+    },
+    {
+      "question": "The usual return from an interrupt service routine is",
+      "option1": "RET, same as every subroutine, with no saved flags",
+      "option2": "IRET",
+      "option3": "HLT",
+      "option4": "a new CALL",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: ISR से लौटने का निर्देश IRET है। वह saved return address वापस PC में लाता है और flags भी वापस करता है। साधारण subroutine का RET flags वाला यह काम नहीं करता।\n\nजाँच: CALL program में लिखा होता है। Interrupt device से, instruction के बाद आ सकता है। दोनों PC बचाते हैं। वापसी IRET है, RET नहीं।\n\nकटौती: A subroutine return है, ISR का सामान्य return नहीं। C CPU रोक देता है। D नया call लगाकर ISR में और घुसता है।\n\nTRAP: CALL का जोड़ा RET है, इसलिए ISR का भी RET लिख देना। ISR का जोड़ा IRET है।",
+      "marks": 1
+    },
+    {
+      "question": "Before jumping to the ISR, the CPU saves",
+      "option1": "the return address, normally the PC, on the stack",
+      "option2": "only the cache tag",
+      "option3": "nothing, because the PC is discarded",
+      "option4": "the whole hard disk",
+      "option5": "Not Attempted",
+      "correctOption": "1",
+      "explanation": "विधि: ISR के बाद मुख्य program वहीं से चले, इसलिए CPU jump से पहले return address stack पर रखता है। वह address सामान्यतः PC है — अगली instruction का पता।\n\nजाँच: IRET इसी बचे पते को PC में लौटाता है। PC मिटाया नहीं जाता।\n\nकटौती: B cache tag interrupt save नहीं है। C PC को फेंक देता है, तब वापसी असंभव है। D disk का transfer है।\n\nTRAP: “interrupt आया तो program खो गया”। PC stack पर है, इसलिए IRET उसे वापस ला सकता है।",
+      "marks": 1
+    },
+    {
+      "question": "Which is a software interrupt?",
+      "option1": "Keyboard press",
+      "option2": "Power failure",
+      "option3": "An INT or system-call instruction",
+      "option4": "A disk seek completing on its own",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: Software interrupt program के अंदर के instruction से पैदा होता है। INT या system call वही है। CPU उसे execute करके ISR पर जाता है।\n\nजाँच: तीन उदाहरण बाँटें। Hardware: keyboard। Software: INT / system call। Exception: divide by zero।\n\nकटौती: A keyboard maskable hardware है। B power-fail आमतौर पर NMI है। D disk का अपना hardware signal है, program का INT नहीं।\n\nTRAP: हर “अचानक घटना” को software interrupt कहना। Software वह है जो instruction ने माँगा।",
+      "marks": 1
+    },
+    {
+      "question": "Divide-by-zero is best classed as",
+      "option1": "a non-maskable keyboard interrupt",
+      "option2": "an exception caused by the instruction",
+      "option3": "a DMA transfer",
+      "option4": "a cache hit",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Divide-by-zero चल रहे instruction की गलती है। इसे exception कहते हैं। Page fault भी इसी परिवार में है — instruction के कारण हुई असामान्य स्थिति।\n\nजाँच: Keyboard hardware interrupt है, divide का उपकरण नहीं। DMA और cache hit इस घटना के नाम नहीं।\n\nकटौती: A keyboard को NMI बना देता है और divide से जोड़ देता है। C DMA है। D cache hit है।\n\nTRAP: Q110 में page fault को “memory interrupt” विकल्प का official answer मत बनाना। Exception अलग परिवार है; उस प्रश्न की key नाम “memory interrupt” को काटती है।",
+      "marks": 1
+    },
+    {
+      "question": "A keyboard interrupt is normally",
+      "option1": "a maskable hardware interrupt",
+      "option2": "an NMI",
+      "option3": "a software interrupt written as CALL",
+      "option4": "not an interrupt at all",
+      "option5": "Not Attempted",
+      "correctOption": "1",
+      "explanation": "विधि: Keyboard बाहर का उपकरण है, इसलिए hardware interrupt। उसे IE = 0 से रोका जा सकता है, इसलिए सामान्यतः maskable है।\n\nजाँच: NMI का आम उदाहरण power-fail है, हर keypress नहीं। CALL program का subroutine है।\n\nकटौती: B NMI है। C software/CALL है। D interrupt होने से इनकार करता है।\n\nTRAP: Keyboard को NMI या system call बना देना। Keypress maskable hardware है।",
+      "marks": 1
+    },
+    {
+      "question": "An IVT row says vector 2 → address 2300. The device sends vector 2. The CPU jumps to",
+      "option1": "2000",
+      "option2": "2100",
+      "option3": "2300",
+      "option4": "a fixed poll address, ignoring 2300",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: Vectored interrupt में device vector भेजता है। CPU Interrupt Vector Table की उसी row का address पढ़कर वहाँ jump करता है। Vector 2 की row 2300 है, इसलिए jump 2300 पर।\n\nजाँच: 2000 और 2100 तालिका में दिए नहीं हैं। Fixed poll address non-vectored का रास्ता है; vectored तालिका के पते को नहीं छोड़ता।\n\nकटौती: A और B तालिका का पता नहीं हैं। D 2300 को अनदेखा कर poll कर लेता है।\n\nTRAP: Vector number को ही address समझना, या पड़ोसी गोल संख्या चुनना। Jump उस address पर होता है जो उस vector की row में लिखा है।",
+      "marks": 1
+    },
+    {
+      "question": "NMI and a maskable interrupt arrive together. Which is served first?",
+      "option1": "The maskable one, because IE is 1",
+      "option2": "The NMI",
+      "option3": "Neither, until the program executes CALL",
+      "option4": "Whichever has the smaller vector number, always",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: एक साथ आने पर NMI पहले लिया जाता है। Maskable उसके बाद। IE = 1 maskable को आने देता है, पर NMI से पहले नहीं।\n\nजाँच: इन papers में “0 highest” या “7 highest” वाला priority-number प्रश्न नहीं है। छोटा vector हमेशा पहले, यह नियम यहाँ मत गढ़ना।\n\nकटौती: A maskable को NMI से ऊपर बैठाता है। C CALL का इंतज़ार करवाता है। D vector number का सार्वभौमिक नियम बनाता है, जो इस class में नहीं है।\n\nTRAP: Vector number को priority मान लेना। इस कक्षा का नियम केवल इतना है: NMI, maskable से पहले।",
+      "marks": 1
+    },
+    {
+      "question": "A subroutine CALL and an interrupt both",
+      "option1": "are started only by an external device",
+      "option2": "save a return address",
+      "option3": "are ignored when IE = 0",
+      "option4": "use DMA to transfer the PC",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: CALL और interrupt दोनों वापसी का पता बचाते हैं, सामान्यतः PC stack पर। फर्क शुरू करने वाले में है।\n\nजाँच: CALL program में लिखा होता है। Interrupt device से, instruction पूरा होने के बाद आ सकता है। ISR से वापसी IRET है, subroutine से RET।\n\nकटौती: A केवल interrupt के बाहरी device पर ठीक बैठता है, CALL पर नहीं। C IE = 0 maskable interrupt रोकता है, CALL को नहीं। D DMA से PC नहीं जाता।\n\nTRAP: दोनों को एक ही starter दे देना। साझा बात return address है, बाहरी device नहीं।",
+      "marks": 1
+    },
+    {
+      "question": "Which statement is correct?",
+      "option1": "IE = 0 disables NMI as well as maskable interrupts",
+      "option2": "A vectored interrupt is identified by polling every device",
+      "option3": "Hardware and software are both interrupt types; “memory interrupt” is not",
+      "option4": "The PC is erased and cannot be restored",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: Hardware interrupt और software interrupt दोनों प्रकार हैं। “Memory interrupt” इस जोड़े का नाम नहीं। यही TRE 3.0 Set E, Q110 की official key B का तथ्य है।\n\nजाँच: IE = 0 केवल maskable रोकता है। Vectored में device address भेजता है, poll non-vectored का काम है। PC stack पर बचता है।\n\nकटौती: A NMI को भी बंद कर देता है। B vectored और non-vectored उलटे हैं। D PC को नष्ट कर देता है।\n\nTRAP: Q110 का “NOT a type” भूलकर memory interrupt को तीसरा प्रकार बना देना। प्रकार दो हैं: hardware और software।",
+      "marks": 1
+    },
+    {
+      "question": "Power-fail is the usual example of",
+      "option1": "a maskable keyboard interrupt",
+      "option2": "a non-maskable interrupt",
+      "option3": "a cache write-back",
+      "option4": "a subroutine RET",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Power-fail इतना जरूरी है कि IE = 0 उसे नहीं रोकता। इसलिए वह NMI का सामान्य उदाहरण है।\n\nजाँच: Keyboard maskable hardware है। Cache write-back और RET इस घटना के नाम नहीं।\n\nकटौती: A keyboard को power-fail बना देता है। C cache की लिखने की नीति है। D subroutine की वापसी है।\n\nTRAP: हर hardware interrupt को NMI कहना। NMI का उदाहरण power-fail है; keyboard maskable रहता है।",
+      "marks": 1
+    }
+  ]
+}

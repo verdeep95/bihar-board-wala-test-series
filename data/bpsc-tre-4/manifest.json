@@ -162,11 +162,24 @@
             {
               "id": "computer-digital-logic-test-6",
               "slug": "test-6",
-              "title": "Day 9 · Sequential circuits",
+              "title": "Class 10 · Flip-flop SR JK · D T Latch",
               "file": "data/bpsc-tre-4/computer/digital-logic/test-6.json",
-              "questionCount": 0,
-              "timeLimitMinutes": 20,
-              "quizType": "LECTURE_QUIZ"
+              "questionCount": 15,
+              "timeLimitMinutes": 15,
+              "quizType": "LECTURE_QUIZ",
+              "youtubeUrl": "https://youtu.be/-Vsp8iapYp0",
+              "youtubeTitle": "Class 10 · Flip-flop SR JK · D T Latch"
+            },
+            {
+              "id": "computer-digital-logic-test-7",
+              "slug": "test-7",
+              "title": "Class 11 · Register Counter · Shift Ring Johnson",
+              "file": "data/bpsc-tre-4/computer/digital-logic/test-7.json",
+              "questionCount": 15,
+              "timeLimitMinutes": 15,
+              "quizType": "LECTURE_QUIZ",
+              "youtubeUrl": "https://youtu.be/-8_kLbEPJww",
+              "youtubeTitle": "Class 11 · Register Counter · Shift Ring Johnson"
             }
           ]
         },
@@ -182,20 +195,57 @@
             {
               "id": "computer-architecture-fundamentals-test-1",
               "slug": "test-1",
-              "title": "Day 10 · CPU organisation",
+              "title": "Class 12 · CPU Instruction Cycle · PC IR MAR MBR",
               "file": "data/bpsc-tre-4/computer/architecture-fundamentals/test-1.json",
-              "questionCount": 0,
-              "timeLimitMinutes": 20,
-              "quizType": "LECTURE_QUIZ"
+              "questionCount": 15,
+              "timeLimitMinutes": 15,
+              "quizType": "LECTURE_QUIZ",
+              "youtubeUrl": "https://youtu.be/fWrXavz5PCw",
+              "youtubeTitle": "Class 12 · CPU Instruction Cycle · PC IR MAR MBR"
+            },
+            {
+              "id": "computer-architecture-fundamentals-test-4",
+              "slug": "test-4",
+              "title": "Class 13 · Addressing Modes · Address Data Control Bus",
+              "file": "data/bpsc-tre-4/computer/architecture-fundamentals/test-4.json",
+              "questionCount": 18,
+              "timeLimitMinutes": 18,
+              "quizType": "LECTURE_QUIZ",
+              "youtubeUrl": "https://youtu.be/WyXA75UBLac",
+              "youtubeTitle": "Class 13 · Addressing Modes · Address Data Control Bus"
             },
             {
               "id": "computer-architecture-fundamentals-test-2",
               "slug": "test-2",
-              "title": "Day 11 · Memory & organisation",
+              "title": "Class 14 · Memory Hierarchy · RAM ROM",
               "file": "data/bpsc-tre-4/computer/architecture-fundamentals/test-2.json",
-              "questionCount": 0,
-              "timeLimitMinutes": 20,
-              "quizType": "LECTURE_QUIZ"
+              "questionCount": 12,
+              "timeLimitMinutes": 12,
+              "quizType": "LECTURE_QUIZ",
+              "youtubeUrl": "https://youtu.be/r9SmUhBmxOE",
+              "youtubeTitle": "Class 14 · Memory Hierarchy · RAM ROM"
+            },
+            {
+              "id": "computer-architecture-fundamentals-test-5",
+              "slug": "test-5",
+              "title": "Class 15 · Cache Mapping · Hit Ratio",
+              "file": "data/bpsc-tre-4/computer/architecture-fundamentals/test-5.json",
+              "questionCount": 15,
+              "timeLimitMinutes": 15,
+              "quizType": "LECTURE_QUIZ",
+              "youtubeUrl": "https://youtu.be/FV8UUgAmtbE",
+              "youtubeTitle": "Class 15 · Cache Mapping · Hit Ratio"
+            },
+            {
+              "id": "computer-architecture-fundamentals-test-6",
+              "slug": "test-6",
+              "title": "Class 16 · Interrupt · Maskable Vectored",
+              "file": "data/bpsc-tre-4/computer/architecture-fundamentals/test-6.json",
+              "questionCount": 15,
+              "timeLimitMinutes": 15,
+              "quizType": "LECTURE_QUIZ",
+              "youtubeUrl": "https://youtu.be/gpmlorIMl2I",
+              "youtubeTitle": "Class 16 · Interrupt · Maskable Vectored"
             },
             {
               "id": "computer-architecture-fundamentals-test-3",

@@ -209,7 +209,8 @@
     items.forEach((item, i) => { next["option" + (i + 1)] = item.text; });
     const correct = Number(row.correctOption);
     if (correct >= 1 && correct <= 4) next.correctOption = String(items.findIndex(x => x.orig === correct) + 1);
-    next.option5 = eLabel;
+    const fifth = String(row.option5 || "").trim();
+    next.option5 = !fifth || isNotAttemptedText(fifth, pattern) ? eLabel : fifth;
     return next;
   }
   function applyExamPattern(quiz, pattern) {
@@ -232,13 +233,19 @@
     Object.defineProperty(out, "_pattern", { value: pattern, enumerable: false });
     return out;
   }
-  function isNotAttemptedSelection(q, selected, pattern) {
-    if (selected == null || selected === "") return false;
-    const text = String((q && q["option" + Number(selected)]) || "").trim().toLowerCase();
-    if (!text) return false;
+  function notAttemptedLabels(pattern) {
     const labels = new Set(["not attempted", "प्रयास नहीं किया गया"]);
     if (pattern && pattern.notAttemptedLabel) labels.add(String(pattern.notAttemptedLabel).trim().toLowerCase());
-    return labels.has(text);
+    return labels;
+  }
+  function isNotAttemptedText(text, pattern) {
+    return notAttemptedLabels(pattern).has(String(text || "").trim().toLowerCase());
+  }
+  function isNotAttemptedSelection(q, selected, pattern) {
+    if (selected == null || selected === "") return false;
+    const text = String((q && q["option" + Number(selected)]) || "").trim();
+    if (!text) return false;
+    return isNotAttemptedText(text, pattern);
   }
   function gradeResponse(q, selected, quiz) {
     const pattern = quiz && quiz._pattern;

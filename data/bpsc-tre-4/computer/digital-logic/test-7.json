@@ -1,0 +1,183 @@
+{
+  "id": "computer-digital-logic-test-7",
+  "title": "Class 11 · Register Counter · Shift Ring Johnson",
+  "course": "bpsc-tre-4",
+  "subject": "computer",
+  "chapter": "digital-logic",
+  "quizType": "LECTURE_QUIZ",
+  "timeLimitMinutes": 15,
+  "passingScore": 33,
+  "negativeMarkingEnabled": true,
+  "negativeMarksPerQuestion": 0.3333333333333333,
+  "negativeMarkingOnSkip": true,
+  "shuffle": true,
+  "youtubeUrl": "https://youtu.be/-8_kLbEPJww",
+  "youtubeTitle": "Class 11 · Register Counter · Shift Ring Johnson",
+  "questions": [
+    {
+      "question": "An 8-bit register is built from",
+      "option1": "1 flip-flop",
+      "option2": "4 flip-flops",
+      "option3": "8 flip-flops",
+      "option4": "16 flip-flops",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: Register में एक flip-flop एक bit store करता है। $n$-bit register $= n$ flip-flops। 8-bit → 8 FF।\n\nजाँच: 4-bit register में 4 FF, 16-bit में 16 FF। गिनती bits के बराबर है, $2^n$ नहीं।\n\nकटौती: A एक bit है। B 4-bit register है। D 16-bit register है, या MOD-16 counter की state-गिनती को FF मान लिया।\n\nTRAP: Counter वाला सूत्र $2^n$ यहाँ चिपका देना। Register में FF count $=$ bit count।",
+      "marks": 1
+    },
+    {
+      "question": "A 4-bit PIPO register is mainly used as a",
+      "option1": "serial delay line",
+      "option2": "storage register",
+      "option3": "Johnson counter",
+      "option4": "decoder",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: PIPO का मतलब Parallel In, Parallel Out। चारों bits एक clock पर load होती हैं और चारों outputs पर एक साथ पढ़ी जाती हैं। मुख्य काम storage है, shift नहीं।\n\nजाँच: Serial delay SISO है। Johnson एक counter है। Decoder combinational है, memory नहीं।\n\nकटौती: A SISO का उपयोग है। C twisted-ring counter है। D $n \\to 2^n$ combinational block है।\n\nTRAP: हर register को shift register समझ लेना। PIPO शिफ्ट नहीं करता, store करता है।",
+      "marks": 1
+    },
+    {
+      "question": "SISO means",
+      "option1": "Serial In, Serial Out",
+      "option2": "Serial In, Parallel Out",
+      "option3": "Parallel In, Serial Out",
+      "option4": "Parallel In, Parallel Out",
+      "option5": "Not Attempted",
+      "correctOption": "1",
+      "explanation": "विधि: SISO $=$ Serial In, Serial Out। Data एक pin से bit-by-bit अंदर जाता है और दूसरी तरफ से bit-by-bit बाहर आता है।\n\nजाँच: SIPO $=$ Serial In, Parallel Out। PISO $=$ Parallel In, Serial Out। PIPO $=$ Parallel In, Parallel Out।\n\nकटौती: B SIPO है। C PISO है। D PIPO है।\n\nTRAP: पहला अक्षर In और दूसरा Out है। SIPO को SISO पढ़ देना।",
+      "marks": 1
+    },
+    {
+      "question": "Serial-to-parallel conversion uses a",
+      "option1": "SISO register",
+      "option2": "SIPO register",
+      "option3": "PISO register",
+      "option4": "ripple counter",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Serial अंदर, parallel बाहर $=$ SIPO। Bits एक-एक करके shift-in होती हैं; $n$ clocks बाद सभी $Q$ outputs पर एक साथ उपलब्ध होती हैं।\n\nजाँच: Input serial है, outputs parallel हैं — नाम का दूसरा आधा Parallel Out यही कहता है।\n\nकटौती: A दोनों सिरे serial हैं, conversion नहीं। C उलटी दिशा है: parallel→serial। D state गिनता है, data format नहीं बदलता।\n\nTRAP: PISO और SIPO की दिशा उलटी पढ़ना। Serial→parallel $=$ SIPO।",
+      "marks": 1
+    },
+    {
+      "question": "Parallel-to-serial conversion uses a",
+      "option1": "SIPO",
+      "option2": "PIPO",
+      "option3": "PISO",
+      "option4": "ring counter",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: Parallel load, serial out $=$ PISO। सारे bits एक clock पर अंदर जाते हैं, फिर हर clock पर एक bit बाहर निकलता है।\n\nजाँच: नाम Parallel In, Serial Out ठीक parallel→serial है।\n\nकटौती: A serial→parallel है। B दोनों सिरे parallel हैं, conversion नहीं। D एक-hot state घुमाता है, data converter नहीं।\n\nTRAP: SIPO को दोनों conversions का जवाब लिख देना। Parallel→serial $=$ PISO।",
+      "marks": 1
+    },
+    {
+      "question": "Which statement is TRUE?",
+      "option1": "Register and counter are the same circuit",
+      "option2": "A register stores bits; a counter sequences states",
+      "option3": "A counter cannot use flip-flops",
+      "option4": "PIPO has only one output bit",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: दोनों sequential हैं, पर काम अलग है। Register bits को hold या shift करता है। Counter states को तय क्रम में बढ़ाता या घुमाता है।\n\nजाँच: 4-bit PIPO के 4 output bits होते हैं। Counter भी flip-flops से बनता है — ripple में T FF, ring/Johnson में अक्सर D FF।\n\nकटौती: A store और sequence एक circuit नहीं। C counter बिना FF के state नहीं रखता। D PIPO के $n$ parallel outputs होते हैं, एक नहीं।\n\nTRAP: “दोनों में FF हैं तो एक ही चीज़” मान लेना। FF common है; उपयोग अलग है।",
+      "marks": 1
+    },
+    {
+      "question": "A MOD-16 binary counter needs",
+      "option1": "2 flip-flops",
+      "option2": "3 flip-flops",
+      "option3": "4 flip-flops",
+      "option4": "16 flip-flops",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: Binary counter के $n$ flip-flops से $2^n$ states बनते हैं। MOD-16 का मतलब 16 states। $2^4 = 16$ → 4 FF।\n\nजाँच: States $0000$ से $1111$ तक, फिर वापस $0000$।\n\nकटौती: A MOD-4 है ($2^2$). B MOD-8 है ($2^3$). D register वाला नियम है — एक FF per state नहीं, $n$ FF से $2^n$ states।\n\nTRAP: MOD संख्या को सीधे FF count लिख देना। याद: FF $= \\log_2(\\text{MOD})$ जब MOD $= 2^n$ हो।",
+      "marks": 1
+    },
+    {
+      "question": "A MOD-10 (decade) counter needs",
+      "option1": "3 flip-flops",
+      "option2": "4 flip-flops",
+      "option3": "5 flip-flops",
+      "option4": "10 flip-flops",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: सबसे छोटा $n$ लो जिससे $2^n \\ge 10$। $2^3 = 8 < 10$ और $2^4 = 16 \\ge 10$। इसलिए 4 FF। States 0–9 चलते हैं; 10 पर reset होकर decade बनता है।\n\nजाँच: 3 FF अधिकतम MOD-8 देते हैं, 10 states नहीं। 10 FF की ज़रूरत नहीं।\n\nकटौती: A 8 states तक रुक जाता है। C 32 states का अगला कदम है, decade के लिए ज़रूरी नहीं। D MOD संख्या को FF count मान लिया।\n\nTRAP: $8 < 10$ देखकर 3 FF लिख देना। 8 states दस की गिनती नहीं पकड़ते।",
+      "marks": 1
+    },
+    {
+      "question": "In a ripple counter the clock is applied",
+      "option1": "to every flip-flop from a common line only",
+      "option2": "only to the LSB flip-flop; $Q$ clocks the next",
+      "option3": "only to the MSB flip-flop",
+      "option4": "to the decoder, not the FF",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Ripple (asynchronous) counter में external clock केवल पहले, LSB flip-flop पर लगता है। उसका $Q$ (या edge के हिसाब से $Q'$) अगले FF का clock बनता है। Delay stage-दर-stage ripple करता है।\n\nजाँच: Common clock line synchronous counter का निशान है, ripple का नहीं।\n\nकटौती: A synchronous counter है। C MSB से शुरू करने पर गिनती की दिशा और ripple chain दोनों गलत। D decoder combinational है; counter का clock FF पर जाता है।\n\nTRAP: हर counter को common CLK वाला मान लेना। Ripple में CLK सिर्फ LSB पर है।",
+      "marks": 1
+    },
+    {
+      "question": "A 4-bit ring counter has how many unique states?",
+      "option1": "2",
+      "option2": "4",
+      "option3": "8",
+      "option4": "16",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Ring counter में एक ही 1 घूमता है। $n$-bit ring के $n$ unique states होते हैं। 4-bit → 4 states, जैसे $1000 \\to 0100 \\to 0010 \\to 0001$।\n\nजाँच: Feedback last $Q$ से first $D$ पर जाता है, complement नहीं। इसलिए $2^n$ states नहीं भरते।\n\nकटौती: A 2-bit ring है। C Johnson ($2n = 8$) है। D binary MOD-16 है।\n\nTRAP: 4 FF देखकर $2^4 = 16$ लिख देना। Ring $= n$ states, binary $= 2^n$।",
+      "marks": 1
+    },
+    {
+      "question": "A 4-bit Johnson counter has how many unique states?",
+      "option1": "4",
+      "option2": "8",
+      "option3": "16",
+      "option4": "32",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Johnson (twisted ring) में last stage का $Q'$ पहले $D$ पर वापस जाता है। $n$-bit Johnson के $2n$ unique states होते हैं। $n=4$ → $2 \\times 4 = 8$।\n\nजाँच: 4-bit ring 4 states देता है। Binary 4-bit 16 states देता है। Johnson इन दोनों के बीच $2n$ है।\n\nकटौती: A ring है। C MOD-16 binary है। D 5-bit binary ($2^5$) है।\n\nTRAP: Ring वाला $n$ या binary वाला $2^n$ लिख देना। Johnson $= 2n$।",
+      "marks": 1
+    },
+    {
+      "question": "Johnson (twisted ring) feedback is",
+      "option1": "last $Q$ to first $D$",
+      "option2": "last $Q'$ to first $D$",
+      "option3": "first $Q$ to last $D$",
+      "option4": "all $T$ inputs tied to $0$",
+      "option5": "Not Attempted",
+      "correctOption": "2",
+      "explanation": "विधि: Twist का मतलब complement feedback। अंतिम FF का $Q'$ पहले FF के $D$ पर जाता है। इसी से states $2n$ हो जाते हैं।\n\nजाँच: बिना twist के last $Q \\to$ first $D$ ordinary ring है ($n$ states)।\n\nकटौती: A ring counter है, Johnson नहीं। C feedback दिशा उलटी है। D $T=0$ hold है, counter नहीं चलता।\n\nTRAP: Ring और Johnson का feedback एक जैसा लिख देना। फर्क केवल $Q$ बनाम $Q'$ है।",
+      "marks": 1
+    },
+    {
+      "question": "To make a D flip-flop toggle like $T=1$, connect",
+      "option1": "$D = 0$",
+      "option2": "$D = 1$",
+      "option3": "$D = Q$",
+      "option4": "$D = Q'$",
+      "option5": "Not Attempted",
+      "correctOption": "4",
+      "explanation": "विधि: D FF में $Q^+ = D$। Toggle चाहिए तो अगली state present का उल्टा हो: $D = Q'$। हर clock पर $Q$ पलटता है — वही $T=1$ का काम।\n\nजाँच: $Q=0 \\Rightarrow D=1 \\Rightarrow Q^+=1$; $Q=1 \\Rightarrow D=0 \\Rightarrow Q^+=0$।\n\nकटौती: A हर clock पर reset है। B हर clock पर set है। C $Q^+ = Q$ hold है, toggle नहीं।\n\nTRAP: $D=Q$ को “same data, so it flips” पढ़ना। $D=Q$ state रोकता है; पलटने के लिए $D=Q'$।",
+      "marks": 1
+    },
+    {
+      "question": "Which is asynchronous?",
+      "option1": "PIPO register with common CLK",
+      "option2": "Johnson counter with common CLK",
+      "option3": "Ripple counter ($Q$ of one clocks the next)",
+      "option4": "SIPO with common CLK",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: Asynchronous का मतलब सब FF एक ही clock edge पर नहीं बदलते। Ripple में केवल LSB को external CLK मिलता है; अगला FF पिछले $Q$ से clock होता है।\n\nजाँच: Common CLK वाले PIPO, Johnson और SIPO synchronous हैं — एक edge पर सारे stages sample करते हैं।\n\nकटौती: A, B और D तीनों में common clock है। Async केवल ripple chain है।\n\nTRAP: “Counter है तो async” मान लेना। Johnson common CLK के साथ synchronous है। Async निशान: $Q$ अगला clock बनाए।",
+      "marks": 1
+    },
+    {
+      "question": "Which pair is sequential?",
+      "option1": "Full adder and MUX",
+      "option2": "Decoder and encoder",
+      "option3": "Register and counter",
+      "option4": "Half adder and DEMUX",
+      "option5": "Not Attempted",
+      "correctOption": "3",
+      "explanation": "विधि: Sequential circuit memory रखता है। Register bits store/shift करता है; counter state sequence रखता है। दोनों flip-flops पर टिके हैं।\n\nजाँच: Full adder, half adder, MUX, DEMUX, decoder, encoder केवल present inputs से output देते हैं — combinational।\n\nकटौती: A, B और D तीनों जोड़े combinational हैं।\n\nTRAP: Decoder या MUX में select/Enable देखकर sequential कह देना। Enable memory नहीं है।",
+      "marks": 1
+    }
+  ]
+}

@@ -36,11 +36,14 @@
     document.title = `${quiz.title} • Bihar Board Wala`;
     const tre = BBWData.usesTreMarking(quiz);
     const blankPenalty = quiz.negativeMarkingEnabled && quiz.negativeMarkingOnSkip;
+    const realE = (quiz.questions || []).some(q => String(q.option5 || "").trim() && !BBWData.isNotAttemptedSelection(q, 5, quiz._pattern));
     const scheme = tre
-      ? `<span class="chip good">+1 सही (A–D)</span><span class="chip bad">−1/3 गलत (A–D)</span><span class="chip">E Not Attempted = 0</span><span class="chip ${blankPenalty ? "bad" : ""}">खाली = ${blankPenalty ? "−1/3" : "0"}</span>`
+      ? `<span class="chip good">+1 सही (A–D)</span><span class="chip bad">−1/3 गलत (A–D)</span><span class="chip">E Not Attempted = 0</span>${realE ? `<span class="chip bad">E None of the above = असली विकल्प</span>` : ""}<span class="chip ${blankPenalty ? "bad" : ""}">खाली = ${blankPenalty ? "−1/3" : "0"}</span>`
       : `<span class="chip good">+ Correct answer marks</span><span class="chip ${quiz.negativeMarkingEnabled ? "bad" : ""}">${BBWUI.escape(BBWData.negativeMarkLabel(quiz))}</span>`;
     const treHelp = tre
-      ? "<li>Option E = Not Attempted — कोई अंक नहीं कटता।</li><li>गलत A/B/C/D पर −1/3 कटेगा।</li>" + (blankPenalty ? "<li>कोई विकल्प न भरने (खाली) पर भी −1/3 कटेगा। Skip करना है तो E चुनें।</li>" : "")
+      ? (realE
+        ? "<li>जहाँ Option E = Not Attempted है, चुनने पर कोई अंक नहीं कटता।</li><li>जहाँ Option E = None of the above है, वह असली विकल्प है — गलत हो तो −1/3।</li><li>गलत A/B/C/D पर −1/3 कटेगा।</li>"
+        : "<li>Option E = Not Attempted — कोई अंक नहीं कटता।</li><li>गलत A/B/C/D पर −1/3 कटेगा।</li>") + (blankPenalty ? "<li>कोई विकल्प न भरने (खाली) पर भी −1/3 कटेगा। Skip करना है तो Not Attempted वाला E चुनें।</li>" : "")
       : (blankPenalty ? "<li>अनुत्तरित प्रश्न पर भी negative marking लगेगी।</li>" : "");
     app.innerHTML = `<div class="container"><section class="card quiz-start"><div class="start-header"><div style="font-size:2rem">☑</div><h1>${BBWUI.escape(quiz.title)}</h1></div><div class="start-stats"><div class="stat"><strong>${quiz.questions.length}</strong><small>Questions</small></div><div class="stat"><strong>${quiz.timeLimitMinutes || "∞"}</strong><small>${quiz.timeLimitMinutes ? "Minutes" : "No limit"}</small></div><div class="stat"><strong>${totalMarks}</strong><small>Total marks</small></div></div><h3>Marking scheme</h3><div class="chips">${scheme}<span class="chip">Pass: ${quiz.passingScore || 0}%</span>${tre ? `<span class="chip">A–E · TRE 4.0</span>` : ""}</div><div id="video-slot"></div><h3 style="margin-top:1.5rem">निर्देश / Instructions</h3><ol class="instructions"><li>हर प्रश्न का केवल एक सही उत्तर है।</li>${treHelp}<li>उत्तर submit करने से पहले कभी भी बदल सकते हैं।</li><li>दोबारा देखने के लिए “Mark for review” चुनें।</li><li>Progress अपने-आप इस device पर save होती है।</li>${quiz.timeLimitMinutes ? "<li>Start दबाते ही timer शुरू होगा।</li>" : ""}</ol><button id="start-test" class="btn btn-saffron btn-block">Start Test • ${quiz.questions.length} Q</button></section></div>`;
     document.querySelector("#start-test").onclick = start;
@@ -125,9 +128,10 @@
   function reviewSubmit() {
     const answered = Object.keys(state.answers).length, left = questions().length - answered;
     const tre = BBWData.usesTreMarking(quiz) && quiz.negativeMarkingEnabled && quiz.negativeMarkingOnSkip;
+    const realE = (quiz.questions || []).some(q => String(q.option5 || "").trim() && !BBWData.isNotAttemptedSelection(q, 5, quiz._pattern));
     const blankNote = left
       ? (tre
-        ? `<p class="admin-status warning">⚠ ${left} questions खाली हैं। खाली छोड़ने पर −1/3 कटेगा। Skip करना है तो Option E चुनें।</p>`
+        ? `<p class="admin-status warning">⚠ ${left} questions खाली हैं। खाली छोड़ने पर −1/3 कटेगा। ${realE ? "Skip के लिए E तभी चुनें जब उस पर Not Attempted लिखा हो। None of the above असली विकल्प है।" : "Skip करना है तो Option E चुनें।"}</p>`
         : `<p class="admin-status warning">⚠ ${left} questions unanswered हैं।</p>`)
       : `<p class="admin-status success">✓ सभी questions answered हैं।</p>`;
     const sheet = BBWUI.openSheet("Submit review", `<div class="review-summary"><div><strong class="success">${answered}</strong>Answered</div><div><strong class="warning">${left}</strong>Left</div><div><strong>${state.flags.length}</strong>Marked</div></div>${blankNote}<div class="button-row"><button id="keep" class="btn btn-outline">Keep solving</button><button id="confirm-submit" class="btn btn-saffron">Submit quiz</button></div>`);
