@@ -1433,17 +1433,33 @@
               "questionCount": 15,
               "timeLimitMinutes": 15,
               "quizType": "CHAPTER_TEST",
-              "updatedAt": "2026-10-03T00:00:00.000Z"
+              "updatedAt": "2026-10-04T00:00:00.000Z",
+              "youtubeUrl": "https://youtu.be/JsvQqaVqFn0",
+              "youtubeTitle": "Class 10 Economics | मुद्रा बचत एवं साख | 15/15 कर पाएँगे? | Practice Test 1 | 2027 Board"
             },
             {
               "id": "social-science-mudra-bachat-sakh-test-2",
               "slug": "test-2",
-              "title": "Practice Test 2 · कठिन",
+              "title": "Practice Test 2 · मध्यम",
               "file": "data/class-10/social-science/mudra-bachat-sakh/test-2.json",
               "questionCount": 15,
               "timeLimitMinutes": 15,
               "quizType": "CHAPTER_TEST",
-              "updatedAt": "2026-10-03T00:00:00.000Z"
+              "updatedAt": "2026-10-04T00:00:00.000Z",
+              "youtubeUrl": "https://youtu.be/ljXIk31nDKI",
+              "youtubeTitle": "मुद्रा, बचत एवं साख · Practice Test 2 · मध्यम"
+            },
+            {
+              "id": "social-science-mudra-bachat-sakh-test-3",
+              "slug": "test-3",
+              "title": "Practice Test 3 · कठिन",
+              "file": "data/class-10/social-science/mudra-bachat-sakh/test-3.json",
+              "questionCount": 15,
+              "timeLimitMinutes": 15,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-10-04T00:00:00.000Z",
+              "youtubeUrl": "https://youtu.be/ijnmrp6iL-c",
+              "youtubeTitle": "मुद्रा, बचत एवं साख · Practice Test 3 · कठिन"
             }
           ]
         },
