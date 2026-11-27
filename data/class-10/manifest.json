@@ -234,7 +234,49 @@
             "en": "Nagari Script",
             "hi": "नागरी लिपि"
           },
-          "section": "gadya"
+          "section": "gadya",
+          "tests": [
+            {
+              "id": "hindi-nagari-lipi-test-1",
+              "slug": "test-1",
+              "title": "Practice Test 1 · लेखक परिचय + पाठ का स्रोत",
+              "file": "data/class-10/hindi/nagari-lipi/test-1.json",
+              "questionCount": 11,
+              "timeLimitMinutes": 11,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-nagari-lipi-test-2",
+              "slug": "test-2",
+              "title": "Practice Test 2 · पाठ (भाग 1)",
+              "file": "data/class-10/hindi/nagari-lipi/test-2.json",
+              "questionCount": 16,
+              "timeLimitMinutes": 16,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-nagari-lipi-test-3",
+              "slug": "test-3",
+              "title": "Practice Test 3 · पाठ (भाग 2) + शब्द-निधि",
+              "file": "data/class-10/hindi/nagari-lipi/test-3.json",
+              "questionCount": 16,
+              "timeLimitMinutes": 16,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-nagari-lipi-test-4",
+              "slug": "test-4",
+              "title": "पूर्ण अभ्यास परीक्षा",
+              "file": "data/class-10/hindi/nagari-lipi/test-4.json",
+              "questionCount": 43,
+              "timeLimitMinutes": 43,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "chapter-bahadur",
@@ -243,7 +285,49 @@
             "en": "Bahadur",
             "hi": "बहादुर"
           },
-          "section": "gadya"
+          "section": "gadya",
+          "tests": [
+            {
+              "id": "hindi-bahadur-test-1",
+              "slug": "test-1",
+              "title": "Practice Test 1 · लेखक परिचय + पाठ की विधा",
+              "file": "data/class-10/hindi/bahadur/test-1.json",
+              "questionCount": 12,
+              "timeLimitMinutes": 12,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-bahadur-test-2",
+              "slug": "test-2",
+              "title": "Practice Test 2 · पाठ (भाग 1)",
+              "file": "data/class-10/hindi/bahadur/test-2.json",
+              "questionCount": 15,
+              "timeLimitMinutes": 15,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-bahadur-test-3",
+              "slug": "test-3",
+              "title": "Practice Test 3 · पाठ (भाग 2)",
+              "file": "data/class-10/hindi/bahadur/test-3.json",
+              "questionCount": 14,
+              "timeLimitMinutes": 14,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-bahadur-test-4",
+              "slug": "test-4",
+              "title": "पूर्ण अभ्यास परीक्षा",
+              "file": "data/class-10/hindi/bahadur/test-4.json",
+              "questionCount": 41,
+              "timeLimitMinutes": 41,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "chapter-parampara-ka-mulyankan",
@@ -252,16 +336,100 @@
             "en": "Evaluating Tradition",
             "hi": "परम्परा का मूल्यांकन"
           },
-          "section": "gadya"
+          "section": "gadya",
+          "tests": [
+            {
+              "id": "hindi-parampara-ka-mulyankan-test-1",
+              "slug": "test-1",
+              "title": "Practice Test 1 · लेखक परिचय + पाठ का स्रोत",
+              "file": "data/class-10/hindi/parampara-ka-mulyankan/test-1.json",
+              "questionCount": 13,
+              "timeLimitMinutes": 13,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-parampara-ka-mulyankan-test-2",
+              "slug": "test-2",
+              "title": "Practice Test 2 · पाठ (भाग 1)",
+              "file": "data/class-10/hindi/parampara-ka-mulyankan/test-2.json",
+              "questionCount": 15,
+              "timeLimitMinutes": 15,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-parampara-ka-mulyankan-test-3",
+              "slug": "test-3",
+              "title": "Practice Test 3 · पाठ (भाग 2) + शब्द-निधि",
+              "file": "data/class-10/hindi/parampara-ka-mulyankan/test-3.json",
+              "questionCount": 14,
+              "timeLimitMinutes": 14,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-parampara-ka-mulyankan-test-4",
+              "slug": "test-4",
+              "title": "पूर्ण अभ्यास परीक्षा",
+              "file": "data/class-10/hindi/parampara-ka-mulyankan/test-4.json",
+              "questionCount": 42,
+              "timeLimitMinutes": 42,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "chapter-jit-main-nirakhat-hoon",
           "slug": "jit-main-nirakhat-hoon",
           "title": {
-            "en": "Jit Main Nirakhat Hoon",
-            "hi": "जित मैं निरखत हूँ"
+            "en": "Jit-Jit Main Nirakhat Hoon",
+            "hi": "जित-जित मैं निरखत हूँ"
           },
-          "section": "gadya"
+          "section": "gadya",
+          "tests": [
+            {
+              "id": "hindi-jit-main-nirakhat-hoon-test-1",
+              "slug": "test-1",
+              "title": "Practice Test 1 · परिचय और विधा + जीवन (भाग 1)",
+              "file": "data/class-10/hindi/jit-main-nirakhat-hoon/test-1.json",
+              "questionCount": 13,
+              "timeLimitMinutes": 13,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-jit-main-nirakhat-hoon-test-2",
+              "slug": "test-2",
+              "title": "Practice Test 2 · जीवन और परिवार (भाग 2)",
+              "file": "data/class-10/hindi/jit-main-nirakhat-hoon/test-2.json",
+              "questionCount": 14,
+              "timeLimitMinutes": 14,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-jit-main-nirakhat-hoon-test-3",
+              "slug": "test-3",
+              "title": "Practice Test 3 · संगीत भारती और आगे का जीवन + शब्द-निधि",
+              "file": "data/class-10/hindi/jit-main-nirakhat-hoon/test-3.json",
+              "questionCount": 13,
+              "timeLimitMinutes": 13,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-jit-main-nirakhat-hoon-test-4",
+              "slug": "test-4",
+              "title": "पूर्ण अभ्यास परीक्षा",
+              "file": "data/class-10/hindi/jit-main-nirakhat-hoon/test-4.json",
+              "questionCount": 40,
+              "timeLimitMinutes": 40,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "chapter-avinyon",
