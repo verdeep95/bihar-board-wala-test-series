@@ -30,7 +30,49 @@
             "en": "Division of Labour and Caste System",
             "hi": "श्रम विभाजन और जाति प्रथा"
           },
-          "section": "gadya"
+          "section": "gadya",
+          "tests": [
+            {
+              "id": "hindi-shram-vibhajan-test-1",
+              "slug": "test-1",
+              "title": "Practice Test 1 · लेखक परिचय",
+              "file": "data/class-10/hindi/shram-vibhajan/test-1.json",
+              "questionCount": 17,
+              "timeLimitMinutes": 17,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-shram-vibhajan-test-2",
+              "slug": "test-2",
+              "title": "Practice Test 2 · पाठ का स्रोत + पाठ (भाग 1)",
+              "file": "data/class-10/hindi/shram-vibhajan/test-2.json",
+              "questionCount": 17,
+              "timeLimitMinutes": 17,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-shram-vibhajan-test-3",
+              "slug": "test-3",
+              "title": "Practice Test 3 · पाठ (भाग 2) + शब्द-निधि",
+              "file": "data/class-10/hindi/shram-vibhajan/test-3.json",
+              "questionCount": 16,
+              "timeLimitMinutes": 16,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-shram-vibhajan-test-4",
+              "slug": "test-4",
+              "title": "पूर्ण अभ्यास परीक्षा",
+              "file": "data/class-10/hindi/shram-vibhajan/test-4.json",
+              "questionCount": 50,
+              "timeLimitMinutes": 50,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "chapter-vish-ke-dant",
@@ -39,7 +81,49 @@
             "en": "Vish ke Daant",
             "hi": "विष के दाँत"
           },
-          "section": "gadya"
+          "section": "gadya",
+          "tests": [
+            {
+              "id": "hindi-vish-ke-dant-test-1",
+              "slug": "test-1",
+              "title": "Practice Test 1 · लेखक परिचय + पाठ का स्रोत",
+              "file": "data/class-10/hindi/vish-ke-dant/test-1.json",
+              "questionCount": 16,
+              "timeLimitMinutes": 16,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-vish-ke-dant-test-2",
+              "slug": "test-2",
+              "title": "Practice Test 2 · पाठ (भाग 1)",
+              "file": "data/class-10/hindi/vish-ke-dant/test-2.json",
+              "questionCount": 18,
+              "timeLimitMinutes": 18,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-vish-ke-dant-test-3",
+              "slug": "test-3",
+              "title": "Practice Test 3 · पाठ (भाग 2) + शब्द-निधि",
+              "file": "data/class-10/hindi/vish-ke-dant/test-3.json",
+              "questionCount": 18,
+              "timeLimitMinutes": 18,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-vish-ke-dant-test-4",
+              "slug": "test-4",
+              "title": "पूर्ण अभ्यास परीक्षा",
+              "file": "data/class-10/hindi/vish-ke-dant/test-4.json",
+              "questionCount": 52,
+              "timeLimitMinutes": 52,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "chapter-bharat-se-hum-kya-sikhen",
@@ -48,7 +132,49 @@
             "en": "What Can We Learn from India",
             "hi": "भारत से हम क्या सीखें"
           },
-          "section": "gadya"
+          "section": "gadya",
+          "tests": [
+            {
+              "id": "hindi-bharat-se-hum-kya-sikhen-test-1",
+              "slug": "test-1",
+              "title": "Practice Test 1 · लेखक परिचय + पाठ का स्रोत",
+              "file": "data/class-10/hindi/bharat-se-hum-kya-sikhen/test-1.json",
+              "questionCount": 14,
+              "timeLimitMinutes": 14,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-bharat-se-hum-kya-sikhen-test-2",
+              "slug": "test-2",
+              "title": "Practice Test 2 · पाठ (भाग 1)",
+              "file": "data/class-10/hindi/bharat-se-hum-kya-sikhen/test-2.json",
+              "questionCount": 16,
+              "timeLimitMinutes": 16,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-bharat-se-hum-kya-sikhen-test-3",
+              "slug": "test-3",
+              "title": "Practice Test 3 · पाठ (भाग 2) + शब्द-निधि",
+              "file": "data/class-10/hindi/bharat-se-hum-kya-sikhen/test-3.json",
+              "questionCount": 16,
+              "timeLimitMinutes": 16,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-bharat-se-hum-kya-sikhen-test-4",
+              "slug": "test-4",
+              "title": "पूर्ण अभ्यास परीक्षा",
+              "file": "data/class-10/hindi/bharat-se-hum-kya-sikhen/test-4.json",
+              "questionCount": 46,
+              "timeLimitMinutes": 46,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "chapter-nakhoon-kyon-badhte-hain",
