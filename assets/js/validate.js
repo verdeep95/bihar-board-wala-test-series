@@ -47,6 +47,8 @@
     const row = { question: String(q.question || "").trim(), option1: String(q.option1 || "").trim(), option2: String(q.option2 || "").trim(), option3: String(q.option3 || "").trim(), option4: String(q.option4 || "").trim(), correctOption: String(q.correctOption == null ? "" : q.correctOption), explanation: String(q.explanation || "").trim(), marks: Number(q.marks == null ? 1 : q.marks) };
     const option5 = String(q.option5 || "").trim();
     if (option5) row.option5 = option5;
+    const tags = Array.isArray(q.tags) ? q.tags.map(t => String(t).trim()).filter(Boolean) : [];
+    if (tags.length) row.tags = tags;
     return row;
   }
   function result(rows, errors, warnings, wrapper, bare) {

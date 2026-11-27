@@ -11,6 +11,11 @@
   function escape(value) {
     return String(value == null ? "" : value).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   }
+  const difficultyTags = { "आसान": "easy", "मध्यम": "medium", "कठिन": "hard" };
+  function tagChips(tags) {
+    if (!tags || !tags.length) return "";
+    return `<span class="q-tags">${tags.map(t => `<span class="q-tag ${difficultyTags[t] || "source"}">${escape(t)}</span>`).join("")}</span>`;
+  }
   function subjectIcon(slug) { return icons[slug] || "📖"; }
   function localized(value, fallback) {
     if (value && typeof value === "object") return value.hi || value.en || fallback || "";
@@ -102,5 +107,5 @@
   function closeSheet() { document.querySelector("#bbw-sheet")?.remove(); document.body.classList.remove("sheet-open"); document.removeEventListener("keydown", onEscape); }
   document.addEventListener("click", e => { if (e.target.closest(".theme-toggle")) toggleTheme(); });
   initTheme();
-  window.BBWUI = { escape, subjectIcon, localized, secondary, setBrandSubtitle, courseCard, coursePill, videoCard, errorState, formatDuration, number, initTheme, toggleTheme, openSheet, closeSheet };
+  window.BBWUI = { escape, tagChips, subjectIcon, localized, secondary, setBrandSubtitle, courseCard, coursePill, videoCard, errorState, formatDuration, number, initTheme, toggleTheme, openSheet, closeSheet };
 })();

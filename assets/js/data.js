@@ -261,6 +261,9 @@
     if (isNotAttemptedSelection(q, chosen, pattern)) return { status: "skipped", delta: 0 };
     return { status: "wrong", delta: penalty ? -penalty : 0 };
   }
+  function tagsOf(q) {
+    return Array.isArray(q && q.tags) ? q.tags.map(t => String(t).trim()).filter(Boolean) : [];
+  }
   function scoreAttempt(questions, getSelected, quiz) {
     let earned = 0, correct = 0, wrong = 0, skipped = 0, blank = 0;
     const review = (questions || []).map((q, i) => {
@@ -274,6 +277,7 @@
       return {
         questionNumber: i + 1,
         question: q.question,
+        tags: tagsOf(q),
         options: optionsOf(q),
         selectedOption: selected,
         correctOption: Number(q.correctOption),
@@ -290,5 +294,5 @@
     const a = Object.assign(document.createElement("a"), { href: url, download: filename });
     document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
-  window.BBWData = { defaultCourse: DEFAULT_COURSE, loadCourses, getCourse, loadCourse, loadSubjects, courseParam, storedCourse, currentCourseSlug, rememberCourse, forgetCourse, sectionLabel, fetchJson, loadTest, testPath, chapterTests, chapterQuestionCount, countCourse, nextTestSlug, isYoutubeUrl, videoOf, chapterVideo, getHistory, clearHistory, getResult, saveResult, getAttempt, saveAttempt, clearAttempt, attemptKey, bestAttempt, courseProgress, savePractice, getPractice, uniqueId, downloadJson, optionCount, optionLetter, optionsOf, negativeMarkLabel, formatMarksDelta, usesTreMarking, applyExamPattern, shuffleTreOptions, lockMoreThanOneAsD, isNotAttemptedSelection, gradeResponse, scoreAttempt };
+  window.BBWData = { defaultCourse: DEFAULT_COURSE, loadCourses, getCourse, loadCourse, loadSubjects, courseParam, storedCourse, currentCourseSlug, rememberCourse, forgetCourse, sectionLabel, fetchJson, loadTest, testPath, chapterTests, chapterQuestionCount, countCourse, nextTestSlug, isYoutubeUrl, videoOf, chapterVideo, getHistory, clearHistory, getResult, saveResult, getAttempt, saveAttempt, clearAttempt, attemptKey, bestAttempt, courseProgress, savePractice, getPractice, uniqueId, downloadJson, optionCount, optionLetter, optionsOf, negativeMarkLabel, formatMarksDelta, usesTreMarking, applyExamPattern, shuffleTreOptions, lockMoreThanOneAsD, isNotAttemptedSelection, gradeResponse, tagsOf, scoreAttempt };
 })();

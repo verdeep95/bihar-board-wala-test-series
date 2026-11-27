@@ -34,7 +34,7 @@
       const n = Number(x.questionNumber || i + 1);
       const delta = x.marksDelta == null ? "" : ` · ${BBWData.formatMarksDelta(x.marksDelta)}`;
       const yours = x.selectedOption ? `${BBWData.optionLetter(x.selectedOption)}. ${BBWMath.render(x.options[x.selectedOption-1])}` : "Not answered (blank)";
-      return `<article class="card review-card ${x.status}"><div class="muted">Q ${n}/${total} • ${statusLabel[x.status] || x.status}${delta}</div><h3>${BBWMath.render(x.question)}</h3><div class="answer-line">Your answer: ${yours}</div><div class="answer-line success">Correct answer: ${BBWData.optionLetter(x.correctOption)}. ${BBWMath.render(x.options[x.correctOption-1])}</div>${x.explanation ? `<div class="explanation"><strong>Explanation</strong><div>${BBWMath.render(x.explanation)}</div></div>` : ""}</article>`;
+      return `<article class="card review-card ${x.status}"><div class="question-meta"><span class="muted">Q ${n}/${total} • ${statusLabel[x.status] || x.status}${delta}</span>${BBWUI.tagChips(x.tags)}</div><h3>${BBWMath.render(x.question)}</h3><div class="answer-line">Your answer: ${yours}</div><div class="answer-line success">Correct answer: ${BBWData.optionLetter(x.correctOption)}. ${BBWMath.render(x.options[x.correctOption-1])}</div>${x.explanation ? `<div class="explanation"><strong>Explanation</strong><div>${BBWMath.render(x.explanation)}</div></div>` : ""}</article>`;
     }).join("") || '<div class="empty-state">No questions in this filter.</div>';
   }
   document.querySelector("#toggle-review").onclick=()=>{section.hidden=!section.hidden;if(!section.hidden){render();section.scrollIntoView({behavior:"smooth"})}};

@@ -507,7 +507,7 @@
   }
   function renderQuestions() {
     $("#editor-count").textContent = `${questions.length} questions`;
-    $("#question-list").innerHTML = questions.map((q, i) => `<article class="question-editor"><div class="editor-toolbar"><button class="btn btn-outline" data-action="up" data-i="${i}" ${i === 0 ? "disabled" : ""}>↑</button><button class="btn btn-outline" data-action="down" data-i="${i}" ${i === questions.length - 1 ? "disabled" : ""}>↓</button><button class="btn btn-outline" data-action="edit" data-i="${i}">Edit</button><button class="btn btn-ghost destructive" data-action="delete" data-i="${i}">Delete</button></div><strong>Q${i + 1}. ${BBWMath.render(q.question)}</strong><p class="muted">Correct: ${q.correctOption} • ${q.marks} mark</p></article>`).join("");
+    $("#question-list").innerHTML = questions.map((q, i) => `<article class="question-editor"><div class="editor-toolbar"><button class="btn btn-outline" data-action="up" data-i="${i}" ${i === 0 ? "disabled" : ""}>↑</button><button class="btn btn-outline" data-action="down" data-i="${i}" ${i === questions.length - 1 ? "disabled" : ""}>↓</button><button class="btn btn-outline" data-action="edit" data-i="${i}">Edit</button><button class="btn btn-ghost destructive" data-action="delete" data-i="${i}">Delete</button></div><strong>Q${i + 1}. ${BBWMath.render(q.question)}</strong><p class="muted">Correct: ${q.correctOption} • ${q.marks} mark ${BBWUI.tagChips(BBWData.tagsOf(q))}</p></article>`).join("");
     $("#question-list").querySelectorAll("[data-action]").forEach(b => b.onclick = () => act(b.dataset.action, Number(b.dataset.i)));
   }
   function act(action, i) {
@@ -521,6 +521,7 @@
       [1, 2, 3, 4, 5].forEach(n => { const el = $("#q-option" + n); if (el) el.value = q["option" + n] || ""; });
       $("#q-correct").value = q.correctOption;
       $("#q-explanation").value = q.explanation;
+      $("#q-tags").value = BBWData.tagsOf(q).join(" | ");
       $("#q-marks").value = q.marks;
       $("#question-form").scrollIntoView({ behavior: "smooth" });
       return;
@@ -531,6 +532,8 @@
     e.preventDefault();
     if (!requireChapter()) return;
     const q = { question: $("#q-question").value, option1: $("#q-option1").value, option2: $("#q-option2").value, option3: $("#q-option3").value, option4: $("#q-option4").value, correctOption: $("#q-correct").value, explanation: $("#q-explanation").value, marks: Number($("#q-marks").value || 1) };
+    const tags = ($("#q-tags").value || "").split("|").map(t => t.trim()).filter(Boolean);
+    if (tags.length) q.tags = tags;
     const option5 = ($("#q-option5").value || "").trim();
     const p = examPattern();
     if (p) q.option5 = option5 || p.notAttemptedLabel || "Not Attempted";

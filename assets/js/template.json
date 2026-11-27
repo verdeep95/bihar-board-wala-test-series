@@ -18,7 +18,8 @@
       "option4": "विकल्प 4",
       "correctOption": "1",
       "explanation": "उत्तर की संक्षिप्त व्याख्या",
-      "marks": 1
+      "marks": 1,
+      "tags": ["बोर्ड 2023"]
     }
   ]
 }
