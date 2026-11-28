@@ -436,9 +436,51 @@
           "slug": "avinyon",
           "title": {
             "en": "Avignon",
-            "hi": "अविन्यों"
+            "hi": "आविन्यों"
           },
-          "section": "gadya"
+          "section": "gadya",
+          "tests": [
+            {
+              "id": "hindi-avinyon-test-1",
+              "slug": "test-1",
+              "title": "Practice Test 1 · लेखक परिचय + पाठ का स्रोत",
+              "file": "data/class-10/hindi/avinyon/test-1.json",
+              "questionCount": 13,
+              "timeLimitMinutes": 13,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-avinyon-test-2",
+              "slug": "test-2",
+              "title": "Practice Test 2 · पाठ (भाग 1)",
+              "file": "data/class-10/hindi/avinyon/test-2.json",
+              "questionCount": 13,
+              "timeLimitMinutes": 13,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-avinyon-test-3",
+              "slug": "test-3",
+              "title": "Practice Test 3 · पाठ (भाग 2) + व्याकरण",
+              "file": "data/class-10/hindi/avinyon/test-3.json",
+              "questionCount": 14,
+              "timeLimitMinutes": 14,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-avinyon-test-4",
+              "slug": "test-4",
+              "title": "पूर्ण अभ्यास परीक्षा",
+              "file": "data/class-10/hindi/avinyon/test-4.json",
+              "questionCount": 40,
+              "timeLimitMinutes": 40,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "chapter-machhli",
@@ -447,7 +489,49 @@
             "en": "The Fish",
             "hi": "मछली"
           },
-          "section": "gadya"
+          "section": "gadya",
+          "tests": [
+            {
+              "id": "hindi-machhli-test-1",
+              "slug": "test-1",
+              "title": "Practice Test 1 · लेखक परिचय + पाठ का स्रोत",
+              "file": "data/class-10/hindi/machhli/test-1.json",
+              "questionCount": 12,
+              "timeLimitMinutes": 12,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-machhli-test-2",
+              "slug": "test-2",
+              "title": "Practice Test 2 · पाठ (भाग 1)",
+              "file": "data/class-10/hindi/machhli/test-2.json",
+              "questionCount": 12,
+              "timeLimitMinutes": 12,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-machhli-test-3",
+              "slug": "test-3",
+              "title": "Practice Test 3 · पाठ (भाग 2) + शब्द-निधि",
+              "file": "data/class-10/hindi/machhli/test-3.json",
+              "questionCount": 15,
+              "timeLimitMinutes": 15,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-machhli-test-4",
+              "slug": "test-4",
+              "title": "पूर्ण अभ्यास परीक्षा",
+              "file": "data/class-10/hindi/machhli/test-4.json",
+              "questionCount": 39,
+              "timeLimitMinutes": 39,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "chapter-naubatkhane-mein-ibadat",
@@ -456,7 +540,49 @@
             "en": "Prayer in the Naubatkhana",
             "hi": "नौबतखाने में इबादत"
           },
-          "section": "gadya"
+          "section": "gadya",
+          "tests": [
+            {
+              "id": "hindi-naubatkhane-mein-ibadat-test-1",
+              "slug": "test-1",
+              "title": "Practice Test 1 · लेखक परिचय + पाठ का स्रोत",
+              "file": "data/class-10/hindi/naubatkhane-mein-ibadat/test-1.json",
+              "questionCount": 10,
+              "timeLimitMinutes": 10,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-naubatkhane-mein-ibadat-test-2",
+              "slug": "test-2",
+              "title": "Practice Test 2 · पाठ (भाग 1)",
+              "file": "data/class-10/hindi/naubatkhane-mein-ibadat/test-2.json",
+              "questionCount": 15,
+              "timeLimitMinutes": 15,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-naubatkhane-mein-ibadat-test-3",
+              "slug": "test-3",
+              "title": "Practice Test 3 · पाठ (भाग 2) + शब्द-निधि",
+              "file": "data/class-10/hindi/naubatkhane-mein-ibadat/test-3.json",
+              "questionCount": 17,
+              "timeLimitMinutes": 17,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-naubatkhane-mein-ibadat-test-4",
+              "slug": "test-4",
+              "title": "पूर्ण अभ्यास परीक्षा",
+              "file": "data/class-10/hindi/naubatkhane-mein-ibadat/test-4.json",
+              "questionCount": 42,
+              "timeLimitMinutes": 42,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "chapter-shiksha-aur-sanskriti",
@@ -465,25 +591,131 @@
             "en": "Education and Culture",
             "hi": "शिक्षा और संस्कृति"
           },
-          "section": "gadya"
+          "section": "gadya",
+          "tests": [
+            {
+              "id": "hindi-shiksha-aur-sanskriti-test-1",
+              "slug": "test-1",
+              "title": "Practice Test 1 · लेखक परिचय",
+              "file": "data/class-10/hindi/shiksha-aur-sanskriti/test-1.json",
+              "questionCount": 15,
+              "timeLimitMinutes": 15,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-shiksha-aur-sanskriti-test-2",
+              "slug": "test-2",
+              "title": "Practice Test 2 · पाठ (भाग 1)",
+              "file": "data/class-10/hindi/shiksha-aur-sanskriti/test-2.json",
+              "questionCount": 9,
+              "timeLimitMinutes": 9,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-shiksha-aur-sanskriti-test-3",
+              "slug": "test-3",
+              "title": "Practice Test 3 · पाठ (भाग 2) + शब्द-निधि",
+              "file": "data/class-10/hindi/shiksha-aur-sanskriti/test-3.json",
+              "questionCount": 12,
+              "timeLimitMinutes": 12,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-shiksha-aur-sanskriti-test-4",
+              "slug": "test-4",
+              "title": "पूर्ण अभ्यास परीक्षा",
+              "file": "data/class-10/hindi/shiksha-aur-sanskriti/test-4.json",
+              "questionCount": 36,
+              "timeLimitMinutes": 36,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "chapter-ram-binu-birthe",
           "slug": "ram-binu-birthe",
           "title": {
-            "en": "Ram Binu Birthe Jagi Janma",
-            "hi": "राम बिनु बिरथे जगि जनमा"
+            "en": "Ram Naam Binu Birthe Jagi Janma",
+            "hi": "राम नाम बिनु बिरथे जगि जनमा"
           },
-          "section": "padya"
+          "section": "padya",
+          "tests": [
+            {
+              "id": "hindi-ram-binu-birthe-test-1",
+              "slug": "test-1",
+              "title": "Practice Test 1 · कवि परिचय",
+              "file": "data/class-10/hindi/ram-binu-birthe/test-1.json",
+              "questionCount": 18,
+              "timeLimitMinutes": 18,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-ram-binu-birthe-test-2",
+              "slug": "test-2",
+              "title": "Practice Test 2 · कविता + शब्द-निधि",
+              "file": "data/class-10/hindi/ram-binu-birthe/test-2.json",
+              "questionCount": 14,
+              "timeLimitMinutes": 14,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-ram-binu-birthe-test-3",
+              "slug": "test-3",
+              "title": "पूर्ण अभ्यास परीक्षा",
+              "file": "data/class-10/hindi/ram-binu-birthe/test-3.json",
+              "questionCount": 32,
+              "timeLimitMinutes": 32,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "chapter-prem-ayani-radhika",
           "slug": "prem-ayani-radhika",
           "title": {
             "en": "Prem Ayani Shri Radhika",
-            "hi": "प्रेम अयनि श्री राधिका"
+            "hi": "प्रेम-अयनि श्री राधिका"
           },
-          "section": "padya"
+          "section": "padya",
+          "tests": [
+            {
+              "id": "hindi-prem-ayani-radhika-test-1",
+              "slug": "test-1",
+              "title": "Practice Test 1 · कवि परिचय",
+              "file": "data/class-10/hindi/prem-ayani-radhika/test-1.json",
+              "questionCount": 14,
+              "timeLimitMinutes": 14,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-prem-ayani-radhika-test-2",
+              "slug": "test-2",
+              "title": "Practice Test 2 · कविता + शब्द-निधि",
+              "file": "data/class-10/hindi/prem-ayani-radhika/test-2.json",
+              "questionCount": 12,
+              "timeLimitMinutes": 12,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-prem-ayani-radhika-test-3",
+              "slug": "test-3",
+              "title": "पूर्ण अभ्यास परीक्षा",
+              "file": "data/class-10/hindi/prem-ayani-radhika/test-3.json",
+              "questionCount": 26,
+              "timeLimitMinutes": 26,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "chapter-ati-soodho-saneh",
@@ -492,7 +724,39 @@
             "en": "Ati Soodho Saneh Ko Marag Hai",
             "hi": "अति सूधो सनेह को मारग है"
           },
-          "section": "padya"
+          "section": "padya",
+          "tests": [
+            {
+              "id": "hindi-ati-soodho-saneh-test-1",
+              "slug": "test-1",
+              "title": "Practice Test 1 · कवि परिचय",
+              "file": "data/class-10/hindi/ati-soodho-saneh/test-1.json",
+              "questionCount": 13,
+              "timeLimitMinutes": 13,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-ati-soodho-saneh-test-2",
+              "slug": "test-2",
+              "title": "Practice Test 2 · कविता + शब्द-निधि",
+              "file": "data/class-10/hindi/ati-soodho-saneh/test-2.json",
+              "questionCount": 12,
+              "timeLimitMinutes": 12,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-ati-soodho-saneh-test-3",
+              "slug": "test-3",
+              "title": "पूर्ण अभ्यास परीक्षा",
+              "file": "data/class-10/hindi/ati-soodho-saneh/test-3.json",
+              "questionCount": 25,
+              "timeLimitMinutes": 25,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "chapter-swadeshi",
@@ -501,7 +765,39 @@
             "en": "Swadeshi",
             "hi": "स्वदेशी"
           },
-          "section": "padya"
+          "section": "padya",
+          "tests": [
+            {
+              "id": "hindi-swadeshi-test-1",
+              "slug": "test-1",
+              "title": "Practice Test 1 · कवि परिचय",
+              "file": "data/class-10/hindi/swadeshi/test-1.json",
+              "questionCount": 13,
+              "timeLimitMinutes": 13,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-swadeshi-test-2",
+              "slug": "test-2",
+              "title": "Practice Test 2 · कविता + शब्द-निधि",
+              "file": "data/class-10/hindi/swadeshi/test-2.json",
+              "questionCount": 14,
+              "timeLimitMinutes": 14,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-swadeshi-test-3",
+              "slug": "test-3",
+              "title": "पूर्ण अभ्यास परीक्षा",
+              "file": "data/class-10/hindi/swadeshi/test-3.json",
+              "questionCount": 27,
+              "timeLimitMinutes": 27,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "chapter-bharatmata",
@@ -510,7 +806,39 @@
             "en": "Bharatmata",
             "hi": "भारतमाता"
           },
-          "section": "padya"
+          "section": "padya",
+          "tests": [
+            {
+              "id": "hindi-bharatmata-test-1",
+              "slug": "test-1",
+              "title": "Practice Test 1 · कवि परिचय",
+              "file": "data/class-10/hindi/bharatmata/test-1.json",
+              "questionCount": 11,
+              "timeLimitMinutes": 11,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-bharatmata-test-2",
+              "slug": "test-2",
+              "title": "Practice Test 2 · कविता + शब्द-निधि",
+              "file": "data/class-10/hindi/bharatmata/test-2.json",
+              "questionCount": 16,
+              "timeLimitMinutes": 16,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-bharatmata-test-3",
+              "slug": "test-3",
+              "title": "पूर्ण अभ्यास परीक्षा",
+              "file": "data/class-10/hindi/bharatmata/test-3.json",
+              "questionCount": 27,
+              "timeLimitMinutes": 27,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "chapter-jantantra-ka-janm",
@@ -519,7 +847,39 @@
             "en": "Birth of Democracy",
             "hi": "जनतंत्र का जन्म"
           },
-          "section": "padya"
+          "section": "padya",
+          "tests": [
+            {
+              "id": "hindi-jantantra-ka-janm-test-1",
+              "slug": "test-1",
+              "title": "Practice Test 1 · कवि परिचय",
+              "file": "data/class-10/hindi/jantantra-ka-janm/test-1.json",
+              "questionCount": 13,
+              "timeLimitMinutes": 13,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-jantantra-ka-janm-test-2",
+              "slug": "test-2",
+              "title": "Practice Test 2 · कविता + शब्द-निधि",
+              "file": "data/class-10/hindi/jantantra-ka-janm/test-2.json",
+              "questionCount": 15,
+              "timeLimitMinutes": 15,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-jantantra-ka-janm-test-3",
+              "slug": "test-3",
+              "title": "पूर्ण अभ्यास परीक्षा",
+              "file": "data/class-10/hindi/jantantra-ka-janm/test-3.json",
+              "questionCount": 28,
+              "timeLimitMinutes": 28,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "chapter-hiroshima",
@@ -528,7 +888,39 @@
             "en": "Hiroshima",
             "hi": "हिरोशिमा"
           },
-          "section": "padya"
+          "section": "padya",
+          "tests": [
+            {
+              "id": "hindi-hiroshima-test-1",
+              "slug": "test-1",
+              "title": "Practice Test 1 · कवि परिचय",
+              "file": "data/class-10/hindi/hiroshima/test-1.json",
+              "questionCount": 14,
+              "timeLimitMinutes": 14,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-hiroshima-test-2",
+              "slug": "test-2",
+              "title": "Practice Test 2 · कविता + शब्द-निधि और व्याकरण",
+              "file": "data/class-10/hindi/hiroshima/test-2.json",
+              "questionCount": 14,
+              "timeLimitMinutes": 14,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-hiroshima-test-3",
+              "slug": "test-3",
+              "title": "पूर्ण अभ्यास परीक्षा",
+              "file": "data/class-10/hindi/hiroshima/test-3.json",
+              "questionCount": 28,
+              "timeLimitMinutes": 28,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "chapter-ek-vriksh-ki-hatya",
@@ -537,7 +929,39 @@
             "en": "The Killing of a Tree",
             "hi": "एक वृक्ष की हत्या"
           },
-          "section": "padya"
+          "section": "padya",
+          "tests": [
+            {
+              "id": "hindi-ek-vriksh-ki-hatya-test-1",
+              "slug": "test-1",
+              "title": "Practice Test 1 · कवि परिचय",
+              "file": "data/class-10/hindi/ek-vriksh-ki-hatya/test-1.json",
+              "questionCount": 8,
+              "timeLimitMinutes": 8,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-ek-vriksh-ki-hatya-test-2",
+              "slug": "test-2",
+              "title": "Practice Test 2 · कविता + शब्द-निधि",
+              "file": "data/class-10/hindi/ek-vriksh-ki-hatya/test-2.json",
+              "questionCount": 16,
+              "timeLimitMinutes": 16,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-ek-vriksh-ki-hatya-test-3",
+              "slug": "test-3",
+              "title": "पूर्ण अभ्यास परीक्षा",
+              "file": "data/class-10/hindi/ek-vriksh-ki-hatya/test-3.json",
+              "questionCount": 24,
+              "timeLimitMinutes": 24,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "chapter-hamari-neend",
@@ -546,7 +970,39 @@
             "en": "Our Sleep",
             "hi": "हमारी नींद"
           },
-          "section": "padya"
+          "section": "padya",
+          "tests": [
+            {
+              "id": "hindi-hamari-neend-test-1",
+              "slug": "test-1",
+              "title": "Practice Test 1 · कवि परिचय",
+              "file": "data/class-10/hindi/hamari-neend/test-1.json",
+              "questionCount": 8,
+              "timeLimitMinutes": 8,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-hamari-neend-test-2",
+              "slug": "test-2",
+              "title": "Practice Test 2 · कविता + शब्द-निधि",
+              "file": "data/class-10/hindi/hamari-neend/test-2.json",
+              "questionCount": 13,
+              "timeLimitMinutes": 13,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-hamari-neend-test-3",
+              "slug": "test-3",
+              "title": "पूर्ण अभ्यास परीक्षा",
+              "file": "data/class-10/hindi/hamari-neend/test-3.json",
+              "questionCount": 21,
+              "timeLimitMinutes": 21,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "chapter-akshar-gyan",
@@ -555,7 +1011,39 @@
             "en": "Knowledge of Letters",
             "hi": "अक्षर-ज्ञान"
           },
-          "section": "padya"
+          "section": "padya",
+          "tests": [
+            {
+              "id": "hindi-akshar-gyan-test-1",
+              "slug": "test-1",
+              "title": "Practice Test 1 · कवयित्री परिचय",
+              "file": "data/class-10/hindi/akshar-gyan/test-1.json",
+              "questionCount": 8,
+              "timeLimitMinutes": 8,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-akshar-gyan-test-2",
+              "slug": "test-2",
+              "title": "Practice Test 2 · कविता + व्याकरण",
+              "file": "data/class-10/hindi/akshar-gyan/test-2.json",
+              "questionCount": 14,
+              "timeLimitMinutes": 14,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-akshar-gyan-test-3",
+              "slug": "test-3",
+              "title": "पूर्ण अभ्यास परीक्षा",
+              "file": "data/class-10/hindi/akshar-gyan/test-3.json",
+              "questionCount": 22,
+              "timeLimitMinutes": 22,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "chapter-lautkar-aaunga-phir",
@@ -564,7 +1052,39 @@
             "en": "I Shall Return Again",
             "hi": "लौटकर आऊँगा फिर"
           },
-          "section": "padya"
+          "section": "padya",
+          "tests": [
+            {
+              "id": "hindi-lautkar-aaunga-phir-test-1",
+              "slug": "test-1",
+              "title": "Practice Test 1 · कवि परिचय",
+              "file": "data/class-10/hindi/lautkar-aaunga-phir/test-1.json",
+              "questionCount": 9,
+              "timeLimitMinutes": 9,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-lautkar-aaunga-phir-test-2",
+              "slug": "test-2",
+              "title": "Practice Test 2 · कविता + शब्द-निधि",
+              "file": "data/class-10/hindi/lautkar-aaunga-phir/test-2.json",
+              "questionCount": 12,
+              "timeLimitMinutes": 12,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-lautkar-aaunga-phir-test-3",
+              "slug": "test-3",
+              "title": "पूर्ण अभ्यास परीक्षा",
+              "file": "data/class-10/hindi/lautkar-aaunga-phir/test-3.json",
+              "questionCount": 21,
+              "timeLimitMinutes": 21,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "chapter-mere-bina-tum-prabhu",
@@ -573,7 +1093,39 @@
             "en": "Without Me, O Lord",
             "hi": "मेरे बिना तुम प्रभु"
           },
-          "section": "padya"
+          "section": "padya",
+          "tests": [
+            {
+              "id": "hindi-mere-bina-tum-prabhu-test-1",
+              "slug": "test-1",
+              "title": "Practice Test 1 · कवि परिचय",
+              "file": "data/class-10/hindi/mere-bina-tum-prabhu/test-1.json",
+              "questionCount": 9,
+              "timeLimitMinutes": 9,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-mere-bina-tum-prabhu-test-2",
+              "slug": "test-2",
+              "title": "Practice Test 2 · कविता + शब्द-निधि",
+              "file": "data/class-10/hindi/mere-bina-tum-prabhu/test-2.json",
+              "questionCount": 13,
+              "timeLimitMinutes": 13,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            },
+            {
+              "id": "hindi-mere-bina-tum-prabhu-test-3",
+              "slug": "test-3",
+              "title": "पूर्ण अभ्यास परीक्षा",
+              "file": "data/class-10/hindi/mere-bina-tum-prabhu/test-3.json",
+              "questionCount": 22,
+              "timeLimitMinutes": 22,
+              "quizType": "CHAPTER_TEST",
+              "updatedAt": "2026-11-27T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "chapter-dahi-wali-mangamma",
